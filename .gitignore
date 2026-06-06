@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+
+# 构建产物（Cloudflare 会自己构建，不推这些）
+dist/
+.astro/
+
+# 系统/编辑器
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# 环境变量（如有）
+.env
+.env.local
+
+# Claude Code 本地指引（不入库）
+CLAUDE.md
+
+# Playwright（之前临时用的，本地有的话也别推）
+shot.mjs
+check.mjs
+test-results/
+playwright-report/

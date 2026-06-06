@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { SITE } from '../data/site';
+
+export interface Props {
+  title: string;
+  description: string;
+  /** 结构化数据 JSON-LD，可选 */
+  jsonLd?: object;
+  /** 当前导航高亮 */
+  active?: string;
+  /** 社交分享图，可覆盖默认 */
+  ogImage?: string;
+}
+
+const { title, description, jsonLd, active, ogImage } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage ?? SITE.defaultOgImage, Astro.site).href;
+const isHome = Astro.url.pathname === '/';
+
+// 网站级结构化数据（仅首页输出，避免重复）
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: new URL('/', Astro.site).href,
+  inLanguage: 'zh-CN',
+};
+
+const links = [
+  { href: '/', label: '首页', key: 'home' },
+  { href: '/roles', label: '角色图鉴', key: 'roles' },
+  { href: '/maps', label: '地图攻略', key: 'maps' },
+  { href: '/guide', label: '新手入门', key: 'guide' },
+];
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content={SITE.themeColor} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <!-- Open Graph -->
+  <meta property="og:type" content={isHome ? 'website' : 'article'} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:locale" content={SITE.locale} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageUrl} />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+  {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="logo"><span class="mark">🦢</span>鹅鸭攻略社</a>
+      <div class="nav-links">
+        {links.map((l) => (
+          <a href={l.href} class={active === l.key ? 'on' : ''}>{l.label}</a>
+        ))}
+      </div>
+    </nav>
+  </header>
+  <slot />
+  <footer>
+    鹅鸭攻略社 · 角色数据持续更新 · 本站为玩家攻略站，与游戏官方无关
+  </footer>
+</body>
+</html>

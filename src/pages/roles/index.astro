@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import RoleCard from '../../components/RoleCard.astro';
+import { roles } from '../../data/roles';
+
+const title = '全角色图鉴 - 鹅鸭杀攻略社';
+const description = '鹅鸭杀（Goose Goose Duck）全角色图鉴：鹅、鸭、中立三大阵营技能、胜利条件、玩法要点与话术，支持按阵营筛选与关键词搜索。';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+};
+---
+<Base title={title} description={description} jsonLd={jsonLd} active="roles">
+  <div class="wrap">
+    <section class="hero">
+      <div class="crumb"><a href="/">首页</a> / 角色图鉴</div>
+      <h1>全角色<span class="em">图鉴</span></h1>
+      <p class="sub">鹅、鸭、中立三大阵营全角色技能、胜利条件与玩法要点。点击卡片查看详细攻略。</p>
+    </section>
+
+    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+
+    <div class="controls">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+        <input type="text" id="q" placeholder="搜索角色名 / 技能 / 关键词…" />
+      </div>
+      <div class="filters">
+        <button class="chip on" data-f="all">全部</button>
+        <button class="chip" data-f="goose">🦢 鹅阵营</button>
+        <button class="chip" data-f="duck">🦆 鸭阵营</button>
+        <button class="chip" data-f="neutral">🎭 中立</button>
+      </div>
+    </div>
+    <div class="count" id="count"></div>
+
+    <div class="layout">
+      <main>
+        <div class="grid" id="grid">
+          {roles.map((role) => <RoleCard role={role} />)}
+        </div>
+      </main>
+      <aside>
+        <div class="ad ad-side">广告位<br/>侧栏 300×600</div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .hero{padding:46px 0 26px}
+  h1{font-size:40px;font-weight:900;letter-spacing:-.5px}
+  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--txt-dim);margin-top:8px;max-width:640px}
+  .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:8px}
+  .search{flex:1;min-width:220px;position:relative}
+  .search input{width:100%;background:var(--bg-card);border:1px solid var(--line);border-radius:11px;padding:12px 14px 12px 40px;color:var(--txt);font-size:15px;font-family:inherit}
+  .search input:focus{outline:none;border-color:var(--goose)}
+  .search svg{position:absolute;left:13px;top:13px;opacity:.5}
+  .filters{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--bg-card);border:1px solid var(--line);color:var(--txt-dim);padding:9px 16px;border-radius:999px;cursor:pointer;font-size:14px;transition:.15s;font-family:inherit}
+  .chip:hover{color:var(--txt);border-color:var(--txt-dim)}
+  .chip.on{color:#0c0e13;font-weight:700;border-color:transparent}
+  .chip.on[data-f="goose"]{background:var(--goose)}
+  .chip.on[data-f="duck"]{background:var(--duck)}
+  .chip.on[data-f="neutral"]{background:var(--neutral)}
+  .chip.on[data-f="all"]{background:var(--accent)}
+  .count{font-size:13px;color:var(--txt-dim);margin:14px 0}
+  .layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin:24px 0 60px}
+  @media(max-width:920px){.layout{grid-template-columns:1fr}.ad-side{display:none}h1{font-size:30px}}
+</style>
+
+<script>
+  // 客户端筛选/搜索：对已由 Astro 渲染好的卡片做显隐，不重建 DOM（保留 SEO）
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#grid .card'));
+  const count = document.getElementById('count')!;
+  const q = document.getElementById('q') as HTMLInputElement;
+  let filter = 'all', kw = '';
+
+  function apply() {
+    let shown = 0;
+    cards.forEach((c) => {
+      const camp = c.dataset.camp!;
+      const text = c.textContent!.toLowerCase();
+      const ok = (filter === 'all' || camp === filter) && text.includes(kw.toLowerCase());
+      c.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    count.textContent = `共 ${shown} 个角色`;
+  }
+  document.querySelectorAll<HTMLElement>('.chip').forEach((c) =>
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach((x) => x.classList.remove('on'));
+      c.classList.add('on');
+      filter = c.dataset.f!;
+      apply();
+    })
+  );
+  q.addEventListener('input', (e) => { kw = (e.target as HTMLInputElement).value; apply(); });
+  apply();
+</script>

@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import { roles, getRole, campName, stars, type Role } from '../../data/roles';
+
+// 为每个角色生成一个静态页面 /roles/{slug}
+export function getStaticPaths() {
+  return roles.map((role) => ({ params: { slug: role.slug }, props: { role } }));
+}
+
+const { role } = Astro.props as { role: Role };
+
+const title = `${role.name}（${role.nameEn}）技能与玩法攻略 - 鹅鸭杀`;
+const description = `鹅鸭杀${campName[role.camp]}角色「${role.name}」：${role.summary} 含胜利条件、技能详解与玩法要点。`;
+
+// FAQ + 面包屑结构化数据
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: `${role.name}的技能是什么？`, acceptedAnswer: { '@type': 'Answer', text: role.ability } },
+        { '@type': 'Question', name: `${role.name}的胜利条件？`, acceptedAnswer: { '@type': 'Answer', text: role.winCondition } },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: '角色图鉴', item: new URL('/roles', Astro.site).href },
+        { '@type': 'ListItem', position: 3, name: role.name },
+      ],
+    },
+  ],
+};
+
+const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug).slice(0, 4);
+---
+<Base title={title} description={description} jsonLd={jsonLd} active="roles">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / <a href="/roles">角色图鉴</a> / {role.name}</div>
+
+    <article class="role-head" data-camp={role.camp}>
+      <div class="big-avatar">{role.icon}</div>
+      <div class="head-info">
+        <span class={`badge ${role.camp}`}>{campName[role.camp]}</span>
+        <h1>{role.name}{role.canKill && <span class="knife"> 🔪带刀</span>}</h1>
+        <div class="role-en">{role.nameEn} · 难度 {stars(role.difficulty)}</div>
+        <div class="head-tags">{(role.tags ?? []).map((t) => <span class="tag">{t}</span>)}</div>
+      </div>
+    </article>
+
+    <div class="ad ad-top">广告位 · 内容顶部 728×90</div>
+
+    <div class="detail-layout">
+      <main>
+        <section class="sec"><h2>🏆 胜利条件</h2><p>{role.winCondition}</p></section>
+        <section class="sec"><h2>✨ 技能详解</h2><p>{role.ability}</p></section>
+        {role.tips && role.tips.length > 0 && (
+          <section class="sec">
+            <h2>💡 玩法要点</h2>
+            <ul>{role.tips.map((t) => <li>{t}</li>)}</ul>
+          </section>
+        )}
+        <section class="sec">
+          <h2>🔗 同阵营角色</h2>
+          <div class="related">
+            {related.map((r) => (
+              <a class="rel-card" data-camp={r.camp} href={`/roles/${r.slug}`}>
+                <span class="rel-icon">{r.icon}</span>
+                <span>{r.name}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </main>
+      <aside><div class="ad ad-side">广告位<br/>侧栏 300×600</div></aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .role-head{display:flex;gap:20px;align-items:center;padding:24px 0}
+  .big-avatar{width:96px;height:96px;border-radius:22px;display:grid;place-items:center;font-size:54px;flex-shrink:0}
+  .role-head[data-camp="goose"] .big-avatar{background:rgba(59,169,255,.16)}
+  .role-head[data-camp="duck"] .big-avatar{background:rgba(255,84,112,.16)}
+  .role-head[data-camp="neutral"] .big-avatar{background:rgba(176,107,255,.16)}
+  .head-info h1{font-size:34px;font-weight:900;margin:8px 0 2px}
+  .head-info .knife{font-size:16px;color:var(--duck)}
+  .head-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
+  .sec h2{font-size:17px;color:var(--accent);margin-bottom:10px}
+  .sec p{font-size:15.5px}
+  .sec ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .sec li{font-size:15px;color:var(--txt-dim);padding-left:20px;position:relative}
+  .sec li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .related{display:flex;gap:12px;flex-wrap:wrap}
+  .rel-card{display:flex;align-items:center;gap:8px;background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;transition:.15s}
+  .rel-card:hover{border-color:var(--txt-dim);transform:translateY(-2px)}
+  .rel-icon{font-size:22px}
+  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}.ad-side{display:none}.head-info h1{font-size:26px}}
+</style>

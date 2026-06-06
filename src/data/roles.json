@@ -1,0 +1,1468 @@
+{
+  "version": "2.x（基于 Fandom Wiki 2026-03 核对）",
+  "updatedAt": "2026-06-06",
+  "camps": {
+    "goose": {
+      "name": "鹅阵营",
+      "en": "Geese",
+      "color": "#3ba9ff",
+      "goal": "完成全部任务，或票出所有非鹅获胜"
+    },
+    "duck": {
+      "name": "鸭阵营",
+      "en": "Ducks",
+      "color": "#ff5470",
+      "goal": "击杀或破坏，直到非鸭无法构成投票多数"
+    },
+    "neutral": {
+      "name": "中立",
+      "en": "Neutral",
+      "color": "#b06bff",
+      "goal": "各自独立的胜利条件，达成时其他所有人失败"
+    }
+  },
+  "roles": [
+    {
+      "slug": "astral",
+      "name": "星界行者",
+      "nameEn": "Astral",
+      "camp": "goose",
+      "icon": "👻",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可让灵魂出窍穿墙侦查，本体留在原地。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可派出灵魂穿过墙壁侦查场上情况，本体停留原地不动。",
+      "tips": [
+        "出窍时本体无防御，选安全位置再用",
+        "用来确认远处刀法和落单玩家"
+      ],
+      "tags": [
+        "侦查",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "avenger",
+      "name": "复仇者",
+      "nameEn": "Avenger",
+      "camp": "goose",
+      "icon": "⚔️",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "目睹有人被杀后10秒内可击杀任意一人复仇。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "亲眼目睹一名玩家被杀时，获得约10秒窗口可击杀任意玩家（不限于凶手）。",
+      "tips": [
+        "复仇窗口很短，看到杀人要立刻反应",
+        "注意是能杀任何人，别误杀"
+      ],
+      "tags": [
+        "带刀",
+        "反制"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "birdwatcher",
+      "name": "观鸟者",
+      "nameEn": "Birdwatcher",
+      "camp": "goose",
+      "icon": "🔭",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可透视墙壁观察，但常规视野受限收窄。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "能透过墙壁看到其他玩家，视野略远，但正常视野范围被压缩成隧道状。",
+      "tips": [
+        "透视适合蹲点观察刀法",
+        "视野窄，移动时容易漏看身边"
+      ],
+      "tags": [
+        "透视",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "bodyguard",
+      "name": "保镖",
+      "nameEn": "Bodyguard",
+      "camp": "goose",
+      "icon": "🛡️",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "为指定保护对象挡刀，挡在其与凶手之间会代其死亡。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "开局分配一名保护对象，若你处在对象与凶手之间则替其受死并获奖励。",
+      "tips": [
+        "优先贴身保护已验出的核心信息位",
+        "成功挡刀可反向暴露鸭子"
+      ],
+      "tags": [
+        "保护",
+        "辅助"
+      ],
+      "relations": {
+        "counters": [
+          "assassin"
+        ]
+      },
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "canadian",
+      "name": "加拿大鹅",
+      "nameEn": "Canadian",
+      "camp": "goose",
+      "icon": "🦢",
+      "difficulty": 1,
+      "canKill": false,
+      "summary": "被杀或被吞后1秒尸体自动报告，能快速暴露凶手位置。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "若被击杀或被吞下，你的尸体会在约1秒后自动被报告（环境死亡与炸弹除外）。",
+      "tips": [
+        "可大胆走位当探子，死了也能报位置",
+        "专业杀手对你无效，会自动报告"
+      ],
+      "tags": [
+        "报点",
+        "辅助"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "celebrity",
+      "name": "网红",
+      "nameEn": "Celebrity",
+      "camp": "goose",
+      "icon": "🌟",
+      "difficulty": 1,
+      "canKill": false,
+      "summary": "被杀时所有鹅会收到提示，仅鹅可见。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "当你被击杀时，场上所有鹅（且仅鹅）都会收到死亡提示。",
+      "tips": [
+        "死亡即向全体鹅传递信息，可大胆行动",
+        "提示能帮鹅推断刀法时间地点"
+      ],
+      "tags": [
+        "报点",
+        "辅助"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "detective",
+      "name": "侦探鹅",
+      "nameEn": "Detective",
+      "camp": "goose",
+      "icon": "🔍",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可查验一名玩家本轮是否杀过人，鹅方核心查验位。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可调查玩家，得知其是否在同一回合内实施过击杀。",
+      "tips": [
+        "查验后别急着报，听完发言再摊牌",
+        "查杀后易成鸭子第一刀目标"
+      ],
+      "tags": [
+        "查验",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "engineer",
+      "name": "工程师",
+      "nameEn": "Engineer",
+      "camp": "goose",
+      "icon": "🔧",
+      "difficulty": 2,
+      "canKill": false,
+      "canVent": true,
+      "summary": "可临时使用通风管，并看到存活鸭子何时何地发动破坏。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可临时使用通风管移动，并能看到存活鸭子发动破坏的时间与位置；部分地图（地下室、鹅教堂）可长期藏身。",
+      "tips": [
+        "用风管易被误认成鸭，注意解释",
+        "破坏发生时记位置缩小嫌疑圈"
+      ],
+      "tags": [
+        "机动",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "fortune-teller",
+      "name": "占卜师",
+      "nameEn": "Fortune Teller",
+      "camp": "goose",
+      "icon": "🔮",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "会议中可看到若干名可能是鸭子的嫌疑玩家。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "在会议阶段，你会看到一组可能为鸭子的玩家范围。",
+      "tips": [
+        "给出的是范围不是铁证，结合发言判断",
+        "信息珍贵，注意别被鸭子反推身份"
+      ],
+      "tags": [
+        "查验",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "gravy",
+      "name": "肉汁鹅",
+      "nameEn": "Gravy",
+      "camp": "goose",
+      "icon": "💰",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "做任务累积赏金，活到最后可大量获银；落单时才会被杀。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "完成任务增加赏金，存活到底可获得大量银币；被杀则赏金被凶手夺走。凶手只有在你落单时才能杀你。",
+      "tips": [
+        "全程抱团就很难被杀",
+        "钱袋标记只有鸭子能看到，注意保护"
+      ],
+      "tags": [
+        "收益",
+        "生存"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "lobbyist",
+      "name": "游说者",
+      "nameEn": "Lobbyist",
+      "camp": "goose",
+      "icon": "🗳️",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "在会议中获得足够票数后解锁击杀能力。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "当你在会议中获得票数累积到条件后，解锁击杀能力。",
+      "tips": [
+        "需要先在场上有存在感拉票",
+        "解锁后是带刀好人，谨慎用刀"
+      ],
+      "tags": [
+        "带刀",
+        "成长"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "locksmith",
+      "name": "锁匠",
+      "nameEn": "Locksmith",
+      "camp": "goose",
+      "icon": "🔑",
+      "difficulty": 1,
+      "canKill": false,
+      "summary": "无需钥匙即可打开监狱门，但要小心放出来的是谁。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可随时打开监狱门，无需钥匙或门禁卡。",
+      "tips": [
+        "放人前先确认其身份，别放出鸭子",
+        "与抓捕类机制配合使用"
+      ],
+      "tags": [
+        "功能",
+        "辅助"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "lover-goose",
+      "name": "情人鹅",
+      "nameEn": "Lover",
+      "camp": "goose",
+      "icon": "💕",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "与情侣共同存活，一方死亡另一方也死；进前三即可获胜。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。 或与情侣共同进入最终三人。",
+      "ability": "你有一名情侣（可能是鹅或伪装的鸭），一方死亡另一方同死。两人同时活到最终三人即可获胜。",
+      "tips": [
+        "保护好情侣就是保护自己",
+        "情侣若是鸭，需权衡阵营与存活"
+      ],
+      "tags": [
+        "羁绊",
+        "生存"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "medium",
+      "name": "通灵者",
+      "nameEn": "Medium",
+      "camp": "goose",
+      "icon": "🪄",
+      "difficulty": 3,
+      "canKill": false,
+      "summary": "可感知场上幽灵数量，借此推断死亡发生。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可得知场上幽灵的数量，从而判断是否有玩家死亡及大致时机。",
+      "tips": [
+        "幽灵数变化能反推刀法节奏",
+        "价值依赖发言，不会盘逻辑慎选"
+      ],
+      "tags": [
+        "信息位",
+        "进阶"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "mimic",
+      "name": "模仿者",
+      "nameEn": "Mimic",
+      "camp": "goose",
+      "icon": "🪞",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "鸭子视角中你显示为鸭，且鸭子间会误伤友军。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "在鸭子眼中你被显示为鸭子，鸭子的友军伤害会被开启（鸭可能误杀同伴）。",
+      "tips": [
+        "利用鸭子信任套刀法和队友信息",
+        "别被真鸭带去现场背锅"
+      ],
+      "tags": [
+        "伪装",
+        "卧底"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "mortician",
+      "name": "殡仪员",
+      "nameEn": "Mortician",
+      "camp": "goose",
+      "icon": "⚰️",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可验尸得知死者身份，开会时显示验过的尸体角色。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可调查尸体得知死者的角色，召开会议时会显示你验过的尸体身份。",
+      "tips": [
+        "验尸能确认死者阵营，缩小鸭子范围",
+        "抢在尸体被报告前验"
+      ],
+      "tags": [
+        "验尸",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "politician",
+      "name": "政客",
+      "nameEn": "Politician",
+      "camp": "goose",
+      "icon": "🎩",
+      "difficulty": 1,
+      "canKill": false,
+      "summary": "平票时你方获胜，且不会被关进监狱。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "投票平票时你这一方胜出，且你无法被送进监狱。",
+      "tips": [
+        "平票优势可用来强推嫌疑鸭",
+        "身份公开后会被针对"
+      ],
+      "tags": [
+        "投票",
+        "抗推"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "sheriff",
+      "name": "警长",
+      "nameEn": "Sheriff",
+      "camp": "goose",
+      "icon": "⭐",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可击杀任意玩家，但杀错好人自己也会死。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可主动击杀任意玩家；若对象是鹅，你也同归于尽。",
+      "tips": [
+        "锁定铁鸭再开枪，宁可不开也别赌",
+        "公开身份能震慑，但会成靶子"
+      ],
+      "tags": [
+        "带刀",
+        "高风险"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "stalker",
+      "name": "跟踪者",
+      "nameEn": "Stalker",
+      "camp": "goose",
+      "icon": "🧭",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可用箭头追踪一名玩家的实时位置。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可标记一名玩家，用箭头持续指向其所在位置。",
+      "tips": [
+        "盯紧可疑对象的走位与刀法",
+        "结合死亡时间锁定凶手"
+      ],
+      "tags": [
+        "追踪",
+        "信息位"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "vigilante",
+      "name": "正义使者",
+      "nameEn": "Vigilante",
+      "camp": "goose",
+      "icon": "🗡️",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "全局可击杀一名玩家且无惩罚，需慎重选择目标。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "整局可击杀一名玩家，不受杀错惩罚，机会仅一次。",
+      "tips": [
+        "这一刀很宝贵，盘清楚再出",
+        "可装白板鹅隐藏带刀身份"
+      ],
+      "tags": [
+        "带刀",
+        "抗推"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "seamstress",
+      "name": "裁缝",
+      "nameEn": "Seamstress",
+      "camp": "goose",
+      "icon": "🧵",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "每回合可比对两名玩家的腐化状态一次。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "每回合可比较一次两名玩家是否处于相同腐化状态。腐化模式专属。",
+      "tips": [
+        "比对结果帮助排查腐化扩散",
+        "腐化模式才出现"
+      ],
+      "tags": [
+        "腐化",
+        "查验"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "priest",
+      "name": "牧师",
+      "nameEn": "Priest",
+      "camp": "goose",
+      "icon": "✝️",
+      "difficulty": 1,
+      "canKill": false,
+      "summary": "免疫腐化效果。腐化模式专属。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "不受腐化效果影响。腐化模式专属角色。",
+      "tips": [
+        "可安全接触腐化区域",
+        "为队伍提供净化支援"
+      ],
+      "tags": [
+        "腐化",
+        "免疫"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "inquisitor",
+      "name": "审判官",
+      "nameEn": "Inquisitor",
+      "camp": "goose",
+      "icon": "🔱",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可查验玩家是否被腐化，鸭子会显示为已腐化。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "可调查玩家是否处于腐化状态，鸭子会被显示为已腐化。腐化模式专属。",
+      "tips": [
+        "可借此间接查鸭",
+        "注意鹅被腐化也会显示腐化"
+      ],
+      "tags": [
+        "腐化",
+        "查验"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "demon-hunter",
+      "name": "猎魔人",
+      "nameEn": "Demon Hunter",
+      "camp": "goose",
+      "icon": "🏹",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "每次被腐化时可获得一次击杀机会。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "每当你被腐化一次，就获得一次击杀能力。腐化模式专属。",
+      "tips": [
+        "被腐化反而是获取刀的途径",
+        "用刀清理腐化源头"
+      ],
+      "tags": [
+        "腐化",
+        "带刀"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "assassin",
+      "name": "刺客",
+      "nameEn": "Assassin",
+      "camp": "duck",
+      "icon": "🎯",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "每局两次，会议中猜中玩家身份即可击杀，猜错自己死。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "每局可两次在会议中指定玩家并猜其角色，猜中即击杀，猜错则自己死亡。",
+      "tips": [
+        "等身份盘清、有九成把握再开枪",
+        "防止有人互穿身份导致猜错"
+      ],
+      "tags": [
+        "狙杀",
+        "高风险"
+      ],
+      "relations": {
+        "counteredBy": [
+          "bodyguard"
+        ]
+      },
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "cannibal",
+      "name": "食尸鸭",
+      "nameEn": "Cannibal",
+      "camp": "duck",
+      "icon": "🍖",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可吃掉一具尸体，消除一次谋杀证据。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "每局可食用一具尸体，使其消失，掩盖谋杀痕迹。",
+      "tips": [
+        "吃掉队友刀出的尸体拖延暴露",
+        "抢在尸体被报告前处理"
+      ],
+      "tags": [
+        "藏尸",
+        "辅助"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "demolitionist",
+      "name": "爆炸王",
+      "nameEn": "Demolitionist",
+      "camp": "duck",
+      "icon": "💣",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "在玩家身上安放炸弹引爆，炸弹还能被传递（烫手山芋）。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可在玩家身上放置炸弹引爆造成击杀，炸弹可在玩家间传递。",
+      "tips": [
+        "人群密集处收益最大",
+        "传递机制让结果难预测"
+      ],
+      "tags": [
+        "范围",
+        "高风险"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "drone",
+      "name": "无人机",
+      "nameEn": "Drone",
+      "camp": "duck",
+      "icon": "🛸",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可变形，在感染区域移动更快、未感染区更慢。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可进行变形，处于被感染区域时移速更快，未感染区域则更慢。",
+      "tips": [
+        "利用感染区机动优势追杀",
+        "离开感染区会变慢，注意走位"
+      ],
+      "tags": [
+        "机动",
+        "伪装"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "esper",
+      "name": "超能力者",
+      "nameEn": "Esper",
+      "camp": "duck",
+      "icon": "🌀",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "远程施加延时击杀，临死前还能与目标对话，需藏好自己。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "不直接刀人，而是远程对目标施加随时间生效的死亡，死前可远程与其对话。",
+      "tips": [
+        "施法后远离现场建立不在场",
+        "藏好位置避免被关联"
+      ],
+      "tags": [
+        "远程",
+        "隐蔽"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "high-priest",
+      "name": "高阶祭司",
+      "nameEn": "High Priest",
+      "camp": "duck",
+      "icon": "🕯️",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "积累腐化后，可在会议中猜身份击杀。腐化模式专属。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "收集腐化值以解锁在会议中通过猜测角色击杀的能力。腐化模式专属。",
+      "tips": [
+        "前期专注扩散腐化",
+        "解锁后类似刺客，谨慎猜杀"
+      ],
+      "tags": [
+        "腐化",
+        "狙杀"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "hitman",
+      "name": "杀手",
+      "nameEn": "Hitman",
+      "camp": "duck",
+      "icon": "🔫",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "击杀指定目标可获得奖励，目标与保镖相同。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "开局分配一名目标，击杀该目标获得奖励（与保镖保护的是同一人）。",
+      "tips": [
+        "目标有保镖时先想办法支开",
+        "锁定目标走位伺机下手"
+      ],
+      "tags": [
+        "定点",
+        "主刀"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "identity-thief",
+      "name": "身份窃贼",
+      "nameEn": "Identity Thief",
+      "camp": "duck",
+      "icon": "🎭",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "击杀后自动变成被杀者外形，直到会议召开。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "击杀玩家后，会自动变形为被杀者的外形，持续到下次会议。",
+      "tips": [
+        "杀完顶替身份继续行动",
+        "会议前抓紧用伪装制造混乱"
+      ],
+      "tags": [
+        "伪装",
+        "主刀"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "invisibility",
+      "name": "隐形者",
+      "nameEn": "Invisibility",
+      "camp": "duck",
+      "icon": "👁️",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可临时隐身，但隐身时自己也看不见别人。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可临时变为隐形，但隐身期间你也无法看到其他玩家。",
+      "tips": [
+        "隐身穿过监控区或逃离现场",
+        "隐身有代价，把握时机"
+      ],
+      "tags": [
+        "隐身",
+        "机动"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "lover-duck",
+      "name": "情人鸭",
+      "nameEn": "Lover",
+      "camp": "duck",
+      "icon": "💔",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "与情侣共同存活，一方死另一方死；进前三即可获胜。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。 或与情侣共同进入最终三人。",
+      "ability": "你有一名需保护的情侣（鹅），一方死亡另一方同死。两人同时活到最终三人即可获胜。",
+      "tips": [
+        "要保护敌对阵营的情侣，立场矛盾",
+        "权衡破坏与保命"
+      ],
+      "tags": [
+        "羁绊",
+        "生存"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "mime",
+      "name": "模仿艺人",
+      "nameEn": "Mime",
+      "camp": "duck",
+      "icon": "🤹",
+      "difficulty": 3,
+      "canKill": false,
+      "summary": "可劫持另一名玩家的移动，强制其镜像你的动作。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可劫持一名玩家的移动，使其被迫镜像你的动作。",
+      "tips": [
+        "可把目标拖向危险或制造可疑走位",
+        "配合队友刀法控场"
+      ],
+      "tags": [
+        "控制",
+        "干扰"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "morphling",
+      "name": "变形者",
+      "nameEn": "Morphling",
+      "camp": "duck",
+      "icon": "🌫️",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "可吸取并临时变成任意玩家外形，伪装行凶栽赃。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可对玩家取样，随后临时变形为其外形，伪装杀人嫁祸。",
+      "tips": [
+        "变成被信任的好人去杀人最阴",
+        "取样后留好变形时机"
+      ],
+      "tags": [
+        "伪装",
+        "混淆"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "ninja",
+      "name": "忍者",
+      "nameEn": "Ninja",
+      "camp": "duck",
+      "icon": "🥷",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "可一次连杀范围内两人，但冷却变三倍，雾中冷却加快。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可击杀范围内两名玩家，但冷却时间为三倍；处于雾中时冷却加快。",
+      "tips": [
+        "抓两人扎堆时一次清场",
+        "连杀后长冷却要藏好"
+      ],
+      "tags": [
+        "连杀",
+        "主刀"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "party",
+      "name": "派对鸭",
+      "nameEn": "Party",
+      "camp": "duck",
+      "icon": "🎉",
+      "difficulty": 1,
+      "canKill": true,
+      "summary": "可在会议中给其他鸟变成尖细嗓音，扰乱发言。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可在会议中让其他玩家发言变成高音，干扰交流。",
+      "tips": [
+        "扰乱关键发言者的表达",
+        "制造混乱掩护队友"
+      ],
+      "tags": [
+        "干扰",
+        "搞笑"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "preacher",
+      "name": "传教士",
+      "nameEn": "Preacher",
+      "camp": "duck",
+      "icon": "📿",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可针对非鸭玩家增加其得票权重。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可对非鸭玩家施加效果，提升其被投出的概率/票重。",
+      "tips": [
+        "把怀疑引导到好人身上",
+        "配合发言带节奏"
+      ],
+      "tags": [
+        "投票",
+        "干扰"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "professional",
+      "name": "专业杀手",
+      "nameEn": "Professional",
+      "camp": "duck",
+      "icon": "🔪",
+      "difficulty": 1,
+      "canKill": true,
+      "summary": "好人看不见你的尸体，靠近会自动报告；可揭穿加拿大鹅。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "你击杀的尸体好人看不见，靠近时会自动报告；你免疫加拿大鹅的自动报告。",
+      "tips": [
+        "专挑落单目标卡视野秒杀",
+        "杀完带走另一名队友，被问行踪装不知道"
+      ],
+      "tags": [
+        "主刀",
+        "隐蔽"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "serial-killer",
+      "name": "连环杀手",
+      "nameEn": "Serial Killer",
+      "camp": "duck",
+      "icon": "🩸",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "击杀指定目标会缩短冷却，杀其他人则延长冷却。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "有一名箭头指示的目标，击杀目标会减少冷却，杀其他人则增加冷却。",
+      "tips": [
+        "优先追杀目标维持高频刀",
+        "乱杀会拖慢节奏"
+      ],
+      "tags": [
+        "连杀",
+        "主刀"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "silencer",
+      "name": "静语者",
+      "nameEn": "Silencer",
+      "camp": "duck",
+      "icon": "🤐",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可在会议中封住玩家使其无法发言。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可在会议中禁言一名玩家，使其本次会议无法发言。",
+      "tips": [
+        "封住要报查杀的侦探/通灵者",
+        "被封者反而易被怀疑，可带节奏"
+      ],
+      "tags": [
+        "控制",
+        "干扰"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "snitch",
+      "name": "告密者",
+      "nameEn": "Snitch",
+      "camp": "duck",
+      "icon": "🚨",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "若只有你一人投某玩家，可将其送进监狱。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "当你是唯一投票某玩家的人时，可将该玩家送进监狱。",
+      "tips": [
+        "单独投票可定点控人",
+        "把关键好人关起来削弱鹅方"
+      ],
+      "tags": [
+        "控制",
+        "投票"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "spy",
+      "name": "间谍",
+      "nameEn": "Spy",
+      "camp": "duck",
+      "icon": "🕵️",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "若只有你一人投某玩家，会议中会得知其身份。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "当你是唯一投票某玩家的人时，会议中会向你揭示其角色。",
+      "tips": [
+        "单独投票套身份再决策",
+        "把关键身份报给刺客可一枪定局"
+      ],
+      "tags": [
+        "查验",
+        "配合"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "undertaker",
+      "name": "丧葬者",
+      "nameEn": "Undertaker",
+      "camp": "duck",
+      "icon": "🪦",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "可拖动尸体（减速），把尸体藏到隐蔽处。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "可拖拽尸体移动（移速降低），将尸体转移藏匿。",
+      "tips": [
+        "把尸体拖离案发现场误导",
+        "拖动慢，注意别被撞见"
+      ],
+      "tags": [
+        "藏尸",
+        "辅助"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "warlock",
+      "name": "术士",
+      "nameEn": "Warlock",
+      "camp": "duck",
+      "icon": "🦗",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "以蝗虫群代替破坏，结束时仍在群中的鸟会被杀。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "不进行常规破坏，而是在房间召唤蝗虫群，蝗群结束时仍在其中的玩家会死亡。",
+      "tips": [
+        "把蝗群放在必经任务点",
+        "逼人离开关键区域"
+      ],
+      "tags": [
+        "范围",
+        "控制"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "dodo",
+      "name": "呆呆鸟",
+      "nameEn": "Dodo",
+      "camp": "neutral",
+      "icon": "🐤",
+      "difficulty": 2,
+      "canKill": false,
+      "canVote": true,
+      "summary": "被投票出局即获胜，要表演可疑并躲开鸭子的刀。",
+      "winCondition": "中立：被投票出局即获胜。",
+      "ability": "无主动技能，目标是引导全场把你投出去。",
+      "tips": [
+        "故意做可疑动作但别一眼假",
+        "活到会议是前提，先躲开鸭子"
+      ],
+      "tags": [
+        "求票",
+        "演技"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "dueling-dodos",
+      "name": "决斗呆呆鸟",
+      "nameEn": "Dueling Dodos",
+      "camp": "neutral",
+      "icon": "🐥",
+      "difficulty": 3,
+      "canKill": true,
+      "canVote": true,
+      "summary": "完成假任务解锁击杀对手呆呆鸟，待对手死后被投出获胜。",
+      "winCondition": "中立：在另一名呆呆鸟死亡之后被投票出局。",
+      "ability": "开局有两名，完成标记为假的任务后可击杀对方呆呆鸟，需在对手死后再被投出才算赢。",
+      "tips": [
+        "先解决对手再求票，顺序不能反",
+        "抢做假任务尽快解锁击杀"
+      ],
+      "tags": [
+        "求票",
+        "竞争"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "falcon",
+      "name": "猎鹰",
+      "nameEn": "Falcon",
+      "camp": "neutral",
+      "icon": "🦅",
+      "difficulty": 2,
+      "canKill": true,
+      "canVote": false,
+      "summary": "杀光所有人或活到最后获胜，只能在会议中跳过。",
+      "winCondition": "中立：成为最后幸存者（杀光或熬过计时）。",
+      "ability": "可击杀任意玩家，会议中只能跳过投票。三人以下时进入倒计时，撑到结束即获胜。若有鹈鹕出现则本角色不会出现。",
+      "tips": [
+        "不投票是身份破绽，注意打掩护",
+        "可冒充正义使者混入鹅群"
+      ],
+      "tags": [
+        "生存",
+        "伪装"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "pelican",
+      "name": "鹈鹕",
+      "nameEn": "Pelican",
+      "camp": "neutral",
+      "icon": "🦤",
+      "difficulty": 2,
+      "canKill": true,
+      "canVote": false,
+      "summary": "吞光所有人或活到最后获胜，被吞者开会前不死。",
+      "winCondition": "中立：成为最后幸存者（吞光或熬过计时）。",
+      "ability": "可将玩家整个吞下，被吞者开会前不死、只能与你和被吞者交流；你若在吞人当回合被杀，被吞者会被放出。三人以下进入倒计时撑到结束即胜。",
+      "tips": [
+        "优先吞掉带刀玩家提高存活",
+        "吞人后到开会前都安全，可借机走位"
+      ],
+      "tags": [
+        "吞噬",
+        "生存"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "pigeon",
+      "name": "鸽子",
+      "nameEn": "Pigeon",
+      "camp": "neutral",
+      "icon": "🕊️",
+      "difficulty": 3,
+      "canKill": false,
+      "canVote": true,
+      "summary": "在一回合内感染所有存活玩家获胜，越到后期越容易。",
+      "winCondition": "中立：在单个回合内感染场上每一名存活玩家。",
+      "ability": "通过贴近玩家进行感染，需在一个回合内感染全部存活者。",
+      "tips": [
+        "技能需贴近目标，尽量抱团行动",
+        "前期取信任，后期人少时收网"
+      ],
+      "tags": [
+        "感染",
+        "后期"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "vulture",
+      "name": "秃鹫",
+      "nameEn": "Vulture",
+      "camp": "neutral",
+      "icon": "🦃",
+      "difficulty": 2,
+      "canKill": false,
+      "canVote": true,
+      "summary": "吃够数量的尸体获胜，每死一人有蓝箭头指向尸体。",
+      "winCondition": "中立：吃掉足够数量的尸体（数量随开局人数变化）。",
+      "ability": "可食用尸体，有人死亡时会出现蓝色箭头指向尸体。所需数量取决于开局人数。若有鹈鹕出现则本角色不会出现。",
+      "tips": [
+        "尸体被报告就消失，要抢时间",
+        "跟着鸭子刀法捡尸效率最高"
+      ],
+      "tags": [
+        "捡尸",
+        "生存"
+      ],
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "crow",
+      "name": "乌鸦",
+      "nameEn": "Crow",
+      "camp": "neutral",
+      "icon": "🐦‍⬛",
+      "difficulty": 3,
+      "canKill": true,
+      "canVote": true,
+      "summary": "腐化所有人后变身乌鸦，再限时杀光全场获胜。腐化模式专属。",
+      "winCondition": "中立：腐化所有人后变身，并在限时内杀光剩余玩家。",
+      "ability": "腐化全部玩家后变身为乌鸦：移速翻倍、无敌不可被杀、获得3秒冷却的击杀键，需在限时内杀光所有人，失败则死。腐化模式专属。",
+      "tips": [
+        "前期闷声扩散腐化别暴露",
+        "变身后是无敌收割期，规划好杀人路线"
+      ],
+      "tags": [
+        "腐化",
+        "收割"
+      ],
+      "maps": [
+        "腐化模式"
+      ],
+      "aliases": [],
+      "tier": "",
+      "updatedAt": "2026-06-06"
+    }
+  ]
+}

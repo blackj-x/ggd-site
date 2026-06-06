@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = '新手入门：鹅鸭杀怎么玩？三阵营、术语与对局流程 - 鹅鸭攻略社';
+const description = '鹅鸭杀（Goose Goose Duck）新手入门教程：核心规则、鹅/鸭/中立三阵营目标、一局完整流程、必懂黑话术语表与新手避坑指南，零基础也能快速上手。';
+
+const terms = [
+  { term: '带刀好人', desc: '鹅阵营里能主动击杀的角色（如警长、加拿大鹅、正义使者），是好人的进攻手段。' },
+  { term: '跳身份 / 对跳', desc: '会议中主动声称自己是某个角色。两人都声称同一身份时叫“对跳”，需靠发言分辨真假。' },
+  { term: '盘逻辑', desc: '梳理场上信息（谁和谁同行、谁死在哪、谁的发言矛盾）来推断鸭子是谁。' },
+  { term: '查杀', desc: '侦探等查验角色验出某人“本轮杀过人”，是指证鸭子的硬证据。' },
+  { term: '卡视野', desc: '鸭子利用墙角、地形挡住他人视线，在没人看见的瞬间单杀落单玩家。' },
+  { term: '白板', desc: '没有特殊技能的普通鹅，也常指“看不出身份”的玩家。' },
+  { term: '挂票', desc: '把票投给某个明知可能不是鸭的人，用于观察、保护或战术目的。' },
+  { term: '报点 / 报刀', desc: '把看到的关键信息（谁在哪、谁动手了）在会议中报告出来。' },
+  { term: '苟', desc: '中立或残局玩家以保命为先、低调存活到后期的打法。' },
+  { term: '残局', desc: '场上只剩少数几人的阶段，每一票、每一刀都可能直接定胜负。' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Article', headline: title, description },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: '鹅鸭杀怎么获胜？', acceptedAnswer: { '@type': 'Answer', text: '鹅阵营完成全部任务、或票出所有非鹅即胜；鸭阵营击杀或破坏到非鸭无法构成投票多数即胜；中立角色各有独立胜利条件。' } },
+        { '@type': 'Question', name: '鹅鸭杀新手先玩哪张地图？', acceptedAnswer: { '@type': 'Answer', text: '建议从地下室（Basement）开始，地图小、任务简单、没有复杂的专属机制，熟悉后再玩其他地图。' } },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: '新手入门' },
+      ],
+    },
+  ],
+};
+---
+<Base title={title} description={description} jsonLd={jsonLd} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / 新手入门</div>
+    <h1>新手入门：<span class="em">鹅鸭杀怎么玩</span></h1>
+    <p class="lead">一句话概括：这是一款多人社交推理游戏。好人（鹅）做任务找内鬼，内鬼（鸭）偷偷杀人搞破坏，大家靠开会投票把内鬼揪出来。下面带你从零看懂。</p>
+
+    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+
+    <div class="detail-layout">
+      <main>
+        <section class="sec">
+          <h2>🎯 核心规则</h2>
+          <p>每局玩家被分成三种阵营，开局只有自己知道身份。鹅要在地图上完成任务、同时揪出鸭；鸭伪装成鹅，伺机杀人和破坏；中立则各有各的小算盘。一局由若干「行动 → 开会讨论 → 投票」的回合循环组成，直到某一方达成获胜条件。</p>
+        </section>
+
+        <section class="sec">
+          <h2>🐧 三大阵营目标</h2>
+          <div class="camps">
+            <div class="camp" style="--cc:var(--goose)">
+              <h3>🦢 鹅阵营（好人）</h3>
+              <p>完成全部任务，<strong>或</strong>通过投票把所有非鹅（鸭+中立）赶出局。多数玩家是鹅，靠协作和推理取胜。</p>
+            </div>
+            <div class="camp" style="--cc:var(--duck)">
+              <h3>🦆 鸭阵营（内鬼）</h3>
+              <p>击杀和破坏，直到鸭子数量多到鹅无法在投票中构成多数。人数少但能主动出刀、搞破坏、伪装。</p>
+            </div>
+            <div class="camp" style="--cc:var(--neutral)">
+              <h3>🎭 中立</h3>
+              <p>不属于任何一方，各有独立获胜条件。比如呆呆鸟要被投出局才赢、鹈鹕要活到最后。达成自己的目标时，其他所有人都算输。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>🔄 一局的完整流程</h2>
+          <ol class="flow">
+            <li><strong>开局分配身份</strong>：系统随机分配阵营和角色，只有你自己看得到。</li>
+            <li><strong>跑图行动</strong>：鹅去任务点做任务推进进度条；鸭假装做任务、找机会卡视野单杀；中立按自己的目标行动。</li>
+            <li><strong>触发讨论</strong>：有人发现尸体并报告、或有人去报警点摇铃，全员进入会议。</li>
+            <li><strong>发言 + 投票</strong>：大家陈述看到的信息、互相质疑，然后投票。得票最高者出局（平票通常进监狱或无人出局，看规则）。</li>
+            <li><strong>循环推进</strong>：出局后游戏继续，回到跑图阶段，直到某方达成胜利条件。</li>
+          </ol>
+        </section>
+
+        <section class="sec">
+          <h2>📖 必懂黑话术语</h2>
+          <p class="hint">看懂这些词，你就能跟上老玩家的发言节奏。</p>
+          <dl class="terms">
+            {terms.map((t) => (
+              <div class="term-row">
+                <dt>{t.term}</dt>
+                <dd>{t.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="sec">
+          <h2>🚧 新手避坑</h2>
+          <ul class="tips">
+            <li><strong>先玩地下室</strong>：地图小、任务简单、没有复杂机制，最适合摸清基础节奏，熟了再换图。</li>
+            <li><strong>别落单</strong>：单独行动最容易被鸭子卡视野秒杀。尽量和 1-2 人结伴，互为不在场证明。</li>
+            <li><strong>记住谁和你同行</strong>：开会时「我俩一直在一起，他不是鸭」是最朴素也最有用的发言。</li>
+            <li><strong>看到凭空消失要警惕</strong>：在没有通风管的地图，有人突然不见，很可能是钻了管道——那是鸭子的能力。</li>
+            <li><strong>输赢别太当真</strong>：这游戏没天梯，多活一轮、多用一次技能、多读懂一点局势，就是进步。</li>
+          </ul>
+        </section>
+
+        <section class="sec next">
+          <h2>👉 下一步</h2>
+          <p>看完基础，去 <a href="/roles">角色图鉴</a> 认识你可能拿到的角色，或到 <a href="/maps">地图攻略</a> 熟悉每张图的点位和陷阱。</p>
+        </section>
+      </main>
+
+      <aside>
+        <div class="ad ad-side">广告位<br/>侧栏 300×600</div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  h1{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .hint{font-size:13px;color:var(--txt-dim);margin-bottom:14px!important}
+  .camps{display:flex;flex-direction:column;gap:14px}
+  .camp{border-left:3px solid var(--cc);padding-left:16px}
+  .camp h3{font-size:16px;color:var(--cc);margin-bottom:6px}
+  .camp p{font-size:14.5px;color:var(--txt-dim)}
+  .camp strong{color:var(--txt)}
+  .flow{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:12px}
+  .flow li{counter-increment:step;position:relative;padding-left:40px;font-size:15px;color:var(--txt-dim)}
+  .flow li::before{content:counter(step);position:absolute;left:0;top:-2px;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--goose),var(--neutral));color:#fff;font-weight:700;display:grid;place-items:center;font-size:13px}
+  .flow strong{color:var(--txt)}
+  .terms{display:flex;flex-direction:column;gap:0}
+  .term-row{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .term-row:last-child{border:0}
+  .term-row dt{font-weight:700;color:var(--accent);font-size:14.5px}
+  .term-row dd{font-size:14px;color:var(--txt-dim)}
+  .tips{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .tips li{font-size:15px;color:var(--txt-dim);padding-left:20px;position:relative}
+  .tips li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .tips strong{color:var(--txt)}
+  .next p{color:var(--txt-dim)}
+  .next a{color:var(--accent)}
+  @media(max-width:920px){
+    .detail-layout{grid-template-columns:1fr}
+    .ad-side{display:none}
+    h1{font-size:28px}
+    .term-row{grid-template-columns:1fr;gap:3px}
+  }
+</style>

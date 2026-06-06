@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import MapCard from '../../components/MapCard.astro';
+import { maps } from '../../data/maps';
+
+const title = '全地图攻略 - 鹅鸭杀攻略社';
+const description = '鹅鸭杀（Goose Goose Duck）全地图攻略：12 张地图的舱室布局、任务点位、刀点与视野盲区、机制特性与分阵营打法。';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+};
+// 按主题分组展示
+const themes = [...new Set(maps.map((m) => m.theme))];
+---
+<Base title={title} description={description} jsonLd={jsonLd} active="maps">
+  <div class="wrap">
+    <section class="hero">
+      <div class="crumb"><a href="/">首页</a> / 地图攻略</div>
+      <h1>全<span class="em">地图</span>攻略</h1>
+      <p class="sub">12 张地图的舱室布局、任务点位、刀点盲区与分阵营打法。点击查看带标注的示意图。</p>
+    </section>
+
+    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+
+    {themes.map((theme) => (
+      <section class="theme-group">
+        <h2 class="theme-title">{theme}主题</h2>
+        <div class="map-grid">
+          {maps.filter((m) => m.theme === theme).map((map) => <MapCard map={map} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .hero{padding:46px 0 26px}
+  h1{font-size:40px;font-weight:900;letter-spacing:-.5px}
+  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--txt-dim);margin-top:8px;max-width:640px}
+  .theme-group{margin-bottom:36px}
+  .theme-title{font-size:18px;color:var(--accent);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--accent)}
+  .map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  @media(max-width:920px){h1{font-size:30px}}
+</style>

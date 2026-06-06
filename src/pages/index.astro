@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import { roles, camps, campName } from '../data/roles';
+
+const title = '鹅鸭杀攻略社 - 全角色图鉴 / 地图 / 新手入门';
+const description = '鹅鸭杀（Goose Goose Duck）中文攻略站：全角色技能图鉴、地图任务点位、新手入门与进阶话术。鹅、鸭、中立三大阵营一站掌握。';
+const counts = {
+  goose: roles.filter((r) => r.camp === 'goose').length,
+  duck: roles.filter((r) => r.camp === 'duck').length,
+  neutral: roles.filter((r) => r.camp === 'neutral').length,
+};
+const featured = roles.slice(0, 4);
+---
+<Base title={title} description={description} active="home">
+  <div class="wrap">
+    <section class="hero">
+      <h1>鹅鸭杀<span class="em">攻略社</span></h1>
+      <p class="sub">全角色图鉴 · 地图点位 · 新手入门 · 进阶话术，一站掌握 Goose Goose Duck。</p>
+    </section>
+
+    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+
+    <section class="bento">
+      <a class="tile big" href="/roles">
+        <div class="tile-label">角色图鉴</div>
+        <div class="tile-sub">{roles.length}+ 角色 · 三大阵营</div>
+        <div class="camp-mini">
+          <span class="m goose">🦢 鹅 {counts.goose}</span>
+          <span class="m duck">🦆 鸭 {counts.duck}</span>
+          <span class="m neutral">🎭 中立 {counts.neutral}</span>
+        </div>
+      </a>
+      <a class="tile" href="/maps"><div class="tile-label">地图攻略</div><div class="tile-sub">任务点位与刀点</div></a>
+      <a class="tile" href="/guide"><div class="tile-label">新手入门</div><div class="tile-sub">三阵营目标与术语</div></a>
+    </section>
+
+    <section class="feat">
+      <h2>热门角色</h2>
+      <div class="grid">
+        {featured.map((r) => (
+          <a class="card" data-camp={r.camp} href={`/roles/${r.slug}`}>
+            <div class="card-top"><div class="avatar">{r.icon}</div><span class={`badge ${r.camp}`}>{campName[r.camp]}</span></div>
+            <h3>{r.name}</h3><div class="role-en">{r.nameEn}</div>
+            <p class="desc">{r.summary}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero{padding:54px 0 26px}
+  h1{font-size:46px;font-weight:900;letter-spacing:-.5px}
+  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--txt-dim);margin-top:10px;max-width:640px;font-size:17px}
+  .bento{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin:14px 0 40px}
+  .tile{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;transition:.18s;position:relative;overflow:hidden}
+  .tile::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--goose),var(--neutral),var(--duck))}
+  .tile:hover{transform:translateY(-4px);border-color:var(--txt-dim);box-shadow:0 14px 38px -12px rgba(176,107,255,.6)}
+  .tile.big{min-height:200px}
+  .tile-label{font-size:22px;font-weight:900}
+  .tile-sub{color:var(--txt-dim);font-size:14px;margin-top:4px}
+  .camp-mini{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .camp-mini .m{font-size:13px;padding:5px 11px;border-radius:8px;background:var(--bg-elev)}
+  .feat h2{font-size:22px;margin-bottom:16px}
+  @media(max-width:920px){.bento{grid-template-columns:1fr}h1{font-size:34px}}
+</style>
