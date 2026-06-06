@@ -1,0 +1,138 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans SC',sans-serif">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2452"/>
+      <stop offset="1" stop-color="#221d44"/>
+    </linearGradient>
+    <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#221d44"/>
+      <stop offset="1" stop-color="#1c1838"/>
+    </linearGradient>
+    <linearGradient id="outdoor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#243246"/>
+      <stop offset="1" stop-color="#1d293a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .rm{fill:url(#room);stroke:#4a3f80;stroke-width:1.5;rx:14}
+      .hl{fill:url(#hall);stroke:#3a3266;stroke-width:1.2}
+      .out{fill:url(#outdoor);stroke:#3f5a78;stroke-width:1.5;rx:14}
+      .rname{fill:#d8d0ff;font-size:15px;font-weight:700;text-anchor:middle}
+      .ren{fill:#8b81b8;font-size:10px;text-anchor:middle}
+      .conn{stroke:#3a3266;stroke-width:6;fill:none;stroke-linecap:round}
+      .pin-label{fill:#f3f0ff;font-size:11px;font-weight:700}
+      .pin-bg{fill:#1c1838;stroke-width:1;opacity:.92;rx:5}
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="460" fill="#151229"/>
+  <text x="24" y="34" fill="#f3f0ff" font-size="20" font-weight="900">野鸭庄园 · 区域示意图</text>
+  <text x="24" y="52" fill="#a99fd6" font-size="12">Mallard Manor · 室内环廊串联各厅、室外庄园外场环绕 · 原创示意图（非游戏截图）</text>
+
+  <!-- 连接通道（先画，压在房间下层） -->
+  <path class="conn" d="M180 95 L235 95"/>        <!-- 图书馆-厨房（顶部走廊） -->
+  <path class="conn" d="M350 95 L370 95"/>        <!-- 厨房-阳光房（顶部走廊） -->
+  <path class="conn" d="M490 95 L620 95"/>        <!-- 阳光房-盥洗室（顶部走廊） -->
+  <path class="conn" d="M648 128 L605 138"/>      <!-- 盥洗室-画室 -->
+  <path class="conn" d="M140 140 L140 230"/>      <!-- 图书馆-侧厅走廊-书房 -->
+  <path class="conn" d="M340 132 L395 148"/>      <!-- 厨房-庭院 -->
+  <path class="conn" d="M495 170 L515 170"/>      <!-- 庭院-画室 -->
+  <path class="conn" d="M420 197 L420 205"/>      <!-- 庭院-餐厅 -->
+  <path class="conn" d="M430 278 L490 298"/>      <!-- 餐厅-门厅 -->
+  <path class="conn" d="M110 290 L110 298"/>      <!-- 书房-庄园外场 -->
+  <path class="conn" d="M345 325 L355 325"/>      <!-- 庄园外场-西翼 -->
+  <path class="conn" d="M440 325 L450 325"/>      <!-- 西翼-门厅 -->
+  <path class="conn" d="M548 325 L558 325"/>      <!-- 门厅-东翼 -->
+  <path class="conn" d="M645 325 L655 325"/>      <!-- 东翼-起居室 -->
+  <path class="conn" d="M490 365 L490 380 L345 380"/> <!-- 门厅正门-庄园外场 -->
+  <path class="conn" d="M712 365 L712 386 L350 386"/> <!-- 起居室-庄园外场（外围） -->
+  <path class="conn" d="M635 175 L695 185"/>      <!-- 画室-池塘（东侧出口） -->
+
+  <!-- 房间 -->
+  <!-- 图书馆 -->
+  <rect class="rm" x="60" y="70" width="120" height="70"/>
+  <text class="rname" x="120" y="102">图书馆</text>
+  <text class="ren" x="120" y="120">Library</text>
+  <!-- 厨房 -->
+  <rect class="rm" x="235" y="70" width="115" height="68"/>
+  <text class="rname" x="292" y="100">厨房</text>
+  <text class="ren" x="292" y="118">Kitchen · 火灾破坏</text>
+  <!-- 阳光房 -->
+  <rect class="rm" x="370" y="70" width="120" height="60"/>
+  <text class="rname" x="430" y="97">阳光房</text>
+  <text class="ren" x="430" y="115">Sun Room</text>
+  <!-- 盥洗室 -->
+  <rect class="rm" x="620" y="70" width="120" height="58"/>
+  <text class="rname" x="680" y="96">盥洗室</text>
+  <text class="ren" x="680" y="114">Lavatory · 马桶藏身</text>
+  <!-- 侧厅走廊（左侧，单杀高发） -->
+  <rect class="hl" x="105" y="148" width="75" height="74"/>
+  <text class="ren" x="142" y="163">侧厅走廊</text>
+  <!-- 书房 -->
+  <rect class="rm" x="60" y="230" width="120" height="60"/>
+  <text class="rname" x="120" y="257">书房</text>
+  <text class="ren" x="120" y="275">Study</text>
+  <!-- 庭院（室内中庭） -->
+  <rect class="rm" x="380" y="140" width="115" height="57"/>
+  <text class="rname" x="437" y="166">庭院</text>
+  <text class="ren" x="437" y="184">Courtyard · 毒水泵</text>
+  <!-- 画室（柜子藏身点） -->
+  <rect class="rm" x="515" y="132" width="120" height="64"/>
+  <text class="rname" x="592" y="167">画室</text>
+  <text class="ren" x="578" y="187">Studio · 柜子</text>
+  <!-- 餐厅（正中，会议铃） -->
+  <rect class="rm" x="345" y="205" width="120" height="73" fill="#2f2860" stroke="#5b4fa0"/>
+  <text class="rname" x="432" y="245">餐厅</text>
+  <text class="ren" x="405" y="268">Dining · 会议铃</text>
+  <!-- 池塘（室外） -->
+  <rect class="out" x="695" y="150" width="80" height="95"/>
+  <text class="rname" x="735" y="192">池塘</text>
+  <text class="ren" x="735" y="209">The Pond</text>
+  <text x="735" y="226" fill="#7fb0d8" font-size="9" text-anchor="middle">通马桶冲走点</text>
+  <!-- 庄园外场（室外，左下环绕） -->
+  <rect class="out" x="55" y="298" width="290" height="94"/>
+  <text class="rname" x="140" y="335">庄园外场</text>
+  <text class="ren" x="140" y="352">The Grounds · 灯光破坏 · 树叶堆</text>
+  <!-- 西翼 -->
+  <rect class="rm" x="355" y="298" width="85" height="54"/>
+  <text class="rname" x="397" y="322">西翼</text>
+  <text class="ren" x="397" y="338">West Wing</text>
+  <!-- 门厅（正门，吊灯陷阱） -->
+  <rect class="rm" x="450" y="298" width="98" height="67" fill="#3a2535" stroke="#7a4a5a"/>
+  <text class="rname" x="499" y="322">门厅</text>
+  <text class="ren" x="499" y="338">Foyer · 正门</text>
+  <text x="499" y="354" fill="#ff8fa3" font-size="10" text-anchor="middle">⚠ 吊灯地毯</text>
+  <!-- 东翼 -->
+  <rect class="rm" x="558" y="298" width="87" height="54"/>
+  <text class="rname" x="601" y="322">东翼</text>
+  <text class="ren" x="601" y="338">East Wing</text>
+  <!-- 起居室 -->
+  <rect class="rm" x="655" y="300" width="115" height="65"/>
+  <text class="rname" x="712" y="328">起居室</text>
+  <text class="ren" x="712" y="346">Sitting Room</text>
+
+  <!-- ===== 标注点（坐标 = 数据中 x%,y% × 800/460）===== -->
+  <!-- meeting 50,52 餐厅会议铃 -->
+  <g filter="url(#glow)"><circle cx="400" cy="239" r="9" fill="#4ade80"/><text x="400" y="243" font-size="10" text-anchor="middle">🔔</text></g>
+  <!-- task 28,70 庄园外场任务区 -->
+  <circle cx="224" cy="322" r="8" fill="#3ba9ff"/><text x="224" y="325" font-size="9" text-anchor="middle">📋</text>
+  <!-- hide 70,34 室内柜子（画室） -->
+  <g filter="url(#glow)"><circle cx="560" cy="156" r="8" fill="#2dd4bf"/><text x="560" y="159" font-size="9" text-anchor="middle">🚪</text></g>
+  <!-- killspot 18,40 侧厅拐角 -->
+  <g filter="url(#glow)"><circle cx="144" cy="184" r="9" fill="#ff5470"/><text x="144" y="188" font-size="10" text-anchor="middle">🔪</text></g>
+  <!-- hide 40,78 树叶堆（庄园外场） -->
+  <g filter="url(#glow)"><circle cx="320" cy="359" r="8" fill="#2dd4bf"/><text x="320" y="362" font-size="9" text-anchor="middle">🍂</text></g>
+
+  <!-- 图例 -->
+  <g transform="translate(24,425)">
+    <circle cx="6" cy="0" r="6" fill="#3ba9ff"/><text x="18" y="4" fill="#a99fd6" font-size="11">任务点</text>
+    <circle cx="92" cy="0" r="6" fill="#ff5470"/><text x="104" y="4" fill="#a99fd6" font-size="11">刀点</text>
+    <circle cx="156" cy="0" r="6" fill="#2dd4bf"/><text x="168" y="4" fill="#a99fd6" font-size="11">藏身点</text>
+    <circle cx="240" cy="0" r="6" fill="#4ade80"/><text x="252" y="4" fill="#a99fd6" font-size="11">会议铃</text>
+    <text x="330" y="4" fill="#a99fd6" font-size="11">⚠ 危险区（门厅吊灯） · 全图无通风口</text>
+  </g>
+</svg>

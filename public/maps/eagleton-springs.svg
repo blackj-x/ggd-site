@@ -1,0 +1,119 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans SC',sans-serif">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#28284f"/>
+      <stop offset="1" stop-color="#201f42"/>
+    </linearGradient>
+    <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#221f44"/>
+      <stop offset="1" stop-color="#1c1a38"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .rm{fill:url(#room);stroke:#4a4585;stroke-width:1.5;rx:14}
+      .hl{fill:url(#hall);stroke:#3a3266;stroke-width:1.2}
+      .rname{fill:#d8d0ff;font-size:15px;font-weight:700;text-anchor:middle}
+      .ren{fill:#8b81b8;font-size:10px;text-anchor:middle}
+      .conn{stroke:#3a3266;stroke-width:6;fill:none;stroke-linecap:round}
+      .pin-label{fill:#f3f0ff;font-size:11px;font-weight:700}
+      .pin-bg{fill:#1c1838;stroke-width:1;opacity:.92;rx:5}
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="460" fill="#151229"/>
+  <text x="24" y="34" fill="#f3f0ff" font-size="20" font-weight="900">鹰镇温泉 · 区域示意图</text>
+  <text x="24" y="52" fill="#a99fd6" font-size="12">Eagleton Springs · 原创示意图（非游戏截图）· 主街横贯东西，通风口全部直通地下下水道层</text>
+
+  <!-- 连接通道（先画，压在房间下层） -->
+  <path class="conn" d="M126 134 L126 150"/>      <!-- 警长局-餐厅 -->
+  <path class="conn" d="M340 134 L340 150"/>      <!-- 实验室-电台（延迟自动门） -->
+  <path class="conn" d="M196 183 L260 183"/>      <!-- 餐厅-电台（庭院/水池） -->
+  <path class="conn" d="M126 216 L126 232"/>      <!-- 餐厅-主街（西段） -->
+  <path class="conn" d="M340 216 L340 232"/>      <!-- 电台-主街 -->
+  <path class="conn" d="M650 216 L650 232"/>      <!-- 学校-主街（东段） -->
+  <path class="conn" d="M650 264 L650 280"/>      <!-- 主街-公园（东段） -->
+  <path class="conn" d="M710 216 L710 280"/>      <!-- 学校-公园（右侧纵向） -->
+  <path class="conn" d="M196 313 L300 313"/>      <!-- 街机厅-发电站（底部街道） -->
+  <path class="conn" d="M450 313 L560 313"/>      <!-- 发电站-公园（底部街道） -->
+  <!-- 通风口/马桶 → 下水道（虚线表示纵向落层） -->
+  <path class="conn" stroke-dasharray="4 5" stroke-width="4" d="M126 346 L126 362"/>
+  <path class="conn" stroke-dasharray="4 5" stroke-width="4" d="M375 346 L375 362"/>
+  <path class="conn" stroke-dasharray="4 5" stroke-width="4" d="M680 346 L680 362"/>
+
+  <!-- 房间 -->
+  <!-- 警长局 -->
+  <rect class="rm" x="56" y="68" width="140" height="66"/>
+  <text class="rname" x="126" y="98">警长局</text>
+  <text class="ren" x="126" y="116">Sheriff · 案件重演</text>
+  <!-- 秘密实验室 -->
+  <rect class="rm" x="260" y="68" width="160" height="66" fill="#243250" stroke="#4a6a8a"/>
+  <text class="rname" x="340" y="98">秘密实验室</text>
+  <text class="ren" x="340" y="116">Secret Lab · 回春舱</text>
+  <!-- 延迟自动门提示 -->
+  <text x="352" y="146" fill="#8b81b8" font-size="9">延迟自动门</text>
+  <!-- 学校（右上，大） -->
+  <rect class="rm" x="560" y="68" width="180" height="148"/>
+  <text class="rname" x="650" y="135">学校</text>
+  <text class="ren" x="650" y="153">School · 召唤校车</text>
+  <!-- 餐厅 -->
+  <rect class="rm" x="56" y="150" width="140" height="66"/>
+  <text class="rname" x="126" y="180">餐厅</text>
+  <text class="ren" x="126" y="198">Diner · 污染点</text>
+  <!-- 广播电台 -->
+  <rect class="rm" x="260" y="150" width="160" height="66"/>
+  <text class="rname" x="340" y="180">广播电台</text>
+  <text class="ren" x="340" y="198">Radio · 电话输码</text>
+  <!-- 主街（横贯中部，校车路线） -->
+  <rect class="hl" x="56" y="232" width="684" height="32" stroke="#5a4a4a"/>
+  <text class="ren" x="360" y="252">主街 Main Street · 校车双向行驶</text>
+  <!-- 街机厅 -->
+  <rect class="rm" x="56" y="280" width="140" height="66"/>
+  <text class="rname" x="126" y="310">街机厅</text>
+  <text class="ren" x="126" y="328">Arcade · 污染点</text>
+  <!-- 发电站 -->
+  <rect class="rm" x="300" y="280" width="150" height="66"/>
+  <text class="rname" x="375" y="310">发电站</text>
+  <text class="ren" x="375" y="328">Electrical · 断电解除</text>
+  <!-- 公园 -->
+  <rect class="rm" x="560" y="280" width="180" height="66" fill="#23303f" stroke="#4a6a5a"/>
+  <text class="rname" x="650" y="310">公园</text>
+  <text class="ren" x="650" y="328">The Park</text>
+  <!-- 下水道（地下层） -->
+  <rect class="hl" x="56" y="362" width="684" height="32" stroke-dasharray="6 4"/>
+  <text class="ren" x="430" y="382">下水道 Sewers（地下层 · 通风口直下 / 梯子上回地面）</text>
+
+  <!-- ===== 标注点（坐标 = 数据中 x%,y% × 800/460）===== -->
+  <!-- meeting 会议按钮 28.5,53.9 -->
+  <g filter="url(#glow)"><circle cx="228" cy="248" r="9" fill="#4ade80"/><text x="228" y="252" font-size="10" text-anchor="middle">🔔</text></g>
+  <!-- hazard 校车碾压 62.5,53.9 -->
+  <g filter="url(#glow)"><circle cx="500" cy="248" r="10" fill="#fb923c"/><text x="500" y="252" font-size="11" text-anchor="middle">⚠</text></g>
+  <!-- task 警长局案件重演 11.3,20.7 -->
+  <circle cx="90" cy="95" r="8" fill="#3ba9ff"/><text x="90" y="98" font-size="9" text-anchor="middle">📋</text>
+  <!-- task 实验室回春舱 36.3,20.7 -->
+  <circle cx="290" cy="95" r="8" fill="#3ba9ff"/><text x="290" y="98" font-size="9" text-anchor="middle">📋</text>
+  <!-- task 电台电话输码 36.3,38.5 -->
+  <circle cx="290" cy="177" r="8" fill="#3ba9ff"/><text x="290" y="180" font-size="9" text-anchor="middle">📋</text>
+  <!-- vent 发电站通风口 41.3,66.7 -->
+  <g filter="url(#glow)"><circle cx="330" cy="307" r="8" fill="#ffd84e"/><text x="330" y="310" font-size="9" text-anchor="middle">🕳</text></g>
+  <!-- killspot 下水道 31.3,82.2 -->
+  <g filter="url(#glow)"><circle cx="250" cy="378" r="9" fill="#ff5470"/><text x="250" y="382" font-size="10" text-anchor="middle">🔪</text></g>
+  <!-- hide 隐藏密室 77.5,82.2 -->
+  <g filter="url(#glow)"><circle cx="620" cy="378" r="8" fill="#5eead4"/><text x="620" y="381" font-size="9" text-anchor="middle">⭐</text></g>
+  <!-- blindspot 公园 76.3,66.7 -->
+  <circle cx="610" cy="307" r="8" fill="#b06bff"/><text x="610" y="310" font-size="8" font-weight="700" fill="#1c1838" text-anchor="middle">盲</text>
+
+  <!-- 图例 -->
+  <g transform="translate(24,424)">
+    <circle cx="6" cy="0" r="6" fill="#3ba9ff"/><text x="18" y="4" fill="#a99fd6" font-size="11">任务点</text>
+    <circle cx="92" cy="0" r="6" fill="#ff5470"/><text x="104" y="4" fill="#a99fd6" font-size="11">刀点</text>
+    <circle cx="156" cy="0" r="6" fill="#b06bff"/><text x="168" y="4" fill="#a99fd6" font-size="11">盲区</text>
+    <circle cx="222" cy="0" r="6" fill="#ffd84e"/><text x="234" y="4" fill="#a99fd6" font-size="11">通风口</text>
+    <circle cx="300" cy="0" r="6" fill="#4ade80"/><text x="312" y="4" fill="#a99fd6" font-size="11">会议按钮</text>
+    <circle cx="392" cy="0" r="6" fill="#fb923c"/><text x="404" y="4" fill="#a99fd6" font-size="11">危险/校车</text>
+    <circle cx="490" cy="0" r="6" fill="#5eead4"/><text x="502" y="4" fill="#a99fd6" font-size="11">隐藏密室</text>
+  </g>
+</svg>

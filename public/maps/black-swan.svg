@@ -1,0 +1,129 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans SC',sans-serif">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#272b56"/>
+      <stop offset="1" stop-color="#1f2247"/>
+    </linearGradient>
+    <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#21244b"/>
+      <stop offset="1" stop-color="#1a1c3b"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .rm{fill:url(#room);stroke:#454e8c;stroke-width:1.5;rx:14}
+      .hl{fill:url(#hall);stroke:#363d72;stroke-width:1.2}
+      .rname{fill:#d8d0ff;font-size:15px;font-weight:700;text-anchor:middle}
+      .ren{fill:#8b81b8;font-size:10px;text-anchor:middle}
+      .conn{stroke:#363d72;stroke-width:6;fill:none;stroke-linecap:round}
+      .pin-label{fill:#f3f0ff;font-size:11px;font-weight:700}
+      .pin-bg{fill:#1c1838;stroke-width:1;opacity:.92;rx:5}
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="460" fill="#151229"/>
+  <text x="24" y="34" fill="#f3f0ff" font-size="20" font-weight="900">黑天鹅号 · 区域示意图</text>
+  <text x="24" y="52" fill="#a99fd6" font-size="12">Black Swan · 原创示意图（非游戏截图）· 左舰桥—中食堂—右发动机横向动线</text>
+
+  <!-- 连接通道（先画，压在房间下层） -->
+  <path class="conn" d="M95 185 L120 150"/>       <!-- 舰桥-保安室 -->
+  <path class="conn" d="M95 265 L120 310"/>       <!-- 舰桥-通讯间 -->
+  <path class="conn" d="M150 235 L165 255"/>      <!-- 舰桥-走廊（舱门） -->
+  <path class="conn" d="M200 285 L240 302"/>      <!-- 走廊-电机室 -->
+  <path class="conn" d="M200 122 L340 180"/>      <!-- 保安室-食堂 -->
+  <path class="conn" d="M200 340 L330 332"/>      <!-- 通讯间-娱乐室 -->
+  <path class="conn" d="M308 330 L334 330"/>      <!-- 电机室-娱乐室 -->
+  <path class="conn" d="M345 170 L315 141"/>      <!-- 食堂-医疗室 -->
+  <path class="conn" d="M388 250 L390 285"/>      <!-- 食堂-娱乐室 -->
+  <path class="conn" d="M450 190 L495 141"/>      <!-- 食堂-船员宿舍 -->
+  <path class="conn" d="M570 108 L620 108"/>      <!-- 船员宿舍-孵化室 -->
+  <path class="conn" d="M705 141 L735 162"/>      <!-- 孵化室-发动机 -->
+  <path class="conn" d="M683 230 L702 230"/>      <!-- 反应器-发动机 -->
+  <path class="conn" d="M633 267 L633 312"/>      <!-- 反应器-货舱 -->
+  <path class="conn" d="M460 335 L560 345"/>      <!-- 娱乐室-货舱 -->
+
+  <!-- 房间 -->
+  <!-- 舰桥（船头） -->
+  <rect class="rm" x="40" y="185" width="110" height="80"/>
+  <text class="rname" x="95" y="220">舰桥</text>
+  <text class="ren" x="95" y="238">Bridge · 气闸杆</text>
+  <!-- 保安室 -->
+  <rect class="rm" x="80" y="80" width="120" height="70"/>
+  <text class="rname" x="140" y="110">保安室</text>
+  <text class="ren" x="140" y="128">Security · 监控</text>
+  <!-- 通讯间 -->
+  <rect class="rm" x="80" y="310" width="120" height="70"/>
+  <text class="rname" x="140" y="340">通讯间</text>
+  <text class="ren" x="140" y="358">Comms</text>
+  <!-- 走廊（舱门破坏点） -->
+  <rect class="hl" x="155" y="250" width="70" height="40"/>
+  <text class="ren" x="190" y="285">走廊</text>
+  <!-- 电机室 -->
+  <rect class="rm" x="210" y="295" width="100" height="70"/>
+  <text class="rname" x="260" y="325">电机室</text>
+  <text class="ren" x="260" y="343">Electrical · 灯光</text>
+  <!-- 医疗室 -->
+  <rect class="rm" x="250" y="75" width="110" height="66"/>
+  <text class="rname" x="305" y="105">医疗室</text>
+  <text class="ren" x="305" y="123">Med Bay</text>
+  <!-- 食堂 -->
+  <rect class="rm" x="320" y="170" width="130" height="80"/>
+  <text class="rname" x="385" y="205">食堂</text>
+  <text class="ren" x="385" y="223">Cafeteria</text>
+  <!-- 娱乐室（会议按钮） -->
+  <rect class="rm" x="330" y="285" width="130" height="80" fill="#2f2860" stroke="#5b4fa0"/>
+  <text class="rname" x="395" y="318">娱乐室</text>
+  <text class="ren" x="395" y="336">Rec · 会议按钮</text>
+  <!-- 船员宿舍 -->
+  <rect class="rm" x="440" y="75" width="130" height="66"/>
+  <text class="rname" x="505" y="105">船员宿舍</text>
+  <text class="ren" x="505" y="123">Crew Quarters</text>
+  <!-- 孵化室 -->
+  <rect class="rm" x="620" y="75" width="130" height="66"/>
+  <text class="rname" x="685" y="105">孵化室</text>
+  <text class="ren" x="685" y="123">Hatchery · 氧气</text>
+  <!-- 反应器 -->
+  <rect class="rm" x="580" y="195" width="105" height="72"/>
+  <text class="rname" x="632" y="226">反应器</text>
+  <text class="ren" x="632" y="244">Reactor</text>
+  <!-- 发动机（船尾） -->
+  <rect class="rm" x="700" y="160" width="80" height="110"/>
+  <text class="rname" x="740" y="210">发动机</text>
+  <text class="ren" x="740" y="228">Engine</text>
+  <!-- 货舱（气闸陷阱） -->
+  <rect class="rm" x="560" y="310" width="150" height="85" fill="#3a2535" stroke="#7a4a5a"/>
+  <text class="rname" x="635" y="345">货舱</text>
+  <text class="ren" x="635" y="363">Cargo · 气闸陷阱</text>
+  <text x="678" y="384" fill="#ff8fa3" font-size="10" text-anchor="middle">⚠ 危险区</text>
+
+  <!-- ===== 标注点（坐标 = 数据中 x%,y% × 800/460）===== -->
+  <!-- meeting 娱乐室 49.4,76.1 -->
+  <g filter="url(#glow)"><circle cx="395" cy="350" r="9" fill="#4ade80"/><text x="395" y="354" font-size="10" text-anchor="middle">🔔</text></g>
+  <!-- hazard 货舱气闸 75,82.6 -->
+  <g filter="url(#glow)"><circle cx="600" cy="380" r="10" fill="#fb923c"/><text x="600" y="384" font-size="11" text-anchor="middle">⚠</text></g>
+  <!-- hazard 舰桥操纵杆 11.9,55.4 -->
+  <g filter="url(#glow)"><circle cx="95" cy="255" r="10" fill="#fb923c"/><text x="95" y="259" font-size="11" text-anchor="middle">⚠</text></g>
+  <!-- task 保安室监控 13.75,30.4 -->
+  <circle cx="110" cy="140" r="8" fill="#3ba9ff"/><text x="110" y="143" font-size="9" text-anchor="middle">📋</text>
+  <!-- killspot 舱门走廊 23.75,57 -->
+  <g filter="url(#glow)"><circle cx="190" cy="262" r="9" fill="#ff5470"/><text x="190" y="266" font-size="10" text-anchor="middle">🔪</text></g>
+  <!-- vent 船员宿舍 56.9,27.2 -->
+  <g filter="url(#glow)"><circle cx="455" cy="125" r="8" fill="#ffd84e"/><text x="455" y="128" font-size="9" text-anchor="middle">🕳</text></g>
+  <!-- hazard 孵化室氧气 79.5,27.8 -->
+  <g filter="url(#glow)"><circle cx="636" cy="128" r="10" fill="#fb923c"/><text x="636" y="132" font-size="11" text-anchor="middle">⚠</text></g>
+  <!-- blindspot 反应器 75,54.8 -->
+  <circle cx="600" cy="252" r="8" fill="#b06bff"/><text x="600" y="255" font-size="9" text-anchor="middle">🌫</text>
+
+  <!-- 图例 -->
+  <g transform="translate(24,432)">
+    <circle cx="6" cy="0" r="6" fill="#3ba9ff"/><text x="18" y="4" fill="#a99fd6" font-size="11">任务点</text>
+    <circle cx="92" cy="0" r="6" fill="#ff5470"/><text x="104" y="4" fill="#a99fd6" font-size="11">刀点</text>
+    <circle cx="156" cy="0" r="6" fill="#b06bff"/><text x="168" y="4" fill="#a99fd6" font-size="11">盲区</text>
+    <circle cx="222" cy="0" r="6" fill="#ffd84e"/><text x="234" y="4" fill="#a99fd6" font-size="11">通风口</text>
+    <circle cx="300" cy="0" r="6" fill="#4ade80"/><text x="312" y="4" fill="#a99fd6" font-size="11">会议按钮</text>
+    <circle cx="392" cy="0" r="6" fill="#fb923c"/><text x="404" y="4" fill="#a99fd6" font-size="11">陷阱/危险</text>
+  </g>
+</svg>
