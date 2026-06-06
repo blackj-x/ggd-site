@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import { maps, getMap, annotationTypes, sizeLabel, type GameMap } from '../../data/maps';
 
 export function getStaticPaths() {
@@ -64,7 +65,7 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
     </header>
     <p class="lead">{map.summary}</p>
 
-    <div class="ad ad-top">广告位 · 内容顶部 728×90</div>
+    <AdSlot variant="top" label="广告位 · 内容顶部 728×90" />
 
     <div class="detail-layout">
       <main>
@@ -137,7 +138,7 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
             </div>
           )}
         </div>
-        <div class="ad ad-side">广告位<br/>侧栏 300×600</div>
+        <AdSlot variant="side" />
         {related.length > 0 && (
           <div class="sec mini">
             <h2>🔗 同主题地图</h2>

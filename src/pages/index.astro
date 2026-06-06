@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
 import { roles, camps, campName } from '../data/roles';
 
 const title = '鹅鸭杀攻略社 - 全角色图鉴 / 地图 / 新手入门';
@@ -18,7 +19,7 @@ const featured = roles.slice(0, 4);
       <p class="sub">全角色图鉴 · 地图点位 · 新手入门 · 进阶话术，一站掌握 Goose Goose Duck。</p>
     </section>
 
-    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+    <AdSlot variant="top" />
 
     <section class="bento">
       <a class="tile big" href="/roles">

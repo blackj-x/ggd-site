@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import RoleCard from '../../components/RoleCard.astro';
 import { roles } from '../../data/roles';
 
@@ -20,7 +21,7 @@ const jsonLd = {
       <p class="sub">鹅、鸭、中立三大阵营全角色技能、胜利条件与玩法要点。点击卡片查看详细攻略。</p>
     </section>
 
-    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+    <AdSlot variant="top" />
 
     <div class="controls">
       <div class="search">
@@ -43,7 +44,7 @@ const jsonLd = {
         </div>
       </main>
       <aside>
-        <div class="ad ad-side">广告位<br/>侧栏 300×600</div>
+        <AdSlot variant="side" />
       </aside>
     </div>
   </div>

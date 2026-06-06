@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
 
 const title = '新手入门：鹅鸭杀怎么玩？三阵营、术语与对局流程 - 鹅鸭攻略社';
 const description = '鹅鸭杀（Goose Goose Duck）新手入门教程：核心规则、鹅/鸭/中立三阵营目标、一局完整流程、必懂黑话术语表与新手避坑指南，零基础也能快速上手。';
@@ -44,7 +45,7 @@ const jsonLd = {
     <h1>新手入门：<span class="em">鹅鸭杀怎么玩</span></h1>
     <p class="lead">一句话概括：这是一款多人社交推理游戏。好人（鹅）做任务找内鬼，内鬼（鸭）偷偷杀人搞破坏，大家靠开会投票把内鬼揪出来。下面带你从零看懂。</p>
 
-    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+    <AdSlot variant="top" />
 
     <div class="detail-layout">
       <main>
@@ -113,7 +114,7 @@ const jsonLd = {
       </main>
 
       <aside>
-        <div class="ad ad-side">广告位<br/>侧栏 300×600</div>
+        <AdSlot variant="side" />
       </aside>
     </div>
   </div>

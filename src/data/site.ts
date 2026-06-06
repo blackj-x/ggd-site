@@ -11,5 +11,11 @@ export const SITE = {
   googleSiteVerification: 'UR0RG5nmu-tPhRNul1s70PYqPo8LveYuHDFw8qLPkjk',
   // AdSense 发布商 ID（形如 ca-pub-1234567890123456，留空则不加载广告脚本）
   // 接入时同步创建 public/ads.txt：google.com, pub-xxxx, DIRECT, f08c47fec0942fa0
-  adsenseClient: '',
+  adsenseClient: 'ca-pub-1501729431443241',
+  // AdSense 广告单元 slot ID（在 AdSense 后台「广告 → 按广告单元」创建后填入数字 ID）
+  // 留空时对应广告位显示占位块；top=顶部横幅 728×90，side=侧栏 300×600
+  adSlots: {
+    top: '',
+    side: '',
+  },
 };

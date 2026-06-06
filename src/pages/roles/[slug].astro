@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import { roles, getRole, campName, stars, type Role } from '../../data/roles';
 
 // 为每个角色生成一个静态页面 /roles/{slug}
@@ -50,7 +51,7 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
       </div>
     </article>
 
-    <div class="ad ad-top">广告位 · 内容顶部 728×90</div>
+    <AdSlot variant="top" label="广告位 · 内容顶部 728×90" />
 
     <div class="detail-layout">
       <main>
@@ -74,7 +75,7 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
           </div>
         </section>
       </main>
-      <aside><div class="ad ad-side">广告位<br/>侧栏 300×600</div></aside>
+      <aside><AdSlot variant="side" /></aside>
     </div>
   </div>
 </Base>

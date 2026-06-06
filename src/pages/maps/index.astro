@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import MapCard from '../../components/MapCard.astro';
 import { maps } from '../../data/maps';
 
@@ -22,7 +23,7 @@ const themes = [...new Set(maps.map((m) => m.theme))];
       <p class="sub">12 张地图的舱室布局、任务点位、刀点盲区与分阵营打法。点击查看带标注的示意图。</p>
     </section>
 
-    <div class="ad ad-top">广告位 · 顶部横幅 728×90</div>
+    <AdSlot variant="top" />
 
     {themes.map((theme) => (
       <section class="theme-group">
