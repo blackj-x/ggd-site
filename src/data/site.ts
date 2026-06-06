@@ -7,4 +7,9 @@ export const SITE = {
   locale: 'zh_CN',
   // 主题色（移动端浏览器地址栏）
   themeColor: '#151229',
+  // Google Search Console HTML 标签验证码（meta content 值，留空则不输出标签）
+  googleSiteVerification: '',
+  // AdSense 发布商 ID（形如 ca-pub-1234567890123456，留空则不加载广告脚本）
+  // 接入时同步创建 public/ads.txt：google.com, pub-xxxx, DIRECT, f08c47fec0942fa0
+  adsenseClient: '',
 };

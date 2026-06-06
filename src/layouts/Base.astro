@@ -56,8 +56,17 @@ const links = [
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageUrl} />
+  {SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
   {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  {SITE.adsenseClient && (
+    <script
+      is:inline
+      async
+      src={`https://pagead2.googleapis.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`}
+      crossorigin="anonymous"
+    />
+  )}
 </head>
 <body>
   <header>
