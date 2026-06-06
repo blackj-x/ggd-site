@@ -20,6 +20,9 @@ CLAUDE.md
 AGENTS.md
 .superpowers/
 
+# 内部策划文档（临时放置，会移走，不入库）
+doc/
+
 # Playwright（之前临时用的，本地有的话也别推）
 shot.mjs
 check.mjs
