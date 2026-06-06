@@ -15,8 +15,10 @@ dist/
 .env
 .env.local
 
-# Claude Code 本地指引（不入库）
+# AI 工具本地指引/工作目录（不入库）
 CLAUDE.md
+AGENTS.md
+.superpowers/
 
 # Playwright（之前临时用的，本地有的话也别推）
 shot.mjs
