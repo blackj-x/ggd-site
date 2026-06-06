@@ -7,6 +7,8 @@ export const SITE = {
   locale: 'zh_CN',
   // 主题色（移动端浏览器地址栏）
   themeColor: '#151229',
+  // Cloudflare Web Analytics (RUM) beacon token（留空则不输出统计脚本）
+  cfBeaconToken: '81a7abda8ac14ca9a3c476e10b326eb8',
   // Google Search Console HTML 标签验证码（meta content 值，留空则不输出标签）
   googleSiteVerification: 'UR0RG5nmu-tPhRNul1s70PYqPo8LveYuHDFw8qLPkjk',
   // AdSense 发布商 ID（形如 ca-pub-1234567890123456，留空则不加载广告脚本）

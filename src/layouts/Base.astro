@@ -68,6 +68,14 @@ const links = [
       crossorigin="anonymous"
     />
   )}
+  {SITE.cfBeaconToken && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={`{"token": "${SITE.cfBeaconToken}"}`}
+    />
+  )}
 </head>
 <body>
   <header>
