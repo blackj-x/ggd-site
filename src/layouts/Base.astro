@@ -57,6 +57,7 @@ const links = [
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageUrl} />
   {SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
+  {SITE.adsenseClient && <meta name="google-adsense-account" content={SITE.adsenseClient} />}
   {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   {SITE.adsenseClient && (
