@@ -15,7 +15,7 @@ export const SITE = {
   // AdSense 广告单元 slot ID（在 AdSense 后台「广告 → 按广告单元」创建后填入数字 ID）
   // 留空时对应广告位显示占位块；top=顶部横幅 728×90，side=侧栏 300×600
   adSlots: {
-    top: '',
-    side: '',
+    top: '8797610589',
+    side: '3069121275',
   },
 };
