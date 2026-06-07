@@ -28,3 +28,6 @@ shot.mjs
 check.mjs
 test-results/
 playwright-report/
+
+# 推广素材（运营资料，不入库）
+promo/
