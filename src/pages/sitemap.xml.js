@@ -3,7 +3,7 @@ import { maps } from '../data/maps';
 
 export function GET({ site }) {
   const base = (site?.href ?? 'https://gooseduck.metaup.pro/').replace(/\/$/, '');
-  const staticPaths = ['', '/roles', '/maps', '/guide'];
+  const staticPaths = ['', '/roles', '/maps', '/guide', '/about', '/privacy', '/contact'];
   const rolePaths = roles.map((r) => `/roles/${r.slug}`);
   const mapPaths = maps.map((m) => `/maps/${m.slug}`);
   const urls = [...staticPaths, ...rolePaths, ...mapPaths]

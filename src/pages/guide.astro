@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AdSlot from '../components/AdSlot.astro';
+import { SITE } from '../data/site';
 
 const title = '新手入门：鹅鸭杀怎么玩？三阵营、术语与对局流程 - 鹅鸭攻略社';
 const description = '鹅鸭杀（Goose Goose Duck）新手入门教程：核心规则、鹅/鸭/中立三阵营目标、一局完整流程、必懂黑话术语表与新手避坑指南，零基础也能快速上手。';
@@ -21,7 +22,14 @@ const terms = [
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Article', headline: title, description },
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      image: new URL(SITE.defaultOgImage, Astro.site).href,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
     {
       '@type': 'FAQPage',
       mainEntity: [

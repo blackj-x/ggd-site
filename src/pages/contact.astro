@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = '联系我们 - 鹅鸭攻略社';
+const description =
+  '联系鹅鸭攻略社:如发现攻略数据错漏、有内容建议、版权或合作相关问题,欢迎通过邮件与我们联系,我们会尽快回复。';
+
+const CONTACT_EMAIL = 'support@metaup.pro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      name: title,
+      description,
+      inLanguage: 'zh-CN',
+      url: new URL('/contact', Astro.site).href,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: '联系我们' },
+      ],
+    },
+  ],
+};
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / 联系我们</div>
+    <h1>联系<span class="em">我们</span></h1>
+    <p class="lead">鹅鸭攻略社由真人团队运营。无论是发现攻略里的数据错漏、想建议补充内容,还是版权、合作相关的事宜,都欢迎写信告诉我们。</p>
+
+    <div class="detail-layout-single">
+      <main>
+        <section class="sec">
+          <h2>📧 邮件联系</h2>
+          <p>这是与我们沟通的主要方式。请发送邮件至:</p>
+          <p class="email"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+          <p class="hint">我们通常会在几个工作日内回复。为方便处理,来信时请尽量说明涉及的具体页面或角色/地图名称。</p>
+        </section>
+
+        <section class="sec">
+          <h2>📝 这些情况都欢迎写信</h2>
+          <ul class="kv">
+            <li><strong>纠错</strong>:发现技能、机制或玩法描述与实际游戏不符——请附上你看到的页面与正确信息,我们会核对修正。</li>
+            <li><strong>内容建议</strong>:希望我们补充某个角色、某张地图或某个专题攻略。</li>
+            <li><strong>版权问题</strong>:如你是相关权利方,认为本站内容存在问题,请说明具体情况,我们会及时处理。</li>
+            <li><strong>合作或其他</strong>:站群、内容相关的合作意向。</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2>🔒 关于你的来信</h2>
+          <p>你主动来信提供的邮箱与内容,<strong>仅用于回复和处理你这次的诉求</strong>,不会用于群发推广,也不会出售或共享给第三方。详见<a href="/privacy">隐私政策</a>。</p>
+        </section>
+
+        <section class="sec next">
+          <h2>👉 也许你在找</h2>
+          <p>想了解本站定位与数据来源,请看<a href="/about">关于本站</a>;新玩家可从<a href="/guide">新手入门</a>开始。</p>
+        </section>
+      </main>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  h1{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 18px;max-width:760px}
+  .detail-layout-single{max-width:820px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt);line-height:1.7;margin-bottom:10px}
+  .sec p:last-child{margin-bottom:0}
+  .sec a{color:var(--accent)}
+  .sec strong{color:var(--txt)}
+  .hint{font-size:13px;color:var(--txt-dim)!important}
+  .email{font-size:18px;font-weight:700;margin:6px 0 8px}
+  .email a{color:var(--accent)}
+  .kv{list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 4px}
+  .kv li{font-size:15px;color:var(--txt-dim);line-height:1.65;padding-left:18px;position:relative}
+  .kv li::before{content:'›';position:absolute;left:0;top:-1px;color:var(--accent);font-weight:700}
+  .kv li strong{color:var(--txt)}
+  .next p{color:var(--txt-dim)}
+  @media(max-width:920px){h1{font-size:28px}}
+</style>

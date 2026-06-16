@@ -78,5 +78,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(21,18,41,.82);backdrop-f
 .knife{font-size:13px;vertical-align:middle}
 
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--txt-dim);font-size:13px;text-align:center;margin-top:50px}
+footer .foot-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:12px}
+footer .foot-links a{color:var(--txt-dim)}
+footer .foot-links a:hover{color:var(--accent)}
+footer .foot-note{color:var(--txt-dim)}
 
 @media(max-width:920px){.nav-links{display:none}}
