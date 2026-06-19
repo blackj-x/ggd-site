@@ -15,7 +15,7 @@ const jsonLd = {
       name: title,
       description,
       inLanguage: 'zh-CN',
-      url: new URL('/about', Astro.site).href,
+      url: new URL('/about/', Astro.site).href,
     },
     {
       '@type': 'BreadcrumbList',
@@ -74,7 +74,7 @@ const jsonLd = {
 
         <section class="sec next">
           <h2>👉 开始使用</h2>
-          <p>新玩家建议从<a href="/guide">新手入门</a>入门,再去<a href="/roles">角色图鉴</a>认全各身份技能、用<a href="/maps">地图攻略</a>规划路线。想了解我们如何处理数据,请看<a href="/privacy">隐私政策</a>。</p>
+          <p>新玩家建议从<a href="/guide/">新手入门</a>入门,再去<a href="/roles/">角色图鉴</a>认全各身份技能、用<a href="/maps/">地图攻略</a>规划路线。想了解我们如何处理数据,请看<a href="/privacy/">隐私政策</a>。</p>
         </section>
       </main>
     </div>

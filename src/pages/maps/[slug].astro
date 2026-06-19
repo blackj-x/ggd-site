@@ -23,7 +23,7 @@ const jsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).href },
-        { '@type': 'ListItem', position: 2, name: '地图攻略', item: new URL('/maps', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: '地图攻略', item: new URL('/maps/', Astro.site).href },
         { '@type': 'ListItem', position: 3, name: map.name },
       ],
     },
@@ -51,7 +51,7 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
 ---
 <Base title={title} description={description} jsonLd={jsonLd} active="maps" ogImage={ogImg}>
   <div class="wrap detail">
-    <div class="crumb"><a href="/">首页</a> / <a href="/maps">地图攻略</a> / {map.name}</div>
+    <div class="crumb"><a href="/">首页</a> / <a href="/maps/">地图攻略</a> / {map.name}</div>
 
     <header class="map-head">
       <div>
@@ -143,7 +143,7 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
           <div class="sec mini">
             <h2>🔗 同主题地图</h2>
             {related.map((m) => (
-              <a class="rel" href={`/maps/${m.slug}`}>{m.name} <span>{m.nameEn}</span></a>
+              <a class="rel" href={`/maps/${m.slug}/`}>{m.name} <span>{m.nameEn}</span></a>
             ))}
           </div>
         )}

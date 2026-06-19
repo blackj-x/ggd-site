@@ -15,7 +15,7 @@ const jsonLd = {
       name: title,
       description,
       inLanguage: 'zh-CN',
-      url: new URL('/contact', Astro.site).href,
+      url: new URL('/contact/', Astro.site).href,
     },
     {
       '@type': 'BreadcrumbList',
@@ -54,12 +54,12 @@ const jsonLd = {
 
         <section class="sec">
           <h2>🔒 关于你的来信</h2>
-          <p>你主动来信提供的邮箱与内容,<strong>仅用于回复和处理你这次的诉求</strong>,不会用于群发推广,也不会出售或共享给第三方。详见<a href="/privacy">隐私政策</a>。</p>
+          <p>你主动来信提供的邮箱与内容,<strong>仅用于回复和处理你这次的诉求</strong>,不会用于群发推广,也不会出售或共享给第三方。详见<a href="/privacy/">隐私政策</a>。</p>
         </section>
 
         <section class="sec next">
           <h2>👉 也许你在找</h2>
-          <p>想了解本站定位与数据来源,请看<a href="/about">关于本站</a>;新玩家可从<a href="/guide">新手入门</a>开始。</p>
+          <p>想了解本站定位与数据来源,请看<a href="/about/">关于本站</a>;新玩家可从<a href="/guide/">新手入门</a>开始。</p>
         </section>
       </main>
     </div>

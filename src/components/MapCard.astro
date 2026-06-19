@@ -9,7 +9,7 @@ const featList = [
   map.features.corruption ? '腐化' : null,
 ].filter(Boolean) as string[];
 ---
-<a class="map-card" href={`/maps/${map.slug}`}>
+<a class="map-card" href={`/maps/${map.slug}/`}>
   <div class="map-card-top">
     <span class="theme-badge">{map.theme}</span>
     <span class="size-badge">{sizeLabel[map.size]}</span>

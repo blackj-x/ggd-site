@@ -33,8 +33,8 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
         <h1>鹅鸭杀<span class="em">攻略社</span></h1>
         <p class="sub">先查身份技能，再看地图刀点。全角色图鉴、地图点位、新手入门，一站掌握 Goose Goose Duck。</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/roles">查角色</a>
-          <a class="ghost-btn" href="/maps">看地图</a>
+          <a class="primary-btn" href="/roles/">查角色</a>
+          <a class="ghost-btn" href="/maps/">看地图</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -67,7 +67,7 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
     <AdSlot variant="top" />
 
     <section class="bento">
-      <a class="tile big" href="/roles">
+      <a class="tile big" href="/roles/">
         <div class="tile-kicker">三大阵营</div>
         <div class="tile-label">角色图鉴</div>
         <div class="tile-sub">{roles.length} 个身份 · 技能、胜利条件、反制关系</div>
@@ -87,7 +87,7 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
           ))}
         </div>
       </a>
-      <a class="tile map-tile" href="/maps">
+      <a class="tile map-tile" href="/maps/">
         <div class="tile-kicker">{annotatedMaps} 张已标注</div>
         <div class="tile-label">地图攻略</div>
         <div class="tile-sub">任务点位、刀点、藏尸区与地图机制</div>
@@ -98,7 +98,7 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
           ))}
         </div>
       </a>
-      <a class="tile guide-tile" href="/guide">
+      <a class="tile guide-tile" href="/guide/">
         <div class="tile-kicker">新手第一局</div>
         <div class="tile-label">新手入门</div>
         <div class="tile-sub">三阵营目标与常用黑话</div>
@@ -116,11 +116,11 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
           <h2>热门地图速览</h2>
           <p>用原创示意图快速抓住路线、会议点和高风险区域。</p>
         </div>
-        <a href="/maps">全部地图 →</a>
+        <a href="/maps/">全部地图 →</a>
       </div>
       <div class="map-preview-grid">
         {featuredMaps.map((m) => (
-          <a class="map-preview" href={`/maps/${m.slug}`}>
+          <a class="map-preview" href={`/maps/${m.slug}/`}>
             <img src={m.image} alt={`${m.name} 地图示意图`} loading="lazy" />
             <div>
               <strong>{m.name}</strong>
@@ -135,7 +135,7 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
       <h2>热门角色</h2>
       <div class="grid">
         {featured.map((r) => (
-          <a class="card" data-camp={r.camp} href={`/roles/${r.slug}`}>
+          <a class="card" data-camp={r.camp} href={`/roles/${r.slug}/`}>
             <div class="card-top"><div class="avatar">{r.icon}</div><span class={`badge ${r.camp}`}>{campName[r.camp]}</span></div>
             <h3>{r.name}</h3><div class="role-en">{r.nameEn}</div>
             <p class="desc">{r.summary}</p>

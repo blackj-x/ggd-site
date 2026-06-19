@@ -3,7 +3,7 @@ import { campName, stars, type Role } from '../data/roles';
 export interface Props { role: Role }
 const { role } = Astro.props;
 ---
-<a class="card" data-camp={role.camp} href={`/roles/${role.slug}`}>
+<a class="card" data-camp={role.camp} href={`/roles/${role.slug}/`}>
   <div class="card-top">
     <div class="avatar">{role.icon}</div>
     <span class={`badge ${role.camp}`}>{campName[role.camp]}</span>
