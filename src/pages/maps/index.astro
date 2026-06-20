@@ -17,17 +17,24 @@ const themes = [...new Set(maps.map((m) => m.theme))];
 ---
 <Base title={title} description={description} jsonLd={jsonLd} active="maps">
   <div class="wrap">
-    <section class="hero">
+    <section class="hero retro-hero">
       <div class="crumb"><a href="/">首页</a> / 地图攻略</div>
-      <h1>全<span class="em">地图</span>攻略</h1>
+      <h1>
+        <span class="title-main">全地图</span>
+        <span class="em">攻略</span>
+      </h1>
       <p class="sub">12 张地图的舱室布局、任务点位、刀点盲区与分阵营打法。点击查看带标注的示意图。</p>
+      <div class="hero-stats">
+        <span class="stat">12 地图</span>
+        <span class="stat">已标注</span>
+      </div>
     </section>
 
     <AdSlot variant="top" />
 
     {themes.map((theme) => (
-      <section class="theme-group">
-        <h2 class="theme-title">{theme}主题</h2>
+      <section class="theme-group fade-in">
+        <h2 class="theme-title">{theme}主题 <span class="count">({maps.filter((m) => m.theme === theme).length})</span></h2>
         <div class="map-grid">
           {maps.filter((m) => m.theme === theme).map((map) => <MapCard map={map} />)}
         </div>
@@ -38,11 +45,15 @@ const themes = [...new Set(maps.map((m) => m.theme))];
 
 <style>
   .hero{padding:46px 0 26px}
-  h1{font-size:40px;font-weight:900;letter-spacing:-.5px}
-  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .sub{color:var(--txt-dim);margin-top:8px;max-width:640px}
+  .retro-hero h1{font-size:44px;font-weight:900;letter-spacing:-1px}
+  .retro-hero .title-main{display:block}
+  .retro-hero h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .retro-hero .sub{color:var(--txt-dim);margin-top:10px;max-width:640px}
+  .hero-stats{display:flex;gap:12px;margin-top:14px;font-size:12px}
+  .hero-stats .stat{padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,0.03);color:var(--txt-dim)}
   .theme-group{margin-bottom:36px}
-  .theme-title{font-size:18px;color:var(--accent);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--accent)}
+  .theme-title{font-size:18px;color:var(--accent);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--accent);display:flex;align-items:center;gap:8px}
+  .theme-title .count{font-size:13px;color:var(--txt-dim);font-weight:400}
   .map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   @media(max-width:920px){h1{font-size:30px}}
 </style>

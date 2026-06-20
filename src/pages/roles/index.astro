@@ -15,10 +15,17 @@ const jsonLd = {
 ---
 <Base title={title} description={description} jsonLd={jsonLd} active="roles">
   <div class="wrap">
-    <section class="hero">
+    <section class="hero retro-hero">
       <div class="crumb"><a href="/">首页</a> / 角色图鉴</div>
-      <h1>全角色<span class="em">图鉴</span></h1>
+      <h1>
+        <span class="title-main">全角色</span>
+        <span class="em">图鉴</span>
+      </h1>
       <p class="sub">鹅、鸭、中立三大阵营全角色技能、胜利条件与玩法要点。点击卡片查看详细攻略。</p>
+      <div class="hero-stats">
+        <span class="stat">53 角色</span>
+        <span class="stat">3 阵营</span>
+      </div>
     </section>
 
     <AdSlot variant="top" />
@@ -30,14 +37,14 @@ const jsonLd = {
       </div>
       <div class="filters">
         <button class="chip on" data-f="all">全部</button>
-        <button class="chip" data-f="goose">🦢 鹅阵营</button>
-        <button class="chip" data-f="duck">🦆 鸭阵营</button>
+        <button class="chip" data-f="goose">🦢 鹅</button>
+        <button class="chip" data-f="duck">🦆 鸭</button>
         <button class="chip" data-f="neutral">🎭 中立</button>
       </div>
     </div>
     <div class="count" id="count"></div>
 
-    <div class="layout">
+    <div class="layout fade-in">
       <main>
         <div class="grid" id="grid">
           {roles.map((role) => <RoleCard role={role} />)}
@@ -52,18 +59,31 @@ const jsonLd = {
 
 <style>
   .hero{padding:46px 0 26px}
-  h1{font-size:40px;font-weight:900;letter-spacing:-.5px}
-  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .sub{color:var(--txt-dim);margin-top:8px;max-width:640px}
-  .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:8px}
+  .retro-hero h1{font-size:44px;font-weight:900;letter-spacing:-1px}
+  .retro-hero .title-main{display:block}
+  .retro-hero h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .retro-hero .sub{color:var(--txt-dim);margin-top:10px;max-width:640px}
+  .hero-stats{display:flex;gap:12px;margin-top:14px;font-size:12px}
+  .hero-stats .stat{padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,0.03);color:var(--txt-dim)}
+  .controls{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center;margin-bottom:8px}
   .search{flex:1;min-width:220px;position:relative}
-  .search input{width:100%;background:var(--bg-card);border:1px solid var(--line);border-radius:11px;padding:12px 14px 12px 40px;color:var(--txt);font-size:15px;font-family:inherit}
-  .search input:focus{outline:none;border-color:var(--goose)}
+  .search input{
+    width:100%;background:var(--bg-card);border:1px solid var(--line);
+    border-radius:var(--radius-md);padding:12px 14px 12px 40px;
+    color:var(--txt);font-size:15px;font-family:inherit;
+    transition:border-color var(--trans-fast);
+  }
+  .search input:focus{outline:none;border-color:var(--goose);box-shadow:0 0 0 3px rgba(59,169,255,.1)}
   .search svg{position:absolute;left:13px;top:13px;opacity:.5}
   .filters{display:flex;gap:8px;flex-wrap:wrap}
-  .chip{background:var(--bg-card);border:1px solid var(--line);color:var(--txt-dim);padding:9px 16px;border-radius:999px;cursor:pointer;font-size:14px;transition:.15s;font-family:inherit}
+  .chip{
+    background:var(--bg-card);border:1px solid var(--line);
+    color:var(--txt-dim);padding:9px 16px;border-radius:999px;
+    cursor:pointer;font-size:14px;transition:all var(--trans-fast);
+    font-family:inherit;
+  }
   .chip:hover{color:var(--txt);border-color:var(--txt-dim)}
-  .chip.on{color:#0c0e13;font-weight:700;border-color:transparent}
+  .chip.on{color:#151229;font-weight:700;border-color:transparent}
   .chip.on[data-f="goose"]{background:var(--goose)}
   .chip.on[data-f="duck"]{background:var(--duck)}
   .chip.on[data-f="neutral"]{background:var(--neutral)}

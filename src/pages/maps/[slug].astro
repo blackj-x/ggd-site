@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
 import { maps, getMap, annotationTypes, sizeLabel, type GameMap } from '../../data/maps';
 
 export function getStaticPaths() {
@@ -11,6 +12,8 @@ const { map } = Astro.props as { map: GameMap };
 const title = `${map.name}（${map.nameEn}）地图攻略与点位 - 鹅鸭杀`;
 const description = `鹅鸭杀${map.theme}主题地图「${map.name}」攻略：${map.summary} 含舱室布局、任务点位、刀点盲区与分阵营打法。`;
 
+const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -18,6 +21,10 @@ const jsonLd = {
       '@type': 'Article',
       headline: title,
       description,
+      image: ogImg ? new URL(ogImg, Astro.site).href : undefined,
+      author: { '@type': 'Organization', name: '鹅鸭攻略社' },
+      publisher: { '@type': 'Organization', name: '鹅鸭攻略社' },
+      dateModified: map.updatedAt || '2026-06-06',
     },
     {
       '@type': 'BreadcrumbList',
@@ -47,20 +54,20 @@ const campMeta = [
 ] as const;
 
 const related = maps.filter((m) => m.theme === map.theme && m.slug !== map.slug).slice(0, 3);
-const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
 ---
 <Base title={title} description={description} jsonLd={jsonLd} active="maps" ogImage={ogImg}>
   <div class="wrap detail">
     <div class="crumb"><a href="/">首页</a> / <a href="/maps/">地图攻略</a> / {map.name}</div>
 
-    <header class="map-head">
+    <header class="map-head retro-head">
       <div>
         <div class="badges">
           <span class="theme-badge">{map.theme}</span>
           <span class="size-badge">{sizeLabel[map.size]}地图</span>
         </div>
-        <h1>{map.name}</h1>
+        <h1 class="neon-title">{map.name}</h1>
         <div class="map-en">{map.nameEn}</div>
+        <div class="meta">更新: {map.updatedAt || '2026-06-06'} · 适用版本: 基础/腐化</div>
       </div>
     </header>
     <p class="lead">{map.summary}</p>
@@ -70,15 +77,19 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
     <div class="detail-layout">
       <main>
         {map.image ? (
-          <section class="sec map-viewer-sec">
-            <h2>🗺️ 舱室示意图</h2>
-            <p class="hint">把鼠标移到标注点上查看说明（移动端点击）。</p>
-            <div class="map-viewer">
-              <img src={map.image} alt={`${map.name}舱室示意图`} width={map.imageW} height={map.imageH} loading="lazy" decoding="async" />
-              {(map.annotations ?? []).map((a) => {
+          <InfoSection title="舱室示意图" icon="🗺️" variant="highlight">
+            <p class="hint">把鼠标移到标注点上查看说明（移动端点击）。点击图例可高亮对应类型。</p>
+            <div class="map-viewer" id="map-viewer">
+              <img src={map.image} alt={`${map.name}舱室示意图`} width={map.imageW} height={map.imageH} loading="lazy" decoding="async" class="img-enhanced" />
+              {(map.annotations ?? []).map((a, i) => {
                 const t = annotationTypes[a.type];
                 return (
-                  <button class="pin" style={`left:${a.x}%;top:${a.y}%;--pc:${t?.color ?? '#fff'}`} aria-label={a.label}>
+                  <button 
+                    class="pin" 
+                    data-type={a.type}
+                    style={`left:${a.x}%;top:${a.y}%;--pc:${t?.color ?? '#fff'}`} 
+                    aria-label={a.label}
+                  >
                     <span class="pin-dot"></span>
                     <span class="pin-pop">
                       <strong>{t?.icon} {a.label}</strong>
@@ -88,19 +99,23 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
                 );
               })}
             </div>
-            <div class="legend">
+            <div class="legend" id="legend">
               {[...new Set((map.annotations ?? []).map((a) => a.type))].map((tp) => (
-                <span class="leg"><i style={`background:${annotationTypes[tp]?.color}`}></i>{annotationTypes[tp]?.name}</span>
+                <button class="leg" data-type={tp}>
+                  <i style={`background:${annotationTypes[tp]?.color}`}></i>
+                  {annotationTypes[tp]?.name}
+                </button>
               ))}
             </div>
-          </section>
+          </InfoSection>
         ) : (
-          <section class="sec"><p class="hint">该地图示意图建设中，可先查看下方文字攻略。</p></section>
+          <InfoSection title="示意图建设中" icon="🗺️">
+            <p class="hint">该地图示意图建设中，可先查看下方文字攻略。</p>
+          </InfoSection>
         )}
 
         {map.strategy && (
-          <section class="sec">
-            <h2>🎯 分阵营打法</h2>
+          <InfoSection title="分阵营打法" icon="🎯">
             <div class="camp-strats">
               {campMeta.map((c) => {
                 const items = (map.strategy as any)?.[c.key] as string[] | undefined;
@@ -112,14 +127,13 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
                 ) : null;
               })}
             </div>
-          </section>
+          </InfoSection>
         )}
 
         {map.tips && map.tips.length > 0 && (
-          <section class="sec">
-            <h2>💡 速记要点</h2>
+          <InfoSection title="速记要点" icon="💡" variant="compact">
             <ul class="tips">{map.tips.map((t) => <li>{t}</li>)}</ul>
-          </section>
+          </InfoSection>
         )}
       </main>
 
@@ -147,19 +161,71 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
             ))}
           </div>
         )}
+        <div class="sec mini">
+          <h2>🔗 适配角色</h2>
+          <a class="rel" href="/roles/priest/">牧师</a>
+          <a class="rel" href="/roles/demon-hunter/">猎魔人</a>
+          <a class="rel" href="/roles/locksmith/">锁匠</a>
+          <a class="rel" href="/roles/sheriff/">警长</a>
+          <a class="rel" href="/roles/detective/">侦探</a>
+          <a class="rel" href="/roles/assassin/">刺客</a>
+        </div>
       </aside>
     </div>
   </div>
+
+  <!-- 地图图例高亮交互 (Phase 2) -->
+  <script is:inline>
+    const viewer = document.getElementById('map-viewer');
+    const legend = document.getElementById('legend');
+    if (viewer && legend) {
+      const pins = viewer.querySelectorAll('.pin');
+      const legs = legend.querySelectorAll('.leg');
+
+      function highlight(type) {
+        pins.forEach(p => {
+          if (p.dataset.type === type) {
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        });
+        legs.forEach(l => l.classList.toggle('active', l.dataset.type === type));
+      }
+
+      function clear() {
+        pins.forEach(p => p.classList.remove('active'));
+        legs.forEach(l => l.classList.remove('active'));
+      }
+
+      legs.forEach(leg => {
+        leg.addEventListener('click', () => {
+          const type = leg.dataset.type;
+          if (leg.classList.contains('active')) {
+            clear();
+          } else {
+            highlight(type);
+          }
+        });
+      });
+
+      // 点击 viewer 外部或双击清除
+      viewer.addEventListener('click', (e) => {
+        if (e.target === viewer || (e.target.tagName === 'IMG')) clear();
+      });
+    }
+  </script>
 </Base>
 
 <style>
   .detail{padding-top:24px}
-  .map-head{display:flex;justify-content:space-between;align-items:flex-end;padding-top:8px}
+  .map-head.retro-head{display:flex;justify-content:space-between;align-items:flex-end;padding-top:8px}
   .badges{display:flex;gap:8px;margin-bottom:10px}
   .theme-badge{font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px;background:rgba(176,107,255,.16);color:var(--neutral)}
   .size-badge{font-size:12px;padding:5px 12px;border-radius:8px;background:var(--bg-elev);color:var(--txt-dim);border:1px solid var(--line)}
-  .map-head h1{font-size:36px;font-weight:900}
+  .map-head h1.neon-title{font-size:36px;font-weight:900;text-shadow:0 0 12px rgba(255,216,78,.3)}
   .map-en{font-size:14px;color:var(--txt-dim);margin-top:2px}
+  .meta{font-size:12px;color:var(--txt-dim);margin-top:4px}
   .lead{color:var(--txt-dim);font-size:16px;margin:14px 0 4px;max-width:720px}
   .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
   .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
@@ -167,19 +233,113 @@ const ogImg = map.image ? map.image.replace(/\.svg$/, '.png') : undefined;
   .hint{font-size:13px;color:var(--txt-dim);margin-bottom:14px}
 
   /* 地图查看器：底图 + 标注点 */
-  .map-viewer{position:relative;line-height:0;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-  .map-viewer img{width:100%;height:auto;display:block}
-  .pin{position:absolute;transform:translate(-50%,-50%);background:none;border:none;cursor:pointer;padding:0;z-index:1}
-  .pin-dot{display:block;width:16px;height:16px;border-radius:50%;background:var(--pc);box-shadow:0 0 0 3px rgba(0,0,0,.35),0 0 12px -1px var(--pc);transition:.15s}
-  .pin:hover{z-index:5}
-  .pin:hover .pin-dot{transform:scale(1.4)}
-  .pin-pop{position:absolute;bottom:140%;left:50%;transform:translateX(-50%);background:var(--bg-elev);border:1px solid var(--pc);border-radius:10px;padding:9px 12px;width:200px;text-align:left;opacity:0;pointer-events:none;transition:.15s;line-height:1.5;z-index:10}
-  .pin:hover .pin-pop,.pin:focus .pin-pop{opacity:1}
-  .pin-pop strong{display:block;font-size:13px;color:var(--txt);margin-bottom:3px}
+  .map-viewer{
+    position:relative;
+    line-height:0;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,.5),
+                0 0 0 1px rgba(255,255,255,.05) inset;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .map-viewer:hover {
+    transform: scale(1.005);
+    box-shadow: 0 15px 40px -8px rgba(0,0,0,.6),
+                0 0 0 1px rgba(255,255,255,.08) inset;
+  }
+  .map-viewer img{
+    width:100%;height:auto;display:block;
+    transition: filter .4s ease;
+  }
+  .map-viewer:hover img { filter: contrast(1.05) saturate(1.1); }
+
+  .pin{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    z-index:1;
+    transition: transform .2s cubic-bezier(0.23,1,0.32,1);
+  }
+  .pin-dot{
+    display:block;
+    width:18px;height:18px;
+    border-radius:50%;
+    background:var(--pc);
+    box-shadow: 0 0 0 4px rgba(0,0,0,.4), 
+                0 0 0 8px rgba(255,255,255,.1),
+                0 0 18px 3px var(--pc);
+    transition: transform .2s ease, box-shadow .2s ease;
+    animation: pinPulse 2s infinite ease-in-out;
+  }
+  @keyframes pinPulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  .pin:hover{z-index:10}
+  .pin:hover .pin-dot{
+    transform:scale(1.6);
+    box-shadow: 0 0 0 5px rgba(0,0,0,.3), 
+                0 0 0 12px rgba(255,255,255,.15),
+                0 0 25px 6px var(--pc);
+  }
+  .pin.active .pin-dot {
+    animation: none;
+    transform: scale(1.8);
+    box-shadow: 0 0 0 6px rgba(255,255,255,.4), 0 0 30px 8px var(--pc);
+  }
+
+  .pin-pop{
+    position:absolute;
+    bottom:150%;left:50%;
+    transform:translateX(-50%);
+    background:var(--bg-elev);
+    border:2px solid var(--pc);
+    border-radius:12px;
+    padding:10px 14px;
+    width:220px;
+    text-align:left;
+    opacity:0;
+    pointer-events:none;
+    transition: all .25s cubic-bezier(0.23,1,0.32,1);
+    line-height:1.5;
+    z-index:20;
+    box-shadow: 0 8px 25px rgba(0,0,0,.4);
+  }
+  .pin:hover .pin-pop,
+  .pin:focus .pin-pop,
+  .pin.active .pin-pop {
+    opacity:1;
+    pointer-events:auto;
+    bottom:160%;
+  }
+  .pin-pop strong{display:block;font-size:14px;color:var(--txt);margin-bottom:4px}
   .pin-pop em{font-size:12px;color:var(--txt-dim);font-style:normal}
-  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
-  .leg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt-dim)}
+
+  /* Map viewer 强化 (Phase 2) */
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .leg{
+    display:flex;align-items:center;gap:6px;
+    font-size:12px;color:var(--txt-dim);
+    background:var(--bg-elev);border:1px solid var(--line);
+    padding:4px 10px;border-radius:var(--radius-sm);
+    cursor:pointer;transition:all var(--trans-fast);
+  }
   .leg i{width:11px;height:11px;border-radius:50%}
+  .leg:hover{border-color:var(--accent);color:var(--txt)}
+  .leg.active{background:var(--accent);color:#151229;border-color:var(--accent);font-weight:700}
+
+  .pin.active .pin-dot {
+    transform: scale(1.6);
+    box-shadow: 0 0 0 4px rgba(255,255,255,.3), 0 0 14px 2px var(--pc);
+  }
+  .pin.active .pin-pop {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   /* 分阵营攻略 */
   .camp-strats{display:flex;flex-direction:column;gap:14px}

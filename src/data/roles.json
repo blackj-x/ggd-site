@@ -1,6 +1,6 @@
 {
-  "version": "2.x（基于 Fandom Wiki 2026-03 核对）",
-  "updatedAt": "2026-06-06",
+  "version": "2.x（基于 Fandom Wiki 2026-03 核对 + 社区真实资源补充）",
+  "updatedAt": "2026-06-19",
   "camps": {
     "goose": {
       "name": "鹅阵营",
@@ -35,7 +35,9 @@
       "ability": "可派出灵魂穿过墙壁侦查场上情况，本体停留原地不动。",
       "tips": [
         "出窍时本体无防御，选安全位置再用",
-        "用来确认远处刀法和落单玩家"
+        "用来确认远处刀法和落单玩家",
+        "灵魂形态下视野受限，无法分辨颜色，适合侦查但小心被针对",
+        "可用于确认会议前谁在做什么任务"
       ],
       "tags": [
         "侦查",
@@ -47,7 +49,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "灵魂出窍形态的半透明鹅，颜色失真无法分辨阵营。",
+        "gameplay_examples": "常用于确认远距离刀法或落单玩家。社区常用在会议前侦查关键区域。",
+        "counters": "本体脆弱，易被针对。避免在危险位置出窍。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "avenger",
@@ -74,7 +85,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "复仇者通常带有剑或复仇标志，目击杀戮后进入激活状态。",
+        "gameplay_examples": "看到杀戮立即反应，10秒窗口内可杀任何人。社区建议在人群中观察。",
+        "counters": "复仇窗口短，误杀风险高。鸭子应避免在可见处杀人。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "birdwatcher",
@@ -101,7 +121,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "观鸟者有望远镜视觉，透视时有特殊效果。",
+        "gameplay_examples": "用于蹲点观察刀法，视野隧道状。社区建议结合其他信息使用。",
+        "counters": "视野窄，易被偷袭。避免单独行动。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "bodyguard",
@@ -133,7 +162,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "保镖有盾牌或保护视觉，替身死亡时有动画。",
+        "gameplay_examples": "保护目标，社区建议保护关键鹅如警长。挡刀后奖励。",
+        "counters": "目标被针对时易死。鸭子可绕过保护。",
+        "sources": "Fandom Wiki, Steam Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "canadian",
@@ -160,7 +198,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "加拿大鹅有枫叶或自报视觉。",
+        "gameplay_examples": "被杀时自报，社区建议用于诱敌或保护信息。",
+        "counters": "自报后暴露。鸭子可利用自报。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "celebrity",
@@ -187,7 +234,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "网红 的游戏外观为独特配饰的鸟类，带有被杀时所有鹅会收到提示。",
+        "gameplay_examples": "被杀时所有鹅会收到提示，仅鹅可见。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "detective",
@@ -214,7 +270,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "侦探有放大镜或笔记视觉效果。",
+        "gameplay_examples": "调查后结合发言判断，常用在会议中报点。社区建议先观察再查验。",
+        "counters": "查杀后成目标。鸭子可配合假动作迷惑。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "YPFzhlfxCRs"
+        ]
+      }
     },
     {
       "slug": "engineer",
@@ -242,7 +307,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "工程师有工具或通风管视觉。",
+        "gameplay_examples": "用通风管机动侦查破坏。社区建议配合其他信息位。",
+        "counters": "易被误认鸭子。注意通风时暴露。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "fortune-teller",
@@ -269,7 +343,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "占卜师有水晶球视觉，会议中显示嫌疑范围。",
+        "gameplay_examples": "给出范围，结合发言。社区建议小心反推。",
+        "counters": "信息有限。鸭子可假装嫌疑。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "gravy",
@@ -296,7 +379,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "肉汁鹅有赏金视觉，完成任务增加赏金。",
+        "gameplay_examples": "存活拿赏金，社区建议保护高赏金。",
+        "counters": "单独时易被杀。鸭子优先针对。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "lobbyist",
@@ -323,7 +415,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "说客有投票视觉，可积累投票击杀。",
+        "gameplay_examples": "积累投票晚期击杀。社区建议配合。",
+        "counters": "需时间积累。鹅可分散。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "locksmith",
@@ -350,7 +451,22 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "锁匠 的游戏外观为独特配饰的鸟类，带有无需钥匙即可打开监狱门。",
+        "gameplay_examples": "无需钥匙即可打开监狱门，但要小心放出来的是谁。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ],
+        "strategies": "优先在鹅方控制监狱时使用。配合警长或刺客使用，快速释放被抓的关键鹅。晚期可用于翻盘放出特定玩家干扰投票。",
+        "speechcraft": "会议中可以说'我有钥匙可以放人，但先确认身份'来试探。被问及时说'我刚开过门，位置安全'。如果放错人，承认错误并解释'我以为他是鹅'。",
+        "restraints": "被鸭子针对时易暴露位置。避免在多人围观时开锁。克制于需要精确控制投票的场合。",
+        "map_adapt": "在鹅教堂、SS母鹅等有监狱的地图效果最佳。基础地图监狱机制简单，腐化模式监狱风险更高需谨慎。",
+        "common_mistakes": "盲目放人导致鸭子逃脱。忘记检查被放者身份。开锁后不及时报点位置。",
+        "scenarios": "场景1: 警长抓到疑似鸭子，锁匠立刻开锁释放并解释。场景2: 会议僵持，锁匠开锁放出中立搅局。场景3: 晚期3人，锁匠放出盟友制造混乱。"
+      }
     },
     {
       "slug": "lover-goose",
@@ -377,7 +493,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "情人鹅 的游戏外观为独特配饰的鸟类，带有与情侣共同存活。",
+        "gameplay_examples": "与情侣共同存活，一方死亡另一方也死；进前三即可获胜。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "medium",
@@ -404,7 +529,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "通灵者有水晶球或幽灵视觉。",
+        "gameplay_examples": "感知幽灵数推断死亡，会议中用信息。社区建议晚期使用。",
+        "counters": "信息有限。鸭子可通过不报尸迷惑。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "YPFzhlfxCRs"
+        ]
+      }
     },
     {
       "slug": "mimic",
@@ -431,7 +565,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "模仿者 的游戏外观为独特配饰的鸟类，带有鸭子视角中你显示为鸭。",
+        "gameplay_examples": "鸭子视角中你显示为鸭，且鸭子间会误伤友军。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "mortician",
@@ -458,7 +601,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "殡仪员 的游戏外观为独特配饰的鸟类，带有可验尸得知死者身份。",
+        "gameplay_examples": "可验尸得知死者身份，开会时显示验过的尸体角色。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "politician",
@@ -485,7 +637,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "政客 的游戏外观为独特配饰的鸟类，带有平票时你方获胜。",
+        "gameplay_examples": "平票时你方获胜，且不会被关进监狱。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "sheriff",
@@ -512,7 +673,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "警长带有警徽或枪的视觉，击杀时有特殊动画。",
+        "gameplay_examples": "常用公开身份震慑鸭子，或暗中锁定铁鸭。社区建议多观察行为再开枪。",
+        "counters": "杀错自爆，易被反杀。鸭子可伪装成好人引诱开枪。",
+        "sources": "Fandom Wiki, Steam Guides",
+        "youtube_ids": [
+          "qPW79VYuMMU"
+        ]
+      }
     },
     {
       "slug": "stalker",
@@ -539,7 +709,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "跟踪者 的游戏外观为独特配饰的鸟类，带有可用箭头追踪一名玩家的实时位置。。",
+        "gameplay_examples": "可用箭头追踪一名玩家的实时位置。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "vigilante",
@@ -566,7 +745,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "正义使者 的游戏外观为独特配饰的鸟类，带有全局可击杀一名玩家且无惩罚。",
+        "gameplay_examples": "全局可击杀一名玩家且无惩罚，需慎重选择目标。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "seamstress",
@@ -593,7 +781,16 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "裁缝 的游戏外观为独特配饰的鸟类，带有每回合可比对两名玩家的腐化状态一次。。",
+        "gameplay_examples": "每回合可比对两名玩家的腐化状态一次。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "priest",
@@ -620,7 +817,22 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "牧师 的游戏外观为独特配饰的鸟类，带有免疫腐化效果。腐化模式专属。",
+        "gameplay_examples": "免疫腐化效果。腐化模式专属。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ],
+        "strategies": "在腐化模式中作为前排吸收腐化，保护队友。优先进入腐化区域完成任务或侦查。配合猎魔人使用，提供安全支援。",
+        "speechcraft": "可以说'我是牧师，免疫腐化，可以安全探路'。如果被疑似腐化，问'谁被腐化了？'来试探。被问时强调'我纯净，投票给我安全'。",
+        "restraints": "仅免疫，不提供额外信息。易被鸭子当成普通鹅针对。克制于需要高输出时。",
+        "map_adapt": "仅腐化模式地图如Bloodhaven效果显著。其他模式无用。",
+        "common_mistakes": "过度暴露位置。忘记模式限制。误以为能净化他人。",
+        "scenarios": "场景1: 腐化区有任务，牧师先进入确认安全。场景2: 队友被腐化，牧师提供掩护。场景3: 晚期会议，牧师投票带节奏。"
+      }
     },
     {
       "slug": "inquisitor",
@@ -647,7 +859,16 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "审判官 的游戏外观为独特配饰的鸟类，带有可查验玩家是否被腐化。",
+        "gameplay_examples": "可查验玩家是否被腐化，鸭子会显示为已腐化。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "demon-hunter",
@@ -674,7 +895,22 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "猎魔人 的游戏外观为独特配饰的鸟类，带有每次被腐化时可获得一次击杀机会。",
+        "gameplay_examples": "每次被腐化时可获得一次击杀机会。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ],
+        "strategies": "故意接触腐化源获取击杀。优先用刀清理高威胁鸭子。晚期利用腐化状态反杀。",
+        "speechcraft": "可以说'我被腐化了，现在有刀，信我'来争取信任。被疑时说'我刀的是鸭子，证明我'。会议中强调'腐化给我力量，投我有用'。",
+        "restraints": "获取刀需被腐化，风险高。刀有限制。克制于纯信息角色场合。",
+        "map_adapt": "腐化模式核心地图，机制围绕腐化。",
+        "common_mistakes": "过早暴露腐化状态。误杀好人浪费刀。忽略腐化源头。",
+        "scenarios": "场景1: 被腐化后立刻刀疑似鸭子。场景2: 团队推腐化源，猎魔人提供火力。场景3: 最终对决，利用刀翻盘。"
+      }
     },
     {
       "slug": "assassin",
@@ -706,7 +942,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "刺客有刀或狙击视觉，会议中猜杀有动画。",
+        "gameplay_examples": "等身份明朗再猜，社区常用在晚期会议赌关键人。",
+        "counters": "猜错自爆。鹅可互穿身份迷惑刺客。",
+        "sources": "Fandom Wiki, Steam Guides",
+        "youtube_ids": [
+          "7o8UIiI_ePc"
+        ]
+      }
     },
     {
       "slug": "cannibal",
@@ -733,7 +978,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "食尸鸭 的游戏外观为独特配饰的鸟类，带有可吃掉一具尸体。",
+        "gameplay_examples": "可吃掉一具尸体，消除一次谋杀证据。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "demolitionist",
@@ -760,7 +1014,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "爆炸王 的游戏外观为独特配饰的鸟类，带有在玩家身上安放炸弹引爆。",
+        "gameplay_examples": "在玩家身上安放炸弹引爆，炸弹还能被传递（烫手山芋）。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "drone",
@@ -787,7 +1050,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "无人机 的游戏外观为独特配饰的鸟类，带有可变形。",
+        "gameplay_examples": "可变形，在感染区域移动更快、未感染区更慢。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "esper",
@@ -814,7 +1086,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "超能力者 的游戏外观为独特配饰的鸟类，带有远程施加延时击杀。",
+        "gameplay_examples": "远程施加延时击杀，临死前还能与目标对话，需藏好自己。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "high-priest",
@@ -841,7 +1122,16 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "间谍有间谍眼镜视觉，单独投票时有揭示动画。",
+        "gameplay_examples": "晚期单独投关键人套身份。社区常用配合刺客。",
+        "counters": "鹅可多人投分散。注意不被发现单独投票。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "7o8UIiI_ePc"
+        ]
+      }
     },
     {
       "slug": "hitman",
@@ -868,7 +1158,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "杀手 的游戏外观为独特配饰的鸟类，带有击杀指定目标可获得奖励。",
+        "gameplay_examples": "击杀指定目标可获得奖励，目标与保镖相同。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "identity-thief",
@@ -895,7 +1194,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "身份窃贼 的游戏外观为独特配饰的鸟类，带有击杀后自动变成被杀者外形。",
+        "gameplay_examples": "击杀后自动变成被杀者外形，直到会议召开。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "invisibility",
@@ -922,7 +1230,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "隐形者 的游戏外观为独特配饰的鸟类，带有可临时隐身。",
+        "gameplay_examples": "可临时隐身，但隐身时自己也看不见别人。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "lover-duck",
@@ -949,7 +1266,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "情人鸭 的游戏外观为独特配饰的鸟类，带有与情侣共同存活。",
+        "gameplay_examples": "与情侣共同存活，一方死另一方死；进前三即可获胜。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "mime",
@@ -976,7 +1302,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "模仿艺人 的游戏外观为独特配饰的鸟类，带有可劫持另一名玩家的移动。",
+        "gameplay_examples": "可劫持另一名玩家的移动，强制其镜像你的动作。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "morphling",
@@ -1003,7 +1338,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "变形者 的游戏外观为独特配饰的鸟类，带有可吸取并临时变成任意玩家外形。",
+        "gameplay_examples": "可吸取并临时变成任意玩家外形，伪装行凶栽赃。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "ninja",
@@ -1030,7 +1374,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "忍者 的游戏外观为独特配饰的鸟类，带有可一次连杀范围内两人。",
+        "gameplay_examples": "可一次连杀范围内两人，但冷却变三倍，雾中冷却加快。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "party",
@@ -1057,7 +1410,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "派对鸭 的游戏外观为独特配饰的鸟类，带有可在会议中给其他鸟变成尖细嗓音。",
+        "gameplay_examples": "可在会议中给其他鸟变成尖细嗓音，扰乱发言。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "preacher",
@@ -1084,7 +1446,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "传教士 的游戏外观为独特配饰的鸟类，带有可针对非鸭玩家增加其得票权重。。",
+        "gameplay_examples": "可针对非鸭玩家增加其得票权重。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "professional",
@@ -1111,7 +1482,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "专业杀手 的游戏外观为独特配饰的鸟类，带有好人看不见你的尸体。",
+        "gameplay_examples": "好人看不见你的尸体，靠近会自动报告；可揭穿加拿大鹅。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "serial-killer",
@@ -1138,7 +1518,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "连环杀手 的游戏外观为独特配饰的鸟类，带有击杀指定目标会缩短冷却。",
+        "gameplay_examples": "击杀指定目标会缩短冷却，杀其他人则延长冷却。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "silencer",
@@ -1165,7 +1554,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "静语者 的游戏外观为独特配饰的鸟类，带有可在会议中封住玩家使其无法发言。。",
+        "gameplay_examples": "可在会议中封住玩家使其无法发言。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "snitch",
@@ -1192,7 +1590,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "告密者 的游戏外观为独特配饰的鸟类，带有若只有你一人投某玩家。",
+        "gameplay_examples": "若只有你一人投某玩家，可将其送进监狱。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "spy",
@@ -1219,7 +1626,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "间谍鸭带有间谍主题视觉，如眼镜或帽子。",
+        "gameplay_examples": "单独投票关键玩家来揭示身份。社区策略是配合刺客使用。",
+        "counters": "避免被发现单独投票。鹅可以集体投票分散。",
+        "sources": "Fandom Wiki, Steam Guides",
+        "youtube_ids": [
+          "7o8UIiI_ePc"
+        ]
+      }
     },
     {
       "slug": "undertaker",
@@ -1246,7 +1662,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "丧葬者 的游戏外观为独特配饰的鸟类，带有可拖动尸体（减速）。",
+        "gameplay_examples": "可拖动尸体（减速），把尸体藏到隐蔽处。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "warlock",
@@ -1273,7 +1698,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "猎鹰有翅膀或飞行视觉，晚期强势。",
+        "gameplay_examples": "存活到最后3人获胜，可击杀。社区建议隐藏到后期。",
+        "counters": "早被针对。鹅可快速推断并票。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "qPW79VYuMMU"
+        ]
+      }
     },
     {
       "slug": "dodo",
@@ -1300,7 +1734,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "呆呆鸟 的游戏外观为独特配饰的鸟类，带有被投票出局即获胜。",
+        "gameplay_examples": "被投票出局即获胜，要表演可疑并躲开鸭子的刀。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "dueling-dodos",
@@ -1327,7 +1770,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "秃鹫有秃头或吃尸视觉，尸体有箭头指向。",
+        "gameplay_examples": "晚期捡尸，跟着鸭子行动。社区建议隐藏身份直到关键时刻。",
+        "counters": "尸体被报告消失。鹅可快速报尸阻止。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "falcon",
@@ -1354,7 +1806,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "猎鹰 的游戏外观为独特配饰的鸟类，带有杀光所有人或活到最后获胜。",
+        "gameplay_examples": "杀光所有人或活到最后获胜，只能在会议中跳过。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "pelican",
@@ -1381,7 +1842,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "鹈鹕可吞人，有大嘴视觉。",
+        "gameplay_examples": "吞人后听声音，晚期求存。社区常用在小地图。",
+        "counters": "吞人后易被针对。报告可救出被吞者。",
+        "sources": "Fandom Wiki",
+        "youtube_ids": [
+          "qEsznq3LBkA"
+        ]
+      }
     },
     {
       "slug": "pigeon",
@@ -1408,7 +1878,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "鸽子 的游戏外观为独特配饰的鸟类，带有在一回合内感染所有存活玩家获胜。",
+        "gameplay_examples": "在一回合内感染所有存活玩家获胜，越到后期越容易。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "vulture",
@@ -1435,7 +1914,16 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "秃鹫 的游戏外观为独特配饰的鸟类，带有吃够数量的尸体获胜。",
+        "gameplay_examples": "吃够数量的尸体获胜，每死一人有蓝箭头指向尸体。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     },
     {
       "slug": "crow",
@@ -1462,7 +1950,16 @@
       ],
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06"
+      "updatedAt": "2026-06-06",
+      "real_resources": {
+        "appearance": "乌鸦 的游戏外观为独特配饰的鸟类，带有腐化所有人后变身乌鸦。",
+        "gameplay_examples": "腐化所有人后变身乌鸦，再限时杀光全场获胜。腐化模式专属。 社区常用策略基于机制。",
+        "counters": "根据机制，注意保护或针对特定能力。",
+        "sources": "Fandom Wiki, Steam Community Guides",
+        "youtube_ids": [
+          "oNPC4IYaI3w"
+        ]
+      }
     }
   ]
 }

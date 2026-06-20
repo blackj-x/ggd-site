@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
 import { roles, getRole, campName, stars, type Role } from '../../data/roles';
 
 // 为每个角色生成一个静态页面 /roles/{slug}
@@ -13,16 +14,18 @@ const { role } = Astro.props as { role: Role };
 const title = `${role.name}（${role.nameEn}）技能与玩法攻略 - 鹅鸭杀`;
 const description = `鹅鸭杀${campName[role.camp]}角色「${role.name}」：${role.summary} 含胜利条件、技能详解与玩法要点。`;
 
-// FAQ + 面包屑结构化数据
+// Article + Breadcrumb (FAQ removed if not visible on page)
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'FAQPage',
-      mainEntity: [
-        { '@type': 'Question', name: `${role.name}的技能是什么？`, acceptedAnswer: { '@type': 'Answer', text: role.ability } },
-        { '@type': 'Question', name: `${role.name}的胜利条件？`, acceptedAnswer: { '@type': 'Answer', text: role.winCondition } },
-      ],
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: '鹅鸭攻略社' },
+      publisher: { '@type': 'Organization', name: '鹅鸭攻略社' },
+      dateModified: role.updatedAt || '2026-06-19',
+      image: role.real_resources?.image ? new URL(role.real_resources.image, Astro.site).href : undefined,
     },
     {
       '@type': 'BreadcrumbList',
@@ -37,34 +40,96 @@ const jsonLd = {
 
 const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug).slice(0, 4);
 ---
-<Base title={title} description={description} jsonLd={jsonLd} active="roles">
+<Base title={title} description={description} jsonLd={jsonLd} active="roles" ogImage={role.real_resources?.image}>
   <div class="wrap detail">
     <div class="crumb"><a href="/">首页</a> / <a href="/roles/">角色图鉴</a> / {role.name}</div>
 
-    <article class="role-head" data-camp={role.camp}>
-      <div class="big-avatar">{role.icon}</div>
+    <article class="role-head retro-head" data-camp={role.camp}>
+      <div class="big-avatar neon-avatar">{role.icon}</div>
       <div class="head-info">
         <span class={`badge ${role.camp}`}>{campName[role.camp]}</span>
-        <h1>{role.name}{role.canKill && <span class="knife"> 🔪带刀</span>}</h1>
+        <h1 class="neon-title">{role.name}{role.canKill && <span class="knife"> 🔪带刀</span>}</h1>
         <div class="role-en">{role.nameEn} · 难度 {stars(role.difficulty)}</div>
         <div class="head-tags">{(role.tags ?? []).map((t) => <span class="tag">{t}</span>)}</div>
+        <div class="meta">适用版本: 腐化/经典 · 更新: {role.updatedAt || '2026-06-06'}</div>
       </div>
     </article>
+
+    <!-- 真实游戏视觉资源 -->
+    <section class="portrait-section">
+      <h2>🖼️ 游戏内视觉</h2>
+      <div class="portrait">
+        <div class="portrait-frame">
+          <span class="portrait-icon">{role.icon}</span>
+        </div>
+        <div class="portrait-desc">
+          <p><strong>外观描述：</strong> {role.real_resources?.appearance || `一只可爱的${role.camp === 'goose' ? '鹅' : role.camp === 'duck' ? '鸭' : '中立鸟'}，带有独特的配饰或效果。`}</p>
+          {role.real_resources && (
+            <>
+              <p><strong>真实游戏玩法示例：</strong> {role.real_resources.gameplay_examples}</p>
+              <p><strong>反制建议：</strong> {role.real_resources.counters}</p>
+              {role.real_resources.image && (
+                <div class="real-image">
+                  <img src={role.real_resources.image} alt={`${role.name} 游戏内参考图`} loading="lazy" />
+                  <small>游戏内参考图</small>
+                </div>
+              )}
+              <p class="hint">来源: {role.real_resources.sources} （数据基于Fandom Wiki和社区指南，建议参考官方游戏最新版本。）</p>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {role.real_resources && role.real_resources.youtube_ids && role.real_resources.youtube_ids.length > 0 && (
+      <section class="youtube-section">
+        <h2>🎥 游戏实况视频</h2>
+        <div class="video-grid">
+          {role.real_resources.youtube_ids.map((id: string) => (
+            <div class="video-embed">
+              <iframe 
+                width="100%" 
+                height="180" 
+                src={`https://www.youtube.com/embed/${id}`} 
+                title={`${role.name} 游戏视频`}
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+              ></iframe>
+            </div>
+          ))}
+        </div>
+        <p class="hint">来自 YouTube 社区实况（真实对局演示）</p>
+      </section>
+    )}
+
+    <!-- 快速情报 (角色页特色) -->
+    <div class="quick-facts">
+      <div class="fact"><span class="label">阵营</span><span class="val">{campName[role.camp]}</span></div>
+      <div class="fact"><span class="label">难度</span><span class="val">{stars(role.difficulty)}</span></div>
+      <div class="fact"><span class="label">带刀</span><span class="val">{role.canKill ? '是' : '否'}</span></div>
+      <div class="fact"><span class="label">投票</span><span class="val">{role.canVote ? '是' : '否'}</span></div>
+    </div>
 
     <AdSlot variant="top" label="广告位 · 内容顶部 728×90" />
 
     <div class="detail-layout">
       <main>
-        <section class="sec"><h2>🏆 胜利条件</h2><p>{role.winCondition}</p></section>
-        <section class="sec"><h2>✨ 技能详解</h2><p>{role.ability}</p></section>
+        <InfoSection title="胜利条件" icon="🏆">
+          <p>{role.winCondition}</p>
+        </InfoSection>
+
+        <InfoSection title="技能详解" icon="✨" variant="highlight">
+          <p>{role.ability}</p>
+        </InfoSection>
+
         {role.tips && role.tips.length > 0 && (
-          <section class="sec">
-            <h2>💡 玩法要点</h2>
+          <InfoSection title="玩法要点" icon="💡">
             <ul>{role.tips.map((t) => <li>{t}</li>)}</ul>
-          </section>
+          </InfoSection>
         )}
-        <section class="sec">
-          <h2>🔗 同阵营角色</h2>
+
+        <InfoSection title="同阵营角色" icon="🔗" variant="compact">
           <div class="related">
             {related.map((r) => (
               <a class="rel-card" data-camp={r.camp} href={`/roles/${r.slug}/`}>
@@ -73,7 +138,44 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
               </a>
             ))}
           </div>
-        </section>
+        </InfoSection>
+
+        {role.relations && (role.relations.counters || role.relations.counteredBy || role.relations.canSee) && (
+          <InfoSection title="关键关系" icon="🔄" variant="compact">
+            <div class="relations">
+              {role.relations.counters && (
+                <div class="rel-item"><strong>克制</strong><span>{role.relations.counters.join('、')}</span></div>
+              )}
+              {role.relations.counteredBy && (
+                <div class="rel-item"><strong>被克制</strong><span>{role.relations.counteredBy.join('、')}</span></div>
+              )}
+              {role.relations.canSee && (
+                <div class="rel-item"><strong>可见</strong><span>{role.relations.canSee.join('、')}</span></div>
+              )}
+            </div>
+          </InfoSection>
+        )}
+
+        {role.maps && role.maps.length > 0 && (
+          <InfoSection title="推荐地图" icon="🗺️" variant="compact">
+            {role.maps.includes('all') ? (
+              <p>适用于所有地图。查看 <a href="/maps/">全部地图攻略</a>。</p>
+            ) : (
+              <ul>{role.maps.map(m => <li><a href={`/maps/${m}/`}>{m}</a></li>)}</ul>
+            )}
+          </InfoSection>
+        )}
+
+        {role.real_resources && (role.real_resources.strategies || role.real_resources.speechcraft || role.real_resources.restraints || role.real_resources.map_adapt || role.real_resources.common_mistakes || role.real_resources.scenarios) && (
+          <InfoSection title="实战攻略" icon="🎯">
+            {role.real_resources.strategies && <p><strong>实战策略：</strong> {role.real_resources.strategies}</p>}
+            {role.real_resources.speechcraft && <p><strong>会议话术：</strong> {role.real_resources.speechcraft}</p>}
+            {role.real_resources.restraints && <p><strong>克制关系：</strong> {role.real_resources.restraints}</p>}
+            {role.real_resources.map_adapt && <p><strong>适配地图：</strong> {role.real_resources.map_adapt}</p>}
+            {role.real_resources.common_mistakes && <p><strong>常见误区：</strong> {role.real_resources.common_mistakes}</p>}
+            {role.real_resources.scenarios && <p><strong>具体场景：</strong> {role.real_resources.scenarios}</p>}
+          </InfoSection>
+        )}
       </main>
       <aside><AdSlot variant="side" /></aside>
     </div>
@@ -82,24 +184,162 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
 
 <style>
   .detail{padding-top:24px}
-  .role-head{display:flex;gap:20px;align-items:center;padding:24px 0}
-  .big-avatar{width:96px;height:96px;border-radius:22px;display:grid;place-items:center;font-size:54px;flex-shrink:0}
-  .role-head[data-camp="goose"] .big-avatar{background:rgba(59,169,255,.16)}
-  .role-head[data-camp="duck"] .big-avatar{background:rgba(255,84,112,.16)}
-  .role-head[data-camp="neutral"] .big-avatar{background:rgba(176,107,255,.16)}
-  .head-info h1{font-size:34px;font-weight:900;margin:8px 0 2px}
+  .role-head.retro-head{display:flex;gap:20px;align-items:center;padding:24px 0}
+  .big-avatar.neon-avatar{width:96px;height:96px;border-radius:22px;display:grid;place-items:center;font-size:54px;flex-shrink:0;border:2px solid rgba(255,255,255,0.1)}
+  .role-head[data-camp="goose"] .big-avatar.neon-avatar{background:rgba(59,169,255,.16);box-shadow:0 0 20px rgba(59,169,255,.3)}
+  .role-head[data-camp="duck"] .big-avatar.neon-avatar{background:rgba(255,84,112,.16);box-shadow:0 0 20px rgba(255,84,112,.3)}
+  .role-head[data-camp="neutral"] .big-avatar.neon-avatar{background:rgba(176,107,255,.16);box-shadow:0 0 20px rgba(176,107,255,.3)}
+  .head-info h1.neon-title{font-size:34px;font-weight:900;margin:8px 0 2px;text-shadow:0 0 10px rgba(255,216,78,.3)}
   .head-info .knife{font-size:16px;color:var(--duck)}
   .head-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+  .meta{font-size:12px;color:var(--txt-dim);margin-top:6px}
+
+  /* 真实游戏视觉资源 */
+  .portrait-section {
+    margin-bottom: var(--space-5);
+  }
+  .portrait-section h2 {
+    font-size: 17px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .portrait {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+  }
+  .portrait-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 64px;
+    flex-shrink: 0;
+    border: 3px solid var(--accent);
+    background: var(--bg-elev);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+  .portrait-icon {
+    transition: transform 0.2s;
+  }
+  .portrait-frame:hover .portrait-icon {
+    transform: scale(1.1);
+  }
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .portrait-desc {
+    flex: 1;
+    font-size: 15px;
+    color: var(--txt);
+  }
+  .portrait-desc p {
+    margin-bottom: 8px;
+  }
+  .portrait-desc .hint {
+    font-size: 12px;
+    color: var(--txt-dim);
+  }
+
+  .real-image {
+    margin: 10px 0;
+  }
+  .real-image img {
+    max-width: 200px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .real-image small {
+    display: block;
+    font-size: 10px;
+    color: var(--txt-dim);
+  }
+
+  .youtube-section {
+    margin-bottom: 20px;
+  }
+  .youtube-section h2 {
+    font-size: 17px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .video-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  /* 角色页专属快速情报 */
+  .quick-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 0 20px;
+  }
+  .quick-facts .fact {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .quick-facts .label { color: var(--txt-dim); display: block; font-size: 11px; margin-bottom: 2px; }
+  .quick-facts .val { font-weight: 700; color: var(--txt); }
+
   .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
-  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
-  .sec h2{font-size:17px;color:var(--accent);margin-bottom:10px}
-  .sec p{font-size:15.5px}
-  .sec ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .sec li{font-size:15px;color:var(--txt-dim);padding-left:20px;position:relative}
-  .sec li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+
   .related{display:flex;gap:12px;flex-wrap:wrap}
   .rel-card{display:flex;align-items:center;gap:8px;background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;transition:.15s}
   .rel-card:hover{border-color:var(--txt-dim);transform:translateY(-2px)}
   .rel-icon{font-size:22px}
-  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}.ad-side{display:none}.head-info h1{font-size:26px}}
+
+  .relations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  .rel-item {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all .2s ease;
+  }
+  .rel-item:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
+  }
+  .rel-item strong {
+    color: var(--accent);
+    font-size: 12px;
+    min-width: 52px;
+  }
+  .rel-item span {
+    color: var(--txt);
+    flex: 1;
+  }
+
+  @media(max-width:920px){
+    .detail-layout{grid-template-columns:1fr}
+    .ad-side{display:none}
+    .head-info h1{font-size:26px}
+    .quick-facts{grid-template-columns: repeat(2, 1fr);}
+  }
 </style>

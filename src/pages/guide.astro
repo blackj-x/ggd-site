@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AdSlot from '../components/AdSlot.astro';
+import InfoSection from '../components/InfoSection.astro';
 import { SITE } from '../data/site';
 
 const title = '新手入门：鹅鸭杀怎么玩？三阵营、术语与对局流程 - 鹅鸭攻略社';
@@ -50,20 +51,22 @@ const jsonLd = {
 <Base title={title} description={description} jsonLd={jsonLd} active="guide">
   <div class="wrap detail">
     <div class="crumb"><a href="/">首页</a> / 新手入门</div>
-    <h1>新手入门：<span class="em">鹅鸭杀怎么玩</span></h1>
+    <h1 class="retro-hero">新手入门：<span class="em">鹅鸭杀怎么玩</span></h1>
     <p class="lead">一句话概括：这是一款多人社交推理游戏。好人（鹅）做任务找内鬼，内鬼（鸭）偷偷杀人搞破坏，大家靠开会投票把内鬼揪出来。下面带你从零看懂。</p>
+    <div class="hero-stats">
+      <span class="stat">核心规则</span>
+      <span class="stat">黑话术语</span>
+    </div>
 
     <AdSlot variant="top" />
 
     <div class="detail-layout">
       <main>
-        <section class="sec">
-          <h2>🎯 核心规则</h2>
+        <InfoSection title="核心规则" icon="🎯">
           <p>每局玩家被分成三种阵营，开局只有自己知道身份。鹅要在地图上完成任务、同时揪出鸭；鸭伪装成鹅，伺机杀人和破坏；中立则各有各的小算盘。一局由若干「行动 → 开会讨论 → 投票」的回合循环组成，直到某一方达成获胜条件。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>🐧 三大阵营目标</h2>
+        <InfoSection title="三大阵营目标" icon="🐧">
           <div class="camps">
             <div class="camp" style="--cc:var(--goose)">
               <h3>🦢 鹅阵营（好人）</h3>
@@ -78,7 +81,7 @@ const jsonLd = {
               <p>不属于任何一方，各有独立获胜条件。比如呆呆鸟要被投出局才赢、鹈鹕要活到最后。达成自己的目标时，其他所有人都算输。</p>
             </div>
           </div>
-        </section>
+        </InfoSection>
 
         <section class="sec">
           <h2>🔄 一局的完整流程</h2>
@@ -91,8 +94,7 @@ const jsonLd = {
           </ol>
         </section>
 
-        <section class="sec">
-          <h2>📖 必懂黑话术语</h2>
+        <InfoSection title="必懂黑话术语" icon="📖">
           <p class="hint">看懂这些词，你就能跟上老玩家的发言节奏。</p>
           <dl class="terms">
             {terms.map((t) => (
@@ -102,10 +104,9 @@ const jsonLd = {
               </div>
             ))}
           </dl>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>🚧 新手避坑</h2>
+        <InfoSection title="新手避坑" icon="🚧" variant="highlight">
           <ul class="tips">
             <li><strong>先玩地下室</strong>：地图小、任务简单、没有复杂机制，最适合摸清基础节奏，熟了再换图。</li>
             <li><strong>别落单</strong>：单独行动最容易被鸭子卡视野秒杀。尽量和 1-2 人结伴，互为不在场证明。</li>
@@ -113,7 +114,39 @@ const jsonLd = {
             <li><strong>看到凭空消失要警惕</strong>：在没有通风管的地图，有人突然不见，很可能是钻了管道——那是鸭子的能力。</li>
             <li><strong>输赢别太当真</strong>：这游戏没天梯，多活一轮、多用一次技能、多读懂一点局势，就是进步。</li>
           </ul>
-        </section>
+        </InfoSection>
+
+        <!-- 真实游戏资源 -->
+        <InfoSection title="真实游戏资源" icon="📚">
+          <p>以下是来自官方和社区的真实资源链接，帮助你深入了解游戏（非本站托管内容，请遵守版权）：</p>
+          <ul class="resources">
+            <li><a href="https://goose-goose-duck.fandom.com/wiki/Roles" target="_blank">Fandom Wiki - 完整角色列表</a>（最新机制、地图专属）</li>
+            <li><a href="https://store.steampowered.com/app/1568590/Goose_Goose_Duck/" target="_blank">Steam 官方页面</a>（下载、更新日志）</li>
+            <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2539172531" target="_blank">Steam 社区深度角色指南</a>（玩家真实攻略）</li>
+            <li><a href="https://www.youtube.com/results?search_query=goose+goose+duck+gameplay" target="_blank">YouTube 游戏实况</a>（观看真实对局）</li>
+          </ul>
+          <p class="hint">本站所有角色描述基于 Fandom Wiki 2026 核对，持续更新。地图使用原创 SVG 避免版权问题。</p>
+        </InfoSection>
+
+        <InfoSection title="腐化模式专题攻略" icon="🦠">
+          <p>腐化模式核心：优先免疫/查验角色（牧师、审判官）。猎魔人可主动被腐化获刀。注意腐化源头位置，晚期团队推鸭清腐化。</p>
+        </InfoSection>
+
+        <InfoSection title="监狱与锁匠机制" icon="🔒">
+          <p>监狱地图：锁匠价值极高。优先放鹅方关键角色。鸭子可利用开锁混乱投票。避免开锁放出高威胁。</p>
+        </InfoSection>
+
+        <InfoSection title="会议话术基础" icon="🗣️">
+          <p>先报信息再推人。避免直接指认，用“疑似”留空间。晚期3人时，锁定带刀角色优先。</p>
+        </InfoSection>
+
+        <InfoSection title="腐化模式反腐攻略" icon="🧪">
+          <p>腐化源头优先清理。免疫角色前探。猎魔人反杀时机关键。避免团队全腐化。</p>
+        </InfoSection>
+
+        <InfoSection title="监狱翻盘技巧" icon="🔓">
+          <p>锁匠晚期放出搅局者。配合报点制造信任危机。注意被放者后续行为。</p>
+        </InfoSection>
 
         <section class="sec next">
           <h2>👉 下一步</h2>
@@ -130,9 +163,28 @@ const jsonLd = {
 
 <style>
   .detail{padding-top:24px}
-  h1{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
-  h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .hero-stats{display:flex;gap:12px;margin-top:12px;font-size:12px}
+  .hero-stats .stat{padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,0.03);color:var(--txt-dim)}
+  .resources {
+    list-style: none;
+    padding: 0;
+  }
+  .resources li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .resources li::before {
+    content: "🔗";
+    position: absolute;
+    left: 0;
+  }
+  .resources a {
+    color: var(--accent);
+  }
   .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
   .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
   .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}

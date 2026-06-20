@@ -86,7 +86,19 @@ const links = [
           <a href={l.href} class={active === l.key ? 'on' : ''}>{l.label}</a>
         ))}
       </div>
+      <!-- 移动端汉堡 (Phase 1) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
     </nav>
+
+    <!-- 移动端抽屉菜单 -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-menu-close" id="mobile-close" aria-label="关闭菜单">×</button>
+      <div style="margin-bottom:12px;font-family:'ZCOOL KuaiLe',cursive;font-size:18px;opacity:.9">🦢 鹅鸭攻略社</div>
+      {links.map((l) => (
+        <a href={l.href} class={active === l.key ? 'on' : ''}>{l.label}</a>
+      ))}
+    </div>
   </header>
   <slot />
   <footer>
@@ -97,5 +109,37 @@ const links = [
     </nav>
     <div class="foot-note">鹅鸭攻略社 · 角色数据持续更新 · 本站为玩家攻略站，与游戏官方无关</div>
   </footer>
+
+  <!-- 移动导航脚本 (Phase 1) -->
+  <script is:inline>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-overlay');
+    const closeBtn = document.getElementById('mobile-close');
+
+    function openMenu() {
+      menu.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    if (toggle && menu && overlay) {
+      toggle.addEventListener('click', openMenu);
+      overlay.addEventListener('click', closeMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+      // 按 ESC 关闭
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+    }
+  </script>
 </body>
 </html>

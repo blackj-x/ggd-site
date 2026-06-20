@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import InfoSection from '../components/InfoSection.astro';
 import { roles } from '../data/roles';
 import { maps } from '../data/maps';
 
@@ -35,18 +36,16 @@ const jsonLd = {
 
     <div class="detail-layout-single">
       <main>
-        <section class="sec">
-          <h2>🎯 本站是什么</h2>
+        <InfoSection title="本站是什么" icon="🎯">
           <p>这是一个围绕《鹅鸭杀》的<strong>查得清、用得上</strong>的攻略资料站。目前收录:</p>
           <ul class="kv">
             <li><strong>角色图鉴 {roles.length} 种</strong>:鹅、鸭、中立三大阵营每个身份的技能详解、胜利条件、能否带刀/投票,以及实战玩法要点。</li>
             <li><strong>地图攻略 {maps.length} 张</strong>:各地图的任务点位、关键路线与刀点思路,配原创绘制的地图图示。</li>
             <li><strong>新手入门与进阶话术</strong>等专题:从规则、术语到对局博弈的成体系讲解,随游戏版本持续更新。</li>
           </ul>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>📚 内容怎么来的</h2>
+        <InfoSection title="内容怎么来的" icon="📚">
           <p>本站内容由我们<strong>基于公开游戏数据独立整理、改写而成</strong>,不是机器翻译搬运,也不是对某个 Wiki 的逐句复制:</p>
           <ul class="kv">
             <li><strong>数据字段</strong>(如角色阵营、技能机制、地图任务点)来自游戏内可观察的事实与社区维护的公开资料。这类客观游戏信息属于事实,不构成版权问题。</li>
@@ -55,27 +54,28 @@ const jsonLd = {
             <li>查不到准确数值的内容,我们会标注为「估计/推断」,不伪装成确定事实。</li>
           </ul>
           <p class="hint">游戏会随版本更新角色与机制,我们持续校对数据;若你发现错漏,欢迎通过联系页指正。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>👥 做给谁看</h2>
+        <InfoSection title="做给谁看" icon="👥">
           <p>面向所有玩《鹅鸭杀》的中文玩家——尤其是想快速记住各身份技能的新人、要规划地图路线和刀点的老手,以及想提升对局话术与博弈水平的人。我们追求的是「<strong>开局前来这里一查就有答案</strong>」,而不是堆砌没人看的字数。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>🛰 与母站 metaup.pro 的关系</h2>
+        <InfoSection title="与母站 metaup.pro 的关系" icon="🛰">
           <p>本站隶属于 <a href="https://metaup.pro" rel="noopener" target="_blank">metaup.pro</a> 旗下的游戏攻略站群。我们为不同游戏分别建立<strong>独立的中文攻略站</strong>(如《致命公司》攻略社 <a href="https://lethalcompany.metaup.pro" rel="noopener" target="_blank">lethalcompany.metaup.pro</a>),每个站专注一款游戏、独立成体系,由同一团队运营、共享一套对资料准确性与原创性的标准。鹅鸭攻略社(gooseduck.metaup.pro)即其中之一,也是站群的首个验证站。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>⚖️ 版权声明</h2>
+        <InfoSection title="版权声明" icon="⚖️">
           <p>《鹅鸭杀》(Goose Goose Duck)及其相关名称、美术资产的版权归 Gaggle Studios 及其发行方所有。<strong>本站是非官方的玩家攻略站,与游戏官方及其发行方没有从属或合作关系</strong>,仅出于信息与攻略目的引用公开的游戏事实数据。如有权利方认为内容存在问题,欢迎通过联系页与我们沟通处理。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec next">
-          <h2>👉 开始使用</h2>
+        <InfoSection title="开始使用" icon="👉" variant="compact">
           <p>新玩家建议从<a href="/guide/">新手入门</a>入门,再去<a href="/roles/">角色图鉴</a>认全各身份技能、用<a href="/maps/">地图攻略</a>规划路线。想了解我们如何处理数据,请看<a href="/privacy/">隐私政策</a>。</p>
-        </section>
+        </InfoSection>
+
+        <InfoSection title="资料来源与更新原则" icon="📚">
+          <p>数据来源于 Fandom Wiki、Steam 社区指南及玩家实测。更新原则：优先官方机制，其次社区共识。每角色/地图标注 updatedAt，重大更新会更新 sitemap lastmod。</p>
+          <p>编辑说明：欢迎通过联系页提交更正。所有内容为原创整理，非复制粘贴。腐化模式等专属内容单独标注适用版本。</p>
+        </InfoSection>
       </main>
     </div>
   </div>
@@ -87,12 +87,6 @@ const jsonLd = {
   h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 18px;max-width:760px}
   .detail-layout-single{max-width:820px;margin-bottom:40px}
-  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
-  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
-  .sec p{font-size:15.5px;color:var(--txt);line-height:1.7;margin-bottom:10px}
-  .sec p:last-child{margin-bottom:0}
-  .sec a{color:var(--accent)}
-  .sec strong{color:var(--txt)}
   .hint{font-size:13px;color:var(--txt-dim)!important}
   .kv{list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 12px}
   .kv li{font-size:15px;color:var(--txt-dim);line-height:1.65;padding-left:18px;position:relative}

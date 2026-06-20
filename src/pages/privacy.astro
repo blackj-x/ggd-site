@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import InfoSection from '../components/InfoSection.astro';
 import { SITE } from '../data/site';
 
 const title = '隐私政策 - 鹅鸭攻略社';
@@ -47,41 +48,35 @@ const jsonLd = {
           <p class="hint">说明:本站广告均由 Google 自动投放,本站无法控制具体展示哪些广告。</p>
         </section>
 
-        <section class="sec">
-          <h2>📊 流量统计(Cloudflare Web Analytics)</h2>
+        <InfoSection title="流量统计(Cloudflare Web Analytics)" icon="📊">
           <p>本站使用 <strong>Cloudflare Web Analytics</strong> 进行匿名流量统计,用于了解大致的访问量与受欢迎的页面,以便改进内容。关于它你需要知道:</p>
           <ul class="kv">
             <li>Cloudflare Web Analytics <strong>不使用 Cookie</strong>,<strong>不在你的设备上存储或读取任何标识符</strong>。</li>
             <li>它<strong>不采集任何能识别你个人身份的信息</strong>,也不跨站点追踪你的浏览行为。</li>
             <li>它仅汇总统计页面浏览量、来源、设备类型等匿名聚合指标。详见 <a href="https://www.cloudflare.com/web-analytics/" rel="noopener" target="_blank">Cloudflare Web Analytics</a> 及其隐私说明。</li>
           </ul>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>📨 联系方式与来信</h2>
+        <InfoSection title="联系方式与来信" icon="📨">
           <p>本站不设注册、登录或评论功能,<strong>不会主动向你索取任何个人信息</strong>。</p>
           <p>如果你通过 <a href="/contact/">联系页</a>提供的邮箱主动写信给我们,我们收到的邮箱地址及信件内容<strong>仅用于回复你的来信</strong>,不会用于群发推广,也不会出售或共享给第三方。处理完你的诉求后,我们没有继续保留这些通信内容的义务。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>🔗 第三方链接</h2>
+        <InfoSection title="第三方链接" icon="🔗">
           <p>本站部分页面会链接到外部站点(如游戏 Wiki、社区资料来源等)。这些站点有各自独立的隐私政策,本政策不覆盖它们的行为,请你在访问时自行参阅对应站点的条款。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>👶 未成年人</h2>
+        <InfoSection title="未成年人" icon="👶">
           <p>本站为面向一般玩家的游戏攻略内容,不针对未满 13 周岁的儿童设计,也不会主动收集其个人信息。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec">
-          <h2>🔄 政策更新</h2>
+        <InfoSection title="政策更新" icon="🔄">
           <p>本政策可能随服务调整而更新,更新后将修改本页顶部的「最后更新日期」。重大变更我们会尽量在站内显著位置提示。继续使用本站即表示你了解并接受最新版本的本政策。</p>
-        </section>
+        </InfoSection>
 
-        <section class="sec next">
-          <h2>📮 有疑问?</h2>
+        <InfoSection title="有疑问?" icon="📮" variant="compact">
           <p>对本隐私政策有任何疑问,欢迎通过<a href="/contact/">联系页</a>与我们沟通。也欢迎了解<a href="/about/">本站是什么</a>。</p>
-        </section>
+        </InfoSection>
       </main>
     </div>
   </div>
@@ -93,10 +88,6 @@ const jsonLd = {
   h1 .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 18px;max-width:760px}
   .detail-layout-single{max-width:820px;margin-bottom:40px}
-  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
-  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
-  .sec p{font-size:15.5px;color:var(--txt);line-height:1.7;margin-bottom:10px}
-  .sec p:last-child{margin-bottom:0}
   .sec a{color:var(--accent)}
   .sec strong{color:var(--txt)}
   .hint{font-size:13px;color:var(--txt-dim)!important}
