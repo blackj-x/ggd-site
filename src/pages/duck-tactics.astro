@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import InfoSection from '../components/InfoSection.astro';
+import { SITE } from '../data/site';
+
+const title = '鸭子伪装与反制全攻略 - 鹅鸭杀';
+const description = '鹅鸭杀鸭子进阶攻略：常见伪装手法、任务伪装、破坏时机、不在场证明、反制技巧与鹅方如何识破。';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / <a href="/guide/">新手入门</a> / 鸭子战术</div>
+    <h1 class="retro-hero">鸭子伪装与反制<span class="em">全攻略</span></h1>
+    <p class="lead">鸭子赢靠的不是多杀，而是“像好人”。鹅赢靠的是“看穿伪装”。</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="经典伪装手法" icon="🦆">
+          <p><strong>任务伪装</strong>：站在任务点假装做，实际观察周围。别真做——做太快或位置不对会被发现。</p>
+          <p><strong>破坏时机</strong>：在鹅最需要破坏的时候（会议前、任务快完成时）发动。</p>
+          <p><strong>不在场证明</strong>：提前和别人“结伴”，杀完立刻回人群或报点。</p>
+          <p><strong>会议表演</strong>：主动报点、推别人、装傻，用信息量掩盖自己。</p>
+        </InfoSection>
+
+        <InfoSection title="高级伪装技巧" icon="🎭">
+          <ul>
+            <li>带刀鸭可以假装“带刀好人”跳身份</li>
+            <li>利用中立角色搅局（尤其是求票类）</li>
+            <li>故意暴露小破绽，让鹅误以为你是“可疑但不是鸭”</li>
+            <li>和队友配合制造“互相证明”</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="鹅方如何识破" icon="🔍">
+          <p>看矛盾：前后发言不一致、任务进度和位置不符。</p>
+          <p>看时机：破坏总发生在你最不方便的时候。</p>
+          <p>看结伴：一直和不同的人“在一起”，但没人能完全证明。</p>
+          <p>看信息量：报点太多太详细反而可疑（尤其是没被问的时候）。</p>
+          <p>晚期优先验证带刀身份。</p>
+        </InfoSection>
+
+        <InfoSection title="常见反制案例" icon="⚔️">
+          <p>案例1：鸭子报“我和XX在一起”，但XX说“我一个人”。立刻盘。</p>
+          <p>案例2：破坏后鸭子第一个到修现场——太积极反而暴露。</p>
+          <p>案例3：会议上一直推信息位——可能是鸭子想除掉威胁。</p>
+        </InfoSection>
+      </main>
+
+      <aside>
+        <AdSlot variant="side" />
+        <div class="sec mini">
+          <h2>🔗 相关</h2>
+          <a class="rel" href="/roles/">角色图鉴</a>
+          <a class="rel" href="/meeting/">会议控场</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .rel{display:block;margin-bottom:8px;color:var(--accent)}
+  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}}
+</style>

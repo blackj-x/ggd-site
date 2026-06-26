@@ -53,6 +53,51 @@ header{position:sticky;top:0;z-index:50;background:rgba(21,18,41,.82);backdrop-f
 .nav-links a:hover,.nav-links a.on{color:var(--txt)}
 .nav-links a.on{color:var(--accent)}
 
+/* 语言切换器放到 header 最右侧 */
+.lang-switch:not(.mobile) {
+  margin-left: auto;
+}
+
+/* 语言切换器：桌面置于 nav-links 后，移动置于抽屉内。复古霓虹感，用 accent 强调当前 */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--txt-dim);
+  font-family: 'Noto Sans SC', sans-serif;
+  white-space: nowrap;
+}
+.lang-switch a {
+  color: var(--txt-dim);
+  padding: 1px 5px;
+  border-radius: 4px;
+  transition: color var(--trans-fast), background var(--trans-fast);
+  text-decoration: none;
+}
+.lang-switch a:hover {
+  color: var(--accent);
+}
+.lang-switch a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+.lang-switch .sep {
+  opacity: 0.45;
+  padding: 0 1px;
+}
+/* 桌面版：随 nav 布局，移动端隐藏（仅抽屉内 .mobile 版显示） */
+@media (max-width: 920px) {
+  .lang-switch:not(.mobile) { display: none; }
+  .lang-switch.mobile {
+    display: flex;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+  }
+}
+
 /* 主内容容器（修复铺开问题） */
 .wrap {
   max-width: 1240px;

@@ -1,0 +1,225 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
+import { SITE } from '../../data/site';
+import { getUI } from '../../i18n/config';
+
+const lang = 'en';
+const ui = getUI(lang);
+
+const title = 'Beginner Guide: How to Play Goose Goose Duck? Factions, Terms & Gameplay Flow - Goose Goose Duck Guide';
+const description = 'Goose Goose Duck (GGD) beginner tutorial: core rules, Geese/Ducks/Neutral faction goals, full round flow, essential terminology glossary and beginner pitfalls guide. Zero experience? You’ll be playing confidently in no time.';
+
+const terms = [
+  { term: 'Killing Goose (Armed Goose)', desc: 'Goose roles that can actively kill (e.g. Sheriff, Vigilante, Canadian Goose). The good side’s main offensive tool.' },
+  { term: 'Claim / Counter-claim', desc: 'Actively announcing your role during a meeting. When two players claim the same role it’s a “counter-claim” — use logic and evidence to decide who is telling the truth.' },
+  { term: 'Logic / Read', desc: 'Piecing together information (who was traveling with whom, where bodies were found, contradictions in stories) to figure out who the Ducks are.' },
+  { term: 'Kill Check', desc: 'Evidence from Detective or similar roles showing a player killed that round. Hard proof against a Duck.' },
+  { term: 'Vision Block', desc: 'Ducks use corners, walls, and terrain to break line of sight and kill isolated players without witnesses.' },
+  { term: 'Vanilla Goose', desc: 'A basic Goose with no special abilities. Also used for any player who gives no useful information.' },
+  { term: 'Bait Vote', desc: 'Voting for someone you know is probably innocent, for information gathering, protection, or tactical reasons.' },
+  { term: 'Call / Report', desc: 'Sharing important observations (who was where, who performed an action) during the meeting.' },
+  { term: 'Camp / Turtle', desc: 'A low-profile survival strategy (common for Neutrals or in late game) focused on staying alive rather than taking risks.' },
+  { term: 'Endgame', desc: 'The final stage when only a handful of players remain. Every vote and every kill can decide the winner.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      image: new URL(SITE.defaultOgImage, Astro.site).href,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'How do you win Goose Goose Duck?', acceptedAnswer: { '@type': 'Answer', text: 'Geese win by completing all tasks or voting out all non-Geese. Ducks win by killing and sabotaging until non-Ducks no longer hold a voting majority. Neutral roles each have their own independent win conditions.' } },
+        { '@type': 'Question', name: 'What map should Goose Goose Duck beginners play first?', acceptedAnswer: { '@type': 'Answer', text: 'Start with Basement. The map is small, tasks are simple, and there are no complex map-specific mechanics. Get comfortable here before trying other maps.' } },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/en/', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: 'Beginner Guide' },
+      ],
+    },
+  ],
+};
+---
+<Base title={title} description={description} jsonLd={jsonLd} active="guide" lang={lang}>
+  <div class="wrap detail">
+    <div class="crumb"><a href="/en/">{ui.home}</a> / {ui.guide}</div>
+    <h1 class="retro-hero">Beginner Guide: <span class="em">How to Play Goose Goose Duck</span></h1>
+    <p class="lead">In short: a multiplayer social deduction game. Good guys (Geese) complete tasks and hunt the impostors, impostors (Ducks) secretly kill and sabotage, and everyone uses meetings and votes to expose the bad guys. Here’s the complete zero-to-hero breakdown.</p>
+    <div class="hero-stats">
+      <span class="stat">Core Rules</span>
+      <span class="stat">Game Slang</span>
+    </div>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="Core Rules" icon="🎯">
+          <p>Each round players are divided into three factions. Only you know your own identity at the start. Geese must complete tasks across the map while rooting out the Ducks; Ducks disguise themselves as Geese and wait for opportunities to kill and sabotage; Neutrals each pursue their own secret agenda. A round consists of repeated cycles of “action phase → meeting discussion → vote” until one side achieves its win condition.</p>
+        </InfoSection>
+
+        <InfoSection title="Three Faction Goals" icon="🐧">
+          <div class="camps">
+            <div class="camp" style="--cc:var(--goose)">
+              <h3>🦢 Geese (Good Guys)</h3>
+              <p>Complete all tasks <strong>or</strong> vote out every non-Goose (Ducks + Neutrals). Most players are Geese and win through teamwork and deduction.</p>
+            </div>
+            <div class="camp" style="--cc:var(--duck)">
+              <h3>🦆 Ducks (Impostors)</h3>
+              <p>Kill and sabotage until there are enough Ducks that Geese can no longer form a voting majority. Fewer in number but able to actively kill, sabotage, and blend in.</p>
+            </div>
+            <div class="camp" style="--cc:var(--neutral)">
+              <h3>🎭 Neutral</h3>
+              <p>Belongs to no team and has its own independent win condition. Examples: Dodo wants to be voted out to win; Pelican wants to be the last survivor. When a Neutral wins, everyone else loses.</p>
+            </div>
+          </div>
+        </InfoSection>
+
+        <section class="sec">
+          <h2>🔄 Full Round Flow</h2>
+          <ol class="flow">
+            <li><strong>Role Assignment</strong>: The system randomly assigns faction and role. Only you can see your own.</li>
+            <li><strong>Action Phase</strong>: Geese head to task points to progress the bar; Ducks pretend to do tasks while looking for vision-block kills on isolated players; Neutrals pursue their personal goals.</li>
+            <li><strong>Meeting Trigger</strong>: Someone finds a body and reports it, or someone rings the emergency bell. Everyone enters the meeting.</li>
+            <li><strong>Discussion + Vote</strong>: Players share what they saw, question each other, then vote. The player with the most votes is eliminated (ties usually result in jail or no one being ejected, depending on rules).</li>
+            <li><strong>Continue the Cycle</strong>: After the vote the game returns to the action phase until a win condition is met.</li>
+          </ol>
+        </section>
+
+        <InfoSection title="Essential Game Slang" icon="📖">
+          <p class="hint">Learn these terms and you’ll keep up with the veteran players’ chat flow.</p>
+          <dl class="terms">
+            {terms.map((t) => (
+              <div class="term-row">
+                <dt>{t.term}</dt>
+                <dd>{t.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </InfoSection>
+
+        <InfoSection title="Beginner Pitfalls to Avoid" icon="🚧" variant="highlight">
+          <ul class="tips">
+            <li><strong>Start with Basement</strong>: Small map, simple tasks, no complex mechanics. Perfect for learning the basic rhythm before switching maps.</li>
+            <li><strong>Don’t go solo</strong>: Lone players are the easiest targets for Ducks using vision blocks. Stick with 1-2 others for mutual alibis.</li>
+            <li><strong>Remember who was with you</strong>: Saying “We were together the whole time, they’re not a Duck” is the simplest and most powerful statement in meetings.</li>
+            <li><strong>Watch for sudden disappearances</strong>: On maps without vents, if someone vanishes into thin air they probably used a vent or pipe — that’s a Duck ability.</li>
+            <li><strong>Don’t take wins and losses too seriously</strong>: There’s no ranked ladder. Surviving one more round, using a skill once, or reading the situation better = progress.</li>
+          </ul>
+        </InfoSection>
+
+        <!-- Official & Community Resources -->
+        <InfoSection title="Official & Community Resources" icon="📚">
+          <p>Here are links to official and community resources to help you learn more (these are not hosted on this site — please respect all copyrights):</p>
+          <ul class="resources">
+            <li><a href="https://goose-goose-duck.fandom.com/wiki/Roles" target="_blank">Fandom Wiki - Full Role List</a> (latest mechanics, map exclusives)</li>
+            <li><a href="https://store.steampowered.com/app/1568590/Goose_Goose_Duck/" target="_blank">Steam Official Page</a> (download, patch notes)</li>
+            <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2539172531" target="_blank">Steam Community In-Depth Role Guide</a> (player-written strategies)</li>
+            <li><a href="https://www.youtube.com/results?search_query=goose+goose+duck+gameplay" target="_blank">YouTube Gameplay Videos</a> (watch real matches)</li>
+          </ul>
+          <p class="hint">All role and map guides are independently organized from game mechanics and real-player testing, with practical scenarios and speech examples added. Maps use original SVGs. Always cross-check with the latest game patch.</p>
+        </InfoSection>
+
+        <InfoSection title="Corruption Mode Strategy" icon="🦠">
+          <p>Corruption Mode focus: Prioritize immune and investigative roles (Saint, Inquisitor). Demon Hunter can deliberately get corrupted to gain a kill. Track the corruption source location; in late game the team pushes Ducks while clearing corruption together.</p>
+        </InfoSection>
+
+        <InfoSection title="Jail & Locksmith Mechanics" icon="🔒">
+          <p>Jail maps: Locksmith is extremely high value. Prioritize freeing key Goose roles. Ducks can exploit the chaos of unlocking during votes. Avoid releasing high-threat players.</p>
+        </InfoSection>
+
+        <InfoSection title="Basic Meeting Strategy" icon="🗣️">
+          <p>Report objective information first (e.g. “I was with XX the whole time doing pre-tasks”), then express suspicion with room (“but YY was absent during the sabotage”). Direct accusations (“XX is a Duck”) are easy to counter — use “suspected” or “I’m worried about” to invite discussion and protect yourself.</p>
+          <p>In late game with 3-4 players left, shift focus to armed roles (Sheriff, Vigilante, Assassin etc.). Their survival or elimination often decides the round more than regular “suspicious” vanilla players.</p>
+        </InfoSection>
+
+        <InfoSection title="Corruption Mode Counter Strategy" icon="🧪">
+          <p>Clear the corruption source first. Send immune roles to scout. Demon Hunter counter-kill timing is critical. Prevent the whole team from becoming corrupted.</p>
+        </InfoSection>
+
+        <InfoSection title="Jail Comeback Tactics" icon="🔓">
+          <p>Use Locksmith in endgame to release chaos-makers. Combine strong callouts to create trust crises. Watch the actions of anyone you release afterward.</p>
+        </InfoSection>
+
+        <section class="sec next">
+          <h2>👉 Next Steps</h2>
+          <p>Now that you know the basics, head to the <a href="/en/roles/">Role Compendium</a> to learn every role you might get, or visit the <a href="/en/maps/">Map Guides</a> section to master routes, hiding spots and traps on each map.</p>
+          <p>Advanced reading: <a href="/en/meeting/">Meeting Control &amp; Speechcraft</a> · <a href="/en/duck-tactics/">Duck Disguise &amp; Counter-Play</a></p>
+        </section>
+      </main>
+
+      <aside>
+        <AdSlot variant="side" />
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .hero-stats{display:flex;gap:12px;margin-top:12px;font-size:12px}
+  .hero-stats .stat{padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,0.03);color:var(--txt-dim)}
+  .resources {
+    list-style: none;
+    padding: 0;
+  }
+  .resources li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .resources li::before {
+    content: "🔗";
+    position: absolute;
+    left: 0;
+  }
+  .resources a {
+    color: var(--accent);
+  }
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .hint{font-size:13px;color:var(--txt-dim);margin-bottom:14px!important}
+  .camps{display:flex;flex-direction:column;gap:14px}
+  .camp{border-left:3px solid var(--cc);padding-left:16px}
+  .camp h3{font-size:16px;color:var(--cc);margin-bottom:6px}
+  .camp p{font-size:14.5px;color:var(--txt-dim)}
+  .camp strong{color:var(--txt)}
+  .flow{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:12px}
+  .flow li{counter-increment:step;position:relative;padding-left:40px;font-size:15px;color:var(--txt-dim)}
+  .flow li::before{content:counter(step);position:absolute;left:0;top:-2px;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--goose),var(--neutral));color:#fff;font-weight:700;display:grid;place-items:center;font-size:13px}
+  .flow strong{color:var(--txt)}
+  .terms{display:flex;flex-direction:column;gap:0}
+  .term-row{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .term-row:last-child{border:0}
+  .term-row dt{font-weight:700;color:var(--accent);font-size:14.5px}
+  .term-row dd{font-size:14px;color:var(--txt-dim)}
+  .tips{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .tips li{font-size:15px;color:var(--txt-dim);padding-left:20px;position:relative}
+  .tips li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .tips strong{color:var(--txt)}
+  .next p{color:var(--txt-dim)}
+  .next a{color:var(--accent)}
+  @media(max-width:920px){
+    .detail-layout{grid-template-columns:1fr}
+    .ad-side{display:none}
+    h1{font-size:28px}
+    .term-row{grid-template-columns:1fr;gap:3px}
+  }
+</style>

@@ -1,42 +1,30 @@
 ---
-import Base from '../../layouts/Base.astro';
-import AdSlot from '../../components/AdSlot.astro';
-import RoleCard from '../../components/RoleCard.astro';
-import { getLocalizedRoles } from '../../data/roles';
-import { getLocaleFromPath, getUI, type Locale } from '../../i18n/config';
+import Base from '../../../layouts/Base.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import RoleCard from '../../../components/RoleCard.astro';
+import { getLocalizedRoles } from '../../../data/roles';
+import { getUI } from '../../../i18n/config';
 
-const pathname = Astro.url.pathname;
-const lang: Locale = getLocaleFromPath(pathname);
+const lang = 'en';
 const roles = getLocalizedRoles(lang);
 const ui = getUI(lang);
 
-const title = lang === 'en' 
-  ? 'Role Compendium - Goose Goose Duck Guide'
-  : '全角色图鉴 - 鹅鸭杀攻略社';
-
-const description = lang === 'en'
-  ? 'Goose Goose Duck full role compendium: Geese, Ducks, Neutral. Abilities, win conditions, strategies and counters.'
-  : '鹅鸭杀（Goose Goose Duck）全角色图鉴：鹅、鸭、中立三大阵营技能、胜利条件、玩法要点与话术，支持按阵营筛选与关键词搜索。';
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: title,
-  description,
-};
+const title = 'Role Compendium - Goose Goose Duck Guide';
+const description = 'Goose Goose Duck full role compendium: Geese, Ducks, Neutral. Abilities, win conditions, strategies and counters.';
 ---
-<Base title={title} description={description} jsonLd={jsonLd} active="roles">
+
+<Base title={title} description={description} active="roles" lang={lang}>
   <div class="wrap">
     <section class="hero retro-hero">
-      <div class="crumb"><a href={lang === 'en' ? '/en/' : '/'}>{ui.home}</a> / {ui.roles}</div>
+      <div class="crumb"><a href="/en/">{ui.home}</a> / {ui.roles}</div>
       <h1>
-        <span class="title-main">{lang === 'en' ? 'Role' : '全角色'}</span>
-        <span class="em">{lang === 'en' ? 'Compendium' : '图鉴'}</span>
+        <span class="title-main">Role</span>
+        <span class="em">Compendium</span>
       </h1>
-      <p class="sub">{lang === 'en' ? 'All Geese, Ducks and Neutral roles with skills, win conditions and strategies. Every entry includes tested tips, real match examples and counters — not just wiki facts.' : '鹅、鸭、中立三大阵营全角色技能、胜利条件与玩法要点。每条都包含实测要点、场景建议与反制，而非简单罗列。点击卡片查看详细攻略。'}</p>
+      <p class="sub">All Geese, Ducks and Neutral roles with skills, win conditions and strategies. Every entry includes tested tips, real match examples and counters — curated for actual play, not raw wiki facts.</p>
       <div class="hero-stats">
-        <span class="stat">{roles.length} {lang === 'en' ? 'roles' : '角色'}</span>
-        <span class="stat">3 {lang === 'en' ? 'factions' : '阵营'}</span>
+        <span class="stat">{roles.length} roles</span>
+        <span class="stat">3 factions</span>
       </div>
     </section>
 
@@ -62,14 +50,13 @@ const jsonLd = {
           {roles.map((role) => <RoleCard role={role} lang={lang} />)}
         </div>
       </main>
-      <aside>
-        <AdSlot variant="side" />
-      </aside>
+      <aside><AdSlot variant="side" /></aside>
     </div>
   </div>
 </Base>
 
 <style>
+  /* reuse styles from original */
   .hero{padding:46px 0 26px}
   .retro-hero h1{font-size:44px;font-weight:900;letter-spacing:-1px}
   .retro-hero .title-main{display:block}
@@ -106,7 +93,6 @@ const jsonLd = {
 </style>
 
 <script>
-  // 客户端筛选/搜索：对已由 Astro 渲染好的卡片做显隐，不重建 DOM（保留 SEO）
   const cards = Array.from(document.querySelectorAll<HTMLElement>('#grid .card'));
   const count = document.getElementById('count')!;
   const q = document.getElementById('q') as HTMLInputElement;
@@ -121,7 +107,7 @@ const jsonLd = {
       c.style.display = ok ? '' : 'none';
       if (ok) shown++;
     });
-    count.textContent = `共 ${shown} 个角色`;
+    count.textContent = `${shown} roles`;
   }
   document.querySelectorAll<HTMLElement>('.chip').forEach((c) =>
     c.addEventListener('click', () => {

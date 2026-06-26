@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
+import { SITE } from '../../data/site';
+
+const lang = 'en';
+const title = 'Meeting Control & Speechcraft Guide - Goose Goose Duck';
+const description = 'Complete Goose Goose Duck meeting strategy: information priority, accusation techniques, defense, late-game decisions, example scripts and counter-kill cases. Master meetings to win.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} lang={lang} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/en/">Home</a> / <a href="/en/guide/">Beginner Guide</a> / Meeting Control</div>
+    <h1 class="retro-hero">Meeting Control &amp; Speechcraft <span class="em">Guide</span></h1>
+    <p class="lead">Meetings are not shouting matches — they are information warfare. What you report, when you report it, how you push, and how you defend decides the round.</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="Information Reporting Priority" icon="📋">
+          <p>Always report <strong>objective facts</strong> first, then <strong>inferences</strong>, and only then push people.</p>
+          <ul>
+            <li>1. What task I did with XX, where, and for how long</li>
+            <li>2. What I saw/heard XX do (sabotage, movement, disappearance)</li>
+            <li>3. My suspicion (“I’m worried about XX” not “XX is a Duck”)</li>
+            <li>4. Voting reason (backed by the facts above)</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="Classic Accusation Scripts" icon="🗣️">
+          <p><strong>Safe push</strong>: “I was with XX doing pre-tasks. He left for about 30 seconds.”</p>
+          <p><strong>Building momentum</strong>: “XX was absent during the sabotage. I was in security and didn’t see him.”</p>
+          <p><strong>Counter-kill</strong>: “You say I killed? Then who were you with? Why didn’t you report the body?”</p>
+          <p><strong>Late game</strong>: “3 players left. We vote the armed role first. If wrong we can still flip.”</p>
+        </InfoSection>
+
+        <InfoSection title="Seat Number Self-Claim & Identity Hiding Talk" icon="🎯">
+          <p>Players often self-report their seat number to build trust or hide their real role. This style is super common in Xiaohongshu comments and in-game banter:</p>
+          <p><strong>Sheriff self-claim</strong>: “Haha I’m seat 1 Sheriff, main job is protecting info roles + observe 2 rounds before shooting 😂”</p>
+          <p><strong>Hiding armed role</strong>: “I’m just a vanilla Goose, pure task flow, don’t worry about me.” (actually Sheriff or Vigilante)</p>
+          <p><strong>Xiaohongshu-style interaction</strong>: “Which seat is the Sheriff? I’m seat 1, priority protect confirmed core roles~”</p>
+          <p><strong>Duck disguise</strong>: “I’m seat 3 Detective, just checked XX and he has issues.” (actually a Duck fishing for info)</p>
+          <p class="hint">These lines work great both in-game to clear suspicion and when posting content for community engagement. Always back them up with real facts though!</p>
+        </InfoSection>
+
+        <InfoSection title="Defense & Counter-Play" icon="🛡️">
+          <p>When pushed:</p>
+          <ul>
+            <li>Immediately give your alibi (who you were with + what task)</li>
+            <li>Question their source: “How do you know I killed?”</li>
+            <li>Redirect: “Let’s talk about YY’s behavior first”</li>
+            <li>In late game, admit small issues to gain trust rather than die defending</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="Late-Game Meeting Rules" icon="⏰">
+          <p>With 3–4 players:</p>
+          <ul>
+            <li>Prioritize discussion of armed roles (Sheriff, Vigilante, Assassin, etc.)</li>
+            <li>Ties usually favor Geese (except Politician)</li>
+            <li>The last vote is often decisive — watch who looks most nervous</li>
+            <li>Identify and deal with Neutral roles first</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="Common Mistakes & Counter-Examples" icon="⚠️">
+          <p>Mistake 1: Leading with “XX is a Duck” — no facts, easy to counter-kill.</p>
+          <p>Mistake 2: Only saying “I feel” without objective info — no one believes you.</p>
+          <p>Mistake 3: Voting vanilla players in late game — focus on armed identities first.</p>
+        </InfoSection>
+      </main>
+
+      <aside>
+        <AdSlot variant="side" />
+        <div class="sec mini">
+          <h2>🔗 Related</h2>
+          <a class="rel" href="/en/guide/">Beginner Guide</a>
+          <a class="rel" href="/en/roles/">Role Compendium</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .rel{display:block;margin-bottom:8px;color:var(--accent)}
+  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}}
+</style>

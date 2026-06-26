@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
+import { SITE } from '../../data/site';
+
+const lang = 'en';
+const title = 'Duck Disguise & Counter-Play Guide - Goose Goose Duck';
+const description = 'Advanced Goose Goose Duck Duck-side guide: common disguise techniques, task faking, sabotage timing, alibis, and how Geese can see through them.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} lang={lang} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/en/">Home</a> / <a href="/en/guide/">Beginner Guide</a> / Duck Tactics</div>
+    <h1 class="retro-hero">Duck Disguise &amp; Counter-Play <span class="em">Guide</span></h1>
+    <p class="lead">Ducks win not by killing more, but by looking like Geese. Geese win by seeing through the act.</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="Classic Disguise Techniques" icon="🦆">
+          <p><strong>Task faking</strong>: Stand at a task point and pretend to work while actually watching people. Don’t actually complete tasks — doing them too fast or from wrong positions gets noticed.</p>
+          <p><strong>Sabotage timing</strong>: Sabotage when Geese are most vulnerable (right before meetings, when tasks are nearly done).</p>
+          <p><strong>Alibi building</strong>: Pre-arrange to be “with someone”, then return to the group or call immediately after a kill.</p>
+          <p><strong>Meeting performance</strong>: Volunteer information, push others, act confused — use high information volume to hide.</p>
+        </InfoSection>
+
+        <InfoSection title="Advanced Disguise Tricks" icon="🎭">
+          <ul>
+            <li>Armed Ducks can claim “killing Goose” roles</li>
+            <li>Use Neutral roles (especially vote-seeking ones) to create chaos</li>
+            <li>Deliberately show small flaws so Geese think you’re “suspicious but not Duck”</li>
+            <li>Coordinate with teammates to give each other fake alibis</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="How Geese Spot You" icon="🔍">
+          <p>Contradictions: Your story changes or doesn’t match what others saw.</p>
+          <p>Timing: Sabotages always happen at the worst possible moment for the Geese.</p>
+          <p>Pairing: You keep claiming to be with different people, but no one can fully vouch for you.</p>
+          <p>Information volume: Volunteering too much detailed info unprompted is suspicious.</p>
+          <p>Late game: Always verify armed roles first.</p>
+        </InfoSection>
+
+        <InfoSection title="Real Counter-Play Examples" icon="⚔️">
+          <p>Example 1: Duck claims “I was with XX”. XX says “I was alone”. Immediate discussion.</p>
+          <p>Example 2: Duck is the first to arrive at a sabotage fix — being too eager exposes you.</p>
+          <p>Example 3: Duck keeps pushing info roles in meetings — they’re trying to remove threats.</p>
+        </InfoSection>
+      </main>
+
+      <aside>
+        <AdSlot variant="side" />
+        <div class="sec mini">
+          <h2>🔗 Related</h2>
+          <a class="rel" href="/en/roles/">Role Compendium</a>
+          <a class="rel" href="/en/meeting/">Meeting Control</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .rel{display:block;margin-bottom:8px;color:var(--accent)}
+  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}}
+</style>

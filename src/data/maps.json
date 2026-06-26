@@ -1,49 +1,58 @@
 {
-  "version": "2.x（基于 Fandom Wiki 2026 核对，共12图）",
-  "updatedAt": "2026-06-06",
+  "version": "2.x（基于 Fandom Wiki 2026 核对，共12图；补充多张地图策略）",
+  "updatedAt": "2026-06-26",
   "annotationTypes": {
     "task": {
       "name": "任务点",
+      "nameEn": "Task",
       "color": "#3ba9ff",
       "icon": "📋"
     },
     "killspot": {
       "name": "刀点",
+      "nameEn": "Kill Spot",
       "color": "#ff5470",
       "icon": "🔪"
     },
     "blindspot": {
       "name": "视野盲区",
+      "nameEn": "Blind Spot",
       "color": "#b06bff",
       "icon": "🌫️"
     },
     "vent": {
       "name": "通风口",
+      "nameEn": "Vent",
       "color": "#ffd84e",
       "icon": "🕳️"
     },
     "meeting": {
       "name": "会议按钮",
+      "nameEn": "Meeting",
       "color": "#4ade80",
       "icon": "🔔"
     },
     "hide": {
       "name": "藏身点",
+      "nameEn": "Hide Spot",
       "color": "#94a3b8",
       "icon": "🫥"
     },
     "dispose": {
       "name": "藏尸点",
+      "nameEn": "Body Disposal",
       "color": "#a855f7",
       "icon": "⚰️"
     },
     "hazard": {
       "name": "陷阱/危险",
+      "nameEn": "Hazard",
       "color": "#fb923c",
       "icon": "⚠️"
     },
     "jail": {
       "name": "监狱",
+      "nameEn": "Jail",
       "color": "#64748b",
       "icon": "🔒"
     }
@@ -60,6 +69,7 @@
       "theme": "太空",
       "size": "medium",
       "summary": "经典太空站，狭窄通道与环形房间交错，有运输舱通往独立坞区。",
+      "summaryEn": "Classic space station with narrow corridors intersecting ring rooms; transport pods lead to an isolated dock area.",
       "features": {
         "hasVents": true,
         "hasCCTV": true,
@@ -75,69 +85,106 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Reactor",
+        "Oxygen",
+        "Comms"
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 50,
           "y": 48,
           "label": "中央会议按钮",
-          "note": "位于地图中心，紧急会议在此召集"
+          "labelEn": "Central Meeting Button",
+          "note": "位于地图中心，紧急会议在此召集",
+          "noteEn": "Located at map center; emergency meetings are called here."
         },
         {
           "type": "task",
           "x": 22,
           "y": 30,
           "label": "上层电力室",
-          "note": "接线任务集中区，注意落单"
+          "labelEn": "Upper Electrical",
+          "note": "接线任务集中区，注意落单",
+          "noteEn": "Wiring tasks concentrate here; avoid being alone."
         },
         {
           "type": "task",
           "x": 78,
           "y": 62,
           "label": "医疗室",
-          "note": "扫描任务，单人停留时间长易被刀"
+          "labelEn": "Medbay",
+          "note": "扫描任务，单人停留时间长易被刀",
+          "noteEn": "Scan tasks take time; easy target when alone."
         },
         {
           "type": "killspot",
           "x": 16,
           "y": 68,
           "label": "下层走廊死角",
-          "note": "无监控覆盖，鸭子常在此卡视野单杀"
+          "labelEn": "Lower Corridor Blind Corner",
+          "note": "无监控覆盖，鸭子常在此卡视野单杀",
+          "noteEn": "No camera coverage; ducks often use vision blocks for solo kills here."
         },
         {
           "type": "vent",
           "x": 34,
           "y": 44,
           "label": "中部通风口",
-          "note": "连接上下层，鸭子快速转移"
+          "labelEn": "Central Vent",
+          "note": "连接上下层，鸭子快速转移",
+          "noteEn": "Connects upper and lower levels for fast duck movement."
         },
         {
           "type": "blindspot",
           "x": 85,
           "y": 20,
           "label": "独立坞区",
-          "note": "仅运输舱可达，进去前确认同行者身份"
+          "labelEn": "Isolated Dock",
+          "note": "仅运输舱可达，进去前确认同行者身份",
+          "noteEn": "Only reachable by pod; confirm allies before entering."
         }
       ],
       "strategy": {
         "goose": [
-          "任务尽量结伴，下层死角和独立坞区不要单独进",
-          "记住监控覆盖范围，沿监控路线走更安全",
-          "反应堆/氧气破坏要立刻分两路去修"
+          "任务尽量结伴，下层死角和独立坞区不要单独进。独立坞区只有运输舱能到，进去前必须确认同行者身份。",
+          "记住监控覆盖范围，沿监控路线走更安全；做电力或医疗等长任务时请队友站在监控附近盯场。",
+          "反应堆/氧气破坏要立刻分两路去修，千万别全挤一路——鸭子喜欢在修复点卡视野单杀。"
         ],
         "duck": [
-          "利用中部通风口在上下层之间游走找单",
-          "把目标引向下层走廊死角再卡视野",
-          "破坏氧气逼鹅分散，制造单杀机会"
+          "利用中部通风口在上下层之间游走找单，通风口连接快，是快速换层的最佳路径。",
+          "把目标引向下层走廊死角再卡视野，这里没有监控，适合秒杀后立刻通风口撤离。",
+          "破坏氧气逼鹅分散，制造单杀机会；破坏后自己去另一路假装修，观察谁没来制造不在场证据。"
         ],
         "neutral": [
-          "鹈鹕在独立坞区吞人最隐蔽",
-          "猎鹰可借太空服伪装混入任务流"
+          "鹈鹕在独立坞区吞人最隐蔽，吞完可以等运输舱冷却再带人出去。",
+          "猎鹰可借太空服伪装混入任务流，注意别在监控下暴露飞行轨迹。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Do tasks in pairs; avoid entering lower blind spots or the isolated dock alone. The dock is only reachable by pod — confirm your companion before entering.",
+          "Memorize camera coverage and walk routes under surveillance when possible. For long tasks like wiring or medbay scan, ask a friend to watch cameras nearby.",
+          "When reactor/oxygen is sabotaged, split into two groups to fix immediately. Never all go the same way — ducks love camping repair points for solo kills."
+        ],
+        "duck": [
+          "Use the central vent to move between floors and hunt isolated players. Vents are the fastest way to change levels undetected.",
+          "Lure targets to the lower corridor corner then block vision for the kill. No camera coverage here; vent away immediately after.",
+          "Sabotage oxygen to force geese to split up and create solo kill opportunities. Fake repair on the other path while watching who doesn't show up."
+        ],
+        "neutral": [
+          "Pelican can swallow most discreetly inside the isolated dock. Wait for pod cooldown before bringing the swallowed player out.",
+          "Falcon can disguise with a spacesuit and blend into task flow — avoid exposing flight paths on camera."
         ]
       },
       "tips": [
         "有前置任务，开局先解锁任务列表",
         "太空图有监控，刀人前先看监控位置"
+      ],
+      "tipsEn": [
+        "Pre-tasks present; unlock the full task list at round start.",
+        "Space map has CCTV; always check camera positions before attempting a kill."
       ],
       "updatedAt": "2026-06-06",
       "image": "/maps/nexus-colony.svg",
@@ -154,6 +201,7 @@
       "theme": "太空",
       "size": "large",
       "summary": "大型太空船，路线长、人流分散，节奏偏慢，冷门但适合伏击。",
+      "summaryEn": "Large spaceship with long routes and dispersed traffic; slower pace, niche but great for ambushes.",
       "features": {
         "hasVents": true,
         "hasCCTV": true,
@@ -168,9 +216,17 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Reactor",
+        "Oxygen"
+      ],
       "tips": [
         "地图大人易散，鹅方更要主动抱团",
         "冷门图，多数人不熟点位，先看小地图"
+      ],
+      "tipsEn": [
+        "Large map makes players spread out; geese should actively stick together.",
+        "Niche map; most players unfamiliar with spots — study the minimap first."
       ],
       "annotations": [
         {
@@ -178,59 +234,110 @@
           "x": 49.4,
           "y": 76.1,
           "label": "会议按钮",
-          "note": "紧急按钮在娱乐室，出事先想好走食堂还是通讯间哪条路报点最快"
+          "labelEn": "Meeting Button",
+          "note": "紧急按钮在娱乐室，出事先想好走食堂还是通讯间哪条路报点最快",
+          "noteEn": "Emergency button in the rec room; decide fastest report route via cafeteria or comms before calling."
         },
         {
           "type": "hazard",
           "x": 75,
           "y": 82.6,
           "label": "货舱气闸",
-          "note": "舱外『拉至密封』做完后舱门紧闭，被关在里面的人会被舰桥拉杆全员放逐，听到关门声立刻撤"
+          "labelEn": "Cargo Airlock",
+          "note": "舱外『拉至密封』做完后舱门紧闭，被关在里面的人会被舰桥拉杆全员放逐，听到关门声立刻撤",
+          "noteEn": "After 'seal' task outside cargo, doors lock; anyone trapped can be ejected by bridge lever — leave immediately on hearing seal sound."
         },
         {
           "type": "hazard",
           "x": 11.9,
           "y": 55.4,
           "label": "舰桥操纵杆",
-          "note": "鸭子可在此拉杆把货舱内所有人弹出太空，看到有人独自蹲守舰桥要盘他逻辑"
+          "labelEn": "Bridge Lever",
+          "note": "鸭子可在此拉杆把货舱内所有人弹出太空，看到有人独自蹲守舰桥要盘他逻辑",
+          "noteEn": "Ducks can eject everyone in cargo by pulling lever; if someone is camping bridge alone, question their logic."
         },
         {
           "type": "task",
           "x": 13.75,
           "y": 30.4,
           "label": "监控前置",
-          "note": "监控和对讲机都在保安室，但要先做完激活前置任务才能用，前期别指望盘监控"
+          "labelEn": "Security Pre-task",
+          "note": "监控和对讲机都在保安室，但要先做完激活前置任务才能用，前期别指望盘监控",
+          "noteEn": "Cameras and radio are in security but require pre-task activation; don't rely on cams early."
         },
         {
           "type": "killspot",
           "x": 23.75,
           "y": 57,
           "label": "舱门走廊",
-          "note": "舱门破坏点所在走廊，鸭子常关门切断舰桥支援后在此堵人单刀，落单别走"
+          "labelEn": "Airlock Corridor",
+          "note": "舱门破坏点所在走廊，鸭子常关门切断舰桥支援后在此堵人单刀，落单别走",
+          "noteEn": "Corridor with airlock sabotage; ducks often close doors to cut bridge support then block solo players here."
         },
         {
           "type": "vent",
           "x": 56.9,
           "y": 27.2,
           "label": "风口网络",
-          "note": "全图7个风口分两组互不连通，还藏一间只能钻风口进的密室，见人原地消失先想风口走向"
+          "labelEn": "Vent Network",
+          "note": "全图7个风口分两组互不连通，还藏一间只能钻风口进的密室，见人原地消失先想风口走向",
+          "noteEn": "7 vents in two disconnected groups + one hidden room only accessible via vent; if someone vanishes, think vent paths."
         },
         {
           "type": "hazard",
           "x": 79.5,
           "y": 27.8,
           "label": "氧气破坏点",
-          "note": "氧气（生命维持）破坏点在孵化室，响氧气时人流涌向这里，鸭子常借机在空出来的区域收刀"
+          "labelEn": "Oxygen Sabotage",
+          "note": "氧气（生命维持）破坏点在孵化室，响氧气时人流涌向这里，鸭子常借机在空出来的区域收刀",
+          "noteEn": "Oxygen (life support) sabotage point in incubation; players rush here — ducks exploit empty zones for kills."
         },
         {
           "type": "blindspot",
           "x": 75,
           "y": 54.8,
           "label": "反应堆盲区",
-          "note": "图大人散的远端角落，落单来修反应堆易被蹲，鸭子常在此卡视野单杀"
+          "labelEn": "Reactor Blind Spot",
+          "note": "图大人散的远端角落，落单来修反应堆易被蹲，鸭子常在此卡视野单杀",
+          "noteEn": "Distant corner on large map; solo reactor fixes are easy to camp — ducks love vision blocks here."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "地图大、人分散，优先抱团做任务，别独自跑远端盲区修反应堆。",
+          "有前置任务，开局先解锁完整任务列表，规划路线避免绕远。",
+          "氧气/反应堆破坏立刻分头两路修，千万别全挤一路被蹲。",
+          "利用监控观察大范围动向，任务时请队友盯监控减少落单风险。"
+        ],
+        "duck": [
+          "大地图适合伏击，挑偏僻长路或盲区蹲点，慢节奏给更多准备时间。",
+          "氧气破坏后鹅会分散，借机在另一路卡视野秒杀后快速通风口撤离。",
+          "利用通风口在宽阔区域快速转移，制造多处不在场证据。",
+          "灯光破坏配合长走廊，黑暗中更容易接近目标并用通风管逃脱。"
+        ],
+        "neutral": [
+          "鹈鹕可在大地图边缘封闭区吞人，吞完利用慢节奏慢慢消化到会议。",
+          "猎鹰适合伪装混入慢任务流，注意别因不投票或异常走位暴露。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Large map + dispersed players: stick together for tasks. Never solo far-end blind spots like reactor repairs.",
+          "Pre-tasks present — unlock full list early and plan routes to avoid long unnecessary walks.",
+          "On oxygen/reactor sabotage, immediately split into two repair groups. Clustering is deadly.",
+          "Use cameras for wide-area intel. Ask a teammate to watch cams while you handle long tasks."
+        ],
+        "duck": [
+          "Slow pace and long sightlines favor ambushes. Camp remote corridors or blind corners.",
+          "Sabotage oxygen to split the Geese, then vision-block kill on the other path and vent away fast.",
+          "Vents let you reposition quickly across the large space and create multiple alibis.",
+          "Lights sabotage + long corridors = easy approach and vent escape in the dark."
+        ],
+        "neutral": [
+          "Pelican can swallow safely in remote enclosed areas on the edges; slow pace gives time before meetings.",
+          "Falcon blends into the slower task flow. Avoid skipping votes or weird movement patterns."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/black-swan.svg",
       "imageW": 800,
@@ -247,6 +354,7 @@
       "theme": "太空",
       "size": "large",
       "summary": "基于 Among Us 经典布局的太空母舰，横向动线，货舱气闸是核心陷阱杀。",
+      "summaryEn": "Classic Among Us-style mothership with horizontal flow; the cargo airlock is the signature trap-kill mechanic.",
       "image": "/maps/ss-mothergoose.svg",
       "imageW": 800,
       "imageH": 460,
@@ -267,76 +375,103 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Lights",
+        "Reactor",
+        "Doors",
+        "Comms / Life Support",
+        "Cargo Airlock Trap"
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 50,
           "y": 50,
           "label": "娱乐室 会议按钮",
-          "note": "中央钢琴旁的桌上，紧急会议在此召集"
+          "labelEn": "Rec Room Meeting Button",
+          "note": "中央钢琴旁的桌上，紧急会议在此召集",
+          "noteEn": "On the table by the central piano; emergency meetings called here."
         },
         {
           "type": "task",
           "x": 13,
           "y": 33,
           "label": "电力室",
-          "note": "灯光破坏点，接线任务集中，狭窄易被堵"
+          "labelEn": "Electrical",
+          "note": "灯光破坏点，接线任务集中，狭窄易被堵",
+          "noteEn": "Lights sabotage point; wiring hub, narrow and easy to block."
         },
         {
           "type": "task",
           "x": 13,
           "y": 67,
           "label": "反应堆",
-          "note": "反应堆破坏需两人同按，落单进来很危险"
+          "labelEn": "Reactor",
+          "note": "反应堆破坏需两人同按，落单进来很危险",
+          "noteEn": "Reactor sabotage requires two players simultaneously; entering alone is dangerous."
         },
         {
           "type": "task",
           "x": 30,
           "y": 78,
           "label": "孵化室",
-          "note": "生命维持破坏点，偏僻死角"
+          "labelEn": "Incubation",
+          "note": "生命维持破坏点，偏僻死角",
+          "noteEn": "Life support sabotage point; remote dead-end."
         },
         {
           "type": "task",
           "x": 72,
           "y": 30,
           "label": "舰桥",
-          "note": "通讯破坏点 + 气闸操纵杆，鸭子拉杆触发陷阱"
+          "labelEn": "Bridge",
+          "note": "通讯破坏点 + 气闸操纵杆，鸭子拉杆触发陷阱",
+          "noteEn": "Comms sabotage + airlock lever; ducks pull to trigger trap."
         },
         {
           "type": "vent",
           "x": 40,
           "y": 40,
           "label": "安保室通风口",
-          "note": "连接监控室，鸭子常用此快速转移"
+          "labelEn": "Security Vent",
+          "note": "连接监控室，鸭子常用此快速转移",
+          "noteEn": "Connects to security/monitor room; ducks use for quick escape."
         },
         {
           "type": "task",
           "x": 40,
           "y": 33,
           "label": "安保室",
-          "note": "监控所在，可远程看人，刀前先确认无人盯监控"
+          "labelEn": "Security",
+          "note": "监控所在，可远程看人，刀前先确认无人盯监控",
+          "noteEn": "Contains cameras; check no one is watching before killing."
         },
         {
           "type": "hazard",
           "x": 85,
           "y": 67,
           "label": "货舱 气闸陷阱",
-          "note": "站在货舱可能被吸出太空！鸭子可借此无冷却杀人，非任务别久留"
+          "labelEn": "Cargo Airlock Trap",
+          "note": "站在货舱可能被吸出太空！鸭子可借此无冷却杀人，非任务别久留",
+          "noteEn": "Standing in cargo can get you sucked into space! Ducks can use for cooldown-free kills; don't linger without tasks."
         },
         {
           "type": "killspot",
           "x": 85,
           "y": 50,
           "label": "货舱死角",
-          "note": "远离主动线、无人经过，气闸+单杀双重危险"
+          "labelEn": "Cargo Blind Spot",
+          "note": "远离主动线、无人经过，气闸+单杀双重危险",
+          "noteEn": "Off main routes, rarely passed; double danger from airlock + solo kill."
         },
         {
           "type": "blindspot",
           "x": 30,
           "y": 62,
           "label": "下层走廊",
-          "note": "长走廊视野盲区，鸭子卡视野单杀高发"
+          "labelEn": "Lower Corridor",
+          "note": "长走廊视野盲区，鸭子卡视野单杀高发",
+          "noteEn": "Long corridor with vision blocks; high frequency solo kills by ducks."
         }
       ],
       "strategy": {
@@ -357,10 +492,33 @@
           "猎鹰可借太空服伪装混入任务流，注意别因不投票露馅"
         ]
       },
+      "strategyEn": {
+        "goose": [
+          "Stay out of cargo unless on task — the airlock trap kills with no cooldown.",
+          "Cameras are in security; ask teammates to watch cams while you task.",
+          "Split into two groups immediately for reactor / life support fixes; don't cluster.",
+          "Travel long corridors in pairs; never alone."
+        ],
+        "duck": [
+          "Lure targets into cargo; airlock kills don't count as stabs and hide the body.",
+          "Vision-block solo kills in lower corridor, then vent out from security.",
+          "Confirm someone is inside cargo before pulling the bridge lever.",
+          "Sabotage lights to create darkness and make your move."
+        ],
+        "neutral": [
+          "Pelican swallows most hidden in cargo or incubation closed corners.",
+          "Falcon can disguise using spacesuit to blend into taskers; avoid skipping votes to not expose."
+        ]
+      },
       "tips": [
         "货舱气闸是本图标志性陷阱杀，新手最易中招",
         "有只能通过通风管进入的密室",
         "采用率偏低，熟点位的人优势明显"
+      ],
+      "tipsEn": [
+        "Cargo airlock is the map's iconic trap-kill; new players fall for it easily.",
+        "Secret room only accessible via ventilation ducts.",
+        "Low pick rate means players who know the spots have a big edge."
       ],
       "updatedAt": "2026-06-06"
     },
@@ -375,6 +533,7 @@
       "theme": "维多利亚",
       "size": "medium",
       "summary": "阴暗庄园，无通风管，但可藏身树叶与柜子，室内外动线分明。",
+      "summaryEn": "Dark manor with no vents, but foliage and cabinets provide hiding spots; clear indoor/outdoor flow.",
       "features": {
         "hasVents": false,
         "hasCCTV": false,
@@ -389,61 +548,100 @@
           "柜子"
         ]
       },
+      "hideSpotsEn": [
+        "Foliage",
+        "Cabinets"
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 50,
           "y": 52,
           "label": "大厅会议铃",
-          "note": "庄园中央大厅"
+          "labelEn": "Hall Meeting Bell",
+          "note": "庄园中央大厅",
+          "noteEn": "Central hall of the manor."
         },
         {
           "type": "task",
           "x": 28,
           "y": 70,
           "label": "庭院任务区",
-          "note": "室外修破坏点,视野开阔较安全"
+          "labelEn": "Courtyard Tasks",
+          "note": "室外修破坏点,视野开阔较安全",
+          "noteEn": "Outdoor sabotage repair; open sightlines make it relatively safe."
         },
         {
           "type": "hide",
           "x": 70,
           "y": 34,
           "label": "二楼柜子",
-          "note": "无通风管图的藏身点,可蹲守或躲刀"
+          "labelEn": "Second Floor Cabinet",
+          "note": "无通风管图的藏身点,可蹲守或躲刀",
+          "noteEn": "Hiding spot unique to no-vent maps; can camp or dodge kills."
         },
         {
           "type": "killspot",
           "x": 18,
           "y": 40,
           "label": "侧厅拐角",
-          "note": "无监控、视野遮挡多,单杀高发"
+          "labelEn": "Side Hall Corner",
+          "note": "无监控、视野遮挡多,单杀高发",
+          "noteEn": "No cameras, lots of sight blockers; high solo-kill area."
         },
         {
           "type": "hide",
           "x": 40,
           "y": 78,
           "label": "庭院树叶",
-          "note": "可藏身,鸭子也可借此伏击"
+          "labelEn": "Courtyard Foliage",
+          "note": "可藏身,鸭子也可借此伏击",
+          "noteEn": "Can hide; ducks also use to set up ambushes."
         }
       ],
       "strategy": {
         "goose": [
-          "没有通风管，看到有人凭空消失高度可疑",
-          "室外庭院视野好，优先在外做任务",
-          "注意柜子和树叶里可能藏着鸭"
+          "没有通风管，看到有人凭空消失高度可疑——立刻盘问并搜查附近树叶/柜子。",
+          "室外庭院视野开阔，优先在外做任务，室内狭窄易被埋伏。",
+          "搜索时重点翻柜子和树叶，藏身点是本图最大威胁来源。",
+          "结伴行动更重要：无风管，落单=几乎必死。互相做不在场证明。"
         ],
         "duck": [
-          "利用树叶/柜子藏身伏击，没风管要靠走位",
-          "把目标引到侧厅拐角等遮挡区",
-          "无监控，刀法相对自由但要做好不在场"
+          "利用树叶/柜子藏身伏击，没风管要靠走位和时机，耐心等目标落单。",
+          "把目标引到侧厅拐角等遮挡区，卡视野后快速处理尸体或拖走。",
+          "无监控，刀法相对自由，但必须提前规划好不在场（和别人一起任务或报点）。",
+          "会议时可声称在藏身点观察，制造信息混乱。"
         ],
         "neutral": [
-          "鹈鹕在二楼封闭房间吞人不易被发现"
+          "鹈鹕在二楼封闭房间吞人不易被发现，吞完最好留在室内等会议。",
+          "其他中立可利用柜子/树叶做短暂躲藏，观察局势再行动。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "No vents — anyone vanishing is highly suspicious. Immediately question and search nearby foliage/cabinets.",
+          "Outdoor courtyard has open sightlines; prioritize tasks outside where indoor ambushes are harder.",
+          "When clearing, specifically check cabinets and foliage — these are the map's biggest threat.",
+          "Buddy system is critical: no vents means solo = almost certain death. Create mutual alibis."
+        ],
+        "duck": [
+          "Use foliage and cabinets for ambushes. No vents means pure movement and timing — wait for isolation.",
+          "Lure targets into side hall corners and blocked areas, vision block, then dispose or drag body.",
+          "No cameras gives kill freedom, but you must pre-plan a solid alibi (task with others or callout timing).",
+          "In meetings claim you were in a hide spot observing to sow doubt."
+        ],
+        "neutral": [
+          "Pelican swallows safest in enclosed upstairs rooms; stay inside until meeting after swallowing.",
+          "Other neutrals can use short-term cabinet/foliage hides to observe before committing."
         ]
       },
       "tips": [
         "全图无通风管，凭空消失=可疑",
         "可藏身树叶和柜子，搜身时留意"
+      ],
+      "tipsEn": [
+        "Entire map has no vents — vanishing = suspicious.",
+        "Foliage and cabinets are common hides; search them when clearing."
       ],
       "updatedAt": "2026-06-06",
       "image": "/maps/mallard-manor.svg",
@@ -460,6 +658,7 @@
       "theme": "维多利亚",
       "size": "medium",
       "summary": "夜晚的维多利亚伦敦村落，多建筑与小巷，南侧临水，工程师可长期藏身。",
+      "summaryEn": "Nighttime Victorian London village with many buildings and alleys; south side borders water. Engineers can hide long-term.",
       "features": {
         "hasVents": true,
         "hasCCTV": false,
@@ -474,9 +673,17 @@
           "小巷"
         ]
       },
+      "hideSpotsEn": [
+        "Buildings",
+        "Alleys"
+      ],
       "tips": [
         "小巷多、易制造单独相处",
         "工程师在本图可长期藏匿，注意防范"
+      ],
+      "tipsEn": [
+        "Many alleys make it easy to end up alone with someone.",
+        "Engineers can hide long-term here — stay vigilant."
       ],
       "annotations": [
         {
@@ -484,59 +691,110 @@
           "x": 50,
           "y": 58,
           "label": "会议拉铃",
-          "note": "紧急会议拉铃在法院，出事第一时间往中部跑拉铃盘逻辑。"
+          "labelEn": "Meeting Bell",
+          "note": "紧急会议拉铃在法院，出事第一时间往中部跑拉铃盘逻辑。",
+          "noteEn": "Emergency bell is in the courthouse; run center immediately on incident to call meeting and establish logic."
         },
         {
           "type": "jail",
           "x": 16,
           "y": 72,
           "label": "监狱机制",
-          "note": "投票平局或无人出局时得票最多者入狱，钥匙随机刷新，锁匠鹅可随时开锁救人。"
+          "labelEn": "Jail Mechanic",
+          "note": "投票平局或无人出局时得票最多者入狱，钥匙随机刷新，锁匠鹅可随时开锁救人。",
+          "noteEn": "Most-voted player jailed on tie/no-exile; keys spawn randomly. Locksmith geese can free them anytime."
         },
         {
           "type": "hazard",
           "x": 53,
           "y": 24,
           "label": "广场下毒",
-          "note": "鸭子在广场下毒后，鹅必须限时跑到最右侧红灯区水泵换水解毒，长途路上极易被截杀。"
+          "labelEn": "Town Square Poison",
+          "note": "鸭子在广场下毒后，鹅必须限时跑到最右侧红灯区水泵换水解毒，长途路上极易被截杀。",
+          "noteEn": "After poison in square, geese must rush to far-right red-light pump to purify in time; long route is perfect for intercepts."
         },
         {
           "type": "hazard",
           "x": 12,
           "y": 24,
           "label": "工厂浓雾",
-          "note": "工厂可放浓雾全图无差别遮视野，雾起时千万别落单，鸭子最爱趁雾刀人。"
+          "labelEn": "Factory Fog",
+          "note": "工厂可放浓雾全图无差别遮视野，雾起时千万别落单，鸭子最爱趁雾刀人。",
+          "noteEn": "Factory can release fog that blinds everyone; never be alone in fog — ducks love fog kills."
         },
         {
           "type": "hazard",
           "x": 28,
           "y": 73,
           "label": "仓库火灾",
-          "note": "仓库起火需鹅阵营限时灭火，扎堆灭火时小心鸭子混在人群里补刀。"
+          "labelEn": "Warehouse Fire",
+          "note": "仓库起火需鹅阵营限时灭火，扎堆灭火时小心鸭子混在人群里补刀。",
+          "noteEn": "Geese must extinguish warehouse fire in time; ducks mix in the crowd to backstab clustered players."
         },
         {
           "type": "vent",
           "x": 91,
           "y": 36,
           "label": "下水道入口",
-          "note": "全图7处下水道全部互通，鸭子与工程师可藏匿和跨区位移，本图工程师能长期蹲坑，记得排查。"
+          "labelEn": "Sewer Entrance",
+          "note": "全图7处下水道全部互通，鸭子与工程师可藏匿和跨区位移，本图工程师能长期蹲坑，记得排查。",
+          "noteEn": "All 7 sewers interconnect; ducks & engineers hide and travel across map. Engineers camp long here — always sweep."
         },
         {
           "type": "killspot",
           "x": 65,
           "y": 74,
           "label": "码头刀点",
-          "note": "钓鱼、洗甲板任务背对街巷又临水，落单做任务极易被刀，务必结伴。"
+          "labelEn": "Dock Kill Spot",
+          "note": "钓鱼、洗甲板任务背对街巷又临水，落单做任务极易被刀，务必结伴。",
+          "noteEn": "Fishing/deck wash tasks face away from alleys and water; solo players here are easy kills — pair up."
         },
         {
           "type": "blindspot",
           "x": 44,
           "y": 50,
           "label": "街巷盲区",
-          "note": "全图无监控覆盖，中部小巷多易被带到单独相处，鸭子常在此卡视野单杀。"
+          "labelEn": "Alley Blind Spots",
+          "note": "全图无监控覆盖，中部小巷多易被带到单独相处，鸭子常在此卡视野单杀。",
+          "noteEn": "No camera coverage on map; central alleys easy for isolating players. Ducks frequently vision-block kills here."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "下水道互通，工程师可长期蹲守，记得排查所有入口避免被偷袭。",
+          "毒气和火灾要立刻结伴去修，落单去远端极易被刀。",
+          "浓雾时抱团，千万别单独行动，工厂附近尤其危险。",
+          "监狱机制重要，锁匠要保护好钥匙，关键鹅被关时及时救。"
+        ],
+        "duck": [
+          "利用下水道快速跨区，毒气和火灾时混入人群补刀最稳。",
+          "浓雾是最佳杀人时机，全图视野差可大胆行动后撤离。",
+          "把目标带到街巷盲区卡视野，码头任务区背对水也很适合。",
+          "监狱关人后故意不给钥匙，拖延鹅方节奏。"
+        ],
+        "neutral": [
+          "鹈鹕可在建筑内或下水道吞人，浓雾中吞人更隐蔽。",
+          "其他中立可借下水道和建筑躲藏观察局势。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Sewers connect everything — Engineers can camp long-term; always sweep all entrances to avoid surprise attacks.",
+          "Poison and fire require immediate paired repairs; solo trips to far ends are easy kills.",
+          "In fog, stay grouped — never act alone, especially near the factory.",
+          "Jail is critical; Locksmith must guard keys and free key Geese promptly."
+        ],
+        "duck": [
+          "Use sewers for fast cross-map movement; blend into crowds during poison/fire for backstabs.",
+          "Fog is prime killing time — full map vision loss lets you act boldly then escape.",
+          "Lure targets into alley blind spots for vision blocks; dock task area facing water is perfect.",
+          "Jail key players and deliberately withhold keys to stall Geese."
+        ],
+        "neutral": [
+          "Pelican can swallow inside buildings or sewers; fog makes it even safer.",
+          "Other neutrals can use sewers and buildings for hiding and observing."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/goosechapel.svg",
       "imageW": 800,
@@ -552,6 +810,7 @@
       "theme": "维多利亚",
       "size": "small",
       "summary": "小型封闭地下室，节奏快、遭遇频繁，工程师可长期藏身。",
+      "summaryEn": "Small enclosed basement; fast pace with frequent encounters. Engineers can hide long-term.",
       "features": {
         "hasVents": true,
         "hasCCTV": false,
@@ -567,72 +826,129 @@
         "图小节奏快，刀法频繁，发言信息密度高",
         "工程师可长期藏匿在隐蔽点"
       ],
+      "tipsEn": [
+        "Small map = fast pace, frequent stabs, high-density discussion.",
+        "Engineers can hide indefinitely in concealed spots."
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 52.5,
           "y": 56.9,
           "label": "会议拉铃",
-          "note": "全场唯一拉铃在祭坛，每人每局只能拉一次，别浪费报警机会"
+          "labelEn": "Meeting Bell",
+          "note": "全场唯一拉铃在祭坛，每人每局只能拉一次，别浪费报警机会",
+          "noteEn": "Only bell on map is at the altar; each player can call only once per game — don't waste it."
         },
         {
           "type": "task",
           "x": 71.9,
           "y": 23.5,
           "label": "投喂神明",
-          "note": "1分钟倒计时内喂3个食物的限时任务，单人蹲书房易被卡视野刀"
+          "labelEn": "Feed the Deity",
+          "note": "1分钟倒计时内喂3个食物的限时任务，单人蹲书房易被卡视野刀",
+          "noteEn": "Timed task: feed 3 items in 1 min; book room solo is easy vision-block kill target."
         },
         {
           "type": "task",
           "x": 11.3,
           "y": 64.8,
           "label": "找铃铛",
-          "note": "坑内找铃铛任务点，做完『表示敬意』才开隧道入口，下坑注意身后"
+          "labelEn": "Find the Bell",
+          "note": "坑内找铃铛任务点，做完『表示敬意』才开隧道入口，下坑注意身后",
+          "noteEn": "Bell-search task inside pit; only after 'pay respects' does tunnel open — watch your back when going down."
         },
         {
           "type": "killspot",
           "x": 40.9,
           "y": 80.4,
           "label": "迷宫刀点",
-          "note": "隧道迷宫人流稀少、尸体难被发现，鸭子最爱在此堵落单的鹅"
+          "labelEn": "Maze Kill Spot",
+          "note": "隧道迷宫人流稀少、尸体难被发现，鸭子最爱在此堵落单的鹅",
+          "noteEn": "Tunnel maze has low traffic and hidden bodies; ducks love blocking solo geese here."
         },
         {
           "type": "dispose",
           "x": 11.3,
           "y": 28.7,
           "label": "水域毁尸",
-          "note": "雾洞上方水域是送葬者毁尸点，尸体入水即无尸可报，盘逻辑要算上失踪人口"
+          "labelEn": "Water Disposal",
+          "note": "雾洞上方水域是送葬者毁尸点，尸体入水即无尸可报，盘逻辑要算上失踪人口",
+          "noteEn": "Water above fog cave is undertaker disposal; bodies in water = no corpse report. Count missing players in logic."
         },
         {
           "type": "dispose",
           "x": 50,
           "y": 69.1,
           "label": "火炉毁尸",
-          "note": "锅炉房火炉可烧尸灭迹，撞见拖尸的直接去祭坛拉铃"
+          "labelEn": "Furnace Disposal",
+          "note": "锅炉房火炉可烧尸灭迹，撞见拖尸的直接去祭坛拉铃",
+          "noteEn": "Boiler furnace burns bodies; if you see a dragger, immediately call meeting at altar."
         },
         {
           "type": "hide",
           "x": 43.5,
           "y": 22.6,
           "label": "书架藏点",
-          "note": "礼堂左上角两书架间的箱子，工程师可永久藏身偷听过路发言"
+          "labelEn": "Bookshelf Hide",
+          "note": "礼堂左上角两书架间的箱子，工程师可永久藏身偷听过路发言",
+          "noteEn": "Box between two bookshelves upper-left auditorium; engineers can permanently hide and eavesdrop."
         },
         {
           "type": "hide",
           "x": 72.5,
           "y": 65.7,
           "label": "木桶藏身",
-          "note": "储物间左侧木桶是常用藏点，查岗清图时记得绕过去敲一遍"
+          "labelEn": "Wooden Barrel Hide",
+          "note": "储物间左侧木桶是常用藏点，查岗清图时记得绕过去敲一遍",
+          "noteEn": "Left barrel in storage is common hide; when clearing, remember to check around it."
         },
         {
           "type": "hazard",
           "x": 30.6,
           "y": 37.4,
           "label": "全图关灯",
-          "note": "实验室破坏点，关灯后鹅视野骤减极易被单杀，结伴来修灯别落单"
+          "labelEn": "Global Lights Out",
+          "note": "实验室破坏点，关灯后鹅视野骤减极易被单杀，结伴来修灯别落单",
+          "noteEn": "Lab sabotage blacks out map; geese vision drops sharply — pair up to fix lights."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "小地图节奏快，尽量结伴，别单独下坑或进死角。",
+          "工程师可利用长期藏身优势蹲守关键区域，报告破坏位置。",
+          "关灯时立刻结伴去修，别让鸭子利用黑暗单杀。",
+          "会议铃只能拉一次，关键时刻别浪费，优先在有证据时拉。"
+        ],
+        "duck": [
+          "利用小地图快速接近目标，通风管可快速换位找单。",
+          "关灯破坏后趁视野差秒杀，然后迅速通风或藏好。",
+          "下坑或死角是好刀点，但注意别被工程师藏着看到。",
+          "别急着拉会议铃，拖时间让好人更慌。"
+        ],
+        "neutral": [
+          "鹈鹕适合吞刀后在小地图边缘慢慢消化到会议。",
+          "其他中立可借小地图混乱藏身或求票。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Fast pace on small map — always pair up, never go down the pit or into dead-ends alone.",
+          "Engineer can use long-hide advantage to camp key zones and report sabotage locations.",
+          "On lights out, immediately group up to fix — don't let Ducks use darkness for solo kills.",
+          "The meeting bell can only be rung once — save it for when you have solid evidence."
+        ],
+        "duck": [
+          "Small map lets you close distance fast; use vents to reposition and find isolates.",
+          "Sabotage lights then kill in the dark, then vent or hide quickly.",
+          "Pit and dead-ends are strong kill spots but watch for hiding Engineers.",
+          "Don't rush to call meetings — let the Geese get more paranoid."
+        ],
+        "neutral": [
+          "Pelican can swallow armed players then slowly digest on the edges until meeting.",
+          "Other neutrals can use the chaos of the small map to hide or fish for votes."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/basement.svg",
       "imageW": 800,
@@ -646,6 +962,7 @@
       "theme": "维多利亚",
       "size": "medium",
       "summary": "维多利亚黑暗港湾，含昼夜循环与腐化机制，两处藏尸区与专属破坏。",
+      "summaryEn": "Victorian dark harbor with day/night cycle and corruption mechanics; two body disposal areas and unique sabotages.",
       "features": {
         "hasVents": true,
         "hasCCTV": false,
@@ -660,9 +977,17 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Bus",
+        "Exclusive Sabotage"
+      ],
       "tips": [
         "有昼夜循环与腐化，注意腐化扩散",
         "两处藏尸区，报尸前留意尸体可能被转移"
+      ],
+      "tipsEn": [
+        "Day/night + corruption mechanics — watch corruption spread.",
+        "Two disposal areas; confirm bodies haven't been moved by undertaker before reporting."
       ],
       "annotations": [
         {
@@ -670,59 +995,76 @@
           "x": 50,
           "y": 71.7,
           "label": "教堂敲钟",
-          "note": "会议靠敲钟发起，夜晚和自身腐化状态敲不了，鸭子刀人后掐着入夜时机最难被叫会。"
+          "labelEn": "Church Bell",
+          "note": "会议靠敲钟发起，夜晚和自身腐化状态敲不了，鸭子刀人后掐着入夜时机最难被叫会。",
+          "noteEn": "Meetings started by ringing bell; can't ring at night or when corrupted. Ducks time kills right before nightfall to delay meetings."
         },
         {
           "type": "task",
           "x": 44.4,
           "y": 39.3,
           "label": "广场任务区",
-          "note": "全镇人流最大的十字口，好人结伴做任务互相作证，落单穿巷容易被尾随。"
+          "labelEn": "Town Square Tasks",
+          "note": "全镇人流最大的十字口，好人结伴做任务互相作证，落单穿巷容易被尾随。",
+          "noteEn": "Busiest crossroads; pair up for tasks and mutual alibis. Solo alley crossing invites tails."
         },
         {
           "type": "dispose",
           "x": 71.9,
           "y": 45.7,
           "label": "火炉销尸",
-          "note": "停尸房火炉可直接销毁尸体，报尸前先确认尸体没被送葬者搬走，开棺材还有低概率惊吓彩蛋。"
+          "labelEn": "Furnace Disposal",
+          "note": "停尸房火炉可直接销毁尸体，报尸前先确认尸体没被送葬者搬走，开棺材还有低概率惊吓彩蛋。",
+          "noteEn": "Morgue furnace destroys bodies outright. Before reporting, ensure undertaker hasn't moved it; coffins have rare scare easter egg."
         },
         {
           "type": "dispose",
           "x": 21.3,
           "y": 76,
           "label": "衣柜藏尸",
-          "note": "医院衣柜是另一处藏尸点，鸭子刀完顺手塞柜，好人路过多开柜检查少背锅。"
+          "labelEn": "Closet Disposal",
+          "note": "医院衣柜是另一处藏尸点，鸭子刀完顺手塞柜，好人路过多开柜检查少背锅。",
+          "noteEn": "Hospital closet is alternate disposal; ducks stuff bodies post-kill. Open extra closets when passing to avoid false reports."
         },
         {
           "type": "hazard",
           "x": 25,
           "y": 20.4,
           "label": "毒化水泵",
-          "note": "致命级破坏限时60秒，必须跑到左上水井旁的水泵修复，落单去修极易被守点刀。"
+          "labelEn": "Poison Pump",
+          "note": "致命级破坏限时60秒，必须跑到左上水井旁的水泵修复，落单去修极易被守点刀。",
+          "noteEn": "Lethal sabotage, 60s timer; must reach upper-left well pump. Solo repairs are easy camp kills."
         },
         {
           "type": "hazard",
           "x": 80.6,
           "y": 73.5,
           "label": "献祭之钟",
-          "note": "墓地破坏后钟随机刷新，超时强制开献祭会议，响铃后全员第一时间分头找钟。"
+          "labelEn": "Sacrificial Bell",
+          "note": "墓地破坏后钟随机刷新，超时强制开献祭会议，响铃后全员第一时间分头找钟。",
+          "noteEn": "After graveyard sabotage, bell spawns randomly; timeout forces sacrificial meeting. Everyone splits to find bell on ring."
         },
         {
           "type": "killspot",
           "x": 90,
           "y": 46.1,
           "label": "药铺死角",
-          "note": "右上角人流稀少且无监控，鸭子常在此卡视野单杀后走右侧通道溜进墓地。"
+          "labelEn": "Apothecary Corner",
+          "note": "右上角人流稀少且无监控，鸭子常在此卡视野单杀后走右侧通道溜进墓地。",
+          "noteEn": "Upper-right low traffic, no cameras; ducks vision-block kills then slip into graveyard via right path."
         },
         {
           "type": "blindspot",
           "x": 13.5,
           "y": 44.6,
           "label": "公园树丛",
-          "note": "树丛遮挡视野，夜晚只有鸭子看得到名字，别独自在这盘逻辑，容易落单被刀。"
+          "labelEn": "Park Bushes",
+          "note": "树丛遮挡视野，夜晚只有鸭子看得到名字，别独自在这盘逻辑，容易落单被刀。",
+          "noteEn": "Bushes block vision; at night only ducks see names. Don't discuss logic alone here or you get isolated and killed."
         }
       ],
       "strategy": {},
+      "strategyEn": {},
       "updatedAt": "2026-06-06",
       "image": "/maps/bloodhaven.svg",
       "imageW": 800,
@@ -739,6 +1081,7 @@
       "theme": "丛林",
       "size": "medium",
       "summary": "丛林古庙，鸭子可激活死亡陷阱（如滚石），瞬间清掉路过玩家。",
+      "summaryEn": "Jungle ancient temple; ducks can activate lethal traps (e.g. rolling boulders) that instantly eliminate passersby.",
       "features": {
         "hasVents": true,
         "hasCCTV": false,
@@ -753,9 +1096,17 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Death Trap",
+        "Rolling Boulder"
+      ],
       "tips": [
         "小心鸭子激活的死亡陷阱，别在陷阱通道久留",
         "陷阱致死不算刀，排查时别误判"
+      ],
+      "tipsEn": [
+        "Watch for ducks activating death traps; don't linger in trap corridors.",
+        "Trap deaths don't count as kills — don't misjudge during investigation."
       ],
       "annotations": [
         {
@@ -763,66 +1114,119 @@
           "x": 48.1,
           "y": 62.6,
           "label": "献祭钟",
-          "note": "敬拜坑中央的献祭钟即会议按钮，靠近按E或左键就能拍，出事先抢钟别犹豫。"
+          "labelEn": "Sacrificial Bell",
+          "note": "敬拜坑中央的献祭钟即会议按钮，靠近按E或左键就能拍，出事先抢钟别犹豫。",
+          "noteEn": "Worship bell in central pit is the meeting button; press E/LMB near it. Call meeting quickly on incident."
         },
         {
           "type": "hazard",
           "x": 68.1,
           "y": 59.1,
           "label": "滚石通道",
-          "note": "鸭子激活滚石后沿固定路径碾人，直接秒杀不留尸也不算刀，别在通道里久留盘逻辑。"
+          "labelEn": "Boulder Corridor",
+          "note": "鸭子激活滚石后沿固定路径碾人，直接秒杀不留尸也不算刀，别在通道里久留盘逻辑。",
+          "noteEn": "Ducks activate rolling boulder along fixed path that crushes anyone; instant death, no body, not a stab. Don't discuss in corridor."
         },
         {
           "type": "hide",
           "x": 46.9,
           "y": 15.2,
           "label": "北口迷雾",
-          "note": "墓室北入口有迷雾，鸭子、模仿者和鸽子都能进，雾外能听到雾内屁声可用来排人。"
+          "labelEn": "North Entrance Fog",
+          "note": "墓室北入口有迷雾，鸭子、模仿者和鸽子都能进，雾外能听到雾内屁声可用来排人。",
+          "noteEn": "Fog at north tomb entrance; ducks, mimics and pigeons can enter. Hear farts from outside to identify."
         },
         {
           "type": "blindspot",
           "x": 41.3,
           "y": 33,
           "label": "召唤黑暗",
-          "note": "鸭子在墓室关灯后全图变暗，鹅要分头去重燃各处火把开灯，黑暗中落单极易吃刀。"
+          "labelEn": "Summon Darkness",
+          "note": "鸭子在墓室关灯后全图变暗，鹅要分头去重燃各处火把开灯，黑暗中落单极易吃刀。",
+          "noteEn": "Duck turns off lights in tomb; whole map darkens. Geese must relight torches in groups — solo in dark = easy kill."
         },
         {
           "type": "hazard",
           "x": 64.6,
           "y": 40.4,
           "label": "木桥危险",
-          "note": "通往王座室的木桥可被鸭子破坏，过桥别停留，更别在桥上站着盘逻辑。"
+          "labelEn": "Wooden Bridge Hazard",
+          "note": "通往王座室的木桥可被鸭子破坏，过桥别停留，更别在桥上站着盘逻辑。",
+          "noteEn": "Bridge to throne room can be sabotaged by ducks; don't stop or discuss logic while crossing."
         },
         {
           "type": "killspot",
           "x": 18.1,
           "y": 60.4,
           "label": "训练场刀点",
-          "note": "西侧偏僻且本图无监控覆盖，训练场的门被破坏后落单玩家常在此被卡视野单杀。"
+          "labelEn": "Training Grounds Kill Spot",
+          "note": "西侧偏僻且本图无监控覆盖，训练场的门被破坏后落单玩家常在此被卡视野单杀。",
+          "noteEn": "Remote west side, no cameras; after door sabotage solo players frequently vision-block killed here."
         },
         {
           "type": "hide",
           "x": 95,
           "y": 56,
           "label": "东口迷雾",
-          "note": "暂存准备区东入口的迷雾是常见蹲点，有人从雾里凭空走出要先记一笔再盘。"
+          "labelEn": "East Entrance Fog",
+          "note": "暂存准备区东入口的迷雾是常见蹲点，有人从雾里凭空走出要先记一笔再盘。",
+          "noteEn": "East staging area fog is common camp spot; note anyone emerging from fog before accusing."
         },
         {
           "type": "hide",
           "x": 41.9,
           "y": 80.9,
           "label": "下水道",
-          "note": "地下下水道有多处入口可藏身，排查路过时记得扫一眼，别给鸭子留转点空间。"
+          "labelEn": "Sewer",
+          "note": "地下下水道有多处入口可藏身，排查路过时记得扫一眼，别给鸭子留转点空间。",
+          "noteEn": "Underground sewers have multiple entrances for hiding; sweep when passing to prevent duck rotation space."
         },
         {
           "type": "vent",
           "x": 75,
           "y": 32.2,
           "label": "通风口",
-          "note": "本图有通风口但连通关系无公开资料，看到人凭空出现或消失多半是钻了风口。"
+          "labelEn": "Vent",
+          "note": "本图有通风口但连通关系无公开资料，看到人凭空出现或消失多半是钻了风口。",
+          "noteEn": "Vents exist but connections undocumented; sudden appear/disappear likely vent travel."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "木桥和训练场是高危区，过桥或做任务一定要结伴，别停留盘逻辑。",
+          "下水道和隐藏点多，路过时一定要扫一眼，防止鸭子藏匿。",
+          "死亡陷阱激活后立刻撤离王座室区域，滚石范围很大。",
+          "通风口连通关系不明，看到突然出现/消失的人优先怀疑鸭子。"
+        ],
+        "duck": [
+          "激活死亡陷阱后守在附近收割路过玩家，滚石能瞬间清场。",
+          "破坏木桥后守桥两端，鹅过桥时卡视野或直接推下水。",
+          "下水道是完美藏身和转移点，训练场门破坏后可长期蹲守。",
+          "通风口突然出现能制造不在场，配合陷阱杀非常强。"
+        ],
+        "neutral": [
+          "鹈鹕可在下水道或隐藏点吞人，滚石陷阱触发时吞人最安全。",
+          "其他中立可利用下水道长期藏身等到残局。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Wooden bridge and training grounds are high-risk — always pair up when crossing or tasking, never stop to discuss logic.",
+          "Sewers and hides are plentiful; always sweep when passing to prevent Duck camping.",
+          "After death trap activation, evacuate throne room area immediately — boulders have huge range.",
+          "Vent connections unknown; anyone suddenly appearing/disappearing is likely a Duck."
+        ],
+        "duck": [
+          "Activate death traps then camp nearby to harvest passersby — boulders clear groups instantly.",
+          "Sabotage the bridge and camp both ends; vision-block or push Geese into water as they cross.",
+          "Sewers are perfect hides and rotation spots; after sabotaging training door you can camp long-term.",
+          "Sudden vent appearances create perfect alibis — combines extremely well with traps."
+        ],
+        "neutral": [
+          "Pelican can swallow safely in sewers or hides, especially when traps trigger.",
+          "Other neutrals can use sewers for long-term hiding until endgame."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/jungle-temple.svg",
       "imageW": 800,
@@ -839,6 +1243,7 @@
       "theme": "沙漠",
       "size": "large",
       "summary": "古埃及沙漠遗迹，有沙暴机制与禁忌通道，部分角色为本图专属。",
+      "summaryEn": "Ancient Egyptian desert ruins featuring sandstorm mechanics and forbidden passages; some roles are map-exclusive.",
       "features": {
         "hasVents": true,
         "hasCCTV": true,
@@ -852,9 +1257,16 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Sandstorm"
+      ],
       "tips": [
         "沙暴期间室外视野受限，注意走位",
         "街头顽童/追踪者为本图专属角色"
+      ],
+      "tipsEn": [
+        "During sandstorms, outdoor vision is limited — mind your positioning.",
+        "Street Urchin / Tracker are exclusive to this map."
       ],
       "annotations": [
         {
@@ -862,66 +1274,119 @@
           "x": 50.6,
           "y": 54.8,
           "label": "会议铃",
-          "note": "位于金字塔入口前的街道上，按铃会重置已召唤的木乃伊；纵火/献祭铃破坏期间按不了铃，只能报尸开会。"
+          "labelEn": "Meeting Bell",
+          "note": "位于金字塔入口前的街道上，按铃会重置已召唤的木乃伊；纵火/献祭铃破坏期间按不了铃，只能报尸开会。",
+          "noteEn": "Bell on street in front of pyramid entrance; ringing resets summoned mummy. Can't ring during arson/sacrifice sabotage — only report bodies."
         },
         {
           "type": "killspot",
           "x": 13.1,
           "y": 46.1,
           "label": "召唤木乃伊",
-          "note": "图书馆被破坏后木乃伊从金字塔顶管道出现，自动追杀最近玩家且无法击杀，落单的人最容易被白给。"
+          "labelEn": "Summon Mummy",
+          "note": "图书馆被破坏后木乃伊从金字塔顶管道出现，自动追杀最近玩家且无法击杀，落单的人最容易被白给。",
+          "noteEn": "After library sabotage, mummy emerges from pyramid top pipe, auto-hunts nearest and can't be killed; loners are easy victims."
         },
         {
           "type": "hide",
           "x": 13.1,
           "y": 30,
           "label": "神庙窥视孔",
-          "note": "鹅蛋神庙内可透过窥视孔观察外部动向，好人蹲点记行动轨迹，会上盘逻辑有据可依。"
+          "labelEn": "Temple Peephole",
+          "note": "鹅蛋神庙内可透过窥视孔观察外部动向，好人蹲点记行动轨迹，会上盘逻辑有据可依。",
+          "noteEn": "Inside goose egg temple, use peephole to observe outside; note movement paths for solid meeting logic."
         },
         {
           "type": "hazard",
           "x": 16.5,
           "y": 70,
           "label": "献祭之铃",
-          "note": "工匠之家被破坏后全图随机刷铃，没人及时捡就强制开会，平票/跳过还会随机驱逐非鸭玩家，必须分人跑铃。"
+          "labelEn": "Sacrificial Bell",
+          "note": "工匠之家被破坏后全图随机刷铃，没人及时捡就强制开会，平票/跳过还会随机驱逐非鸭玩家，必须分人跑铃。",
+          "noteEn": "After craftsman house sabotage bell spawns randomly; timeout forces meeting. Ties/skips randomly exile non-ducks — assign runners."
         },
         {
           "type": "blindspot",
           "x": 53,
           "y": 87,
           "label": "沙暴盲区",
-          "note": "沙暴周期性压缩室外视野，空旷沙地无监控覆盖，鸭子常趁沙暴卡视野单杀，尽量结伴或进屋规避。"
+          "labelEn": "Sandstorm Blind Spot",
+          "note": "沙暴周期性压缩室外视野，空旷沙地无监控覆盖，鸭子常趁沙暴卡视野单杀，尽量结伴或进屋规避。",
+          "noteEn": "Periodic sandstorms limit outdoor view; open sands have no camera. Ducks use storms for vision kills — pair up or shelter indoors."
         },
         {
           "type": "task",
           "x": 68.8,
           "y": 49,
           "label": "水塘取水",
-          "note": "金字塔东南的灭火取水点，纵火时这里人流最密，往返路上极易被鸭子贴脸跟刀。"
+          "labelEn": "Pond Water Fetch",
+          "note": "金字塔东南的灭火取水点，纵火时这里人流最密，往返路上极易被鸭子贴脸跟刀。",
+          "noteEn": "Water source SE of pyramid for firefighting; heaviest traffic during arson. Ducks knife on return trips."
         },
         {
           "type": "task",
           "x": 88.1,
           "y": 41.3,
           "label": "船上钓鱼",
-          "note": "钓鱼任务只能在北港-南港自动往返的小船上做；木乃伊在场时船停驶，上船等于短暂落单。"
+          "labelEn": "Boat Fishing",
+          "note": "钓鱼任务只能在北港-南港自动往返的小船上做；木乃伊在场时船停驶，上船等于短暂落单。",
+          "noteEn": "Fishing only on auto-loop boat between N/S ports; boat stops if mummy present. Boarding = brief isolation."
         },
         {
           "type": "hazard",
           "x": 81.3,
           "y": 78,
           "label": "纵火点",
-          "note": "右下角供应小屋被点火后必须去水塘打水多次往返灭火，拖到超时鸭子直接获胜，优先级最高。"
+          "labelEn": "Arson Point",
+          "note": "右下角供应小屋被点火后必须去水塘打水多次往返灭火，拖到超时鸭子直接获胜，优先级最高。",
+          "noteEn": "Supply hut bottom-right set on fire; multiple trips to pond to extinguish or ducks win on timeout. Highest priority."
         },
         {
           "type": "vent",
           "x": 81.9,
           "y": 8.3,
           "label": "禁忌通道",
-          "note": "本图无传统通风口，鸭子/鸽子/模仿者走禁忌通道穿图，还可上右上角屋顶魔镜远程偷听好人盘逻辑。"
+          "labelEn": "Forbidden Passage",
+          "note": "本图无传统通风口，鸭子/鸽子/模仿者走禁忌通道穿图，还可上右上角屋顶魔镜远程偷听好人盘逻辑。",
+          "noteEn": "No classic vents; ducks/pigeons/mimics use forbidden passages to cross map. Can also use rooftop magic mirror to eavesdrop."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "沙暴时优先室内任务，室外视野差容易被卡杀。",
+          "沙暴破坏和纵火是高优先级，必须立刻多人去修。",
+          "禁忌通道和屋顶魔镜是鸭子专属，记得排查屋顶。",
+          "召唤木乃伊时别停在通道，提前规划逃生路线。"
+        ],
+        "duck": [
+          "沙暴时室外是绝佳刀点，结合禁忌通道快速转移。",
+          "点火后守在水塘附近拦截灭火鹅，拖延时间就是胜利。",
+          "屋顶魔镜可远程听盘逻辑，提前布局。",
+          "召唤木乃伊后守在必经之路收割。"
+        ],
+        "neutral": [
+          "跟踪者/街头顽童在本图有优势，利用通道和沙暴。",
+          "中立可藏在禁忌通道等待残局。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "During sandstorm prioritize indoor tasks — outdoor vision loss makes you easy prey.",
+          "Sandstorm sabotage and arson are highest priority — send multiple people immediately.",
+          "Forbidden passages and rooftop magic mirror are Duck-only; always check rooftops.",
+          "When mummy is summoned don't linger in corridors — plan escape routes early."
+        ],
+        "duck": [
+          "Sandstorm makes outdoors perfect for kills; use forbidden passages for fast repositioning.",
+          "After starting fire, camp the pond to intercept firefighters and run out the timer.",
+          "Rooftop magic mirror lets you eavesdrop on discussions from safety.",
+          "Summon mummy then camp the path players must take."
+        ],
+        "neutral": [
+          "Tracker / Street Urchin excel here — use passages and storms to your advantage.",
+          "Neutrals can hide in forbidden passages until endgame."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/ancient-sands.svg",
       "imageW": 800,
@@ -937,6 +1402,7 @@
       "theme": "小镇",
       "size": "medium",
       "summary": "小镇温泉度假地，较新地图，动线与机制需实战熟悉。",
+      "summaryEn": "Small-town hot springs resort; newer map — learn routes and mechanics through play.",
       "features": {
         "hasVents": true,
         "hasCCTV": false,
@@ -951,72 +1417,128 @@
       "tips": [
         "较新地图，多数人点位不熟，先摸清动线"
       ],
+      "tipsEn": [
+        "Newer map; most players don't know the spots yet — learn routes first."
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 28.5,
           "y": 53.9,
           "label": "会议按钮",
-          "note": "镇中心主街街口的喇叭按钮，校车破坏期间冲按钮容易被车撞，先看路再报警。"
+          "labelEn": "Meeting Button",
+          "note": "镇中心主街街口的喇叭按钮，校车破坏期间冲按钮容易被车撞，先看路再报警。",
+          "noteEn": "Horn button at main street intersection; rushing button during bus sabotage risks getting hit — look both ways."
         },
         {
           "type": "hazard",
           "x": 62.5,
           "y": 53.9,
           "label": "校车碾压",
-          "note": "校车破坏后沿主街双向碾压路上所有人（友军同伤、冒险家免疫），解除前别在街面落单逗留。"
+          "labelEn": "School Bus Runover",
+          "note": "校车破坏后沿主街双向碾压路上所有人（友军同伤、冒险家免疫），解除前别在街面落单逗留。",
+          "noteEn": "Sabotaged bus drives both ways crushing everyone on main street (friendly fire, Adventurer immune); don't linger alone before fixed."
         },
         {
           "type": "task",
           "x": 11.3,
           "y": 20.7,
           "label": "案件重演",
-          "note": "警长局是案件重演任务点兼随机关门解除点，关门破坏时人流密集，鸭子常趁乱混身份。"
+          "labelEn": "Case Reenactment",
+          "note": "警长局是案件重演任务点兼随机关门解除点，关门破坏时人流密集，鸭子常趁乱混身份。",
+          "noteEn": "Sheriff office is reenactment task + random door unlock. During door sabotage crowds form; ducks blend in chaos."
         },
         {
           "type": "task",
           "x": 36.3,
           "y": 20.7,
           "label": "回春舱",
-          "note": "回春舱每3分钟可洗掉静默/炸弹/丘比特等负面状态，被禁用时全队没了保险，优先来此解除。"
+          "labelEn": "Rejuvenation Pod",
+          "note": "回春舱每3分钟可洗掉静默/炸弹/丘比特等负面状态，被禁用时全队没了保险，优先来此解除。",
+          "noteEn": "Pod clears silence/bomb/cupid debuffs every 3 min; when disabled the team loses safety net — prioritize fix."
         },
         {
           "type": "task",
           "x": 36.3,
           "y": 38.5,
           "label": "电话输码",
-          "note": "电话被破坏后要在电台输码解除，输码时背对门口，鸭子爱在这堵门刀落单的好人。"
+          "labelEn": "Phone Code Entry",
+          "note": "电话被破坏后要在电台输码解除，输码时背对门口，鸭子爱在这堵门刀落单的好人。",
+          "noteEn": "After phone sabotage enter code at radio station; back faces door — ducks love door-blocking solo players here."
         },
         {
           "type": "vent",
           "x": 41.3,
           "y": 66.7,
           "label": "通风口",
-          "note": "本图通风口不互通房间、全部直下下水道层，出来只能走梯子，盯住梯口能直接盘出钻管的鸭子。"
+          "labelEn": "Vent",
+          "note": "本图通风口不互通房间、全部直下下水道层，出来只能走梯子，盯住梯口能直接盘出钻管的鸭子。",
+          "noteEn": "Vents drop straight to sewer level, not between rooms; exit only via ladders. Watch ladder exits to catch venters."
         },
         {
           "type": "killspot",
           "x": 31.3,
           "y": 82.2,
           "label": "下水道刀点",
-          "note": "下水道无监控且部分鸭子能变形加速，落单下来清污染极易被堵刀，至少双人同行。"
+          "labelEn": "Sewer Kill Spot",
+          "note": "下水道无监控且部分鸭子能变形加速，落单下来清污染极易被堵刀，至少双人同行。",
+          "noteEn": "No cameras in sewer + some ducks have shape-shift speed; solo pollution clear = easy block kill. At least pairs."
         },
         {
           "type": "hide",
           "x": 77.5,
           "y": 82.2,
           "label": "隐藏密室",
-          "note": "下水道深处有全游戏唯一隐藏密室（忍者神龟彩蛋，需特定破坏组合开启），冷门藏身位。"
+          "labelEn": "Hidden Chamber",
+          "note": "下水道深处有全游戏唯一隐藏密室（忍者神龟彩蛋，需特定破坏组合开启），冷门藏身位。",
+          "noteEn": "Deep sewer contains the game's only hidden chamber (TMNT easter egg, specific sabotage combo to open) — rare hide."
         },
         {
           "type": "blindspot",
           "x": 76.3,
           "y": 66.7,
           "label": "公园盲区",
-          "note": "公园在主街东段尽头、全图无监控覆盖，鸭子常在此卡视野单杀，落单别往里走。"
+          "labelEn": "Park Blind Spot",
+          "note": "公园在主街东段尽头、全图无监控覆盖，鸭子常在此卡视野单杀，落单别往里走。",
+          "noteEn": "Park at east end of main street; zero camera coverage. Ducks vision-block kills here — don't go in alone."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "回春舱和电话是高优先级任务，背对门口时一定要有人盯梢。",
+          "公园和隐藏密室是刀点，落单绝对不要进去。",
+          "关门破坏时人流密集，注意混入的人身份。",
+          "下水道梯口盯紧，出来的人要验证身份。"
+        ],
+        "duck": [
+          "破坏电话后守在电台门口堵人，背对的鹅最容易刀。",
+          "公园盲区无监控，完美卡视野单杀点。",
+          "利用关门混乱混身份，隐藏密室是长期藏身位。",
+          "破坏回春舱让鹅失去解除负面状态的能力。"
+        ],
+        "neutral": [
+          "忍者可利用下水道和隐藏密室长期潜伏。",
+          "中立可借公园和密室观察残局。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Rejuvenation Pod and Phone Code are high priority — when your back is to the door always have someone watching.",
+          "Park and hidden chamber are kill zones — never enter alone.",
+          "During door sabotage crowds form; watch for people blending in.",
+          "Watch sewer ladder exits — verify anyone who comes up."
+        ],
+        "duck": [
+          "After phone sabotage camp the radio door — players facing away are easy kills.",
+          "Park blind spot has zero cameras — perfect vision block solo kills.",
+          "Use door sabotage chaos to blend identities; hidden chamber is a long-term hide.",
+          "Disable rejuvenation pod to remove the team's safety net for debuffs."
+        ],
+        "neutral": [
+          "Ninja can use sewers and hidden chamber for long-term stealth.",
+          "Neutrals can observe endgame from park or chamber."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/eagleton-springs.svg",
       "imageW": 800,
@@ -1033,6 +1555,7 @@
       "theme": "嘉年华",
       "size": "medium",
       "summary": "热闹游乐园，有监控、对讲机与前置任务，含本图专属角色。",
+      "summaryEn": "Bustling carnival with CCTV, walkie-talkies and pre-tasks; includes map-exclusive roles.",
       "features": {
         "hasVents": true,
         "hasCCTV": true,
@@ -1048,65 +1571,120 @@
         "有监控与对讲机，刀前先确认监控",
         "科学家为嘉年华专属角色"
       ],
+      "tipsEn": [
+        "Has cameras and walkie-talkies; check monitors before killing.",
+        "Scientist is carnival-exclusive role."
+      ],
       "annotations": [
         {
           "type": "meeting",
           "x": 80,
           "y": 69,
           "label": "召集铃",
-          "note": "全图唯一会议铃在帐篷内11点钟方位，发现异常别犹豫直接摇铃盘逻辑。"
+          "labelEn": "Rally Bell",
+          "note": "全图唯一会议铃在帐篷内11点钟方位，发现异常别犹豫直接摇铃盘逻辑。",
+          "noteEn": "Only meeting bell inside tent at ~11 o'clock position; shake immediately on suspicion to call meeting."
         },
         {
           "type": "dispose",
           "x": 93,
           "y": 82,
           "label": "老虎毁尸",
-          "note": "老虎附近的尸体会被直接吃掉消失，鸭在帐篷里刀人等于自带毁尸。"
+          "labelEn": "Tiger Disposal",
+          "note": "老虎附近的尸体会被直接吃掉消失，鸭在帐篷里刀人等于自带毁尸。",
+          "noteEn": "Bodies near tiger get eaten and vanish instantly; killing inside tent auto-disposes."
         },
         {
           "type": "hazard",
           "x": 44,
           "y": 20,
           "label": "过山车",
-          "note": "过山车被破坏时轨道顶点乘客全部坠亡且不留尸体，残局千万别全员上车。"
+          "labelEn": "Roller Coaster",
+          "note": "过山车被破坏时轨道顶点乘客全部坠亡且不留尸体，残局千万别全员上车。",
+          "noteEn": "When sabotaged, coaster riders at peak fall to death with no corpse; late game never board as full team."
         },
         {
           "type": "task",
           "x": 80,
           "y": 21,
           "label": "监控前置",
-          "note": "鹅做完前置任务CCTV才会亮，外墙发电机再解锁对讲机，鸭刀前务必确认监控开没开。"
+          "labelEn": "Camera Pre-task",
+          "note": "鹅做完前置任务CCTV才会亮，外墙发电机再解锁对讲机，鸭刀前务必确认监控开没开。",
+          "noteEn": "CCTV activates only after geese complete pre-task; outer generator unlocks radio. Confirm cameras are live before kills."
         },
         {
           "type": "killspot",
           "x": 83,
           "y": 45,
           "label": "占卜屋",
-          "note": "右侧边缘小屋人流稀少，落单进屋常被鸭堵门单杀。"
+          "labelEn": "Fortune Teller Booth",
+          "note": "右侧边缘小屋人流稀少，落单进屋常被鸭堵门单杀。",
+          "noteEn": "Low-traffic edge booth; solo entry often results in ducks blocking door for kill."
         },
         {
           "type": "task",
           "x": 11,
           "y": 42,
           "label": "怪奇轮盘",
-          "note": "攒4张门票转轮盘随机拿加速/加票等增益，持票玩家是鸭抢票的优先刀目标。"
+          "labelEn": "Mystery Wheel",
+          "note": "攒4张门票转轮盘随机拿加速/加票等增益，持票玩家是鸭抢票的优先刀目标。",
+          "noteEn": "Save 4 tickets to spin for buffs (speed, extra tickets etc). Ticket holders are priority duck targets."
         },
         {
           "type": "blindspot",
           "x": 12,
           "y": 79,
           "label": "南站台死角",
-          "note": "地图角落监控难覆盖，鸭刀完可坐过山车秒回北区做不在场证明。"
+          "labelEn": "South Platform Corner",
+          "note": "地图角落监控难覆盖，鸭刀完可坐过山车秒回北区做不在场证明。",
+          "noteEn": "Corner with poor camera coverage; ducks can kill then ride coaster back north instantly for alibi."
         },
         {
           "type": "hazard",
           "x": 50,
           "y": 63,
           "label": "限时破坏",
-          "note": "清垃圾/抓兔子限时不处理直接鸭胜，开阔地分头响应但别落单。"
+          "labelEn": "Timed Sabotage",
+          "note": "清垃圾/抓兔子限时不处理直接鸭胜，开阔地分头响应但别落单。",
+          "noteEn": "Trash/rabbit timed sabotages: failure = duck win. Spread out to respond but don't go solo in open."
         }
       ],
-      "strategy": {},
+      "strategy": {
+        "goose": [
+          "占卜屋和怪奇轮盘人流少，做任务时要结伴或让别人盯门。",
+          "南站台和过山车是刀点，坐车后立刻报点证明不在场。",
+          "限时破坏要分头响应但保持视线接触，别落单。",
+          "监控和对讲机要充分利用，报告可疑走位。"
+        ],
+        "duck": [
+          "堵占卜屋或轮盘门口刀落单玩家，轮盘持票者优先。",
+          "南站台刀完立刻坐过山车回北区制造不在场。",
+          "限时破坏时混在响应人群里补刀，开阔地容易得手。",
+          "用对讲机和监控假装好人报点混身份。"
+        ],
+        "neutral": [
+          "鹈鹕可在边缘小屋或站台吞人。",
+          "中立可利用过山车快速转移观察。"
+        ]
+      },
+      "strategyEn": {
+        "goose": [
+          "Fortune booth and mystery wheel have low traffic — task with a buddy or have someone watch the door.",
+          "South platform and coaster are kill zones; after riding immediately call to prove your location.",
+          "Timed sabotages require spread response but maintain line of sight — no solos.",
+          "Use cameras and walkie-talkies heavily; report suspicious movement."
+        ],
+        "duck": [
+          "Block fortune booth or wheel doors to kill isolated players; ticket holders are priority.",
+          "Kill at south platform then immediately ride coaster north for perfect alibi.",
+          "Blend into the response group during timed sabotages — open areas are easy kills.",
+          "Use walkie-talkies and cameras to fake being a good guy calling info."
+        ],
+        "neutral": [
+          "Pelican can swallow in edge booths or platforms.",
+          "Neutrals can use the coaster for fast relocation and observation."
+        ]
+      },
       "updatedAt": "2026-06-06",
       "image": "/maps/the-carnival.svg",
       "imageW": 800,
@@ -1123,6 +1701,7 @@
       "theme": "怪兽",
       "size": "large",
       "summary": "巨型怪兽主题地图，可用望远镜观察远处，角落适合鸭/鹈鹕动手。",
+      "summaryEn": "Giant kaiju-themed map; use telescopes to observe distant areas. Corners are ideal for ducks/pelicans.",
       "features": {
         "hasVents": true,
         "hasCCTV": true,
@@ -1136,9 +1715,16 @@
         ],
         "hideSpots": []
       },
+      "mapSabotagesEn": [
+        "Kaiju Event"
+      ],
       "tips": [
         "可用望远镜随时观察远处，但视角是角落",
         "角落隐蔽，适合伏击也要防伏击"
+      ],
+      "tipsEn": [
+        "Telescopes let you scout distant areas but view is corner-limited.",
+        "Corners are hidden; great for ambushes but also vulnerable to them."
       ],
       "annotations": [
         {
@@ -1146,59 +1732,76 @@
           "x": 18.8,
           "y": 50.4,
           "label": "会议按钮",
-          "note": "按钮在对策中心左上方露天处，这里也会被怪兽热线命中，跑去开会的路上可能直接被汽化"
+          "labelEn": "Meeting Button",
+          "note": "按钮在对策中心左上方露天处，这里也会被怪兽热线命中，跑去开会的路上可能直接被汽化",
+          "noteEn": "Button is exposed upper-left of strategy center; also hit by kaiju hotline. You may be vaporized en route."
         },
         {
           "type": "task",
           "x": 31.9,
           "y": 65.2,
           "label": "对策电脑",
-          "note": "电脑按1-16编号显示全部建筑，可提前查到下一次热线落点，好人报点盘逻辑、躲热线全靠它"
+          "labelEn": "Countermeasure Computer",
+          "note": "电脑按1-16编号显示全部建筑，可提前查到下一次热线落点，好人报点盘逻辑、躲热线全靠它",
+          "noteEn": "Computer shows all buildings 1-16; pre-check next hotline landing. Essential for reporting and dodging hotlines."
         },
         {
           "type": "task",
           "x": 10.9,
           "y": 38.3,
           "label": "栈桥钓鱼",
-          "note": "本图特有拉力条式钓鱼任务，钓鱼时背对街道极易被摸刀，建议结伴或先扫一眼周围再做"
+          "labelEn": "Pier Fishing",
+          "note": "本图特有拉力条式钓鱼任务，钓鱼时背对街道极易被摸刀，建议结伴或先扫一眼周围再做",
+          "noteEn": "Map-unique tension-bar fishing on pier; back to street while fishing = easy knife. Pair up or sweep area first."
         },
         {
           "type": "task",
           "x": 56.5,
           "y": 29.6,
           "label": "电线杆修电",
-          "note": "断电后要在咖啡店右侧电线杆连对4根线，修电背身又落单，是鸭子最爱的补刀点"
+          "labelEn": "Utility Pole Repair",
+          "note": "断电后要在咖啡店右侧电线杆连对4根线，修电背身又落单，是鸭子最爱的补刀点",
+          "noteEn": "After blackout connect 4 wires on pole right of cafe; back turned + alone = favorite duck cleanup spot."
         },
         {
           "type": "killspot",
           "x": 81.3,
           "y": 36.5,
           "label": "望远镜角落",
-          "note": "望远镜可随时远程观察，但位置卡在角落，鸭子/鹈鹕常蹲这里单杀来用镜的落单好人"
+          "labelEn": "Telescope Corner",
+          "note": "望远镜可随时远程观察，但位置卡在角落，鸭子/鹈鹕常蹲这里单杀来用镜的落单好人",
+          "noteEn": "Telescopes allow remote view but corner location; ducks/pelicans camp to solo-kill players using scope."
         },
         {
           "type": "hazard",
           "x": 7.5,
           "y": 20.7,
           "label": "怪兽热线",
-          "note": "怪兽周期性从海中现身咆哮后向随机建筑放热线，命中区域内直接汽化不留尸体，关门贴门站也躲不掉"
+          "labelEn": "Kaiju Hotline",
+          "note": "怪兽周期性从海中现身咆哮后向随机建筑放热线，命中区域内直接汽化不留尸体，关门贴门站也躲不掉",
+          "noteEn": "Kaiju periodically surfaces, roars, and targets random building with deadly beam; instant vaporize no corpse. Door-stacking won't save you."
         },
         {
           "type": "dispose",
           "x": 53.8,
           "y": 81.5,
           "label": "天坑毁尸",
-          "note": "地图随机刷出天坑，在坑边击杀尸体直接消失（类似地下室熔炉），有坑的局路过多看一眼"
+          "labelEn": "Sinkhole Disposal",
+          "note": "地图随机刷出天坑，在坑边击杀尸体直接消失（类似地下室熔炉），有坑的局路过多看一眼",
+          "noteEn": "Random sinkholes appear; bodies killed near edge vanish (like basement furnace). Check extra when pits are active."
         },
         {
           "type": "blindspot",
           "x": 93.1,
           "y": 57.2,
           "label": "外围街区",
-          "note": "便利店/漫画店一带人流稀少又远离中央街道，落单做任务容易被卡视野单杀，报点要带建筑名"
+          "labelEn": "Outer District",
+          "note": "便利店/漫画店一带人流稀少又远离中央街道，落单做任务容易被卡视野单杀，报点要带建筑名",
+          "noteEn": "Convenience/comic shop area low traffic, far from center; solo tasks easy vision kills. Include building name in reports."
         }
       ],
       "strategy": {},
+      "strategyEn": {},
       "updatedAt": "2026-06-06",
       "image": "/maps/mallardon.svg",
       "imageW": 800,

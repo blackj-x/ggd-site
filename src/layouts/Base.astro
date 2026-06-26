@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE } from '../data/site';
+import { localeConfig, getLocaleFromPath, getUI, type Locale } from '../i18n/config';
 
 export interface Props {
   title: string;
@@ -11,31 +12,60 @@ export interface Props {
   active?: string;
   /** 社交分享图，可覆盖默认 */
   ogImage?: string;
+  /** 语言，默认为根据路径自动检测 */
+  lang?: Locale;
 }
 
-const { title, description, jsonLd, active, ogImage } = Astro.props;
+const { title, description, jsonLd, active, ogImage, lang: propLang } = Astro.props;
+const pathname = Astro.url.pathname;
+const detectedLang: Locale = propLang ?? getLocaleFromPath(pathname);
+const loc = localeConfig[detectedLang];
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(ogImage ?? SITE.defaultOgImage, Astro.site).href;
-const isHome = Astro.url.pathname === '/';
+const isHome = pathname === '/' || pathname === '/en';
 
 // 网站级结构化数据（仅首页输出，避免重复）
 const websiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: SITE.name,
+  name: loc.siteName,
   url: new URL('/', Astro.site).href,
-  inLanguage: 'zh-CN',
+  inLanguage: detectedLang === 'en' ? 'en' : 'zh-CN',
 };
 
+import { getUI } from '../i18n/config';
+
+const ui = getUI(detectedLang);
+const prefix = detectedLang === 'en' ? '/en' : '';
+
 const links = [
-  { href: '/', label: '首页', key: 'home' },
-  { href: '/roles/', label: '角色图鉴', key: 'roles' },
-  { href: '/maps/', label: '地图攻略', key: 'maps' },
-  { href: '/guide/', label: '新手入门', key: 'guide' },
+  { href: `${prefix}/`, label: ui.home, key: 'home' },
+  { href: `${prefix}/roles/`, label: ui.roles, key: 'roles' },
+  { href: `${prefix}/maps/`, label: ui.maps, key: 'maps' },
+  { href: `${prefix}/guide/`, label: ui.guide, key: 'guide' },
 ];
+
+// Language switcher: construct equivalent URL for the other locale from current pathname.
+// Preserves trailing slashes; uses pathname (not propLang) for correct current URL.
+function getSwitchUrl(target: Locale): string {
+  let p = pathname;
+  if (target === 'en') {
+    if (p.startsWith('/en')) return p;
+    return p === '/' ? '/en/' : `/en${p}`;
+  } else {
+    if (!p.startsWith('/en')) return p;
+    const rest = p.replace(/^\/en/, '');
+    return rest || '/';
+  }
+}
+const zhHref = getSwitchUrl('zh');
+const enHref = getSwitchUrl('en');
+const isZh = detectedLang === 'zh';
+const isEn = detectedLang === 'en';
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang={loc.htmlLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,10 +73,16 @@ const links = [
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+
+  <!-- Hreflang alternates for SEO -->
+  <link rel="alternate" hreflang="zh" href={new URL(pathname.replace(/^\/en/, ''), Astro.site).href} />
+  <link rel="alternate" hreflang="en" href={new URL(pathname.startsWith('/en') ? pathname : `/en${pathname}`, Astro.site).href} />
+  <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+
   <!-- Open Graph -->
   <meta property="og:type" content={isHome ? 'website' : 'article'} />
-  <meta property="og:site_name" content={SITE.name} />
-  <meta property="og:locale" content={SITE.locale} />
+  <meta property="og:site_name" content={loc.siteName} />
+  <meta property="og:locale" content={loc.ogLocale} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
@@ -80,11 +116,17 @@ const links = [
 <body>
   <header>
     <nav class="nav">
-      <a href="/" class="logo"><span class="mark">🦢</span>鹅鸭攻略社</a>
+      <a href={`${prefix}/`} class="logo"><span class="mark">🦢</span>{loc.siteName}</a>
       <div class="nav-links">
         {links.map((l) => (
           <a href={l.href} class={active === l.key ? 'on' : ''}>{l.label}</a>
         ))}
+      </div>
+      <!-- 桌面端语言切换器（header 最右侧） -->
+      <div class="lang-switch">
+        <a href={zhHref} class={isZh ? 'active' : ''}>中文</a>
+        <span class="sep">|</span>
+        <a href={enHref} class={isEn ? 'active' : ''}>EN</a>
       </div>
       <!-- 移动端汉堡 (Phase 1) -->
       <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
@@ -94,20 +136,26 @@ const links = [
     <div class="mobile-overlay" id="mobile-overlay"></div>
     <div class="mobile-menu" id="mobile-menu">
       <button class="mobile-menu-close" id="mobile-close" aria-label="关闭菜单">×</button>
-      <div style="margin-bottom:12px;font-family:'ZCOOL KuaiLe',cursive;font-size:18px;opacity:.9">🦢 鹅鸭攻略社</div>
+      <div style="margin-bottom:12px;font-family:'ZCOOL KuaiLe',cursive;font-size:18px;opacity:.9">🦢 {loc.siteName}</div>
       {links.map((l) => (
         <a href={l.href} class={active === l.key ? 'on' : ''}>{l.label}</a>
       ))}
+      <!-- 移动端语言切换器 -->
+      <div class="lang-switch mobile">
+        <a href={zhHref} class={isZh ? 'active' : ''}>中文</a>
+        <span class="sep">|</span>
+        <a href={enHref} class={isEn ? 'active' : ''}>EN</a>
+      </div>
     </div>
   </header>
   <slot />
   <footer>
     <nav class="foot-links">
-      <a href="/about/">关于本站</a>
-      <a href="/privacy/">隐私政策</a>
-      <a href="/contact/">联系我们</a>
+      <a href={`${prefix}/about/`}>{ui.about}</a>
+      <a href={`${prefix}/privacy/`}>{ui.privacy}</a>
+      <a href={`${prefix}/contact/`}>{ui.contact}</a>
     </nav>
-    <div class="foot-note">鹅鸭攻略社 · 角色数据持续更新 · 本站为玩家攻略站，与游戏官方无关</div>
+    <div class="foot-note">{ui.footNote}</div>
   </footer>
 
   <!-- 移动导航脚本 (Phase 1) -->
@@ -140,6 +188,41 @@ const links = [
         if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
       });
     }
+  </script>
+
+  <!-- 语言自动检测 + 手动切换标记 (根据浏览器语言区域自动中/英文) -->
+  <script is:inline>
+    (function() {
+      try {
+        const manualFlag = 'lang-manual';
+        const redirectedFlag = 'lang-redirected';
+
+        // 监听语言切换点击，标记为手动，避免自动跳转
+        document.querySelectorAll('.lang-switch a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            try { sessionStorage.setItem(manualFlag, '1'); } catch(e){}
+          });
+        });
+
+        // 自动根据浏览器语言跳转（仅首次会话，未手动切换时）
+        if (sessionStorage.getItem(manualFlag)) return;
+        if (sessionStorage.getItem(redirectedFlag)) return;
+
+        const path = window.location.pathname;
+        const isEnPath = path.startsWith('/en');
+        const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        const prefersEn = browserLang.startsWith('en');
+
+        if (prefersEn && !isEnPath) {
+          let target = path === '/' ? '/en/' : `/en${path}`;
+          // 确保 trailing slash 一致
+          if (!target.endsWith('/')) target += '/';
+          target += window.location.search + window.location.hash;
+          sessionStorage.setItem(redirectedFlag, '1');
+          window.location.replace(target);
+        }
+      } catch (e) {}
+    })();
   </script>
 </body>
 </html>

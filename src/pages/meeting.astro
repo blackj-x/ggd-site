@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import InfoSection from '../components/InfoSection.astro';
+import { SITE } from '../data/site';
+
+const title = '会议控场与话术全攻略 - 鹅鸭杀';
+const description = '鹅鸭杀会议阶段完整攻略：信息报送顺序、推人技巧、防守反制、晚期决策、经典话术模板与反杀案例。掌握会议就能赢。';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / <a href="/guide/">新手入门</a> / 会议控场</div>
+    <h1 class="retro-hero">会议控场与话术<span class="em">全攻略</span></h1>
+    <p class="lead">会议不是吵架，是信息战。报什么、什么时候报、怎么推、怎么自保，决定一局的胜负。</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="信息报送优先级" icon="📋">
+          <p>永远先报<strong>客观事实</strong>，再报<strong>推断</strong>，最后再推人。</p>
+          <ul>
+            <li>1. 我和XX做了什么任务、在哪里、做了多久</li>
+            <li>2. 我看到/听到XX做了什么（破坏、走位、消失）</li>
+            <li>3. 我的怀疑（“我有点怕XX”而不是“XX就是鸭”）</li>
+            <li>4. 推人理由（结合前面事实）</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="经典推人话术模板" icon="🗣️">
+          <p><strong>安全推人</strong>：“我刚才和XX在一起做了前置，他中途离开过30秒。”</p>
+          <p><strong>带节奏</strong>：“XX刚才破坏时不在场，我在监控室没看到他。”</p>
+          <p><strong>反杀</strong>：“你说我刀人？那你刚才和谁在一起？为什么不报尸？”</p>
+          <p><strong>晚期决策</strong>：“剩3人了，带刀角色先投，投错我们还能翻。”</p>
+        </InfoSection>
+
+        <InfoSection title="号位自报与身份隐藏话术" icon="🎯">
+          <p>很多玩家喜欢直接自报号位建立信任或隐藏真实身份，常见于小红书/社区互动和游戏内开场白：</p>
+          <p><strong>警长自报</strong>：“哈哈我是1号位警长，主保信息位+观察两轮再刀😂”</p>
+          <p><strong>隐藏带刀</strong>：“我是白板鹅，纯任务流，大家别太紧张我。”（实际是警长/正义使者）</p>
+          <p><strong>小红书式互动</strong>：“你是几号位警长？我是1号位，优先保护已验核心位～”</p>
+          <p><strong>鸭子伪装</strong>：“我是3号位侦探，刚才查了XX有问题。”（实际是鸭子在钓鱼）</p>
+          <p class="hint">这些话术既能在游戏里快速洗白，也适合发帖时玩梗互动。记得结合客观事实，别只靠自报！</p>
+        </InfoSection>
+
+        <InfoSection title="防守与反制" icon="🛡️">
+          <p>被推时：</p>
+          <ul>
+            <li>立刻报自己的不在场证明（和谁在一起、做了什么任务）</li>
+            <li>反问对方信息来源：“你怎么知道我刀人的？”</li>
+            <li>转移焦点：“先说说YY刚才的表现吧”</li>
+            <li>晚期不要死辩，承认小问题换取信任</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="晚期会议要点" icon="⏰">
+          <p>3-4人时：</p>
+          <ul>
+            <li>优先讨论带刀角色（警长、正义使者、刺客等）</li>
+            <li>平票往往对鹅有利（政客除外）</li>
+            <li>最后一票往往是关键，观察谁最紧张</li>
+            <li>中立角色要优先排除或利用</li>
+          </ul>
+        </InfoSection>
+
+        <InfoSection title="常见错误与反例" icon="⚠️">
+          <p>错误1：一上来就指认“XX是鸭”——没有事实支撑，容易被反杀。</p>
+          <p>错误2：不报客观信息只说“我感觉”——缺乏说服力。</p>
+          <p>错误3：晚期乱投白板——优先处理带刀身份。</p>
+        </InfoSection>
+      </main>
+
+      <aside>
+        <AdSlot variant="side" />
+        <div class="sec mini">
+          <h2>🔗 相关</h2>
+          <a class="rel" href="/guide/">新手入门</a>
+          <a class="rel" href="/roles/">角色图鉴</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .detail{padding-top:24px}
+  .retro-hero{font-size:38px;font-weight:900;letter-spacing:-.5px;margin-top:6px}
+  .retro-hero .em{background:linear-gradient(120deg,var(--goose),var(--neutral) 50%,var(--duck));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--txt-dim);font-size:16.5px;margin:14px 0 4px;max-width:720px}
+  .detail-layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin-bottom:40px}
+  .sec{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+  .sec h2{font-size:18px;color:var(--accent);margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--txt)}
+  .rel{display:block;margin-bottom:8px;color:var(--accent)}
+  @media(max-width:920px){.detail-layout{grid-template-columns:1fr}}
+</style>

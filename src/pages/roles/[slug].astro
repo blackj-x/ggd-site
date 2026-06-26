@@ -2,17 +2,42 @@
 import Base from '../../layouts/Base.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import InfoSection from '../../components/InfoSection.astro';
-import { roles, getRole, campName, stars, type Role } from '../../data/roles';
+import { getRole, getLocalizedRoles, getCampName, stars, type Role } from '../../data/roles';
+import { getLocaleFromPath, getUI, type Locale } from '../../i18n/config';
 
-// 为每个角色生成一个静态页面 /roles/{slug}
+const pathname = Astro.url.pathname;
+const lang: Locale = getLocaleFromPath(pathname);
+
+// 为每个角色生成一个静态页面 /roles/{slug} 和 /en/roles/{slug}
 export function getStaticPaths() {
-  return roles.map((role) => ({ params: { slug: role.slug }, props: { role } }));
+  const allRoles = getLocalizedRoles('zh');
+  const zhPaths = allRoles.map((role) => ({ 
+    params: { slug: role.slug }, 
+    props: { role, lang: 'zh' as Locale } 
+  }));
+  
+  const enPaths = allRoles.map((role) => ({ 
+    params: { slug: role.slug }, 
+    props: { role: getRole(role.slug, 'en') || role, lang: 'en' as Locale } 
+  }));
+  
+  return [...zhPaths, ...enPaths];
 }
 
-const { role } = Astro.props as { role: Role };
+const { role: propRole, lang: propLang } = Astro.props as { role: Role; lang?: Locale };
+const currentLang: Locale = propLang || getLocaleFromPath(pathname);
+const role = currentLang === 'en' ? getRole(propRole.slug, 'en') || propRole : propRole;
 
-const title = `${role.name}（${role.nameEn}）技能与玩法攻略 - 鹅鸭杀`;
-const description = `鹅鸭杀${campName[role.camp]}角色「${role.name}」：${role.summary} 含胜利条件、技能详解与玩法要点。`;
+const ui = getUI(currentLang);
+const campLabel = getCampName(role.camp, currentLang);
+
+const title = currentLang === 'en' 
+  ? `${role.name} Skills & Guide - Goose Goose Duck`
+  : `${role.name}（${role.nameEn}）技能与玩法攻略 - 鹅鸭杀`;
+
+const description = currentLang === 'en'
+  ? `Goose Goose Duck ${campLabel} role "${role.name}": ${role.summary}. Win conditions, abilities, and strategies.`
+  : `鹅鸭杀${campLabel}角色「${role.name}」：${role.summary} 含胜利条件、技能详解与玩法要点。`;
 
 // Article + Breadcrumb (FAQ removed if not visible on page)
 const jsonLd = {
@@ -38,16 +63,20 @@ const jsonLd = {
   ],
 };
 
-const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug).slice(0, 4);
+const allRoles = getLocalizedRoles(currentLang);
+const related = allRoles.filter((r) => r.camp === role.camp && r.slug !== role.slug).slice(0, 4);
 ---
-<Base title={title} description={description} jsonLd={jsonLd} active="roles" ogImage={role.real_resources?.image}>
+<Base title={title} description={description} jsonLd={jsonLd} active="roles" ogImage={role.real_resources?.image} lang={currentLang}>
   <div class="wrap detail">
-    <div class="crumb"><a href="/">首页</a> / <a href="/roles/">角色图鉴</a> / {role.name}</div>
+    <div class="crumb">
+      <a href={currentLang === 'en' ? '/en/' : '/'}>{ui.home}</a> / 
+      <a href={currentLang === 'en' ? '/en/roles/' : '/roles/'}>{ui.roles}</a> / {role.name}
+    </div>
 
     <article class="role-head retro-head" data-camp={role.camp}>
       <div class="big-avatar neon-avatar">{role.icon}</div>
       <div class="head-info">
-        <span class={`badge ${role.camp}`}>{campName[role.camp]}</span>
+        <span class={`badge ${role.camp}`}>{campLabel}</span>
         <h1 class="neon-title">{role.name}{role.canKill && <span class="knife"> 🔪带刀</span>}</h1>
         <div class="role-en">{role.nameEn} · 难度 {stars(role.difficulty)}</div>
         <div class="head-tags">{(role.tags ?? []).map((t) => <span class="tag">{t}</span>)}</div>
@@ -57,24 +86,24 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
 
     <!-- 真实游戏视觉资源 -->
     <section class="portrait-section">
-      <h2>🖼️ 游戏内视觉</h2>
+      <h2>🖼️ {currentLang === 'en' ? 'In-Game Visuals' : '游戏内视觉'}</h2>
       <div class="portrait">
         <div class="portrait-frame">
           <span class="portrait-icon">{role.icon}</span>
         </div>
         <div class="portrait-desc">
-          <p><strong>外观描述：</strong> {role.real_resources?.appearance || `一只可爱的${role.camp === 'goose' ? '鹅' : role.camp === 'duck' ? '鸭' : '中立鸟'}，带有独特的配饰或效果。`}</p>
+          <p><strong>{currentLang === 'en' ? 'Appearance' : '外观描述'}：</strong> {role.real_resources?.appearance || (currentLang === 'en' ? `A cute ${role.camp} with unique accessories or effects.` : `一只可爱的${role.camp === 'goose' ? '鹅' : role.camp === 'duck' ? '鸭' : '中立鸟'}，带有独特的配饰或效果。`)}</p>
           {role.real_resources && (
             <>
-              <p><strong>真实游戏玩法示例：</strong> {role.real_resources.gameplay_examples}</p>
-              <p><strong>反制建议：</strong> {role.real_resources.counters}</p>
+              <p><strong>{currentLang === 'en' ? 'Gameplay Examples' : '真实游戏玩法示例'}：</strong> {role.real_resources.gameplay_examples}</p>
+              <p><strong>{currentLang === 'en' ? 'Counters & Tips' : '反制建议'}：</strong> {role.real_resources.counters}</p>
               {role.real_resources.image && (
                 <div class="real-image">
-                  <img src={role.real_resources.image} alt={`${role.name} 游戏内参考图`} loading="lazy" />
-                  <small>游戏内参考图</small>
+                  <img src={role.real_resources.image} alt={`${role.name} in-game reference`} loading="lazy" />
+                  <small>{currentLang === 'en' ? 'In-game reference' : '游戏内参考图'}</small>
                 </div>
               )}
-              <p class="hint">来源: {role.real_resources.sources} （数据基于Fandom Wiki和社区指南，建议参考官方游戏最新版本。）</p>
+              <p class="hint">{currentLang === 'en' ? 'Sources & notes' : '数据来源'}: {role.real_resources.sources}. {currentLang === 'en' ? 'Compiled from mechanics, community gameplay examples and real matches. Verify against the latest game version.' : '基于机制解析 + 社区实测对局整理。我们添加了实用要点与场景建议，建议以游戏最新版本为准。'}</p>
             </>
           )}
         </div>
@@ -83,7 +112,7 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
 
     {role.real_resources && role.real_resources.youtube_ids && role.real_resources.youtube_ids.length > 0 && (
       <section class="youtube-section">
-        <h2>🎥 游戏实况视频</h2>
+        <h2>🎥 {currentLang === 'en' ? 'Gameplay Videos' : '游戏实况视频'}</h2>
         <div class="video-grid">
           {role.real_resources.youtube_ids.map((id: string) => (
             <div class="video-embed">
@@ -105,10 +134,10 @@ const related = roles.filter((r) => r.camp === role.camp && r.slug !== role.slug
 
     <!-- 快速情报 (角色页特色) -->
     <div class="quick-facts">
-      <div class="fact"><span class="label">阵营</span><span class="val">{campName[role.camp]}</span></div>
-      <div class="fact"><span class="label">难度</span><span class="val">{stars(role.difficulty)}</span></div>
-      <div class="fact"><span class="label">带刀</span><span class="val">{role.canKill ? '是' : '否'}</span></div>
-      <div class="fact"><span class="label">投票</span><span class="val">{role.canVote ? '是' : '否'}</span></div>
+      <div class="fact"><span class="label">{ui['camp.' + role.camp] || (currentLang === 'en' ? 'Camp' : '阵营')}</span><span class="val">{campLabel}</span></div>
+      <div class="fact"><span class="label">{currentLang === 'en' ? 'Difficulty' : '难度'}</span><span class="val">{stars(role.difficulty)}</span></div>
+      <div class="fact"><span class="label">{currentLang === 'en' ? 'Can Kill' : '带刀'}</span><span class="val">{role.canKill ? (currentLang === 'en' ? 'Yes' : '是') : (currentLang === 'en' ? 'No' : '否')}</span></div>
+      <div class="fact"><span class="label">{currentLang === 'en' ? 'Vote' : '投票'}</span><span class="val">{role.canVote ? (currentLang === 'en' ? 'Yes' : '是') : (currentLang === 'en' ? 'No' : '否')}</span></div>
     </div>
 
     <AdSlot variant="top" label="广告位 · 内容顶部 728×90" />

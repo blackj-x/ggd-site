@@ -1,18 +1,31 @@
 ---
-import { sizeLabel, type GameMap } from '../data/maps';
-export interface Props { map: GameMap }
-const { map } = Astro.props;
-const featList = [
-  map.features.hasVents ? '通风管' : '无通风管',
-  map.features.hasCCTV ? '有监控' : null,
-  map.features.dayNight ? '昼夜循环' : null,
-  map.features.corruption ? '腐化' : null,
-].filter(Boolean) as string[];
+import { getSizeLabel, type GameMap } from '../data/maps';
+import type { Locale } from '../i18n/config';
+export interface Props { map: GameMap; lang?: Locale }
+const { map, lang: propLang } = Astro.props;
+const lang: Locale = propLang || 'zh';
+const prefix = lang === 'en' ? '/en' : '';
+const href = `${prefix}/maps/${map.slug}/`;
+const sizeText = getSizeLabel(map.size, lang);
+
+const featList = lang === 'en'
+  ? [
+      map.features.hasVents ? 'Vents' : 'No Vents',
+      map.features.hasCCTV ? 'CCTV' : null,
+      map.features.dayNight ? 'Day/Night' : null,
+      map.features.corruption ? 'Corruption' : null,
+    ].filter(Boolean) as string[]
+  : [
+      map.features.hasVents ? '通风管' : '无通风管',
+      map.features.hasCCTV ? '有监控' : null,
+      map.features.dayNight ? '昼夜循环' : null,
+      map.features.corruption ? '腐化' : null,
+    ].filter(Boolean) as string[];
 ---
-<a class="map-card" href={`/maps/${map.slug}/`}>
+<a class="map-card" href={href}>
   <div class="map-card-top">
     <span class="theme-badge">{map.theme}</span>
-    <span class="size-badge">{sizeLabel[map.size]}</span>
+    <span class="size-badge">{sizeText}</span>
   </div>
   <h3>{map.name}</h3>
   <div class="map-en">{map.nameEn}</div>

@@ -1,0 +1,104 @@
+---
+import Base from '../../../layouts/Base.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import InfoSection from '../../../components/InfoSection.astro';
+import { getRole, getLocalizedRoles, getCampName, stars } from '../../../data/roles';
+import { getUI } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  const allRoles = getLocalizedRoles('zh');
+  return allRoles.map((r) => ({ 
+    params: { slug: r.slug }, 
+    props: { slug: r.slug } 
+  }));
+}
+
+const { slug } = Astro.params;
+const lang = 'en';
+const role = getRole(slug, lang);
+if (!role) return Astro.redirect('/en/roles/');
+
+const ui = getUI(lang);
+const campLabel = getCampName(role.camp, lang);
+
+const title = `${role.name} Skills & Guide - Goose Goose Duck`;
+const description = `Goose Goose Duck ${campLabel} role "${role.name}": ${role.summary}.`;
+
+const allRoles = getLocalizedRoles(lang);
+const related = allRoles.filter((r) => r.camp === role.camp && r.slug !== role.slug).slice(0, 4);
+---
+
+<Base title={title} description={description} active="roles" lang={lang}>
+  <div class="wrap detail">
+    <div class="crumb">
+      <a href="/en/">{ui.home}</a> / <a href="/en/roles/">{ui.roles}</a> / {role.name}
+    </div>
+
+    <article class="role-head retro-head" data-camp={role.camp}>
+      <div class="big-avatar neon-avatar">{role.icon}</div>
+      <div class="head-info">
+        <span class={`badge ${role.camp}`}>{campLabel}</span>
+        <h1 class="neon-title">{role.name}{role.canKill && <span class="knife"> 🔪</span>}</h1>
+        <div class="role-en">{role.nameEn} · Difficulty {stars(role.difficulty)}</div>
+      </div>
+    </article>
+
+    <section class="portrait-section">
+      <h2>🖼️ In-Game Visuals</h2>
+      <div class="portrait">
+        <div class="portrait-frame">
+          <span class="portrait-icon">{role.icon}</span>
+        </div>
+        <div class="portrait-desc">
+          <p><strong>Appearance:</strong> {role.real_resources?.appearance || 'Unique visual or ability effects in game.'}</p>
+          {role.real_resources && (
+            <>
+              <p><strong>Gameplay Examples:</strong> {role.real_resources.gameplay_examples}</p>
+              <p><strong>Counters:</strong> {role.real_resources.counters}</p>
+              <p class="hint">Compiled from game mechanics, community matches and tested strategies. Always verify with latest patch.</p>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {role.real_resources?.youtube_ids?.length > 0 && (
+      <section class="youtube-section">
+        <h2>🎥 Gameplay Videos</h2>
+        <div class="video-grid">
+          {role.real_resources.youtube_ids.map((id) => (
+            <div class="video-embed">
+              <iframe width="100%" height="180" src={`https://www.youtube.com/embed/${id}`} title="Gameplay" frameborder="0" allowfullscreen></iframe>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="quick-facts">
+      <div class="fact"><span class="label">Faction</span><span class="val">{campLabel}</span></div>
+      <div class="fact"><span class="label">Difficulty</span><span class="val">{stars(role.difficulty)}</span></div>
+      <div class="fact"><span class="label">Can Kill</span><span class="val">{role.canKill ? 'Yes' : 'No'}</span></div>
+      <div class="fact"><span class="label">Can Vote</span><span class="val">{role.canVote ? 'Yes' : 'No'}</span></div>
+    </div>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="Win Condition" icon="🏆">
+          <p>{role.winCondition}</p>
+        </InfoSection>
+        <InfoSection title="Ability" icon="✨" variant="highlight">
+          <p>{role.ability}</p>
+        </InfoSection>
+        {role.tips?.length > 0 && (
+          <InfoSection title="Tips" icon="💡">
+            <ul>{role.tips.map((t) => <li>{t}</li>)}</ul>
+          </InfoSection>
+        )}
+      </main>
+      <aside><AdSlot variant="side" /></aside>
+    </div>
+  </div>
+</Base>

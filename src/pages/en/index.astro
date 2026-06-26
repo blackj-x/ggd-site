@@ -1,72 +1,84 @@
 ---
-import Base from '../layouts/Base.astro';
-import AdSlot from '../components/AdSlot.astro';
-import { roles, camps, campName } from '../data/roles';
-import { maps, sizeLabel } from '../data/maps';
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { getLocalizedRoles, getCampName } from '../../data/roles';
+import { maps } from '../../data/maps';
+import { getUI } from '../../i18n/config';
 
-const title = '鹅鸭杀攻略社 - 全角色图鉴 / 地图 / 新手入门';
-const description = '鹅鸭杀（Goose Goose Duck）中文攻略站：全角色技能图鉴、地图任务点位、新手入门与进阶话术。鹅、鸭、中立三大阵营一站掌握。';
+const lang = 'en';
+const ui = getUI(lang);
+
+const localizedRoles = getLocalizedRoles(lang);
 const counts = {
-  goose: roles.filter((r) => r.camp === 'goose').length,
-  duck: roles.filter((r) => r.camp === 'duck').length,
-  neutral: roles.filter((r) => r.camp === 'neutral').length,
+  goose: localizedRoles.filter((r) => r.camp === 'goose').length,
+  duck: localizedRoles.filter((r) => r.camp === 'duck').length,
+  neutral: localizedRoles.filter((r) => r.camp === 'neutral').length,
 };
 const difficultyCounts = [1, 2, 3].map((level) => ({
   level,
-  label: level === 1 ? '易上手' : level === 2 ? '要思路' : '高操作',
-  count: roles.filter((r) => r.difficulty === level).length,
+  label: level === 1 ? 'Easy' : level === 2 ? 'Medium' : 'Hard',
+  count: localizedRoles.filter((r) => r.difficulty === level).length,
 }));
-const killCount = roles.filter((r) => r.canKill).length;
-const voteCount = roles.filter((r) => r.canVote).length;
-const featured = roles.slice(0, 4);
+const killCount = localizedRoles.filter((r) => r.canKill).length;
+const voteCount = localizedRoles.filter((r) => r.canVote).length;
+const featured = localizedRoles.slice(0, 4);
 const featuredMaps = ['basement', 'ss-mothergoose', 'mallard-manor']
   .map((slug) => maps.find((m) => m.slug === slug))
   .filter(Boolean);
 const annotatedMaps = maps.filter((m) => m.annotations?.length).length;
 const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
+
+const sizeLabelEn: Record<string, string> = {
+  small: 'Small',
+  medium: 'Medium',
+  large: 'Large',
+};
+
+const title = 'Goose Goose Duck Strategy Hub - Goose Goose Duck Guide';
+const description = 'Goose Goose Duck (GGD) English strategy hub: full role compendium with 53 roles, 12 original annotated maps, beginner guides. Check roles first, then maps for Geese, Ducks and Neutrals.';
 ---
-<Base title={title} description={description} active="home">
+<Base title={title} description={description} active="home" lang={lang}>
   <div class="wrap">
     <section class="hero">
       <div class="hero-copy">
-        <div class="kicker">🦢 开局前 30 秒情报板</div>
+        <div class="kicker">🦢 Pre-game 30s Intel Board</div>
         <h1>
-          <span class="title-main">鹅鸭杀</span>
-          <span class="em">攻略社</span>
+          <span class="title-main">Goose Goose Duck</span>
+          <span class="em">Strategy Hub</span>
         </h1>
-        <p class="sub">先查身份技能，再看地图刀点。<br />全角色图鉴、地图点位、新手入门，一站掌握 Goose Goose Duck。<br />每份攻略都加入实测场景与话术建议，持续随版本更新。</p>
+        <p class="sub">Check roles first, then maps.<br />Full role guide, map spots, beginner tips — master Goose Goose Duck.<br />Each guide adds tested scenarios, speechcraft and counters (not just raw data).</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/roles/">查角色</a>
-          <a class="ghost-btn" href="/maps/">看地图</a>
+          <a class="primary-btn" href="/en/roles/">Check Roles</a>
+          <a class="ghost-btn" href="/en/maps/">View Maps</a>
         </div>
         <div class="hero-trust">
-          <span class="trust-item">✓ 53 角色实时更新</span>
-          <span class="trust-item">✓ 12 张原创标注地图</span>
+          <span class="trust-item">✓ 53 roles updated</span>
+          <span class="trust-item">✓ 12 original annotated maps</span>
         </div>
       </div>
       <div class="hero-visual retro-futurism">
         <div class="scanlines"></div>
-        <img src="/home/hero-intel-board.png" alt="鹅鸭杀攻略社原创情报桌插画" fetchpriority="high" class="img-enhanced" />
-        <div class="intel-board neon-glow" aria-label="站点内容统计">
+        <img src="/home/hero-intel-board.png" alt="Goose Goose Duck strategy hub original intel board illustration" fetchpriority="high" class="img-enhanced" />
+        <div class="intel-board neon-glow" aria-label="Site content stats">
           <div class="board-head">
-            <span>身份情报</span>
-            <strong class="glitch" data-text={roles.length}>{roles.length}</strong>
+            <span>Faction Intel</span>
+            <strong class="glitch" data-text={localizedRoles.length}>{localizedRoles.length}</strong>
           </div>
           <div class="camp-bars">
-            <div class="camp-bar goose" style={`--w:${(counts.goose / roles.length) * 100}%`}>
-              <span>鹅阵营</span><b>{counts.goose}</b>
+            <div class="camp-bar goose" style={`--w:${(counts.goose / localizedRoles.length) * 100}%`}>
+              <span>{ui['camp.goose']}</span><b>{counts.goose}</b>
             </div>
-            <div class="camp-bar duck" style={`--w:${(counts.duck / roles.length) * 100}%`}>
-              <span>鸭阵营</span><b>{counts.duck}</b>
+            <div class="camp-bar duck" style={`--w:${(counts.duck / localizedRoles.length) * 100}%`}>
+              <span>{ui['camp.duck']}</span><b>{counts.duck}</b>
             </div>
-            <div class="camp-bar neutral" style={`--w:${(counts.neutral / roles.length) * 100}%`}>
-              <span>中立</span><b>{counts.neutral}</b>
+            <div class="camp-bar neutral" style={`--w:${(counts.neutral / localizedRoles.length) * 100}%`}>
+              <span>{ui['camp.neutral']}</span><b>{counts.neutral}</b>
             </div>
           </div>
           <div class="stat-grid">
-            <div><b>{killCount}</b><span>可刀角色</span></div>
-            <div><b>{voteCount}</b><span>可投票</span></div>
-            <div><b>{maps.length}</b><span>地图攻略</span></div>
+            <div><b>{killCount}</b><span>Can Kill</span></div>
+            <div><b>{voteCount}</b><span>Can Vote</span></div>
+            <div><b>{maps.length}</b><span>Maps</span></div>
           </div>
         </div>
       </div>
@@ -75,17 +87,17 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
     <AdSlot variant="top" />
 
     <section class="bento fade-in">
-      <a class="tile big retro-tile" href="/roles/">
-        <div class="tile-kicker">三大阵营</div>
-        <div class="tile-label">角色图鉴</div>
-        <div class="tile-sub">{roles.length} 个身份 · 技能、胜利条件、反制关系</div>
+      <a class="tile big retro-tile" href="/en/roles/">
+        <div class="tile-kicker">Three Factions</div>
+        <div class="tile-label">Role Compendium</div>
+        <div class="tile-sub">{localizedRoles.length} roles · Abilities, win conditions &amp; counters</div>
         <div class="camp-mini neon">
-          <span class="m goose">🦢 鹅 {counts.goose}</span>
-          <span class="m duck">🦆 鸭 {counts.duck}</span>
-          <span class="m neutral">🎭 中立 {counts.neutral}</span>
+          <span class="m goose">🦢 {ui['camp.goose']} {counts.goose}</span>
+          <span class="m duck">🦆 {ui['camp.duck']} {counts.duck}</span>
+          <span class="m neutral">🎭 {ui['camp.neutral']} {counts.neutral}</span>
         </div>
-        <img class="tile-art img-enhanced" src="/home/camp-overview.png" alt="鹅、鸭、中立三阵营原创插画" loading="lazy" />
-        <div class="difficulty-chart" aria-label="角色难度分布">
+        <img class="tile-art img-enhanced" src="/home/camp-overview.png" alt="Geese, Ducks and Neutral factions overview illustration" loading="lazy" />
+        <div class="difficulty-chart" aria-label="Role difficulty distribution">
           {difficultyCounts.map((d) => (
             <div class="diff-row">
               <span>{d.label}</span>
@@ -96,26 +108,26 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
         </div>
         <div class="tile-glow"></div>
       </a>
-      <a class="tile map-tile retro-tile" href="/maps/">
-        <div class="tile-kicker">{annotatedMaps} 张已标注</div>
-        <div class="tile-label">地图攻略</div>
-        <div class="tile-sub">任务点位、刀点、藏尸区与地图机制</div>
-        <img class="tile-art map-art img-enhanced" src="/home/map-strategy-board.png" alt="地图路线与点位原创战术板插画" loading="lazy" />
+      <a class="tile map-tile retro-tile" href="/en/maps/">
+        <div class="tile-kicker">{annotatedMaps} Annotated</div>
+        <div class="tile-label">Map Guides</div>
+        <div class="tile-sub">Task points, kill spots, body hides &amp; map mechanics</div>
+        <img class="tile-art map-art img-enhanced" src="/home/map-strategy-board.png" alt="Map routes and points original strategy board illustration" loading="lazy" />
         <div class="map-strip neon-strip">
           {featuredMaps.map((m) => (
-            <img src={m.image} alt={`${m.name} 地图示意图`} loading="lazy" class="img-enhanced" />
+            <img src={m.image} alt={`${m.nameEn} map diagram`} loading="lazy" class="img-enhanced" />
           ))}
         </div>
         <div class="tile-glow"></div>
       </a>
-      <a class="tile guide-tile retro-tile" href="/guide/">
-        <div class="tile-kicker">新手第一局</div>
-        <div class="tile-label">新手入门</div>
-        <div class="tile-sub">三阵营目标与常用黑话</div>
+      <a class="tile guide-tile retro-tile" href="/en/guide/">
+        <div class="tile-kicker">Your First Game</div>
+        <div class="tile-label">Beginner Guide</div>
+        <div class="tile-sub">Faction goals &amp; common terminology</div>
         <div class="guide-list neon">
-          <span>发言别自爆</span>
-          <span>先记会议节奏</span>
-          <span>看懂胜利条件</span>
+          <span>Don't self-reveal in chat</span>
+          <span>Track meeting pace</span>
+          <span>Know win conditions</span>
         </div>
         <div class="tile-glow"></div>
       </a>
@@ -124,18 +136,18 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
     <section class="maps-showcase fade-in">
       <div class="section-head">
         <div>
-          <h2>热门地图速览</h2>
-          <p>用原创示意图快速抓住路线、会议点和高风险区域。</p>
+          <h2>Popular Maps</h2>
+          <p>Original diagrams to quickly grasp routes, meeting points and high-risk zones.</p>
         </div>
-        <a href="/maps/">全部地图 →</a>
+        <a href="/en/maps/">All Maps →</a>
       </div>
       <div class="map-preview-grid">
         {featuredMaps.map((m) => (
-          <a class="map-preview" href={`/maps/${m.slug}/`}>
-            <img src={m.image} alt={`${m.name} 地图示意图`} loading="lazy" class="img-enhanced" />
+          <a class="map-preview" href={`/en/maps/${m.slug}/`}>
+            <img src={m.image} alt={`${m.nameEn} map diagram`} loading="lazy" class="img-enhanced" />
             <div>
-              <strong>{m.name}</strong>
-              <span>{sizeLabel[m.size]} · {m.annotations?.length || 0} 个标注点</span>
+              <strong>{m.nameEn}</strong>
+              <span>{sizeLabelEn[m.size]} · {m.annotations?.length || 0} annotated points</span>
             </div>
           </a>
         ))}
@@ -143,11 +155,11 @@ const maxDifficultyCount = Math.max(...difficultyCounts.map((d) => d.count));
     </section>
 
     <section class="feat fade-in">
-      <h2>热门角色</h2>
+      <h2>Featured Roles</h2>
       <div class="grid">
         {featured.map((r) => (
-          <a class="card" data-camp={r.camp} href={`/roles/${r.slug}/`}>
-            <div class="card-top"><div class="avatar">{r.icon}</div><span class={`badge ${r.camp}`}>{campName[r.camp]}</span></div>
+          <a class="card" data-camp={r.camp} href={`/en/roles/${r.slug}/`}>
+            <div class="card-top"><div class="avatar">{r.icon}</div><span class={`badge ${r.camp}`}>{getCampName(r.camp, lang)}</span></div>
             <h3>{r.name}</h3><div class="role-en">{r.nameEn}</div>
             <p class="desc">{r.summary}</p>
           </a>

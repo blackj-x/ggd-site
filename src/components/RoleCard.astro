@@ -1,19 +1,26 @@
 ---
-import { campName, stars, type Role } from '../data/roles';
-export interface Props { role: Role }
-const { role } = Astro.props;
+import { getCampName, stars, type Role } from '../data/roles';
+import { getLocaleFromPath, getUI, type Locale } from '../i18n/config';
+
+export interface Props { role: Role; lang?: Locale }
+const { role, lang: propLang } = Astro.props;
+const pathname = Astro.url?.pathname || '';
+const lang: Locale = propLang || getLocaleFromPath(pathname);
+const campLabel = getCampName(role.camp, lang);
+const prefix = lang === 'en' ? '/en' : '';
+const ui = getUI(lang);
 ---
-<a class="card" data-camp={role.camp} href={`/roles/${role.slug}/`}>
+<a class="card" data-camp={role.camp} href={`${prefix}/roles/${role.slug}/`}>
   <div class="card-top">
     <div class="avatar portrait">{role.icon}</div>
-    <span class={`badge ${role.camp}`}>{campName[role.camp]}</span>
+    <span class={`badge ${role.camp}`}>{campLabel}</span>
   </div>
-  <h3>{role.name}{role.canKill && <span class="knife" title="带刀"> 🔪</span>}</h3>
+  <h3>{role.name}{role.canKill && <span class="knife" title={lang === 'en' ? 'Can Kill' : '带刀'}> 🔪</span>}</h3>
   <div class="role-en">{role.nameEn}</div>
   <p class="desc">{role.summary}</p>
   <div class="card-foot">
     {(role.tags ?? []).map((t) => <span class="tag">{t}</span>)}
-    <span class="diff" title="官方难度">{stars(role.difficulty)}</span>
+    <span class="diff" title={lang === 'en' ? 'Official Difficulty' : '官方难度'}>{stars(role.difficulty)}</span>
   </div>
-  {role.real_resources && <div class="real-tag">📸 含游戏资源</div>}
+  {role.real_resources && <div class="real-tag">{ui.gameResources}</div>}
 </a>
