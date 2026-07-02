@@ -10,10 +10,11 @@ const campLabel = getCampName(role.camp, lang);
 const prefix = lang === 'en' ? '/en' : '';
 const ui = getUI(lang);
 ---
-<a class="card" data-camp={role.camp} href={`${prefix}/roles/${role.slug}/`}>
+<a class="card" data-camp={role.camp} data-v4={role.tags?.includes('v4.08') ? '1' : undefined} href={`${prefix}/roles/${role.slug}/`}>
   <div class="card-top">
     <div class="avatar portrait">{role.icon}</div>
     <span class={`badge ${role.camp}`}>{campLabel}</span>
+    {role.tags?.includes('v4.08') && <span class="new-badge">{lang === 'en' ? 'NEW v4.08' : 'v4.08 新'}</span>}
   </div>
   <h3>{role.name}{role.canKill && <span class="knife" title={lang === 'en' ? 'Can Kill' : '带刀'}> 🔪</span>}</h3>
   <div class="role-en">{role.nameEn}</div>
@@ -24,3 +25,16 @@ const ui = getUI(lang);
   </div>
   {role.real_resources && <div class="real-tag">{ui.gameResources}</div>}
 </a>
+
+<style>
+  .new-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #151229;
+    font-weight: 700;
+    margin-left: 4px;
+    align-self: center;
+  }
+</style>

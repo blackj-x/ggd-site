@@ -248,10 +248,42 @@ add(slug="crow", name="乌鸦", nameEn="Crow", camp="neutral", icon="🐦‍⬛"
     ability="腐化全部玩家后变身为乌鸦：移速翻倍、无敌不可被杀、获得3秒冷却的击杀键，需在限时内杀光所有人，失败则死。腐化模式专属。",
     tips=["前期闷声扩散腐化别暴露","变身后是无敌收割期，规划好杀人路线"], tags=["腐化","收割"], maps=["腐化模式"])
 
+# ============ v4.08 新角色 (2026-04) ============
+# Goose
+add(slug="lucid-dreamer", name="清醒做梦者", nameEn="Lucid Dreamer", camp="goose", icon="💤", difficulty=2,
+    canKill=False, summary="会议期间可离开会议进入梦境探索地图，观察位置获取信息。",
+    winCondition=GOOSE_WIN, ability="投票阶段可进入黑白梦境世界，像 Raven 一样走动地图（不可穿墙、看不到玩家昵称与装饰、可与部分地图对象交互）。可完成少量任务。用于观察会前站位、任务进度等线索。",
+    tips=["会议时快速扫关键区域确认谁在哪","注意梦境中无法直接互动，只能观察","可借此提前布局或验证不在场"], tags=["信息","会议","v4.08"])
+
+# Ducks
+add(slug="witch-doctor", name="巫医", nameEn="Witch Doctor", camp="duck", icon="🧿", difficulty=3,
+    canKill=True, summary="可切换 X 光透视，盯视被诅咒玩家（眼标）约 6 秒击杀。",
+    winCondition=DUCK_WIN, ability="除常规破坏与击杀外，可切换标准视野与 X 光透视（类似观鸟者，但可在熄灯时使用）。场上随机一名非鸭玩家会被标记诅咒（昵称旁眼图标）。在 X 光模式下持续盯视诅咒目标 6 秒可将其杀死；目标离开视野进度重置。盯视击杀不影响常规刀冷却。",
+    tips=["优先在人群或任务点隔墙盯杀","双杀潜力大但别长时间追目标暴露","熄灯时是优势窗口"], tags=["透视","狙杀","v4.08"])
+add(slug="lost-duckling", name="迷失鸭崽", nameEn="Lost Duckling", camp="duck", icon="🐤", difficulty=2,
+    canKill=True, summary="你不知道其他鸭子是谁，其他鸭子也认不出你。",
+    winCondition=DUCK_WIN, ability="开局仅看到自己为鸭，其他鸭子对你显示为 \"???\"，你对他们也一样。可互相击杀。非黑天鹅地图。",
+    tips=["前期低调，避免暴露身份给鹅也给队友","和其他鸭保持距离以策安全","后期再尝试联系"], tags=["伪装","v4.08"])
+add(slug="carrier", name="载体", nameEn="Carrier", camp="duck", icon="🧬", difficulty=2,
+    canKill=False, summary="可将寄生虫植入玩家体内制造击杀，与寄生虫生命绑定并永久通讯。",
+    winCondition=DUCK_WIN, ability="与 Parasite 视为一鸭（2 角色 1 鸭）。可植入/取回寄生虫；不能直接击杀（环境除外）；不能通风；可投票。与寄生虫生命相连，一死俱死；可随时通讯；可破坏。",
+    tips=["和 Parasite 提前商量植入位置","保护宿主不被其他鸭误杀","植入后快速让 Parasite 完成击杀"], tags=["辅助","植入","v4.08"])
+add(slug="parasite", name="寄生虫", nameEn="Parasite", camp="duck", icon="🪱", difficulty=3,
+    canKill=True, summary="被植入宿主体内，触发后击杀宿主并变形为宿主外貌。可通风，仅能跳过投票。",
+    winCondition=DUCK_WIN, ability="每回合开始在 Carrier 体内。植入后数秒击杀宿主，脱出后可变形为宿主外貌（可切换回原形）。若宿主被其他方式杀死则一同死亡。可通风；仅能跳过投票。",
+    tips=["尽快在落单宿主身上触发击杀","杀完立刻撤离安全地点换形","和 Carrier 保持通讯避免误伤"], tags=["主刀","变形","v4.08"])
+
+# Neutral
+add(slug="cuckoo", name="布谷鸟", nameEn="Cuckoo", camp="neutral", icon="🥚", difficulty=2,
+    canKill=True, summary="产下足够数量的蛋获胜，蛋可见可被打破。够数触发布谷鸟狩猎。",
+    winCondition="中立：产下足够蛋触发狩猎并最终杀光全场（或存活）。",
+    ability="可产蛋（可见，所有人包括自己可打破，打破计数 +1）。蛋应分散放置。达到数量触发 Cuckoo Hunt：蛋与本体孵化出追杀鸟，可进通风管杀隐藏玩家。本体获得击杀能力。本体死亡则所有孵化鸟消失。玩家目标是生存或杀死布谷鸟本体。",
+    tips=["蛋不要堆一起，藏在少人去的角落或贴图后面","狩猎阶段抱团快速收割","被识破可坦白中立求合作"], tags=["求胜","收割","v4.08"])
+
 # 输出
 out = {
-  "version": "2.x（基于 Fandom Wiki 2026-03 核对）",
-  "updatedAt": "2026-06-06",
+  "version": "2.x（基于 Fandom Wiki + v4.08 新角色补全）",
+  "updatedAt": "2026-07-02",
   "camps": {
     "goose":   {"name":"鹅阵营","en":"Geese","color":"#3ba9ff","goal":"完成全部任务，或票出所有非鹅获胜"},
     "duck":    {"name":"鸭阵营","en":"Ducks","color":"#ff5470","goal":"击杀或破坏，直到非鸭无法构成投票多数"},

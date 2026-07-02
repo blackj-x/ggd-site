@@ -1,6 +1,6 @@
 {
-  "version": "2.x（基于 Fandom Wiki 2026-03 核对 + 社区真实资源补充；新增会议控场/鸭子战术Hub + 更多角色地图话术）",
-  "updatedAt": "2026-06-26",
+  "version": "2.x（基于 Fandom Wiki + v4.08 新角色补全）",
+  "updatedAt": "2026-07-02",
   "camps": {
     "goose": {
       "name": "鹅阵营",
@@ -35,9 +35,7 @@
       "ability": "可派出灵魂穿过墙壁侦查场上情况，本体停留原地不动。",
       "tips": [
         "出窍时本体无防御，选安全位置再用",
-        "用来确认远处刀法和落单玩家",
-        "灵魂形态下视野受限，无法分辨颜色，适合侦查但小心被针对",
-        "可用于确认会议前谁在做什么任务"
+        "用来确认远处刀法和落单玩家"
       ],
       "tags": [
         "侦查",
@@ -49,16 +47,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "灵魂出窍形态的半透明鹅，颜色失真无法分辨阵营。",
-        "gameplay_examples": "常用于确认远距离刀法或落单玩家。社区常用在会议前侦查关键区域。",
-        "counters": "本体脆弱，易被针对。避免在危险位置出窍。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "avenger",
@@ -72,20 +61,8 @@
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
       "ability": "亲眼目睹一名玩家被杀时，获得约10秒窗口可击杀任意玩家（不限于凶手）。",
       "tips": [
-        "复仇窗口很短（约10秒），看到杀戮要立刻反应，别犹豫",
-        "可以杀任何人（不限于凶手），但误杀好人代价极高，宁可放过也别赌",
-        "建议在人群中或安全位置目击，孤立时复仇容易被反杀",
-        "复仇后身份暴露，准备好被鸭子针对或被好人盘问",
-        "可以用来救场：关键信息位被杀时立刻复仇凶手或另一威胁",
-        "别在会议刚结束就急着用，等确认刀法再出手更稳"
-      ],
-      "tipsEn": [
-        "The ~10s revenge window is extremely short — react the instant you witness a kill",
-        "You can kill anyone (not just the killer), but the cost of a misfire on a Goose is massive — better to let it go than guess",
-        "Witness from crowds or safe positions; isolated revenge makes you an easy counter-target",
-        "After using it your identity is revealed — prepare to be hunted by Ducks or questioned by Geese",
-        "Use it as a clutch save: immediately avenge a key confirmed info role or eliminate another threat",
-        "Don't rush right after meetings — wait for confirmed kill patterns before committing the shot"
+        "复仇窗口很短，看到杀人要立刻反应",
+        "注意是能杀任何人，别误杀"
       ],
       "tags": [
         "带刀",
@@ -97,20 +74,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "复仇者通常带有剑或复仇标志，目击杀戮后进入激活状态。",
-        "gameplay_examples": "看到杀戮立即反应，10秒窗口内可杀任何人。社区建议在人群中观察。",
-        "counters": "复仇窗口短，误杀风险高。鸭子应避免在可见处杀人。",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "最好在确认凶手或高威胁目标时使用。可以在会议前观察关键区域，会议后立即出手。复仇后主动报身份并要求验证，建立信任。",
-        "strategiesEn": "Best saved for confirmed killers or high-priority threats. Scout key areas before meetings, strike right after. After revenge, immediately claim and ask for verification to build trust.",
-        "common_mistakes": "看到任何杀戮就冲动复仇（可能是诱饵或好人互杀）。在危险位置目击后复仇被反杀。晚期浪费在低价值目标上。",
-        "common_mistakesEn": "Revenge on first sight (could be bait or Goose-on-Goose). Revenging in unsafe spot and getting countered. Wasting the shot on low-impact targets in endgame."
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "birdwatcher",
@@ -121,26 +85,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "可透视墙壁观察，但常规视野受限收窄。",
-      "summaryEn": "Can see through walls but has narrowed, tunnel-like vision.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "能透过墙壁看到其他玩家，视野略远，但正常视野范围被压缩成隧道状。",
-      "abilityEn": "See through walls with a cone of vision. Normal vision is restricted while active. Useful for spotting distant actions.",
       "tips": [
-        "透视适合蹲点观察刀法或落单玩家，选好位置后别乱动",
-        "视野窄成隧道状，移动或转身时极易漏掉身边威胁，一定要先确认周围安全",
-        "可配合音频（脚步、破坏声）使用，视觉受限时听觉更重要",
-        "别长时间开，容易被针对或暴露位置；短时扫一眼关键区域更安全",
-        "会议前用透视确认谁在做什么任务，增加报点可信度",
-        "中后期价值更高，可用来验证残局存活者位置"
-      ],
-      "tipsEn": [
-        "Ideal for camping kill spots or isolated players — pick a safe spot and stay put",
-        "Tunnel vision is extremely narrow; moving or turning makes you blind to sides. Always clear your immediate area first",
-        "Pair with sound cues (footsteps, sabotage sounds). When vision is restricted, audio becomes critical",
-        "Don't keep it on for long — you become predictable and vulnerable. Quick scans of key zones are safer",
-        "Use before meetings to confirm who was doing what tasks — greatly increases the credibility of your reports",
-        "Higher value mid-to-late game for verifying survivor positions in endgame"
+        "透视适合蹲点观察刀法",
+        "视野窄，移动时容易漏看身边"
       ],
       "tags": [
         "透视",
@@ -152,24 +101,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "观鸟者有望远镜视觉，透视时有特殊效果。",
-        "appearanceEn": "Has a telescope or scoped vision effect when ability is active.",
-        "gameplay_examples": "用于蹲点观察刀法，视野隧道状。社区建议结合其他信息使用。",
-        "gameplay_examplesEn": "Commonly used to confirm kills across rooms or monitor isolated players. Best combined with audio cues.",
-        "counters": "视野窄，易被偷袭。避免单独行动。",
-        "countersEn": "Limited peripheral vision while active. Can be ambushed easily if not positioned safely.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "开局选制高点或关键通道蹲守。配合其他信息位（工程师报告破坏）使用效果翻倍。发现刀法后立刻报点，不要犹豫。",
-        "strategiesEn": "Pick high ground or chokepoints at round start. Synergizes massively with Engineer sabotage reports. Report kills immediately after confirming.",
-        "speechcraft": "可以说'我刚才在XX位置用望远镜看到YY在ZZ附近'。被问时强调'我只是观察任务流'。发现杀后'我看到XX被杀了，立刻报'。",
-        "speechcraftEn": "Say 'From my scope at XX I saw YY near ZZ'. When questioned: 'I was just watching task flow'. On a confirmed kill: 'I saw XX get killed — reporting now'.",
-        "common_mistakes": "开着透视乱走导致被刀。忽略音频被偷袭。报点太晚或太模糊无法说服别人。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "bodyguard",
@@ -180,26 +112,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "为指定保护对象挡刀，挡在其与凶手之间会代其死亡。",
-      "summaryEn": "Protects a designated target by intercepting kills meant for them.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "开局分配一名保护对象，若你处在对象与凶手之间则替其受死并获奖励。",
-      "abilityEn": "Assigned a protection target at the start; if you are between the target and the killer, you die instead and receive a reward.",
       "tips": [
-        "优先贴身保护已验出的核心信息位，如警长、侦探",
-        "成功挡刀可反向暴露鸭子，但自己会死，要做好准备",
-        "目标被针对时，提前和队友沟通保护计划",
-        "别在危险位置保护，选安全点位贴身",
-        "挡刀后奖励自己也要小心被鸭子补刀",
-        "可以假装普通鹅保护，关键时刻再亮身份"
-      ],
-      "tipsEn": [
-        "Prioritize sticking close to confirmed key info roles like Sheriff or Detective",
-        "Successfully blocking exposes the Duck but you die — be ready for it",
-        "When target is hunted, coordinate protection plan with teammates in advance",
-        "Don't protect in dangerous spots; choose safe positions to stick close",
-        "After blocking, watch out for follow-up kills from Ducks",
-        "Pretend to be a plain Goose until the critical moment to reveal"
+        "优先贴身保护已验出的核心信息位",
+        "成功挡刀可反向暴露鸭子"
       ],
       "tags": [
         "保护",
@@ -216,25 +133,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "保镖有盾牌或保护视觉，替身死亡时有动画。",
-        "appearanceEn": "The Bodyguard has shield or protection visuals; a special animation occurs when dying in place of the target.",
-        "gameplay_examples": "保护目标，社区建议保护关键鹅如警长。挡刀后奖励。",
-        "gameplay_examplesEn": "Guard high-value confirmed Geese such as the Sheriff. Successfully intercepting a kill grants rewards and can expose the attacker. Community focuses on protecting core info roles.",
-        "counters": "目标被针对时易死。鸭子可绕过保护。",
-        "countersEn": "You die if positioned correctly for the block. Attackers can bait you out of position or target you directly.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "开局确认保护目标后立刻贴身。优先保护已验信息位。挡刀后立刻报点让队友知道自己身份。目标如果落单要拉人一起。",
-        "strategiesEn": "Confirm protect target at start and stick immediately. Prioritize verified info roles. After blocking, call out immediately so team knows your role. If target is isolated, pull others along.",
-        "speechcraft": "可以说'我保护XX，如果他出事我替死'。挡刀后'我刚才挡了刀，是保镖'建立信任。",
-        "speechcraftEn": "Say 'I am protecting XX, if he dies I take the hit'. After block: 'I just blocked the kill, I'm the Bodyguard' to gain trust.",
-        "common_mistakes": "保护目标时自己暴露位置。挡刀后不报点导致队友不信。保护错误目标浪费机会。",
-        "scenarios": "场景1: 警长被针对，你提前跟队友说保护他，刀来时替死并报出凶手。场景2: 目标是普通鹅，你在会议前拉人结伴保护。场景3: 晚期目标落单，你牺牲自己换信息暴露鸭子。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "canadian",
@@ -245,18 +144,11 @@
       "difficulty": 1,
       "canKill": false,
       "summary": "被杀或被吞后1秒尸体自动报告，能快速暴露凶手位置。",
-      "summaryEn": "When killed or swallowed, your body is automatically reported after 1 second, quickly exposing the killer's location.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "若被击杀或被吞下，你的尸体会在约1秒后自动被报告（环境死亡与炸弹除外）。",
-      "abilityEn": "If killed or swallowed, your body will be automatically reported after about 1 second (except environmental deaths and bombs).",
       "tips": [
         "可大胆走位当探子，死了也能报位置",
         "专业杀手对你无效，会自动报告"
-      ],
-      "tipsEn": [
-        "You can boldly act as a scout; dying still reports the location",
-        "Professional killers are ineffective against you as it auto-reports"
       ],
       "tags": [
         "报点",
@@ -268,19 +160,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "加拿大鹅有枫叶或自报视觉。",
-        "appearanceEn": "Canadian Goose has maple leaf or self-report visual.",
-        "gameplay_examples": "被杀时自报，社区建议用于诱敌或保护信息。",
-        "gameplay_examplesEn": "Reports on death, community suggests using to lure enemies or protect info.",
-        "counters": "自报后暴露。鸭子可利用自报。",
-        "countersEn": "Self-report exposes you. Ducks can exploit the report.",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "celebrity",
@@ -291,18 +171,11 @@
       "difficulty": 1,
       "canKill": false,
       "summary": "被杀时所有鹅会收到提示，仅鹅可见。",
-      "summaryEn": "When killed, all Geese receive a notification visible only to Geese.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "当你被击杀时，场上所有鹅（且仅鹅）都会收到死亡提示。",
-      "abilityEn": "When you are killed, all Geese (and only Geese) receive a death notification.",
       "tips": [
         "死亡即向全体鹅传递信息，可大胆行动",
         "提示能帮鹅推断刀法时间地点"
-      ],
-      "tipsEn": [
-        "Your death passes information to all Geese — act boldly",
-        "The notification helps Geese deduce kill timing and location"
       ],
       "tags": [
         "报点",
@@ -314,19 +187,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "网红 的游戏外观为独特配饰的鸟类，带有被杀时所有鹅会收到提示。",
-        "appearanceEn": "Celebrity has unique accessories with a death notification visible to all Geese.",
-        "gameplay_examples": "被杀时所有鹅会收到提示，仅鹅可见。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Death notifies all Geese (visible only to them). Community strategies are based on the mechanic.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Based on the mechanic, protect or target specific abilities.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "detective",
@@ -337,26 +198,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "可查验一名玩家本轮是否杀过人，鹅方核心查验位。",
-      "summaryEn": "Can investigate a player to see if they killed this round. Core information role for Geese.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可调查玩家，得知其是否在同一回合内实施过击杀。",
-      "abilityEn": "Investigate one player to learn if they performed a kill in the current round.",
       "tips": [
-        "查验后别急着报，听完发言再摊牌——先让鸭子自己暴露矛盾",
-        "查杀后立刻成为鸭子头号目标，找人保护或抱团",
-        "优先查验前期行为可疑、任务进度异常或经常落单的玩家",
-        "可以先查不说话的玩家（信息位通常会主动报）",
-        "多轮不报杀，积累2个查杀再一次甩出，效果更爆炸",
-        "注意：部分鸭子会故意在你查验后立刻去任务伪装清白"
-      ],
-      "tipsEn": [
-        "Don't report immediately — listen to discussion first so the Duck exposes contradictions themselves",
-        "Once you confirm a kill you become the primary target; find protection or stick with group",
-        "Prioritize players with suspicious early behavior, odd task progress or who are frequently alone",
-        "Check quiet players first (info roles usually speak up)",
-        "Hold multiple checks before dumping evidence — 2 confirmed kills at once is devastating",
-        "Some Ducks will immediately do tasks after you check them to fake innocence"
+        "查验后别急着报，听完发言再摊牌",
+        "查杀后易成鸭子第一刀目标"
       ],
       "tags": [
         "查验",
@@ -368,26 +214,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "侦探有放大镜或笔记视觉效果。",
-        "appearanceEn": "Has a magnifying glass or notebook visual effect.",
-        "gameplay_examples": "调查后结合发言判断，常用在会议中报点。社区建议先观察再查验。",
-        "gameplay_examplesEn": "Investigate then combine with discussion to judge. Often reports findings during meetings. Community recommends observing first before investigating.",
-        "counters": "查杀后成目标。鸭子可配合假动作迷惑。",
-        "countersEn": "Becomes a target after confirming a kill. Ducks can use feints to mislead.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "YPFzhlfxCRs"
-        ],
-        "strategies": "开局第一轮优先查验自己认为最可疑的1-2人，但不要立刻公布。等会议上有人自证或甩锅时再亮出证据。查到杀后可私下或小范围先告诉信任的鹅，避免被鸭子针对时全场没人信你。",
-        "strategiesEn": "Round 1: quietly check your top 1-2 suspects. Wait until discussion creates contradictions before revealing. After a confirmed kill, first share with 1-2 trusted Geese privately before full announcement.",
-        "speechcraft": "可以说'我刚才去查了XX，发现他这轮有问题，大家听听他怎么说'。被问'你怎么知道'时回答'我就是侦探，查的'并立刻抛出其他观察佐证。杀错或误报时立刻道歉并把查验记录全说出来。",
-        "speechcraftEn": "Try: 'I checked XX and he has issues this round — let's hear his side.' When asked how you know: 'I'm the Detective, I checked him' + immediately back it with other observations. If wrong, apologize fast and lay out everything you saw.",
-        "common_mistakes": "查完立刻全场报导致自己当靶子。查杀后不保护自己。把票投给已经被你查过的无辜者（浪费）。忽略中立角色也会被你查出杀（某些模式）。",
-        "common_mistakesEn": "Reporting the check immediately after making yourself the target. Not protecting yourself after a hit. Voting people you already cleared. Forgetting that some neutrals can also show kills in certain modes.",
-        "scenarios": "场景1: 你查到A杀了人，会议上B和A互咬，你站出来支持B并说明理由。场景2: 两轮查到两个杀，会议上直接甩'我有两铁证'压场。场景3: 有人声称是侦探跟你对跳，你亮出你查到的真实杀手让大家判断。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "engineer",
@@ -399,26 +226,11 @@
       "canKill": false,
       "canVent": true,
       "summary": "可临时使用通风管，并看到存活鸭子何时何地发动破坏。",
-      "summaryEn": "Can temporarily use vents and see when and where live Ducks sabotage.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可临时使用通风管移动，并能看到存活鸭子发动破坏的时间与位置；部分地图（地下室、鹅教堂）可长期藏身。",
-      "abilityEn": "Can use vents for mobility and detect the timing and location of sabotages by live Ducks. On some maps (Basement, Goose Church) can hide long-term.",
       "tips": [
-        "用风管易被误认成鸭，提前和队友说清楚或在人群中用",
-        "破坏发生时立刻记位置并缩小嫌疑范围，配合报点",
-        "在有长期藏身点的地图（地下室、鹅教堂）可用来长期蹲守监控破坏",
-        "通风时别只顾移动，要同时观察谁在附近或异常走位",
-        "破坏报告后别立刻去修，观察谁没去修或去错路的人",
-        "配合侦探/占卜师等信息位，通风侦查后把信息安全传递"
-      ],
-      "tipsEn": [
-        "Venting is easy to misread as Duck — pre-announce to teammates or use in crowds",
-        "When sabotage happens, immediately note location and narrow suspects with callouts",
-        "On maps with long-term hide spots (Basement, Goose Chapel) use for extended sabotage watching",
-        "While venting, don't just move — watch nearby players and odd movements",
-        "After reporting sabotage, don't rush to fix; observe who doesn't go or takes wrong path",
-        "Pair with Detective/Fortune Teller: vent-scout then safely pass info"
+        "用风管易被误认成鸭，注意解释",
+        "破坏发生时记位置缩小嫌疑圈"
       ],
       "tags": [
         "机动",
@@ -430,24 +242,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "工程师有工具或通风管视觉。",
-        "appearanceEn": "Has tool or vent visuals.",
-        "gameplay_examples": "用通风管机动侦查破坏。社区建议配合其他信息位。",
-        "gameplay_examplesEn": "Uses vents for mobility and to detect sabotages. Best combined with other info roles.",
-        "counters": "易被误认鸭子。注意通风时暴露。",
-        "countersEn": "Easily mistaken for a Duck. Exposed while venting.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "优先在破坏高发区域（如电力、医疗）附近通风观察。破坏发生时记录方向和时间，会议上结合谁缺席来推。长期藏身地图可做永久哨兵。",
-        "strategiesEn": "Position near high-sabotage areas (electrical, medbay) to vent-watch. Log direction and timing on sabotage, then cross with absences in meetings. On long-hide maps act as permanent lookout.",
-        "speechcraft": "可以说'我刚才通风听到XX方向有破坏声'。被质疑时'我只是想快速去修，没想到被误会'。报告后补充'破坏时我看到YY没在场'。",
-        "speechcraftEn": "Say 'I vented and heard sabotage sounds from XX direction'. When questioned: 'I was just rushing to fix, didn't expect suspicion'. Add 'During the sabotage I noticed YY was absent'.",
-        "common_mistakes": "通风后不解释直接被投。破坏发生时自己去修反而暴露。忽略长期藏身点的优势。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "fortune-teller",
@@ -458,26 +253,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "会议中可看到若干名可能是鸭子的嫌疑玩家。",
-      "summaryEn": "During meetings, you see a range of players who might be Ducks.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "在会议阶段，你会看到一组可能为鸭子的玩家范围。",
-      "abilityEn": "During the meeting phase, you see a group of players who might be Ducks.",
       "tips": [
-        "给出的是范围不是铁证，结合发言判断，不要直接指认",
-        "信息珍贵，注意别被鸭子反推身份——报完立刻找人保护或抱团",
-        "优先在会议中期或有其他信息支撑时再抛出范围",
-        "范围通常是3-5人，结合任务进度和走位缩小",
-        "可以假装自己不是信息位，先观察别人反应",
-        "晚期残局范围价值降低，更依赖精确查验"
-      ],
-      "tipsEn": [
-        "The range is not hard proof — combine with discussion, never direct finger-pointing",
-        "The info is precious; once revealed you become a target — immediately find protection or group up",
-        "Hold the range until mid-meeting or when backed by other evidence",
-        "Typical range is 3-5 players; narrow with task progress and movement",
-        "You can pretend not to be an info role at first to observe reactions",
-        "In late-game 3-player the range loses value — rely more on precise checks"
+        "给出的是范围不是铁证，结合发言判断",
+        "信息珍贵，注意别被鸭子反推身份"
       ],
       "tags": [
         "查验",
@@ -489,24 +269,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "占卜师有水晶球视觉，会议中显示嫌疑范围。",
-        "appearanceEn": "Fortune Teller has crystal ball visual; shows suspect range during meetings.",
-        "gameplay_examples": "给出范围，结合发言。社区建议小心反推。",
-        "gameplay_examplesEn": "Gives a range to combine with discussion. Community advises caution against deduction.",
-        "counters": "信息有限。鸭子可假装嫌疑。",
-        "countersEn": "Limited information. Ducks can pretend to be suspects.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "会议开始先听别人发言，再在合适时机给出范围。范围报出后立刻强调'这是范围不是铁证'降低被针对风险。和侦探配合可大幅缩小范围。",
-        "strategiesEn": "Listen to discussion first, then drop the range at the right moment. Immediately qualify 'this is a range, not proof' to reduce targeting. Pairs extremely well with Detective to narrow it down.",
-        "speechcraft": "可以说'我看到一个范围，包括XX、YY和ZZ，大家看看谁最可疑'。被问时'我只是占卜师，给的范围需要大家一起判断'。",
-        "speechcraftEn": "Say 'I see a range including XX, YY and ZZ — let's discuss who looks worst'. When questioned: 'I'm just the Fortune Teller, the range needs the group to judge'.",
-        "common_mistakes": "一上来就甩范围暴露自己。范围报完后不保护自己。把范围当铁证硬推导致被反杀。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "gravy",
@@ -517,18 +280,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "做任务累积赏金，活到最后可大量获银；落单时才会被杀。",
-      "summaryEn": "Accumulate bounty by completing tasks; earn a lot if you survive to the end. Can only be killed when alone.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "完成任务增加赏金，存活到底可获得大量银币；被杀则赏金被凶手夺走。凶手只有在你落单时才能杀你。",
-      "abilityEn": "Completing tasks increases bounty; survive to the end to earn a large amount of silver. If killed, the killer takes the bounty. Killers can only kill you when you are alone.",
       "tips": [
         "全程抱团就很难被杀",
         "钱袋标记只有鸭子能看到，注意保护"
-      ],
-      "tipsEn": [
-        "Stick with the group and you're hard to kill",
-        "The money bag marker is only visible to Ducks — stay protected"
       ],
       "tags": [
         "收益",
@@ -540,19 +296,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "肉汁鹅有赏金视觉，完成任务增加赏金。",
-        "appearanceEn": "Gravy has bounty visual; bounty increases with tasks completed.",
-        "gameplay_examples": "存活拿赏金，社区建议保护高赏金。",
-        "gameplay_examplesEn": "Survive to collect bounty; community recommends protecting high-bounty players.",
-        "counters": "单独时易被杀。鸭子优先针对。",
-        "countersEn": "Easy to kill when alone. Ducks prioritize targeting.",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "lobbyist",
@@ -563,18 +307,11 @@
       "difficulty": 2,
       "canKill": true,
       "summary": "在会议中获得足够票数后解锁击杀能力。",
-      "summaryEn": "Unlock kill ability after receiving enough votes in meetings.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "当你在会议中获得票数累积到条件后，解锁击杀能力。",
-      "abilityEn": "After accumulating enough votes in meetings, unlock the kill ability.",
       "tips": [
         "需要先在场上有存在感拉票",
         "解锁后是带刀好人，谨慎用刀"
-      ],
-      "tipsEn": [
-        "Need to build presence and gather votes first",
-        "Once unlocked you are an armed good role — use the kill carefully"
       ],
       "tags": [
         "带刀",
@@ -586,19 +323,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "说客有投票视觉，可积累投票击杀。",
-        "appearanceEn": "Lobbyist has voting visual and can accumulate votes to kill.",
-        "gameplay_examples": "积累投票晚期击杀。社区建议配合。",
-        "gameplay_examplesEn": "Accumulate votes for late-game kills. Community recommends coordination.",
-        "counters": "需时间积累。鹅可分散。",
-        "countersEn": "Requires time to accumulate. Geese can split votes.",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "locksmith",
@@ -609,18 +334,11 @@
       "difficulty": 1,
       "canKill": false,
       "summary": "无需钥匙即可打开监狱门，但要小心放出来的是谁。",
-      "summaryEn": "Can open prison doors without a key, but be careful who you release.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可随时打开监狱门，无需钥匙或门禁卡。",
-      "abilityEn": "Can open any prison door at any time without needing a key or access card.",
       "tips": [
         "放人前先确认其身份，别放出鸭子",
         "与抓捕类机制配合使用"
-      ],
-      "tipsEn": [
-        "Confirm a player's identity before releasing them to avoid freeing a Duck",
-        "Coordinate with capture mechanics like the Sheriff"
       ],
       "tags": [
         "功能",
@@ -632,31 +350,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "锁匠 的游戏外观为独特配饰的鸟类，带有无需钥匙即可打开监狱门。",
-        "appearanceEn": "The Locksmith appears as a bird with unique accessories allowing it to open prison doors without a key.",
-        "gameplay_examples": "无需钥匙即可打开监狱门，但要小心放出来的是谁。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Open prison doors without keys, but carefully verify who you release. Community commonly coordinates with capture roles to free important Geese.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Ducks may target the Locksmith when opening doors or attempt to get released themselves. Releasing the wrong player can severely hurt the Geese.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "优先在鹅方控制监狱时使用。配合警长或刺客使用，快速释放被抓的关键鹅。晚期可用于翻盘放出特定玩家干扰投票。",
-        "strategiesEn": "Prioritize using when Geese control the prison. Pair with Sheriff or Assassin to quickly free captured key Geese. In late game, release allies to create voting chaos.",
-        "speechcraft": "会议中可以说'我有钥匙可以放人，但先确认身份'来试探。被问及时说'我刚开过门，位置安全'。如果放错人，承认错误并解释'我以为他是鹅'。",
-        "speechcraftEn": "In meetings you can say 'I have the key to release someone, but let's confirm their identity first' to probe. When questioned, say 'I just opened the door, the location is safe'. If you release the wrong person, admit the mistake and explain 'I thought they were a Goose'.",
-        "restraints": "被鸭子针对时易暴露位置。避免在多人围观时开锁。克制于需要精确控制投票的场合。",
-        "restraintsEn": "Ducks can easily target you when you open locks. Avoid unlocking in front of crowds. Less effective when precise vote control is needed.",
-        "map_adapt": "在鹅教堂、SS母鹅等有监狱的地图效果最佳。基础地图监狱机制简单，腐化模式监狱风险更高需谨慎。",
-        "map_adaptEn": "Most effective on maps with prisons like Goose Chapel or SS Mother Goose. Basic map prisons are simple; Corruption mode prisons are riskier and require caution.",
-        "common_mistakes": "盲目放人导致鸭子逃脱。忘记检查被放者身份。开锁后不及时报点位置。",
-        "common_mistakesEn": "Blindly releasing players lets Ducks escape. Forgetting to check the released player's identity. Failing to report position after unlocking.",
-        "scenarios": "场景1: 警长抓到疑似鸭子，锁匠立刻开锁释放并解释。场景2: 会议僵持，锁匠开锁放出中立搅局。场景3: 晚期3人，锁匠放出盟友制造混乱。",
-        "scenariosEn": "Scenario 1: Sheriff captures a suspected Duck, Locksmith immediately unlocks and explains. Scenario 2: Meeting stalemate, Locksmith releases a neutral to stir conflict. Scenario 3: Late game with 3 players, Locksmith frees an ally to create confusion."
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "lover-goose",
@@ -667,18 +361,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "与情侣共同存活，一方死亡另一方也死；进前三即可获胜。",
-      "summaryEn": "Share a bond with your lover — if one dies, so does the other. Win by being among the final three together.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。 或与情侣共同进入最终三人。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese. Or reach the final three together with your lover.",
       "ability": "你有一名情侣（可能是鹅或伪装的鸭），一方死亡另一方同死。两人同时活到最终三人即可获胜。",
-      "abilityEn": "You have a lover (who may be a Goose or disguised Duck). If one dies, the other dies too. Both surviving to the final three wins the game.",
       "tips": [
         "保护好情侣就是保护自己",
         "情侣若是鸭，需权衡阵营与存活"
-      ],
-      "tipsEn": [
-        "Protecting your lover protects yourself",
-        "If your lover is a Duck, balance faction loyalty with survival"
       ],
       "tags": [
         "羁绊",
@@ -690,19 +377,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "情人鹅 的游戏外观为独特配饰的鸟类，带有与情侣共同存活。",
-        "appearanceEn": "Lover Goose has unique accessories and shares survival with lover.",
-        "gameplay_examples": "与情侣共同存活，一方死亡另一方也死；进前三即可获胜。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Share survival with lover — if one dies the other dies; reach final three to win. Community strategies based on the mechanic.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Based on the mechanic, protect or target specific abilities.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "medium",
@@ -713,18 +388,11 @@
       "difficulty": 3,
       "canKill": false,
       "summary": "可感知场上幽灵数量，借此推断死亡发生。",
-      "summaryEn": "Can sense the number of ghosts on the field to infer when deaths occurred.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可得知场上幽灵的数量，从而判断是否有玩家死亡及大致时机。",
-      "abilityEn": "Learn the current number of ghosts, allowing you to deduce if and roughly when players have died.",
       "tips": [
         "幽灵数变化能反推刀法节奏",
         "价值依赖发言，不会盘逻辑慎选"
-      ],
-      "tipsEn": [
-        "Ghost count changes can reverse-engineer kill timing and pace",
-        "Value depends heavily on discussion; avoid if you don't read the game well"
       ],
       "tags": [
         "信息位",
@@ -736,19 +404,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "通灵者有水晶球或幽灵视觉。",
-        "appearanceEn": "Has a crystal ball or ghostly vision effect.",
-        "gameplay_examples": "感知幽灵数推断死亡，会议中用信息。社区建议晚期使用。",
-        "gameplay_examplesEn": "Uses ghost count to infer deaths and shares info in meetings. Community suggests using later in the game.",
-        "counters": "信息有限。鸭子可通过不报尸迷惑。",
-        "countersEn": "Limited info. Ducks can confuse by not reporting bodies.",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "YPFzhlfxCRs"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "mimic",
@@ -759,26 +415,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "鸭子视角中你显示为鸭，且鸭子间会误伤友军。",
-      "summaryEn": "Appears as a Duck to the Ducks and causes friendly fire between Ducks.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "在鸭子眼中你被显示为鸭子，鸭子的友军伤害会被开启（鸭可能误杀同伴）。",
-      "abilityEn": "Ducks see you as one of them, enabling friendly fire (Ducks may mistakenly kill their own teammates).",
       "tips": [
-        "利用鸭子信任套刀法和队友信息，假装一起行动",
-        "别被真鸭带去现场背锅，找借口脱身",
-        "可以主动接近鸭子听他们讨论计划",
-        "如果被要求杀好人，要想办法拖延或误杀",
-        "身份暴露后要立刻报出套到的信息证明自己",
-        "和真鸭保持距离但不要太明显"
-      ],
-      "tipsEn": [
-        "Exploit Duck trust to gather kill info and teammate intel by pretending to act with them",
-        "Avoid being dragged to kill scenes by real Ducks — find excuses to leave",
-        "Actively approach Ducks to overhear their plans",
-        "If asked to kill a Goose, find ways to delay or misfire on purpose",
-        "If exposed, immediately report the intel you gathered to prove yourself",
-        "Keep distance from real Ducks but not obviously"
+        "利用鸭子信任套刀法和队友信息",
+        "别被真鸭带去现场背锅"
       ],
       "tags": [
         "伪装",
@@ -790,24 +431,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "模仿者 的游戏外观为独特配饰的鸟类，带有鸭子视角中你显示为鸭。",
-        "appearanceEn": "The Mimic has unique accessories; from the Ducks' view it registers as a fellow Duck.",
-        "gameplay_examples": "鸭子视角中你显示为鸭，且鸭子间会误伤友军。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Appears as a Duck to Ducks, triggering potential friendly fire among them. Community uses this for infiltration, information gathering, and causing internal Duck chaos.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Real Ducks may become suspicious if you avoid kills or act oddly. Risk of being framed or forced into dangerous situations.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "主动接近鸭子听计划，但不要参与杀戮。套到信息后安全传递给鹅方。被要求杀时找机会误导或拖延。",
-        "strategiesEn": "Approach Ducks to overhear plans but avoid participating in kills. Safely pass gathered intel to Geese. When asked to kill, create opportunities to mislead or stall.",
-        "speechcraft": "可以说'我去杀了XX'假装。被问时用鸭子身份说话混淆。",
-        "speechcraftEn": "Say 'I went and killed XX' to blend. When questioned, speak as if you are a Duck.",
-        "common_mistakes": "主动杀好人暴露。被真鸭带去现场。套到信息后不及时报。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "mortician",
@@ -818,26 +442,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "可验尸得知死者身份，开会时显示验过的尸体角色。",
-      "summaryEn": "Can examine corpses to learn the dead player's role; roles of examined corpses are revealed in meetings.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可调查尸体得知死者的角色，召开会议时会显示你验过的尸体身份。",
-      "abilityEn": "Investigate a body to learn the deceased's role. During meetings, roles of bodies you have examined are shown to everyone.",
       "tips": [
         "验尸能确认死者阵营，缩小鸭子范围",
-        "抢在尸体被报告前验，优先验可疑尸体",
-        "验完后别立刻报，等会议上结合发言再甩",
-        "可以验多个尸体积累证据再一次亮出",
-        "验尸时要小心自己被鸭子针对，验完快走",
-        "晚期验尸价值高，可以确认最后角色"
-      ],
-      "tipsEn": [
-        "Corpse examination confirms the victim's faction, helping narrow down Ducks",
-        "Examine before bodies are reported — prioritize suspicious corpses",
-        "Don't report immediately after examining — wait for meeting discussion to drop evidence",
-        "Examine multiple to build evidence and reveal all at once",
-        "Be careful after examining — Ducks will target you, move fast after",
-        "High value in late game to confirm final roles"
+        "抢在尸体被报告前验"
       ],
       "tags": [
         "验尸",
@@ -849,24 +458,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "殡仪员 的游戏外观为独特配饰的鸟类，带有可验尸得知死者身份。",
-        "appearanceEn": "The Mortician appears as a bird with unique accessories for examining corpses to reveal their roles.",
-        "gameplay_examples": "可验尸得知死者身份，开会时显示验过的尸体角色。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Examine corpses quickly to learn roles, which display publicly in the next meeting. Community rushes examinations before bodies are reported.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Bodies may be hidden, moved, or reported before you can examine them. Information is delayed until meetings.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "优先验可疑或关键尸体。积累证据后在会议上一次甩出多个。验完快撤避免被针对。",
-        "strategiesEn": "Prioritize suspicious or key corpses. Accumulate and reveal multiple at once in meetings. Leave fast after examining to avoid being targeted.",
-        "speechcraft": "可以说'我验了XX，他是鹅/鸭'。被问时'我就是殡仪员，验的'并给出其他观察。",
-        "speechcraftEn": "Say 'I examined XX, he is Goose/Duck'. When questioned: 'I'm the Mortician, I examined him' and provide other observations.",
-        "common_mistakes": "验完立刻报暴露自己。忽略尸体可能被移动。验无关尸体浪费机会。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "politician",
@@ -877,26 +469,11 @@
       "difficulty": 1,
       "canKill": false,
       "summary": "平票时你方获胜，且不会被关进监狱。",
-      "summaryEn": "In a tie vote, your side wins, and you cannot be sent to prison.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "投票平票时你这一方胜出，且你无法被送进监狱。",
-      "abilityEn": "When votes tie, your side wins. You also cannot be imprisoned.",
       "tips": [
-        "平票优势可用来强推嫌疑鸭，制造压力",
-        "身份公开后会被针对，要找人保护",
-        "可以故意制造平票来翻盘或保护队友",
-        "别轻易暴露，留到关键会议再用",
-        "平票时可以大胆投自己人或中立搅局",
-        "配合其他投票角色效果更好"
-      ],
-      "tipsEn": [
-        "Use the tie-breaker advantage to push suspected Ducks hard and create pressure",
-        "Once revealed you become a target — find protection",
-        "You can deliberately force ties to flip or protect teammates",
-        "Don't reveal early — save for key meetings",
-        "During ties you can boldly vote your own or neutrals to create chaos",
-        "Works great combined with other voting roles"
+        "平票优势可用来强推嫌疑鸭",
+        "身份公开后会被针对"
       ],
       "tags": [
         "投票",
@@ -908,24 +485,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "政客 的游戏外观为独特配饰的鸟类，带有平票时你方获胜。",
-        "appearanceEn": "The Politician appears as a bird with unique accessories that grant victory on tied votes.",
-        "gameplay_examples": "平票时你方获胜，且不会被关进监狱。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Force wins on tied votes and avoid prison entirely. Community often uses this to push suspected players without fear of retaliation votes.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Ducks will focus on outing you once your role is suspected to remove the tie advantage. Early exposure can make you a target.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "隐藏身份直到需要平票翻盘时再暴露。制造平票时大胆投票。暴露后找人保护自己。",
-        "strategiesEn": "Hide your identity until you need to force a tie to flip the game. Vote boldly when forcing ties. Find protection once revealed.",
-        "speechcraft": "可以说'我支持平票，让大家再想想'。暴露后'我是政客，平票我们赢'。",
-        "speechcraftEn": "Say 'I support a tie, let's think again'. Once revealed: 'I'm the Politician, ties win for us'.",
-        "common_mistakes": "太早暴露。不会利用平票优势。暴露后不保护自己。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "sheriff",
@@ -936,26 +496,11 @@
       "difficulty": 2,
       "canKill": true,
       "summary": "可击杀任意玩家，但杀错好人自己也会死。",
-      "summaryEn": "Can shoot any player but dies if they shoot a good goose.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可主动击杀任意玩家；若对象是鹅，你也同归于尽。",
-      "abilityEn": "Can actively shoot any player; if the target is a Goose, you die along with them.",
       "tips": [
-        "锁定铁鸭再开枪，宁可不开也别赌——一枪错就是双杀自爆",
-        "公开身份能震慑鸭子，但同时成为优先目标，做好被针对准备",
-        "建议先暗中观察几轮，确认刀法、破坏习惯后再出手",
-        "别在会议刚开始就跳身份，留到有铁证或多人支持时再公开",
-        "可以假装白板鹅混进人群，关键时刻一枪定胜负",
-        "杀错鹅的代价极高，宁可让鸭多活一轮也不要乱开"
-      ],
-      "tipsEn": [
-        "Only shoot confirmed Ducks — a misfire is double elimination and you die too",
-        "Revealing publicly deters Ducks but makes you the #1 target; prepare to be hunted",
-        "Observe for a few rounds first: watch kill patterns and sabotage habits before committing",
-        "Don't claim Sheriff early in discussion — wait for hard evidence or group consensus",
-        "Blend in as a plain Goose; save the shot for the moment it swings the game",
-        "The cost of shooting a Goose is massive — let a Duck live another round rather than risk it"
+        "锁定铁鸭再开枪，宁可不开也别赌",
+        "公开身份能震慑，但会成靶子"
       ],
       "tags": [
         "带刀",
@@ -967,26 +512,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "警长带有警徽或枪的视觉，击杀时有特殊动画。",
-        "appearanceEn": "The Sheriff has a badge or gun visual, with a special kill animation.",
-        "gameplay_examples": "常用公开身份震慑鸭子，或暗中锁定铁鸭。社区建议多观察行为再开枪。",
-        "gameplay_examplesEn": "Often reveals identity publicly to deter Ducks, or secretly locks onto confirmed Ducks. Community advises observing behavior carefully before shooting.",
-        "counters": "杀错自爆，易被反杀。鸭子可伪装成好人引诱开枪。",
-        "countersEn": "Mis-shooting a Goose causes you to die too. Ducks can bait you by pretending to be innocent.",
-        "sources": "Fandom Wiki + 社区实测对局验证",
-        "youtube_ids": [
-          "qPW79VYuMMU"
-        ],
-        "strategies": "前中期优先暗藏身份，专注收集信息（谁缺席、谁和谁结伴）。等到有2-3个疑点重合时再选择性公开。晚期残局1-2刀机会时，配合会议信息一枪解决最大威胁。公开后主动要求别人验证你（让信任你的鹅保护或陪同）。",
-        "strategiesEn": "Mid game: stay hidden and gather intel (absences, pairings). Only reveal when you have 2-3 converging suspicions. Late game: use the shot on the highest-impact target after discussion. Once revealed, ask confirmed Geese to verify or escort you.",
-        "speechcraft": "可说'我看到XX和YY分开太久'或'XX破坏时没人在场'来试探反应。被问时说'我观察了两轮，铁证据才开'。杀错后立刻承认'我赌输了，抱歉'并把后续信息全盘托出建立信任。也可以自报'我是1号位警长，主保信息位+观察两轮再刀'来快速建立可信度。",
-        "speechcraftEn": "Say things like 'I saw XX and YY split for too long' or 'XX was alone during the sabotage'. When questioned: 'I waited two rounds for solid evidence before shooting'. If you misfire, immediately own it and share all your observations to rebuild trust. You can also self-claim casually: 'I'm seat 1 Sheriff, protecting info roles and waiting 2 rounds before shooting' to quickly build credibility.",
-        "common_mistakes": "看到可疑就秒开枪（缺乏多轮验证）。过早跳身份导致被针对。残局乱刀导致好人少一票。把刀给看起来可疑但其实是带刀好人的玩家。",
-        "common_mistakesEn": "Shooting on first suspicion without multi-round confirmation. Claiming too early and becoming the target. Wasting the shot in late game on low-impact players. Shooting another 'suspicious' armed Goose.",
-        "scenarios": "场景1: 会议上两名玩家互相甩锅，你有前两轮观察证据支持其中一人是鸭，公开并一枪。场景2: 发现某人破坏后立刻移动到安全位置，你暗中跟进确认后公开。场景3: 残局3人，你是警长+两鹅，公开让大家把票给你验证后一枪解决最后鸭。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "stalker",
@@ -997,26 +523,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "可用箭头追踪一名玩家的实时位置。",
-      "summaryEn": "Can track one player's real-time location with arrows.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "可标记一名玩家，用箭头持续指向其所在位置。",
-      "abilityEn": "Mark one player; an arrow will continuously point toward their current location.",
       "tips": [
         "盯紧可疑对象的走位与刀法",
-        "结合死亡时间锁定凶手",
-        "标记后自己要安全，防止被针对",
-        "可以标记信息位保护或监视",
-        "箭头会暴露你自己位置，小心鸭子反杀",
-        "晚期追踪残局存活者非常有用"
-      ],
-      "tipsEn": [
-        "Closely monitor suspicious players' movements and killing patterns",
-        "Pair with death timing information to identify the killer",
-        "After marking, stay safe yourself to avoid being targeted",
-        "You can mark info roles to protect or watch them",
-        "Arrows reveal your own position — watch out for Ducks countering",
-        "Tracking survivors in late game is very powerful"
+        "结合死亡时间锁定凶手"
       ],
       "tags": [
         "追踪",
@@ -1028,24 +539,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "跟踪者 的游戏外观为独特配饰的鸟类，带有可用箭头追踪一名玩家的实时位置。。",
-        "appearanceEn": "The Stalker has unique accessories that display arrows tracking a marked player's real-time position.",
-        "gameplay_examples": "可用箭头追踪一名玩家的实时位置。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Mark and follow one player's movements in real time via arrows. Commonly used to watch potential threats and confirm alibis or kills.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Only one target can be tracked. The marked player may alter behavior if they notice or guess the tracker.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "标记可疑对象全程跟踪。结合死亡时间和走位推凶手。自己位置要安全。",
-        "strategiesEn": "Mark suspicious targets and track full game. Combine with death timing and movement to deduce killer. Keep your own position safe.",
-        "speechcraft": "可以说'我标记了XX，他刚才去了哪里'。暴露后解释这是追踪技能。",
-        "speechcraftEn": "Say 'I marked XX, he just went to ...'. Once exposed explain it's a tracking ability.",
-        "common_mistakes": "标记后自己暴露。忽略自己位置安全。追踪无关紧要的人。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "vigilante",
@@ -1056,26 +550,11 @@
       "difficulty": 2,
       "canKill": true,
       "summary": "全局可击杀一名玩家且无惩罚，需慎重选择目标。",
-      "summaryEn": "Can kill one player globally with no penalty. Choose your target carefully.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "整局可击杀一名玩家，不受杀错惩罚，机会仅一次。",
-      "abilityEn": "Once per game, kill any player without penalty for a misfire.",
       "tips": [
-        "这一刀很宝贵，盘清楚再出，宁可不用也别误杀",
-        "可装白板鹅隐藏带刀身份，直到关键时刻再亮",
-        "优先用于确认铁鸭或对局转折点，别浪费在小角色",
-        "杀错后要立刻道歉并把剩余信息全交出来",
-        "可以在会议中假装跳其他身份来隐藏自己",
-        "晚期剩3-4人时，这刀往往决定胜负"
-      ],
-      "tipsEn": [
-        "This shot is precious — confirm fully before using, better not to use than misfire",
-        "Stay hidden as plain Goose until the pivotal moment",
-        "Save for confirmed Ducks or game-changing moments, don't waste on minor players",
-        "If you misfire, apologize immediately and share all remaining info",
-        "You can claim other roles in meetings to hide your ability",
-        "In late game with 3-4 players, this shot often decides the winner"
+        "这一刀很宝贵，盘清楚再出",
+        "可装白板鹅隐藏带刀身份"
       ],
       "tags": [
         "带刀",
@@ -1087,24 +566,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "正义使者 的游戏外观为独特配饰的鸟类，带有全局可击杀一名玩家且无惩罚。",
-        "appearanceEn": "Has unique accessories indicating the ability to kill one player globally without penalty.",
-        "gameplay_examples": "全局可击杀一名玩家且无惩罚，需慎重选择目标。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Use the single kill shot judiciously after confirming your target. Often hidden until a critical moment.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Only one use; wasting it on a misfire or bait ends your impact. Ducks may force poor decisions.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "全程隐藏身份，观察多轮确认最大威胁后再出刀。优先用于铁鸭或对局关键节点。杀错后全盘托出信息挽回信任。",
-        "strategiesEn": "Stay hidden the whole game, observe multiple rounds to confirm biggest threat before shooting. Prioritize confirmed Ducks or pivotal game moments. If misfire, fully disclose all info to regain trust.",
-        "speechcraft": "可以假装'我是侦探'或'我是警长'来隐藏自己。出刀后说'我用了唯一一刀，铁证据'。",
-        "speechcraftEn": "You can claim 'I'm the Detective' or 'Sheriff' to hide. After shot: 'I used my one shot, solid evidence'.",
-        "common_mistakes": "太早用刀暴露。杀错后不解释。浪费在不重要目标上。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "seamstress",
@@ -1131,16 +593,7 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "裁缝 的游戏外观为独特配饰的鸟类，带有每回合可比对两名玩家的腐化状态一次。。",
-        "gameplay_examples": "每回合可比对两名玩家的腐化状态一次。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "priest",
@@ -1151,18 +604,11 @@
       "difficulty": 1,
       "canKill": false,
       "summary": "免疫腐化效果。腐化模式专属。",
-      "summaryEn": "Immune to corruption effects. Exclusive to Corruption mode.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "不受腐化效果影响。腐化模式专属角色。",
-      "abilityEn": "Unaffected by corruption effects. Exclusive role for Corruption mode.",
       "tips": [
         "可安全接触腐化区域",
         "为队伍提供净化支援"
-      ],
-      "tipsEn": [
-        "Can safely enter corrupted areas",
-        "Provide support by exploring or shielding the team from corruption"
       ],
       "tags": [
         "腐化",
@@ -1174,31 +620,7 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "牧师 的游戏外观为独特配饰的鸟类，带有免疫腐化效果。腐化模式专属。",
-        "appearanceEn": "The Priest appears as a bird with unique accessories granting full immunity to corruption. Exclusive to Corruption mode.",
-        "gameplay_examples": "免疫腐化效果。腐化模式专属。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Immune to corruption. Use this to safely scout or complete tasks in corrupted zones and support the team. Commonly paired with Demon Hunter.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Still vulnerable to normal kills by Ducks. Provides no offensive power or information, only safety.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "在腐化模式中作为前排吸收腐化，保护队友。优先进入腐化区域完成任务或侦查。配合猎魔人使用，提供安全支援。",
-        "strategiesEn": "Serve as frontline absorber of corruption to protect teammates in Corruption mode. Prioritize entering corrupted areas for tasks or scouting. Coordinate with Demon Hunter to provide safe support.",
-        "speechcraft": "可以说'我是牧师，免疫腐化，可以安全探路'。如果被疑似腐化，问'谁被腐化了？'来试探。被问时强调'我纯净，投票给我安全'。",
-        "speechcraftEn": "Say 'I'm the Priest, immune to corruption, I can safely scout ahead'. If suspected of being corrupted, ask 'Who has been corrupted?' to probe. When questioned emphasize 'I'm pure, voting for me is safe'.",
-        "restraints": "仅免疫，不提供额外信息。易被鸭子当成普通鹅针对。克制于需要高输出时。",
-        "restraintsEn": "Only grants immunity with no extra information. Ducks can treat you as a regular Goose. Not useful in situations requiring output or kills.",
-        "map_adapt": "仅腐化模式地图如Bloodhaven效果显著。其他模式无用。",
-        "map_adaptEn": "Only effective on Corruption mode maps like Bloodhaven. Useless in other modes.",
-        "common_mistakes": "过度暴露位置。忘记模式限制。误以为能净化他人。",
-        "common_mistakesEn": "Overexposing your position. Forgetting the mode restriction. Assuming you can cleanse others.",
-        "scenarios": "场景1: 腐化区有任务，牧师先进入确认安全。场景2: 队友被腐化，牧师提供掩护。场景3: 晚期会议，牧师投票带节奏。",
-        "scenariosEn": "Scenario 1: Task in a corrupted zone; Priest enters first to confirm safety. Scenario 2: Teammate is corrupted; Priest provides cover. Scenario 3: Late meeting; Priest leads the vote."
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "inquisitor",
@@ -1225,16 +647,7 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "审判官 的游戏外观为独特配饰的鸟类，带有可查验玩家是否被腐化。",
-        "gameplay_examples": "可查验玩家是否被腐化，鸭子会显示为已腐化。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "demon-hunter",
@@ -1245,18 +658,11 @@
       "difficulty": 3,
       "canKill": true,
       "summary": "每次被腐化时可获得一次击杀机会。",
-      "summaryEn": "Gains one kill opportunity each time you become corrupted.",
       "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
-      "winConditionEn": "Geese: Complete all tasks, or vote out all non-Geese to win.",
       "ability": "每当你被腐化一次，就获得一次击杀能力。腐化模式专属。",
-      "abilityEn": "Each time you are corrupted, you gain one use of the kill ability. Exclusive to Corruption mode.",
       "tips": [
         "被腐化反而是获取刀的途径",
         "用刀清理腐化源头"
-      ],
-      "tipsEn": [
-        "Getting corrupted is a path to gaining kills",
-        "Use the kill to clean up sources of corruption"
       ],
       "tags": [
         "腐化",
@@ -1268,31 +674,7 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "猎魔人 的游戏外观为独特配饰的鸟类，带有每次被腐化时可获得一次击杀机会。",
-        "appearanceEn": "The Demon Hunter appears as a bird with unique accessories that grant a kill each time corrupted. Corruption mode exclusive.",
-        "gameplay_examples": "每次被腐化时可获得一次击杀机会。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Gain a kill opportunity whenever corrupted. Community deliberately seeks corruption sources for power then uses it to eliminate threats.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Acquiring kills requires exposing yourself to corruption, which is risky. Kills are limited in number.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "故意接触腐化源获取击杀。优先用刀清理高威胁鸭子。晚期利用腐化状态反杀。",
-        "strategiesEn": "Intentionally contact corruption sources to gain kills. Prioritize killing high-threat Ducks. In late game, leverage the corrupted state for comebacks.",
-        "speechcraft": "可以说'我被腐化了，现在有刀，信我'来争取信任。被疑时说'我刀的是鸭子，证明我'。会议中强调'腐化给我力量，投我有用'。",
-        "speechcraftEn": "Say 'I got corrupted, now I have a kill, trust me' to gain trust. If suspected say 'I killed a Duck to prove myself'. In meetings stress 'Corruption empowers me, voting for me helps us'.",
-        "restraints": "获取刀需被腐化，风险高。刀有限制。克制于纯信息角色场合。",
-        "restraintsEn": "Gaining the kill requires corruption which carries risk. The kill is limited. Less suited for pure information-focused play.",
-        "map_adapt": "腐化模式核心地图，机制围绕腐化。",
-        "map_adaptEn": "Core role on Corruption mode maps where all mechanics revolve around corruption.",
-        "common_mistakes": "过早暴露腐化状态。误杀好人浪费刀。忽略腐化源头。",
-        "common_mistakesEn": "Revealing your corrupted state too early. Wasting kills on innocent Geese. Ignoring the corruption source itself.",
-        "scenarios": "场景1: 被腐化后立刻刀疑似鸭子。场景2: 团队推腐化源，猎魔人提供火力。场景3: 最终对决，利用刀翻盘。",
-        "scenariosEn": "Scenario 1: Get corrupted then immediately kill a suspected Duck. Scenario 2: Team pushes the corruption source while Demon Hunter provides firepower. Scenario 3: Final confrontation, use the kill to turn the tables."
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "assassin",
@@ -1303,18 +685,11 @@
       "difficulty": 3,
       "canKill": true,
       "summary": "每局两次，会议中猜中玩家身份即可击杀，猜错自己死。",
-      "summaryEn": "Twice per game, correctly guess a player's role during a meeting to kill them; wrong guess kills you instead.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "每局可两次在会议中指定玩家并猜其角色，猜中即击杀，猜错则自己死亡。",
-      "abilityEn": "Up to twice per game, select a player during a meeting and guess their role. Correct guess kills them; incorrect guess kills you.",
       "tips": [
         "等身份盘清、有九成把握再开枪",
         "防止有人互穿身份导致猜错"
-      ],
-      "tipsEn": [
-        "Wait until roles are clear and you have high confidence before shooting",
-        "Account for players swapping identities to avoid guessing wrong"
       ],
       "tags": [
         "狙杀",
@@ -1331,19 +706,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "刺客有刀或狙击视觉，会议中猜杀有动画。",
-        "appearanceEn": "Has knife or sniper visuals; special animation when guessing a kill in meetings.",
-        "gameplay_examples": "等身份明朗再猜，社区常用在晚期会议赌关键人。",
-        "gameplay_examplesEn": "Wait for clarity before guessing. Commonly used in late-game meetings to snipe key players.",
-        "counters": "猜错自爆。鹅可互穿身份迷惑刺客。",
-        "countersEn": "Wrong guess causes self-death. Geese can swap claimed identities to mislead.",
-        "sources": "Fandom Wiki, Steam Guides",
-        "youtube_ids": [
-          "7o8UIiI_ePc"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "cannibal",
@@ -1354,18 +717,11 @@
       "difficulty": 2,
       "canKill": false,
       "summary": "可吃掉一具尸体，消除一次谋杀证据。",
-      "summaryEn": "Can eat one corpse per game to eliminate murder evidence.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "每局可食用一具尸体，使其消失，掩盖谋杀痕迹。",
-      "abilityEn": "Once per game, eat a corpse to make it disappear and cover up the murder.",
       "tips": [
         "吃掉队友刀出的尸体拖延暴露",
         "抢在尸体被报告前处理"
-      ],
-      "tipsEn": [
-        "Eat corpses killed by teammates to delay exposure",
-        "Deal with bodies before they are reported"
       ],
       "tags": [
         "藏尸",
@@ -1377,19 +733,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "食尸鸭 的游戏外观为独特配饰的鸟类，带有可吃掉一具尸体。",
-        "appearanceEn": "Cannibal has unique accessories for eating a corpse.",
-        "gameplay_examples": "可吃掉一具尸体，消除一次谋杀证据。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Can eat one corpse to eliminate murder evidence. Community strategies based on the mechanic.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Based on the mechanic, protect or target specific abilities.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "demolitionist",
@@ -1416,16 +760,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "爆炸王 的游戏外观为独特配饰的鸟类，带有在玩家身上安放炸弹引爆。",
-        "gameplay_examples": "在玩家身上安放炸弹引爆，炸弹还能被传递（烫手山芋）。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "drone",
@@ -1452,16 +787,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "无人机 的游戏外观为独特配饰的鸟类，带有可变形。",
-        "gameplay_examples": "可变形，在感染区域移动更快、未感染区更慢。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "esper",
@@ -1488,16 +814,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "超能力者 的游戏外观为独特配饰的鸟类，带有远程施加延时击杀。",
-        "gameplay_examples": "远程施加延时击杀，临死前还能与目标对话，需藏好自己。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "high-priest",
@@ -1524,16 +841,7 @@
       "canVote": true,
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "间谍有间谍眼镜视觉，单独投票时有揭示动画。",
-        "gameplay_examples": "晚期单独投关键人套身份。社区常用配合刺客。",
-        "counters": "鹅可多人投分散。注意不被发现单独投票。",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "7o8UIiI_ePc"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "hitman",
@@ -1544,26 +852,11 @@
       "difficulty": 2,
       "canKill": true,
       "summary": "击杀指定目标可获得奖励，目标与保镖相同。",
-      "summaryEn": "Killing your assigned target grants a reward; the target is the same one protected by the Bodyguard.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "开局分配一名目标，击杀该目标获得奖励（与保镖保护的是同一人）。",
-      "abilityEn": "At game start you are assigned a specific target; killing them grants a reward (same target protected by Bodyguard).",
       "tips": [
-        "目标有保镖时先想办法支开或先针对保镖",
-        "锁定目标走位伺机下手，优先在边缘或死角动手",
-        "杀完立刻撤离或假装任务，不要留在现场",
-        "可以等目标落单或和别人分开时再行动",
-        "保镖通常会贴目标，观察谁总跟谁走",
-        "如果目标是信息位，杀完后鸭方优势会很大"
-      ],
-      "tipsEn": [
-        "If the target has a Bodyguard, separate or eliminate the Bodyguard first",
-        "Lock onto the target's movement and strike at edges or dead-ends",
-        "Kill and immediately leave or fake a task — don't linger at the scene",
-        "Wait for the target to be isolated or separated from others",
-        "Bodyguards usually stick close; watch who follows whom",
-        "If the target is an info role, removing them swings heavily for Ducks"
+        "目标有保镖时先想办法支开",
+        "锁定目标走位伺机下手"
       ],
       "tags": [
         "定点",
@@ -1575,24 +868,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "杀手 的游戏外观为独特配饰的鸟类，带有击杀指定目标可获得奖励。",
-        "appearanceEn": "The Hitman appears as a bird with unique accessories for assassinating a designated target.",
-        "gameplay_examples": "击杀指定目标可获得奖励，目标与保镖相同。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Assigned a specific target to eliminate for reward (shared with Bodyguard's protectee). Community focuses on isolating the target or timing the kill around Bodyguard positioning.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Bodyguard protection is a major obstacle. The target may stay grouped or move unpredictably.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "开局先确认目标身份和位置，观察保镖动向。支开保镖后在安全时机下手。杀完迅速转移，避免被目击。",
-        "strategiesEn": "Early identify target location and Bodyguard behavior. Distract or remove Bodyguard then strike at safe moment. Kill and relocate fast to avoid witnesses.",
-        "speechcraft": "可以假装任务或和别人聊天建立不在场。杀完后表现正常。",
-        "speechcraftEn": "Pretend to task or chat with others to build alibi. Act normal after the kill.",
-        "common_mistakes": "目标有保镖时硬冲。杀完留在现场。忽略保镖的存在。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "identity-thief",
@@ -1619,16 +895,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "身份窃贼 的游戏外观为独特配饰的鸟类，带有击杀后自动变成被杀者外形。",
-        "gameplay_examples": "击杀后自动变成被杀者外形，直到会议召开。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "invisibility",
@@ -1655,16 +922,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "隐形者 的游戏外观为独特配饰的鸟类，带有可临时隐身。",
-        "gameplay_examples": "可临时隐身，但隐身时自己也看不见别人。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "lover-duck",
@@ -1691,16 +949,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "情人鸭 的游戏外观为独特配饰的鸟类，带有与情侣共同存活。",
-        "gameplay_examples": "与情侣共同存活，一方死另一方死；进前三即可获胜。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "mime",
@@ -1727,16 +976,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "模仿艺人 的游戏外观为独特配饰的鸟类，带有可劫持另一名玩家的移动。",
-        "gameplay_examples": "可劫持另一名玩家的移动，强制其镜像你的动作。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "morphling",
@@ -1763,16 +1003,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "变形者 的游戏外观为独特配饰的鸟类，带有可吸取并临时变成任意玩家外形。",
-        "gameplay_examples": "可吸取并临时变成任意玩家外形，伪装行凶栽赃。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "ninja",
@@ -1783,18 +1014,11 @@
       "difficulty": 3,
       "canKill": true,
       "summary": "可一次连杀范围内两人，但冷却变三倍，雾中冷却加快。",
-      "summaryEn": "Can kill two players within range in one go, but cooldown is tripled; fog speeds up cooldown.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "可击杀范围内两名玩家，但冷却时间为三倍；处于雾中时冷却加快。",
-      "abilityEn": "Can perform a double kill on players within range, but the cooldown becomes three times as long; fog accelerates the cooldown.",
       "tips": [
         "抓两人扎堆时一次清场",
         "连杀后长冷却要藏好"
-      ],
-      "tipsEn": [
-        "Strike when two players are grouped together for a powerful clear",
-        "After a double kill, hide carefully during the extended cooldown"
       ],
       "tags": [
         "连杀",
@@ -1806,19 +1030,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "忍者 的游戏外观为独特配饰的鸟类，带有可一次连杀范围内两人。",
-        "appearanceEn": "The Ninja has a ninja-style appearance allowing double kills within a certain range.",
-        "gameplay_examples": "可一次连杀范围内两人，但冷却变三倍，雾中冷却加快。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Double-kill clustered targets for high impact, but suffer a triple cooldown afterward. Use fog to reduce cooldown. Community watches for grouped players and post-kill hiding spots.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "The long cooldown after use leaves you exposed. Avoid being spotted immediately after a double kill.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "party",
@@ -1845,16 +1057,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "派对鸭 的游戏外观为独特配饰的鸟类，带有可在会议中给其他鸟变成尖细嗓音。",
-        "gameplay_examples": "可在会议中给其他鸟变成尖细嗓音，扰乱发言。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "preacher",
@@ -1881,16 +1084,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "传教士 的游戏外观为独特配饰的鸟类，带有可针对非鸭玩家增加其得票权重。。",
-        "gameplay_examples": "可针对非鸭玩家增加其得票权重。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "professional",
@@ -1917,16 +1111,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "专业杀手 的游戏外观为独特配饰的鸟类，带有好人看不见你的尸体。",
-        "gameplay_examples": "好人看不见你的尸体，靠近会自动报告；可揭穿加拿大鹅。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "serial-killer",
@@ -1937,18 +1122,11 @@
       "difficulty": 3,
       "canKill": true,
       "summary": "击杀指定目标会缩短冷却，杀其他人则延长冷却。",
-      "summaryEn": "Killing your designated target shortens cooldown; killing others lengthens it.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "有一名箭头指示的目标，击杀目标会减少冷却，杀其他人则增加冷却。",
-      "abilityEn": "An arrow marks your target. Killing them reduces cooldown; killing anyone else increases it.",
       "tips": [
         "优先追杀目标维持高频刀",
         "乱杀会拖慢节奏"
-      ],
-      "tipsEn": [
-        "Prioritize hunting your target to maintain high kill frequency",
-        "Killing randomly will slow your momentum"
       ],
       "tags": [
         "连杀",
@@ -1960,19 +1138,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "连环杀手 的游戏外观为独特配饰的鸟类，带有击杀指定目标会缩短冷却。",
-        "appearanceEn": "Has unique accessories and a visual indicator for the designated target.",
-        "gameplay_examples": "击杀指定目标会缩短冷却，杀其他人则延长冷却。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Focus on the designated target to chain kills efficiently. Community recommends sticking to the target and avoiding random kills.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Disrupting focus on the target slows you. Geese can protect or misdirect the target.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "silencer",
@@ -1999,16 +1165,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "静语者 的游戏外观为独特配饰的鸟类，带有可在会议中封住玩家使其无法发言。。",
-        "gameplay_examples": "可在会议中封住玩家使其无法发言。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "snitch",
@@ -2035,16 +1192,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "告密者 的游戏外观为独特配饰的鸟类，带有若只有你一人投某玩家。",
-        "gameplay_examples": "若只有你一人投某玩家，可将其送进监狱。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "spy",
@@ -2055,26 +1203,11 @@
       "difficulty": 2,
       "canKill": true,
       "summary": "若只有你一人投某玩家，会议中会得知其身份。",
-      "summaryEn": "If you are the only one voting for a player, you learn their identity during the meeting.",
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
-      "winConditionEn": "Ducks: Kill or sabotage until non-Ducks cannot form a voting majority.",
       "ability": "当你是唯一投票某玩家的人时，会议中会向你揭示其角色。",
-      "abilityEn": "When you are the sole voter on a player, their role is revealed to you in the meeting.",
       "tips": [
-        "单独投票套身份再决策——只投一个可疑的，别乱投",
-        "把关键身份报给刺客可一枪定局，但别过早暴露自己",
-        "优先投信息位或带刀好人，套出他们身份后鸭方优势巨大",
-        "投票时观察别人反应，确认只有自己投中再安心",
-        "如果被怀疑是间谍，可用套来的身份假装自己是好人",
-        "晚期用此技能决定性投票或保护队友"
-      ],
-      "tipsEn": [
-        "Solo-vote one suspicious player at a time — don't scatter votes",
-        "Feed key identities to Assassin for a guaranteed shot, but don't expose yourself too early",
-        "Prioritize info roles or armed Geese — outing them swings the game heavily for Ducks",
-        "Watch reactions while voting to confirm you're the only one on them",
-        "If suspected as Spy, use the stolen identity to claim you're a Goose",
-        "Late game this can decide a critical vote or protect teammates"
+        "单独投票套身份再决策",
+        "把关键身份报给刺客可一枪定局"
       ],
       "tags": [
         "查验",
@@ -2086,24 +1219,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "间谍鸭带有间谍主题视觉，如眼镜或帽子。",
-        "appearanceEn": "Spy Ducks have spy-themed visuals like glasses or hats.",
-        "gameplay_examples": "单独投票关键玩家来揭示身份。社区策略是配合刺客使用。",
-        "gameplay_examplesEn": "Solo-vote key players to reveal roles. Community strategy focuses on coordinating with Assassins.",
-        "counters": "避免被发现单独投票。鹅可以集体投票分散。",
-        "countersEn": "Avoid detection when voting solo. Geese can spread votes to prevent solo votes.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "7o8UIiI_ePc"
-        ],
-        "strategies": "选准一个目标单独投，确认只有自己投后再安心。套到信息位或带刀后立刻私下报给刺客。必要时用假身份在会议中自保。",
-        "strategiesEn": "Target one player carefully and solo-vote only when sure. Once you have an info role or armed Goose, immediately feed Assassin privately. Use the fake identity to defend yourself in meetings when necessary.",
-        "speechcraft": "投完可以说'我只是随便投一个试试'。套身份后可用该身份发言如'我是侦探'来混淆。",
-        "speechcraftEn": "After voting say 'I was just testing a hunch'. Once you have the role, speak as that role e.g. 'I'm the Detective' to confuse.",
-        "common_mistakes": "多人投票同一人导致无法套身份。把所有信息都公开。过早暴露间谍身份。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "undertaker",
@@ -2117,20 +1233,8 @@
       "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
       "ability": "可拖拽尸体移动（移速降低），将尸体转移藏匿。",
       "tips": [
-        "把尸体拖离案发现场误导好人搜查方向",
-        "拖动会减速，一定要确认周围没人再动手",
-        "优先拖到隐蔽死角或藏尸区，拖太远容易暴露",
-        "可以拖尸体到通风口附近假装鸭子刚走",
-        "和队友配合，拖完立刻报告或假装发现",
-        "别在会议前拖太明显，留时间伪装"
-      ],
-      "tipsEn": [
-        "Drag the body away from the crime scene to mislead search direction",
-        "Dragging slows you — only move when you've confirmed the area is clear",
-        "Prioritize hidden dead-ends or disposal areas; dragging too far risks exposure",
-        "Drag toward vents to make it look like a Duck just left",
-        "Coordinate with teammates: drag then immediately call or pretend to find it",
-        "Don't drag obviously right before meetings — leave time to blend in"
+        "把尸体拖离案发现场误导",
+        "拖动慢，注意别被撞见"
       ],
       "tags": [
         "藏尸",
@@ -2142,21 +1246,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "丧葬者 的游戏外观为独特配饰的鸟类，带有可拖动尸体（减速）。",
-        "gameplay_examples": "可拖动尸体（减速），把尸体藏到隐蔽处。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "杀完立刻拖到远离现场的死角或藏尸点。拖动时走小路或通风口。拖完后可以假装是发现者报尸建立信任。",
-        "strategiesEn": "Drag immediately after kill to a distant dead-end or disposal. Use side paths or vents while dragging. After, you can pretend to 'find' the body to build trust.",
-        "speechcraft": "拖完后可以说'我刚才在XX发现尸体'。如果被问拖动痕迹'我只是路过'或'我看到鸭子拖的'。",
-        "speechcraftEn": "After dragging say 'I just found the body at XX'. If questioned about drag marks: 'I was just passing by' or 'I saw a Duck dragging it'.",
-        "common_mistakes": "拖太远被撞见。拖完不报反而暴露。忽略藏尸区的作用。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "warlock",
@@ -2183,16 +1273,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "猎鹰有翅膀或飞行视觉，晚期强势。",
-        "gameplay_examples": "存活到最后3人获胜，可击杀。社区建议隐藏到后期。",
-        "counters": "早被针对。鹅可快速推断并票。",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "qPW79VYuMMU"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "dodo",
@@ -2204,18 +1285,11 @@
       "canKill": false,
       "canVote": true,
       "summary": "被投票出局即获胜，要表演可疑并躲开鸭子的刀。",
-      "summaryEn": "Win by getting voted out. Act suspicious while avoiding being killed by Ducks.",
       "winCondition": "中立：被投票出局即获胜。",
-      "winConditionEn": "Neutral: Get voted out to win.",
       "ability": "无主动技能，目标是引导全场把你投出去。",
-      "abilityEn": "No active abilities. Your goal is to convince the group to vote you out.",
       "tips": [
         "故意做可疑动作但别一眼假",
         "活到会议是前提，先躲开鸭子"
-      ],
-      "tipsEn": [
-        "Act suspicious on purpose but don't make it obvious",
-        "Survive until the meeting — first priority is dodging Duck kills"
       ],
       "tags": [
         "求票",
@@ -2226,19 +1300,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "呆呆鸟 的游戏外观为独特配饰的鸟类，带有被投票出局即获胜。",
-        "appearanceEn": "Unique accessories for the Dodo role.",
-        "gameplay_examples": "被投票出局即获胜，要表演可疑并躲开鸭子的刀。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Perform subtle suspicious actions to draw votes while staying alive. Avoid obvious fakes that get you killed by Ducks first.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Ducks may kill you before votes can be gathered. Geese may call your bluff or ignore you.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "dueling-dodos",
@@ -2265,16 +1327,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "秃鹫有秃头或吃尸视觉，尸体有箭头指向。",
-        "gameplay_examples": "晚期捡尸，跟着鸭子行动。社区建议隐藏身份直到关键时刻。",
-        "counters": "尸体被报告消失。鹅可快速报尸阻止。",
-        "sources": "Fandom Wiki",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "falcon",
@@ -2286,18 +1339,11 @@
       "canKill": true,
       "canVote": false,
       "summary": "杀光所有人或活到最后获胜，只能在会议中跳过。",
-      "summaryEn": "Win by killing everyone or being the last survivor. Can only skip votes in meetings.",
       "winCondition": "中立：成为最后幸存者（杀光或熬过计时）。",
-      "winConditionEn": "Neutral: Become the last survivor (by killing everyone or surviving until the timer ends).",
       "ability": "可击杀任意玩家，会议中只能跳过投票。三人以下时进入倒计时，撑到结束即获胜。若有鹈鹕出现则本角色不会出现。",
-      "abilityEn": "Can kill any player but must skip voting in meetings. When 3 or fewer players remain, a timer starts — survive to the end to win. Does not spawn if Pelican is present.",
       "tips": [
         "不投票是身份破绽，注意打掩护",
         "可冒充正义使者混入鹅群"
-      ],
-      "tipsEn": [
-        "Skipping votes is a giveaway — cover for it carefully",
-        "Impersonate the Vigilante to blend into the Geese"
       ],
       "tags": [
         "生存",
@@ -2308,19 +1354,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "猎鹰 的游戏外观为独特配饰的鸟类，带有杀光所有人或活到最后获胜。",
-        "appearanceEn": "Unique accessories; often has flight or predatory visuals.",
-        "gameplay_examples": "杀光所有人或活到最后获胜，只能在会议中跳过。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Hide your identity and use late-game kills or outlast the timer. Commonly impersonates other roles to blend in.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Skipping votes can expose you. Geese may force votes or identify your lack of tasks/votes.",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "pelican",
@@ -2332,26 +1366,11 @@
       "canKill": true,
       "canVote": false,
       "summary": "吞光所有人或活到最后获胜，被吞者开会前不死。",
-      "summaryEn": "Swallows players whole. Swallowed players survive until the next meeting and can only communicate with the Pelican and other swallowed players.",
       "winCondition": "中立：成为最后幸存者（吞光或熬过计时）。",
-      "winConditionEn": "Neutral: Become the last survivor (by swallowing everyone or surviving until the timer ends).",
       "ability": "可将玩家整个吞下，被吞者开会前不死、只能与你和被吞者交流；你若在吞人当回合被杀，被吞者会被放出。三人以下进入倒计时撑到结束即胜。",
-      "abilityEn": "Swallow a player whole. The swallowed player does not die before the next meeting and can only talk to you and other swallowed players. If you are killed in the round you swallow someone, they are released. With 3 or fewer players left, a timer starts — survive to the end to win.",
       "tips": [
-        "优先吞掉带刀玩家（警长、刺客等）大幅提高自己存活几率",
-        "吞人后到下次会议前完全安全，可大胆 reposition 或拖延时间",
-        "被吞者可以和你聊天，晚期可用来收集信息或施压",
-        "三人以下计时开始后，吞人反而可能拖慢自己节奏，视情况放弃",
-        "别吞太多人导致自己暴露行踪；1-2个高质量目标更好",
-        "地图边缘或死角是最佳吞人点，会议前放出或保留看情况"
-      ],
-      "tipsEn": [
-        "Prioritize swallowing armed threats (Sheriff, Assassin) to massively boost your survival odds",
-        "Once swallowed, victims are safe until next meeting — use the window to reposition or stall",
-        "Swallowed players can talk only to you; use late game to gather intel or apply pressure",
-        "When down to 3 or fewer the timer starts — swallowing more may slow you down; decide carefully",
-        "Don't swallow too many — 1-2 high-value targets are usually better than a crowd",
-        "Edges and dead-ends are best swallow spots; decide whether to release before meeting or keep"
+        "优先吞掉带刀玩家提高存活",
+        "吞人后到开会前都安全，可借机走位"
       ],
       "tags": [
         "吞噬",
@@ -2362,24 +1381,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "鹈鹕可吞人，有大嘴视觉。",
-        "appearanceEn": "Pelican has a large beak visual effect when using the swallow ability.",
-        "gameplay_examples": "吞人后听声音，晚期求存。社区常用在小地图。",
-        "gameplay_examplesEn": "Swallow targets then listen for audio cues. Focus on late-game survival. Commonly strong on smaller maps.",
-        "counters": "吞人后易被针对。报告可救出被吞者。",
-        "countersEn": "Becomes a high-priority target after swallowing. Reporting a dead body can free the swallowed player.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "qEsznq3LBkA"
-        ],
-        "strategies": "开局找带刀或高威胁目标伺机吞。吞完后利用安全期做任务或观察，晚期根据人数决定是否放人搅局。三人残局时优先保自己不吞人。",
-        "strategiesEn": "Early: hunt armed or high-threat targets for a swallow. Use the post-swallow safety window for tasks or intel. Late game: release or hold based on count. In 3-player endgame, often better not to swallow.",
-        "speechcraft": "吞人后可以说'我刚才和XX在一起'制造不在场（如果放出或假装）。被问时'我吞了人但没杀'或根据情况调整。晚期可威胁放人换信息。",
-        "speechcraftEn": "After swallowing claim 'I was with XX' for alibi if you release. When questioned: 'I swallowed someone but didn't kill'. In late game you can threaten release for information.",
-        "common_mistakes": "吞太多人导致自己暴露或无法及时放出。残局误吞导致计时对自己不利。忽略被吞者的信息价值。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "pigeon",
@@ -2406,16 +1408,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "鸽子 的游戏外观为独特配饰的鸟类，带有在一回合内感染所有存活玩家获胜。",
-        "gameplay_examples": "在一回合内感染所有存活玩家获胜，越到后期越容易。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "vulture",
@@ -2427,26 +1420,11 @@
       "canKill": false,
       "canVote": true,
       "summary": "吃够数量的尸体获胜，每死一人有蓝箭头指向尸体。",
-      "summaryEn": "Win by eating a sufficient number of corpses. Blue arrows point to bodies when someone dies.",
       "winCondition": "中立：吃掉足够数量的尸体（数量随开局人数变化）。",
-      "winConditionEn": "Neutral: Eat enough corpses to win (the number scales with the starting player count).",
       "ability": "可食用尸体，有人死亡时会出现蓝色箭头指向尸体。所需数量取决于开局人数。若有鹈鹕出现则本角色不会出现。",
-      "abilityEn": "Can eat corpses. When a player dies, blue arrows appear pointing to the body. Required count depends on initial player number. Does not spawn if Pelican is present.",
       "tips": [
         "尸体被报告就消失，要抢时间",
-        "跟着鸭子刀法捡尸效率最高",
-        "优先吃远端或鸭子容易忽略的尸体",
-        "别在众人面前吃，找机会单独行动",
-        "箭头会暴露尸体位置，好人可能借此推你",
-        "如果有鹈鹕，尽快多吃避免被抢"
-      ],
-      "tipsEn": [
-        "Bodies disappear once reported — act quickly",
-        "Following Duck kill patterns is the most efficient way to collect corpses",
-        "Prioritize remote or Duck-overlooked bodies",
-        "Don't eat in front of groups — find solo opportunities",
-        "Arrows expose body locations; Geese may use them to deduce you",
-        "If Pelican is present, eat fast before they steal"
+        "跟着鸭子刀法捡尸效率最高"
       ],
       "tags": [
         "捡尸",
@@ -2457,24 +1435,7 @@
         "all"
       ],
       "tier": "",
-      "updatedAt": "2026-06-06",
-      "real_resources": {
-        "appearance": "秃鹫 的游戏外观为独特配饰的鸟类，带有吃够数量的尸体获胜。",
-        "appearanceEn": "Unique accessories; often has scavenger or vulture-themed visuals.",
-        "gameplay_examples": "吃够数量的尸体获胜，每死一人有蓝箭头指向尸体。 社区常用策略基于机制。",
-        "gameplay_examplesEn": "Rush to bodies using arrows before they are reported. Following known Duck kills is most efficient.",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "countersEn": "Bodies reported quickly deny you food. Ducks may hide bodies or target you directly.",
-        "sources": "Fandom Wiki + 社区实测",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ],
-        "strategies": "开局留意死亡位置，尽快吃到足够数量。优先远端尸体。利用箭头信息但小心暴露。和鸭子间接合作捡尸。",
-        "strategiesEn": "Track deaths early and eat enough bodies quickly. Prioritize remote corpses. Use arrow info but avoid exposing yourself. Indirectly benefit from Duck kills.",
-        "speechcraft": "可以说'我刚才在XX看到尸体箭头'。如果被怀疑'我只是中立吃尸的'。",
-        "speechcraftEn": "Say 'I just saw body arrows at XX'. If suspected: 'I'm just a neutral eating corpses'.",
-        "common_mistakes": "在人前吃尸暴露。忽略报告会消失的尸体。和鹈鹕冲突时被动。"
-      }
+      "updatedAt": "2026-06-06"
     },
     {
       "slug": "crow",
@@ -2501,15 +1462,311 @@
       ],
       "aliases": [],
       "tier": "",
-      "updatedAt": "2026-06-06",
+      "updatedAt": "2026-06-06"
+    },
+    {
+      "slug": "lucid-dreamer",
+      "name": "清醒做梦者",
+      "nameEn": "Lucid Dreamer",
+      "camp": "goose",
+      "icon": "💤",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "会议期间可离开会议进入梦境探索地图，观察位置获取信息。",
+      "winCondition": "鹅阵营：完成全部任务，或票出所有非鹅获胜。",
+      "ability": "投票阶段可进入黑白梦境世界，像 Raven 一样走动地图（不可穿墙、看不到玩家昵称与装饰、可与部分地图对象交互）。可完成少量任务。用于观察会前站位、任务进度等线索。",
+      "tips": [
+        "会议时快速扫关键区域确认谁在哪",
+        "注意梦境中无法直接互动，只能观察",
+        "可借此提前布局或验证不在场"
+      ],
+      "tags": [
+        "信息",
+        "会议",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "Can leave the meeting during the voting phase to explore the map in a dream state and gather positional intel.",
+      "winConditionEn": "Geese: Complete all tasks or vote out all non-Geese.",
+      "abilityEn": "During voting phase, enter a black-and-white dream world to walk the map (no wall phasing, no name/cosmetic visibility, limited interactions). Can complete up to a couple tasks. Great for spotting pre-meeting positions and movement clues.",
+      "tipsEn": [
+        "Quickly scan key areas during meetings to note positions",
+        "You cannot interact or see names — pure observation",
+        "Use it to pre-position or confirm alibis",
+        "Cross-reference with spoken claims in the meeting"
+      ],
       "real_resources": {
-        "appearance": "乌鸦 的游戏外观为独特配饰的鸟类，带有腐化所有人后变身乌鸦。",
-        "gameplay_examples": "腐化所有人后变身乌鸦，再限时杀光全场获胜。腐化模式专属。 社区常用策略基于机制。",
-        "counters": "根据机制，注意保护或针对特定能力。",
-        "sources": "Fandom Wiki, Steam Community Guides",
-        "youtube_ids": [
-          "oNPC4IYaI3w"
-        ]
+        "appearance": "梦境状态下角色呈现黑白风格，可在会议中自由走动但外形特殊。",
+        "appearanceEn": "Black-and-white dream aesthetic; distinct visual when active outside meeting.",
+        "gameplay_examples": "会议中进入梦境查看任务区站位，回来报‘XX刚才在监控附近没动’。",
+        "gameplay_examplesEn": "Enter dream to check who was near cameras or tasks, return with ‘I saw XX stationary by cams’.",
+        "counters": "会议中注意有人长时间沉默或回来后信息过于精准可能是清醒做梦者；假装走位误导观察。",
+        "countersEn": "Watch for players who are quiet then suddenly have precise location info. Fake movements to mislead observers.",
+        "strategies": "优先观察鸭子常去的破坏点或信息位附近。回来后用事实报点，不直接暴露身份。",
+        "strategiesEn": "Prioritize sabotage spots and key info player locations. Report facts on return without outing yourself immediately.",
+        "speechcraft": "‘会议期间我去看了下XX任务区，看到有人路过但没看清。’",
+        "speechcraftEn": "‘While in the meeting I checked the task area near XX and saw someone pass by but couldn’t ID.’",
+        "sources": "Fandom Wiki + Steam v4.08 patch notes + 社区实测"
+      }
+    },
+    {
+      "slug": "witch-doctor",
+      "name": "巫医",
+      "nameEn": "Witch Doctor",
+      "camp": "duck",
+      "icon": "🧿",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "可切换 X 光透视，盯视被诅咒玩家（眼标）约 6 秒击杀。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "除常规破坏与击杀外，可切换标准视野与 X 光透视（类似观鸟者，但可在熄灯时使用）。场上随机一名非鸭玩家会被标记诅咒（昵称旁眼图标）。在 X 光模式下持续盯视诅咒目标 6 秒可将其杀死；目标离开视野进度重置。盯视击杀不影响常规刀冷却。",
+      "tips": [
+        "优先在人群或任务点隔墙盯杀",
+        "双杀潜力大但别长时间追目标暴露",
+        "熄灯时是优势窗口"
+      ],
+      "tags": [
+        "透视",
+        "狙杀",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "Toggle X-ray vision and stare down the cursed player (eye icon) for ~6s to kill.",
+      "winConditionEn": "Ducks: Kill and sabotage until non-Ducks cannot form a voting majority.",
+      "abilityEn": "Besides normal sabotage/kill, toggle between normal and X-ray vision (like Birdwatcher but works during lights-out). One random non-Duck is cursed (eye next to name). In X-ray, stare at cursed target ~6s to kill; progress resets if they leave view. Stare kill does not affect normal kill cooldown.",
+      "tipsEn": [
+        "Stare through walls at tasks or crowds for surprise kills",
+        "Don’t chase visibly for long — arouse suspicion fast",
+        "Lights sabotage is your power window",
+        "Normal kill cooldown increases after stare — time it well"
+      ],
+      "real_resources": {
+        "appearance": "巫医外观带有面具或仪式感道具，X光模式眼睛发光。",
+        "appearanceEn": "Mask/ritual props; eyes glow in X-ray mode.",
+        "gameplay_examples": "熄灯后隔墙盯死侦探或警长，常规刀再补一人。",
+        "gameplay_examplesEn": "During lights out, stare-kill the Detective or Sheriff through a wall then follow up with normal kill.",
+        "counters": "保持移动别被持续盯住；怀疑有人用透视时抱团或卡视野反杀；注意昵称旁眼标。",
+        "countersEn": "Keep moving to break stare line. Group up or bait line of sight if you suspect X-ray. Watch for the eye marker on a teammate.",
+        "strategies": "配合破坏使用，盯杀后马上用常规刀或破坏掩护。别只盯一个目标太久。",
+        "strategiesEn": "Pair with sabotages. After a stare kill, use normal kill or sabotage for cover. Rotate targets.",
+        "speechcraft": "‘我刚才在XX被灯关了，完全没看到人。’（实际在X光里盯人）",
+        "speechcraftEn": "‘Lights went out at XX and I saw nothing.’ (While you were actually staring someone down.)",
+        "sources": "Fandom Wiki + Steam v4.08 patch + 社区实测"
+      }
+    },
+    {
+      "slug": "lost-duckling",
+      "name": "迷失鸭崽",
+      "nameEn": "Lost Duckling",
+      "camp": "duck",
+      "icon": "🐤",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "你不知道其他鸭子是谁，其他鸭子也认不出你。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "开局仅看到自己为鸭，其他鸭子对你显示为 \"???\"，你对他们也一样。可互相击杀。非黑天鹅地图。",
+      "tips": [
+        "前期低调，避免暴露身份给鹅也给队友",
+        "和其他鸭保持距离以策安全",
+        "后期再尝试联系"
+      ],
+      "tags": [
+        "伪装",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "You don’t know who the other Ducks are, and they don’t recognize you.",
+      "winConditionEn": "Ducks: Kill and sabotage until non-Ducks cannot form a voting majority.",
+      "abilityEn": "At the start you only see yourself as Duck. Other Ducks see you as \"???\" and vice-versa. You can kill each other. Not on Black Swan.",
+      "tipsEn": [
+        "Stay low profile early — don’t out yourself to Geese or teammates",
+        "Keep distance from other Ducks for mutual safety",
+        "Attempt contact only in late game",
+        "Accidental friendly fire between you and other Ducks is common"
+      ],
+      "real_resources": {
+        "appearance": "普通鸭外观，无额外标识，信息隔离是核心机制。",
+        "appearanceEn": "Standard duck look with no special marker — isolation is the mechanic.",
+        "gameplay_examples": "你当普通鹅混，偶尔和真鸭对跳或互相刀以证明清白。",
+        "gameplay_examplesEn": "Play like a normal Goose. Occasionally ‘sus’ or even knife other Ducks to sell the bit.",
+        "counters": "多观察谁和谁不互动；如果有人故意和‘队友’保持距离可能是迷失鸭崽。",
+        "countersEn": "Watch pairs that avoid each other. Someone who deliberately stays away from suspected Ducks may be the Lost Duckling.",
+        "strategies": "把自己当普通鹅打，前期完全不和鸭子有联动。等人数少再找机会抱团鸭。",
+        "strategiesEn": "Play as if you are a regular Goose early. Avoid any coordination until numbers are low.",
+        "speechcraft": "‘我完全不知道谁是鸭，我就是个普通鹅。’（真实情况）",
+        "speechcraftEn": "‘I have zero idea who the Ducks are, I’m just a plain Goose.’ (Which is true for you.)",
+        "sources": "Fandom Wiki + Steam v4.08 patch notes"
+      }
+    },
+    {
+      "slug": "carrier",
+      "name": "载体",
+      "nameEn": "Carrier",
+      "camp": "duck",
+      "icon": "🧬",
+      "difficulty": 2,
+      "canKill": false,
+      "summary": "可将寄生虫植入玩家体内制造击杀，与寄生虫生命绑定并永久通讯。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "与 Parasite 视为一鸭（2 角色 1 鸭）。可植入/取回寄生虫；不能直接击杀（环境除外）；不能通风；可投票。与寄生虫生命相连，一死俱死；可随时通讯；可破坏。",
+      "tips": [
+        "和 Parasite 提前商量植入位置",
+        "保护宿主不被其他鸭误杀",
+        "植入后快速让 Parasite 完成击杀"
+      ],
+      "tags": [
+        "辅助",
+        "植入",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "Implant the Parasite into players to set up kills. Life-linked with the Parasite and can always communicate.",
+      "winConditionEn": "Ducks: Kill and sabotage until non-Ducks cannot form a voting majority.",
+      "abilityEn": "Carrier + Parasite count as a single Duck (2 roles, 1 slot). Can implant/retrieve Parasite. Cannot kill directly (except environmental). Cannot vent. Can vote. Lives are linked — one dies, the other dies shortly after. Permanent private comms with Parasite. Can sabotage.",
+      "tipsEn": [
+        "Coordinate implant spots with your Parasite beforehand",
+        "Make sure other Ducks don’t accidentally kill your host",
+        "After implant, have the Parasite finish quickly",
+        "Don’t be seen near the host when it dies"
+      ],
+      "real_resources": {
+        "appearance": "载体外观普通，植入动作有特殊动画。",
+        "appearanceEn": "Standard look; implant action has a distinct animation/effect.",
+        "gameplay_examples": "植入侦探后让寄生虫秒杀，事后自己去报点洗白。",
+        "gameplay_examplesEn": "Implant the Detective, let Parasite pop them, then go report the body yourself to clear suspicion.",
+        "counters": "注意谁和谁单独相处时间长；宿主突然死亡时观察谁表情异常或立刻远离。",
+        "countersEn": "Track long private time between two players. When a host dies suddenly, watch who reacts oddly or flees.",
+        "strategies": "植入信息位或带刀鹅制造混乱。自己当‘普通鹅’报刀或任务洗身份。",
+        "strategiesEn": "Target info roles or armed Geese. Play ‘normal Goose’ by reporting bodies or doing tasks loudly.",
+        "speechcraft": "‘我刚才和XX一起做任务，他中途走了下。’（实际在植入）",
+        "speechcraftEn": "‘I was tasking with XX and he stepped away for a bit.’ (While you were actually implanting.)",
+        "sources": "Fandom Wiki + Steam v4.08 patch notes + 社区实测"
+      }
+    },
+    {
+      "slug": "parasite",
+      "name": "寄生虫",
+      "nameEn": "Parasite",
+      "camp": "duck",
+      "icon": "🪱",
+      "difficulty": 3,
+      "canKill": true,
+      "summary": "被植入宿主体内，触发后击杀宿主并变形为宿主外貌。可通风，仅能跳过投票。",
+      "winCondition": "鸭阵营：击杀或破坏，直到非鸭无法构成投票多数。",
+      "ability": "每回合开始在 Carrier 体内。植入后数秒击杀宿主，脱出后可变形为宿主外貌（可切换回原形）。若宿主被其他方式杀死则一同死亡。可通风；仅能跳过投票。",
+      "tips": [
+        "尽快在落单宿主身上触发击杀",
+        "杀完立刻撤离安全地点换形",
+        "和 Carrier 保持通讯避免误伤"
+      ],
+      "tags": [
+        "主刀",
+        "变形",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "Implanted inside a host. Trigger to kill and shapeshift into the victim. Can vent; can only skip voting.",
+      "winConditionEn": "Ducks: Kill and sabotage until non-Ducks cannot form a voting majority.",
+      "abilityEn": "Starts each round inside the Carrier. Once implanted, kills the host after a short delay then emerges and can shapeshift into the victim’s appearance (toggle back to own form). If the host dies another way you both die. Can vent. May only skip votes.",
+      "tipsEn": [
+        "Pop isolated hosts as fast as possible",
+        "Get to safety and switch form immediately after the kill",
+        "Stay in sync with Carrier to avoid friendly fire",
+        "After shapeshifting, avoid high-profile actions right away"
+      ],
+      "real_resources": {
+        "appearance": "寄生虫形态小而隐蔽，变形后完全复制宿主视觉。",
+        "appearanceEn": "Small hidden parasite form; perfect visual copy of host after emerging.",
+        "gameplay_examples": "植入警长后变形顶替，继续和鹅混一起做任务。",
+        "gameplay_examplesEn": "Implant the Sheriff, shapeshift, then continue tasking with Geese as the victim.",
+        "counters": "注意谁突然‘消失’又以别人身份出现；宿主死亡后立刻观察谁行为突变。",
+        "countersEn": "Watch for players who vanish then reappear as someone else. After a host death look for sudden behavior changes.",
+        "strategies": "优先选带刀或核心鹅植入。杀完用变形混进鹅群洗白。",
+        "strategiesEn": "Prioritize armed or high-value Geese. Use the new form to blend back into the Goose group.",
+        "speechcraft": "顶替后可以说‘刚才XX拉我去那边了，我没看到刀’（实际就是你在顶他的身份）。",
+        "speechcraftEn": "As the victim: ‘XX dragged me over there, I didn’t see the kill.’ (You were the killer wearing their skin.)",
+        "sources": "Fandom Wiki + Steam v4.08 patch notes + 社区实测"
+      }
+    },
+    {
+      "slug": "cuckoo",
+      "name": "布谷鸟",
+      "nameEn": "Cuckoo",
+      "camp": "neutral",
+      "icon": "🥚",
+      "difficulty": 2,
+      "canKill": true,
+      "summary": "产下足够数量的蛋获胜，蛋可见可被打破。够数触发布谷鸟狩猎。",
+      "winCondition": "中立：产下足够蛋触发狩猎并最终杀光全场（或存活）。",
+      "ability": "可产蛋（可见，所有人包括自己可打破，打破计数 +1）。蛋应分散放置。达到数量触发 Cuckoo Hunt：蛋与本体孵化出追杀鸟，可进通风管杀隐藏玩家。本体获得击杀能力。本体死亡则所有孵化鸟消失。玩家目标是生存或杀死布谷鸟本体。",
+      "tips": [
+        "蛋不要堆一起，藏在少人去的角落或贴图后面",
+        "狩猎阶段抱团快速收割",
+        "被识破可坦白中立求合作"
+      ],
+      "tags": [
+        "求胜",
+        "收割",
+        "v4.08"
+      ],
+      "canVote": true,
+      "aliases": [],
+      "maps": [
+        "all"
+      ],
+      "tier": "",
+      "updatedAt": "2026-07-02",
+      "summaryEn": "Lay enough eggs to win. Eggs are visible and breakable. Enough eggs trigger the Cuckoo Hunt.",
+      "winConditionEn": "Neutral: Lay enough eggs to trigger the hunt and eventually wipe the field (or survive).",
+      "abilityEn": "Lay visible eggs (anyone including yourself can break them, +1 counter). Spread them out. Reaching the threshold triggers Cuckoo Hunt: eggs + you hatch killer birds that chase everyone (can enter vents/hiding spots). You gain kill ability. If you die all hatchlings die too.",
+      "tipsEn": [
+        "Never cluster eggs — hide in low-traffic corners or behind props",
+        "During the hunt, stick with the group to peck everyone quickly",
+        "If exposed, openly admit you are neutral and ask for cooperation",
+        "Don’t spam eggs early — spread and conceal is everything"
+      ],
+      "real_resources": {
+        "appearance": "布谷鸟产蛋动作明显，蛋有独特模型，可被任何人破坏。",
+        "appearanceEn": "Obvious egg-laying animation; eggs have distinct models that anyone can smash.",
+        "gameplay_examples": "把蛋藏在地图死角，够数后狩猎时跟鹅鸭一起冲人。",
+        "gameplay_examplesEn": "Hide eggs in dead corners. Once the hunt starts, run with the largest group and help cull.",
+        "counters": "定期巡逻破坏可疑蛋；狩猎开始后优先集火本体布谷鸟。",
+        "countersEn": "Routinely patrol and smash suspicious eggs. Once the hunt triggers, focus the player Cuckoo first.",
+        "strategies": "前期伪装正常鸟，产蛋用移动掩护。狩猎时别落单，利用团队快速清场。",
+        "strategiesEn": "Blend as normal bird early while laying under movement cover. In hunt phase never go solo — use the crowd to finish fast.",
+        "speechcraft": "‘我就是个中立布谷鸟，帮我把蛋藏好我们一起赢。’（狩猎前）",
+        "speechcraftEn": "‘I’m just a neutral Cuckoo. Help me hide eggs and we all win.’ (Pre-hunt pitch.)",
+        "sources": "Fandom Wiki + Steam v4.08 patch notes + 社区实测"
       }
     }
   ]

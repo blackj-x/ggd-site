@@ -1,0 +1,101 @@
+---
+import Base from '../../../layouts/Base.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import InfoSection from '../../../components/InfoSection.astro';
+import { SITE } from '../../../data/site';
+
+const lang = 'en';
+const title = 'v4.08 New Roles Explained - Goose Goose Duck Guide';
+const description = 'Goose Goose Duck v4.08 "Hatching New Roles": Cuckoo, Witch Doctor, Lost Duckling, Carrier, Parasite, Lucid Dreamer. One-sentence positioning, win conditions, counters and relations to classic roles.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} lang={lang} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/en/">Home</a> / <a href="/en/guide/">Beginner Guide</a> / v4.08 New Roles</div>
+    <h1 class="retro-hero">v4.08 New Roles <span class="em">Explained</span></h1>
+    <p class="lead">April 2026 "Hatching New Roles" update. 6 brand new roles with one-sentence positioning, faction, win conditions, counters, and how they combo with classics. Full bilingual.</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="Update Overview" icon="🆕">
+          <ul>
+            <li><strong>Cuckoo</strong> Neutral — Egg hunt / hatchling cull</li>
+            <li><strong>Witch Doctor</strong> Duck — X-ray curse stare kill</li>
+            <li><strong>Lost Duckling</strong> Duck — Info-isolated duck</li>
+            <li><strong>Carrier + Parasite</strong> Duck duo — Implant + shapeshift linked pair</li>
+            <li><strong>Lucid Dreamer</strong> Goose — Meeting dream explorer</li>
+          </ul>
+          <p class="hint">All role detail pages are live. Use the "v4.08 New" filter on the <a href="/en/roles/">Role Compendium</a>.</p>
+        </InfoSection>
+
+        <InfoSection title="Cuckoo · Neutral" icon="🥚">
+          <p><strong>One-line:</strong> Lay enough visible eggs to trigger "Cuckoo Hunt" — hatchlings + you wipe the field.</p>
+          <p><strong>Win:</strong> Neutral: reach egg count then survive or finish the cull.</p>
+          <p><strong>Mechanics:</strong> Eggs are breakable by anyone (+1 counter when smashed). Spread them. On threshold, eggs + player hatch killer birds (vent + hiding access). Player death ends all hatchlings.</p>
+          <p><strong>Counters:</strong> Patrol and smash eggs early. Once hunt starts, focus the player Cuckoo.</p>
+          <p><strong>Relations:</strong> Neutral win-condition collector like Vulture/Pigeon but requires early hidden setup + team culling phase.</p>
+          <p><a href="/en/roles/cuckoo/">Full page →</a></p>
+        </InfoSection>
+
+        <InfoSection title="Witch Doctor · Duck" icon="🧿">
+          <p><strong>One-line:</strong> Toggle X-ray (works in lights-out) and stare the cursed player ~6s for a kill that doesn't eat normal cooldown.</p>
+          <p><strong>Win:</strong> Duck win condition.</p>
+          <p><strong>Mechanics:</strong> One random non-Duck gets the curse eye. Stare in X-ray to kill; progress resets on LOS break. Can double-kill with normal button.</p>
+          <p><strong>Counters:</strong> Stay moving. Group up. Watch the eye marker.</p>
+          <p><strong>Relations:</strong> High-skill armed duck. Pairs with sabotage like a ranged Ninja/Assassin supplement.</p>
+          <p><a href="/en/roles/witch-doctor/">Full page →</a></p>
+        </InfoSection>
+
+        <InfoSection title="Lost Duckling · Duck" icon="🐤">
+          <p><strong>One-line:</strong> You don't know the other Ducks and they don't know you.</p>
+          <p><strong>Win:</strong> Duck win condition.</p>
+          <p><strong>Mechanics:</strong> Complete info isolation between you and the rest of the duck team. You can kill each other.</p>
+          <p><strong>Counters:</strong> Notice players deliberately avoiding other suspected Ducks.</p>
+          <p><strong>Relations:</strong> Ultimate deception duck — more extreme than Identity Thief (no active shapeshift, pure hidden identity).</p>
+          <p><a href="/en/roles/lost-duckling/">Full page →</a></p>
+        </InfoSection>
+
+        <InfoSection title="Carrier + Parasite · Duck Duo" icon="🧬">
+          <p><strong>One-line:</strong> Count as one Duck. Life-linked + permanent comms. Carrier implants; Parasite triggers kill + shapeshifts.</p>
+          <p><strong>Win:</strong> Duck (2 roles = 1 duck slot).</p>
+          <p><strong>Mechanics:</strong> Carrier cannot direct-kill / vent. Parasite starts inside, kills after delay on implant, then shapeshifts. If host dies any other way — both die. Parasite vents + only skips votes.</p>
+          <p><strong>Counters:</strong> Watch long private time pairs. Sudden host death — check for sudden behavior flip.</p>
+          <p><strong>Relations:</strong> Lovers mechanic + Identity Thief + Professional combo. Carrier = support, Parasite = main armed deceiver.</p>
+          <p><a href="/en/roles/carrier/">Carrier →</a> / <a href="/en/roles/parasite/">Parasite →</a></p>
+        </InfoSection>
+
+        <InfoSection title="Lucid Dreamer · Goose" icon="💤">
+          <p><strong>One-line:</strong> During meetings you can leave into a black-and-white dream world and walk the map (observation only).</p>
+          <p><strong>Win:</strong> Geese win condition.</p>
+          <p><strong>Mechanics:</strong> No wall phasing, no names/cosmetics visible, limited interactions. Can finish a couple tasks. Perfect for pre-meeting position intel.</p>
+          <p><strong>Counters:</strong> Fake movement during meetings. Be suspicious of suddenly accurate location reports.</p>
+          <p><strong>Relations:</strong> Meeting-only Raven (no kill power). Pure info supplement to Detective / Medium.</p>
+          <p><a href="/en/roles/lucid-dreamer/">Full page →</a></p>
+        </InfoSection>
+
+        <p style="margin-top:20px"><a href="/en/roles/">Back to Role Compendium (filter v4.08 New)</a></p>
+      </main>
+      <aside><AdSlot variant="side" /></aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .lead { color: var(--txt-dim); max-width: 720px; }
+  .hint { font-size: 13px; color: var(--txt-dim); }
+</style>

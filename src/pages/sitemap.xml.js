@@ -4,8 +4,8 @@ import { maps } from '../data/maps';
 export function GET({ site }) {
   const base = (site?.href ?? 'https://gooseduck.metaup.pro').replace(/\/$/, '');
   // Chinese + English sitemap entries
-  const staticPathsZh = ['/', '/roles/', '/maps/', '/guide/', '/meeting/', '/duck-tactics/', '/about/', '/privacy/', '/contact/'];
-  const staticPathsEn = ['/en/', '/en/roles/', '/en/maps/', '/en/guide/', '/en/meeting/', '/en/duck-tactics/', '/en/about/', '/en/contact/', '/en/privacy/'];
+  const staticPathsZh = ['/', '/roles/', '/maps/', '/guide/', '/meeting/', '/duck-tactics/', '/updates/v4-08-new-roles/', '/about/', '/privacy/', '/contact/'];
+  const staticPathsEn = ['/en/', '/en/roles/', '/en/maps/', '/en/guide/', '/en/meeting/', '/en/duck-tactics/', '/en/updates/v4-08-new-roles/', '/en/about/', '/en/contact/', '/en/privacy/'];
 
   const roleUrlsZh = roles.map((r) => {
     const lastmod = r.updatedAt || '2026-06-19';

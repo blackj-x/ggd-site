@@ -28,6 +28,41 @@ const description = 'Goose Goose Duck full role compendium: Geese, Ducks, Neutra
       </div>
     </section>
 
+    <section class="explained">
+      <h2>Roles Explained — Practical Layers</h2>
+      <p class="lead">Not raw wiki facts. Priority learning order, difficulty tiers and faction playstyles to master the full roster quickly.</p>
+
+      <div class="layers">
+        <div>
+          <strong>Recommended new-player order</strong>
+          <ol>
+            <li>Canadian / Politician (safe info + votes)</li>
+            <li>Detective / Sheriff (core scans + armed goose)</li>
+            <li>Vigilante / Bodyguard (counters &amp; protection)</li>
+            <li>Mimic / Engineer (info + mobility)</li>
+            <li>Neutrals: Dodo → Vulture → Cuckoo (v4.08)</li>
+          </ol>
+        </div>
+        <div>
+          <strong>Difficulty tiers (official ★)</strong>
+          <ul>
+            <li>★ Easy: Canadian, Politician, Celebrity, Professional</li>
+            <li>★★ Medium: Detective, Sheriff, Engineer, Stalker, Witch Doctor (v4.08)</li>
+            <li>★★★ Hard: Assassin, Ninja, Morphling, Lucid Dreamer (v4.08)</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Faction playstyles</strong>
+          <ul>
+            <li>Geese: information + coordinated voting. Protect scanners first.</li>
+            <li>Ducks: deception + timing sabotage. Lost Duckling + Parasite pair is the v4.08 twist.</li>
+            <li>Neutral: survive to your unique win condition (Cuckoo egg hunt is the new highlight).</li>
+          </ul>
+        </div>
+      </div>
+      <p class="hint">v4.08 additions are tagged and filterable above. Role pages include tested speechcraft and counters.</p>
+    </section>
+
     <AdSlot variant="top" />
 
     <div class="controls">
@@ -40,6 +75,7 @@ const description = 'Goose Goose Duck full role compendium: Geese, Ducks, Neutra
         <button class="chip" data-f="goose">🦢 {ui['camp.goose']}</button>
         <button class="chip" data-f="duck">🦆 {ui['camp.duck']}</button>
         <button class="chip" data-f="neutral">🎭 {ui['camp.neutral']}</button>
+        <button class="chip" data-f="v4">🆕 v4.08 New</button>
       </div>
     </div>
     <div class="count" id="count"></div>
@@ -90,6 +126,13 @@ const description = 'Goose Goose Duck full role compendium: Geese, Ducks, Neutra
   .count{font-size:13px;color:var(--txt-dim);margin:14px 0}
   .layout{display:grid;grid-template-columns:1fr 300px;gap:28px;margin:24px 0 60px}
   @media(max-width:920px){.layout{grid-template-columns:1fr}.ad-side{display:none}h1{font-size:30px}}
+
+  .explained{margin:8px 0 20px;padding:16px 18px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-lg)}
+  .explained h2{font-size:18px;margin:0 0 8px;color:var(--accent)}
+  .explained .lead{margin:0 0 12px;color:var(--txt-dim);font-size:14px}
+  .explained .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-size:13px}
+  .explained ul,.explained ol{margin:4px 0 0 16px}
+  .explained .hint{margin:10px 0 0;font-size:12px;color:var(--txt-dim)}
 </style>
 
 <script>
@@ -102,8 +145,11 @@ const description = 'Goose Goose Duck full role compendium: Geese, Ducks, Neutra
     let shown = 0;
     cards.forEach((c) => {
       const camp = c.dataset.camp!;
+      const isV4 = c.dataset.v4 === '1';
       const text = c.textContent!.toLowerCase();
-      const ok = (filter === 'all' || camp === filter) && text.includes(kw.toLowerCase());
+      let ok;
+      if (filter === 'v4') ok = isV4 && text.includes(kw.toLowerCase());
+      else ok = (filter === 'all' || camp === filter) && text.includes(kw.toLowerCase());
       c.style.display = ok ? '' : 'none';
       if (ok) shown++;
     });

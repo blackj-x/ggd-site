@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import InfoSection from '../../components/InfoSection.astro';
+import { SITE } from '../../data/site';
+
+const title = 'v4.08 新角色详解 - 鹅鸭杀攻略社';
+const description = '鹅鸭杀 v4.08「孵化新角色」更新：布谷鸟、巫医、迷失鸭崽、载体、寄生虫、清醒做梦者。一句话定位、胜利条件、反制与经典角色关系。';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      author: { '@type': 'Organization', name: SITE.name },
+      publisher: { '@type': 'Organization', name: SITE.name },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} active="guide">
+  <div class="wrap detail">
+    <div class="crumb"><a href="/">首页</a> / <a href="/guide/">新手入门</a> / v4.08 新角色</div>
+    <h1 class="retro-hero">v4.08 新角色<span class="em">详解</span></h1>
+    <p class="lead">2026-04 孵化新角色更新。6 个全新身份：一句话定位 + 阵营 + 胜利条件 + 反制 + 与旧角色关系。英文版同步。</p>
+
+    <AdSlot variant="top" />
+
+    <div class="detail-layout">
+      <main>
+        <InfoSection title="更新概览" icon="🆕">
+          <ul>
+            <li><strong>布谷鸟 (Cuckoo)</strong> 中立 — 产蛋狩猎</li>
+            <li><strong>巫医 (Witch Doctor)</strong> 鸭 — X光盯杀诅咒</li>
+            <li><strong>迷失鸭崽 (Lost Duckling)</strong> 鸭 — 信息隔离鸭</li>
+            <li><strong>载体 (Carrier) + 寄生虫 (Parasite)</strong> 鸭双人组 — 植入变形连体</li>
+            <li><strong>清醒做梦者 (Lucid Dreamer)</strong> 鹅 — 会议梦境侦察</li>
+          </ul>
+          <p class="hint">全部角色详情页已自动生成，点击下方卡片或去 <a href="/roles/">角色图鉴</a> 筛选「v4.08 新」查看。</p>
+        </InfoSection>
+
+        <!-- Cuckoo -->
+        <InfoSection title="布谷鸟 Cuckoo · 中立" icon="🥚">
+          <p><strong>一句话定位：</strong>产下足够蛋触发「布谷鸟狩猎」，孵化追杀鸟清场获胜。</p>
+          <p><strong>胜利条件：</strong>中立：产蛋达标后狩猎阶段杀光或存活。</p>
+          <p><strong>技能要点：</strong>蛋可见可被任何人打破（打破+计数）。分散藏蛋。够数后本体+蛋孵化追杀鸟，可进风管。自己死则全灭。</p>
+          <p><strong>反制：</strong>定期巡逻砸蛋；狩猎开始优先集火本体布谷鸟。</p>
+          <p><strong>与旧角色关系：</strong>类似中立收割型（秃鹫/鸽子），但需要前期隐藏布局，狩猎时像带刀中立。</p>
+          <p><a href="/roles/cuckoo/">查看完整攻略 →</a></p>
+        </InfoSection>
+
+        <!-- Witch Doctor -->
+        <InfoSection title="巫医 Witch Doctor · 鸭" icon="🧿">
+          <p><strong>一句话定位：</strong>切换 X 光透视，盯视场上随机诅咒目标 6 秒秒杀。</p>
+          <p><strong>胜利条件：</strong>鸭阵营常规。</p>
+          <p><strong>技能要点：</strong>类似观鸟者但可 lights-out 使用。盯视不吃常规刀 CD，可双杀。</p>
+          <p><strong>反制：</strong>保持移动打断视线；抱团；注意昵称旁眼标。</p>
+          <p><strong>与旧角色关系：</strong>高级带刀鸭，结合破坏像忍者/刺客的远程补充。</p>
+          <p><a href="/roles/witch-doctor/">查看完整攻略 →</a></p>
+        </InfoSection>
+
+        <!-- Lost Duckling -->
+        <InfoSection title="迷失鸭崽 Lost Duckling · 鸭" icon="🐤">
+          <p><strong>一句话定位：</strong>你不知道其他鸭是谁，其他鸭也不知道你是谁。</p>
+          <p><strong>胜利条件：</strong>鸭阵营常规。</p>
+          <p><strong>技能要点：</strong>信息完全隔离。可与真鸭互相击杀。</p>
+          <p><strong>反制：</strong>观察谁故意和疑似鸭保持距离；后期再尝试接触。</p>
+          <p><strong>与旧角色关系：</strong>极致伪装鸭，类似身份窃贼但无主动变形，纯信息黑。</p>
+          <p><a href="/roles/lost-duckling/">查看完整攻略 →</a></p>
+        </InfoSection>
+
+        <!-- Carrier / Parasite -->
+        <InfoSection title="载体 + 寄生虫 Carrier & Parasite · 鸭双人组" icon="🧬">
+          <p><strong>一句话定位：</strong>视为 1 只鸭，生命绑定 + 永久通讯。载体植入，寄生虫触发击杀+变形。</p>
+          <p><strong>胜利条件：</strong>鸭阵营（2 角色计 1 鸭）。</p>
+          <p><strong>技能要点：</strong>载体不能直接刀；寄生虫植入宿主后延迟杀 + 变形，可通风仅跳票。宿主被其他方式杀则双双死。</p>
+          <p><strong>反制：</strong>盯紧长期独处的两人；宿主死亡后立刻看谁行为突变。</p>
+          <p><strong>与旧角色关系：</strong>情侣机制 + 身份窃贼 + 专业杀手组合。载体像辅助，寄生虫像主刀变形鸭。</p>
+          <p><a href="/roles/carrier/">载体完整 →</a> / <a href="/roles/parasite/">寄生虫完整 →</a></p>
+        </InfoSection>
+
+        <!-- Lucid Dreamer -->
+        <InfoSection title="清醒做梦者 Lucid Dreamer · 鹅" icon="💤">
+          <p><strong>一句话定位：</strong>会议期间进入梦境黑白世界探索地图，观察会前站位。</p>
+          <p><strong>胜利条件：</strong>鹅阵营常规。</p>
+          <p><strong>技能要点：</strong>不可穿墙、看不到名字/装饰、可少量做任务。可交互部分地图。纯观察位。</p>
+          <p><strong>反制：</strong>会议中假装走位；回来信息太准的人要盘。</p>
+          <p><strong>与旧角色关系：</strong>会议版 Raven（无击杀），信息位补充侦探/通灵者。</p>
+          <p><a href="/roles/lucid-dreamer/">查看完整攻略 →</a></p>
+        </InfoSection>
+
+        <p style="margin-top:20px"><a href="/roles/">返回角色图鉴（可用 v4.08 新 筛选）</a></p>
+      </main>
+      <aside><AdSlot variant="side" /></aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .lead { color: var(--txt-dim); max-width: 720px; }
+  .hint { font-size: 13px; color: var(--txt-dim); }
+</style>
